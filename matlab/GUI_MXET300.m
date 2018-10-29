@@ -58,7 +58,13 @@ handles.output = hObject;
 
 % --- ADD Variables (e.g. user input/data/udp_object/..)
 handles.state = true;
-handles.AxesPlot = plot(handles.AxesData, [0,0,0]);
+handles.connection_status = 0; %0: no conn. 1:conn. 2: maybe
+handles.AxesPlot = plot(handles.AxesData, [0] );
+set(handles.AxesData.YLabel, 'String', 'Speed (m/s)');
+set(handles.AxesData.Title, 'String', 'Speed (m/s)')
+set(handles.AxesData, 'XLim', [-5 5])
+set(handles.AxesData, 'YLim', [-5 5])
+
 % legend('angle', 'x', 'y')
 % user inputs
 handles.ip = '192.168.8.1';
@@ -261,6 +267,8 @@ switch eventdata.Key
     case 'rightarrow'
         set(handles.BtnArrowRight, 'ForegroundColor','r')
         BtnArrowRight_ButtonDownFcn(handles.BtnArrowRight, eventdata, handles);
+    otherwise
+        Send_UDP(handles, eventdata.Key)
 end
 
 
@@ -314,6 +322,8 @@ switch eventdata.Key
             handles.state = true;
         end
         guidata(hObject, handles);
+    otherwise
+        Send_UDP(handles, 0)
         % --- clean up
         %     case 'a'
         %         fprintf('right %d\n',handles.arrowRight)
@@ -517,29 +527,40 @@ function handles = Get_UDP(handles)
 [data_in,count,warn_msg] =fread(handles.UDPObject,32,'float');
 % fprintf('Get_UDP (count=%i)\n',handles.UDPObject.BytesAvailable)
 if warn_msg
-    handles.drop_count = handles.drop_count + 1;
-    fprintf('Dropped packet (counter: %d) \n', handles.drop_count)
-    set(handles.ConnStat, 'String', 'ON', 'ForegroundColor',[1,165/265,0])
+    if (handles.connection_status ~= 0)
+        handles.drop_count = handles.drop_count + 1;
+        fprintf('Dropped packet (counter: %d) \n', handles.drop_count)
+        set(handles.ConnStat, 'String', 'ON', 'ForegroundColor',[1,165/265,0])
+        handles.connection_status = 2;
+    end
 else
+    handles.connection_status = 1;
     handles.drop_count = (handles.drop_count - 1)*(handles.drop_count>0);
     set(handles.ConnStat, 'String', 'ON', 'ForegroundColor','green')
     handles.BBB_data = [handles.BBB_data; data_in'];
 end
-if handles.drop_count >=10
+if (handles.drop_count >=10)
+    handles.connection_status = 0;
     warndlg('seems connection is lost')
     handles.drop_count = 0;
     set(handles.ConnStat, 'String', 'OFF', 'ForegroundColor','Red')
 end
 
 function Update_Graph(handles)
-i = 9;
+i = 7;
+j = 8;
 % angle: 1;
 % x: 4;
 % y: 5;
 
 angle = handles.BBB_data(end, 1);
-handles.AxesCompass.View=[180+angle,90];
-set(handles.AxesPlot, 'YData', handles.BBB_data(:,i)*1e3)
+% updates compass orientation 
+handles.AxesCompass.View=[-90-angle,90];  % [180+angle,90]
+% updates data plot (chart)
+set(handles.AxesPlot, 'YData', handles.BBB_data(:,j))
+set(handles.AxesPlot, 'XData', handles.BBB_data(:,i))
+
+
 % drawnow limitrate
 
 function Update_Fields(handles)
@@ -557,7 +578,7 @@ handles.speedSensorR = handles.BBB_data(end, 10);
 set(handles.TextSensorPitch, 'String', round(handles.pitch,2))
 set(handles.TextSensorRoll, 'String', round(handles.roll,2))
 set(handles.TextSensorDistance, 'String', round(handles.distance,2))
-set(handles.TextSensorSpeedLeft, 'String', round(handles.speedSensorL*1e3,2))
+set(handles.TextSensorSpeedLeft, 'String', round(handles.speedSensorL,2))
 set(handles.TextSensorSpeedRight, 'String', round(handles.speedSensorR,2))
 set(handles.TextSensorEncoderLeft, 'String', round(handles.encoderL,2))
 set(handles.TextSensorEncoderRight, 'String', round(handles.encoderR,2))
