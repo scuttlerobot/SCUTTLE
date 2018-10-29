@@ -135,32 +135,41 @@ def compass():
 
     return(compass_x,compass_y,compass_z)   # Return Compass Values
     
-def get_angle(i2c):  # designed to return value w.r.t. North (not validated)
+def get_angle(i2c):  # designed to return value w.r.t. North
     x, y, z = read_xyz(i2c)
     try:
-        heading = np.arctan(abs(y)/abs(x))
+        if y == 0: y = 0.01  # avoid dividing by zero
+        heading = np.arctan(x/y)  #np.arctan(abs(y)/abs(x))
         heading = heading*180.0/np.pi
     except:
         heading = 0 
     if y < 0:
-        if x < 0:
-            heading = 270 - heading 
-        else:
-            heading = heading + 90
+        heading = 90 + heading
     else:
-        if x < 0:
-            heading = 270 + heading 
-        else:
-            heading = 90 - heading
+        heading = 270 + heading
+    
+    # if y < 0:
+    #     if x < 0:
+    #         heading = 270 - heading 
+    #     else:
+    #         heading = heading + 90
+    # else:
+    #     if x < 0:
+    #         heading = 270 + heading 
+    #     else:
+    #         heading = 90 - heading
     return heading
 
 def read_xyz(i2c):  # designed to return 3 raw values (not validated)
     try:
         i2c.write8(0x02,0x01)
         a = i2c.readList(0x03,6)
-        x = np.int16((a[0] << 8) | a[1])*0.92
-        z = np.int16((a[2] << 8) | a[3])*0.92
-        y = np.int16((a[4] << 8) | a[5])*0.92
+        x = (np.int16((a[0] << 8) | a[1]) +16) / 274 #197 # use offset and scaling to center on zero
+        x = x -0.17 # additional offset after tuning
+        z = np.int16((a[2] << 8) | a[3])             # this vector is not used
+        y = (np.int16((a[4] << 8) | a[5]) +108) / 330 #228 # use offset and scaling to center on zero
+        y = y - 0.142 # additional offset after tuning
+        print(x)    
     except:
         print('Warning (I2C): Could not read compass')
         x,y,z = 0,0,0
@@ -188,7 +197,7 @@ def read_encoders_angle(enc0,enc1):  # this function designed by Ahmad B
         x = enc0.readU16(0xFE)
         x = ((x << 8) | (x >> 8)) & 0xFFFF 
         meas = ((x & 0xFF00) >> 2) | ( x & 0x3F)
-        angle0 = meas*0.0219
+        angle0 = meas*0.0219  # convert to degrees
     except:
         print('Warning (I2C): Could not read encoder0')
         angle0 = 0
@@ -196,7 +205,7 @@ def read_encoders_angle(enc0,enc1):  # this function designed by Ahmad B
         x = enc1.readU16(0xFE)
         x = ((x << 8) | (x >> 8)) & 0xFFFF 
         meas = ((x & 0xFF00) >> 2) | ( x & 0x3F)
-        angle1 = meas*0.0219
+        angle1 = meas*0.0219 # convert to degrees
     except:
         print('Warning (I2C): Could not read encoder1')
         angle1 = 0
