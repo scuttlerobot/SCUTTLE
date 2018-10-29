@@ -63,11 +63,14 @@ degR1 = 0
 travR = 0
 distR = 0
 whlSpdR = 0
+xLoc = 0
+yLoc = 0
 
 address = []
 data = []
 data_snt = 13*[0]
 speedL, speedR = 127, 127
+key_rec = ''
 i = 0 #counter for encoder readings
 avgEncoderWinSize = 5
 array = avgEncoderWinSize*[0]   #dpm working vars
@@ -87,6 +90,7 @@ while 1:
     while data:
         speedL = data[0]
         speedR = data[1]
+        key_rec = data[2]
         if speedL == 127: 
             if speedR == 254:   # these 6 lines convert turning style to CG-centered
                 speedL = 25                     # 80 percent reverse
@@ -108,6 +112,7 @@ while 1:
             PACKETDATA = struct.pack('%sf' %len(data_snt),*data_snt)
             s.sendto(PACKETDATA, address)
             data = []
+    #print(key_rec)  # print the keystroke received from MatLab
     # --- 
 ## --- write speed to H-bridge
     sc.set_speed(speedL, speedR)
@@ -119,6 +124,7 @@ while 1:
 
 ## --- reading the compass angle
     heading = sc.get_angle(I2Ccompass)
+    #print(heading)
     x_compass = sc.read_xyz(I2Ccompass) #grabs 3 axes
     #print("compass: ",round(x_compass[1],0))  # values: x=[0], y=[1], z=[2]
 
@@ -153,33 +159,80 @@ while 1:
 
 #---- movement calculations
 # calculate the delta on Left wheel
-    degL1 = encoderL  # reading in degrees
-    if(degL1 > degL0 + 0.1): travL = (degL1 - degL0)*.0007306 #meters per degree
-    elif(degL0 - degL1 > 350): travL = ((degL1 + 360) - degL0) # in case of rollover
-    else : travL = 0;
+    case_number = 0
+    degL1 = round(encoderL,2)  # reading in degrees. Convert to meters by 0.0007306
+    if(abs(abs(degL1) - abs(degL0)) < 1 ): 
+        travL = 0 #ignore tiny movements
+        case_number=1
+    elif(abs(abs(degL1) - abs(degL0)) < 100 ): # if movement is small (no rollover)
+        case_number=2
+        if(degL1 > degL0 + 2): travL = (degL1 - degL0) * 0.0007306 # if movement is positive
+        elif(degL0 > degL1 + 2): travL = (degL1 - degL0) * 0.0007306 # if movement is negative
+    elif(degL0 - degL1 > 100): 
+        travL = ((degL1 + 360.0) - degL0)*0.0007306 # if movement is large (rollover)
+        case_number=3
+    elif(degL1 - degL0 > 100):
+        travL = (degL1 - (degL0 + 360.0))*0.0007306 # reverse and large (rollover)
+        case_number=4
+    travL = -travL # right encoder is mounted reverse from the left
     degL0 = degL1 # setup for next loop
     distL = distL + travL  #distance in total since boot
     whlSpdL = travL/deltaT  #current speed
+    #print(whlSpdL)
 
 # calculate the delta on Right wheel
-    degR1 = encoderR  # reading in degrees
-    if(degR1 > degR0 + 0.1): travR = (degR1 - degR0)*.0007306 #meters per degree
-    elif(degR0 - degR1 > 350): travR = ((degR1 + 360) - degR0) # in case of rollover
-    else : travR = 0;
+    degR1 = round(encoderR,2)  # reading in degrees
+
+    if(abs(abs(degR1) - abs(degR0)) < 1 ): 
+        travR = 0 #ignore tiny movements
+        case_number=1
+    elif(abs(abs(degR1) - abs(degR0)) < 100 ): # if movement is small (no rollover)
+        case_number=2
+        if(degR1 > degR0 + 2): travR = (degR1 - degR0) * 0.0007306 # if movement is positive
+        elif(degR0 > degR1 + 2): travR = (degR1 - degR0) * 0.0007306 # if movement is negative
+    elif(degR0 - degR1 > 100): 
+        travR = ((degR1 + 360.0) - degR0)*0.0007306 # if movement is large (rollover)
+        case_number=3
+    elif(degR1 - degR0 > 100):
+        travR = (degR1 - (degR0 + 360.0))*0.0007306 # reverse and large (rollover)
+        case_number=4
     degR0 = degR1 # setup for next loop
     distR = distR + travR  #distance in total since boot
     whlSpdR = travR/deltaT  #current speed
+    
+# calculate speed of wheelbase center
+    travs = ([travL, travR])
+    cgTrav = np.average(travs)
+    #print(cgTrav)
+    speeds = ([ whlSpdL , whlSpdR ])
+    cgSpeed = np.average(speeds)
+    
+# calculate theta from heading
+    if(heading <90): theta = 90 - heading # quadrant 1
+    elif(heading <360): theta = 450 - heading # quadrant 2,3,& 4
+    
+    xInc = cgTrav * np.cos(np.deg2rad(theta))   # calculate y increment of robot
+    yInc = cgTrav * np.sin(np.deg2rad(theta))   # calculate x increment of robot
+    xLoc = xLoc + xInc      # add increment to current location
+    yLoc = yLoc + yInc      # add increment to current location
+    
+    if key_rec == "c": # attempt a "reset" using keystroke from UDP packet
+        yLoc = 0
+        xLoc = 0
+        
+# log points to build a map of the room
+    pointX = xLoc + distance * 0.1 * np.cos(np.deg2rad(theta)) # 0.1 converts distance to m
+    pointY = yLoc + distance * 0.1 * np.sin(np.deg2rad(theta)) # 0.1 converts distance to m
+    myPoint = [pointX, pointY]
 
-
-            
 ## --- put data in array to send over udp
     data_snt[0] = heading
     data_snt[1] = voltage #vDC0
     #data_snt[2] = vDC1
-    #data_snt[3] = temp0
-    #data_snt[4] = temp1
-    data_snt[6] = distL    # sends to encoder L
-    data_snt[7] = distR    # sends to encoder R
+    #data_snt[3] = temp0   # coord (Y)
+    #data_snt[4] = temp1   # coord (X)
+    data_snt[6] = xLoc #distL    # sends to encoder L
+    data_snt[7] = yLoc #distR    # sends to encoder R
     data_snt[8] = whlSpdL  # sends to speed L
     data_snt[9] = whlSpdR  # sends to speed R
     data_snt[10] = distance
