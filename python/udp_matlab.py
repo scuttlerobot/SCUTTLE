@@ -3,18 +3,17 @@
 # receive commands from the keyboard for driving control.
 
 # //usr/bin/python3
-import Adafruit_GPIO.I2C as Adafruit_I2C
-import Adafruit_BBIO.GPIO as GPIO
-import Adafruit_BBIO.ADC as ADC
-import numpy as np
-import socket
-import struct
-import subprocess
-import time
-import rcpy.mpu9250 as mpu9250
-import scuttle as sc
-#import compass
-import math
+import Adafruit_GPIO.I2C as Adafruit_I2C #i2c communication
+import Adafruit_BBIO.GPIO as GPIO #access GPIO pins
+import Adafruit_BBIO.ADC as ADC #analog to digital converter
+import numpy as np              #scientific computing
+import socket                   #for UDP communication
+import struct                   #interpreting strings, binary
+import subprocess               #add processes & handle errors
+import time                     #time access and conversions
+import rcpy.mpu9250 as mpu9250  #beaglebone onboard IMU
+import scuttle as sc            #custom scuttle program
+import math                     #mathematical functions
 from rcpy._adc import *
 
 DATA_UPDATE_FREQ = 20.0 # Hertz
@@ -45,7 +44,8 @@ s.settimeout(0.0001) # 1ms
 s.bind((IPADDR, PORTNUM))
 # ---
 # --- initialize on board imu
-imu = mpu9250.IMU(enable_dmp = True, dmp_sample_rate = 20, enable_magentometer = False)
+imu = mpu9250.IMU(enable_dmp = True, dmp_sample_rate = 20, enable_magnetometer = True)
+#mpu9250.ORIENTATION_Z_UP #set imu orientation
 # ---
 # --- initialize motor ports on BBB
 Motor_X = 1
@@ -58,13 +58,18 @@ degL1 = 0
 travL = 0
 distL = 0
 whlSpdL = 0
+wsl0 = 0
 degR0 = 0
 degR1 = 0
 travR = 0
 distR = 0
 whlSpdR = 0
+wsr0 = 0
 xLoc = 0
 yLoc = 0
+cgSpeedPrev = 0
+cgSpeed = 0
+theta = 0
 
 address = []
 data = []
@@ -112,50 +117,29 @@ while 1:
             PACKETDATA = struct.pack('%sf' %len(data_snt),*data_snt)
             s.sendto(PACKETDATA, address)
             data = []
-    #print(key_rec)  # print the keystroke received from MatLab
     # --- 
 ## --- write speed to H-bridge
     sc.set_speed(speedL, speedR)
     voltage = round(get_dc_jack_voltage(),2)
-    #[vDC0, vDC1] = motor.read_voltage()
-    #[temp0, temp1] = motor.read_temperature()
-    #print("voltage: ",voltage)
     
 
 ## --- reading the compass angle
-    heading = sc.get_angle(I2Ccompass)
-    #print(heading)
-    x_compass = sc.read_xyz(I2Ccompass) #grabs 3 axes
-    #print("compass: ",round(x_compass[1],0))  # values: x=[0], y=[1], z=[2]
+    heading = sc.get_heading(I2Ccompass)  #get the compass heading
+    x_compass = sc.read_xyz(I2Ccompass) #grabs 3 axes, x points forward
 
 ## --- read pitch and roll
-    data_imu = imu.read()#read_accel_data()#
-
+    data_imu = imu.read() #read_accel_data()#
+    
 ## --- ultrasonic distance measurement using HC-SR04
-    distance = sc.distanceMeasurement(trig_pin, echo_pin, GPIO)
-    #distance = sc.ultrasonic("cm") # get distance in cm
-    distance = round(distance,0)
-    #print("ultrasonic: ",distance)
+    distance = sc.distanceMeasurement(trig_pin, echo_pin, GPIO) # get distance in cm
+    distance = round(distance,0) 
 
 ## --- encoders
 
     encoderL, encoderR = sc.read_encoders_angle(enc0,enc1)
-    
-    #Left side - this code block is used to create an averaging array
-    # array[i%avgEncoderWinSize] = encoderL #assign latest reading to the proper array element
-    # CurrentEncoderL = sum(array)/avgEncoderWinSize #take the average of the array
     deltaT = time.time() - timeA 
     timeA = time.time()
     
-    # if not(i%avgEncoderWinSize):
-    #     angle = 180 - abs(abs(CurrentEncoderL - PreviousEncoderL) - 180)
-    #     deltaRadians = .01745*angle
-    #     #speedL = deltaRadians/deltaT*0.5*.083 #should return meters/second
-    #     PreviousEncoderL = CurrentEncoderL
-    # i = i + 1
-
-    # if i == 500: #reset i to prevent conversion to a different var type
-    #     i = 1       
 
 #---- movement calculations
 # calculate the delta on Left wheel
@@ -177,8 +161,9 @@ while 1:
     travL = -travL # right encoder is mounted reverse from the left
     degL0 = degL1 # setup for next loop
     distL = distL + travL  #distance in total since boot
+    wsl0 = whlSpdL #store the previous value for averaging
     whlSpdL = travL/deltaT  #current speed
-    #print(whlSpdL)
+    wsla = (wsl0 + whlSpdL)/2 #wheel-speed-left-averaged
 
 # calculate the delta on Right wheel
     degR1 = round(encoderR,2)  # reading in degrees
@@ -198,18 +183,36 @@ while 1:
         case_number=4
     degR0 = degR1 # setup for next loop
     distR = distR + travR  #distance in total since boot
+    wsr0 = whlSpdR #store the previous value for averaging
     whlSpdR = travR/deltaT  #current speed
+    wsra = (wsr0 + whlSpdR)/2 #wheel-speed-right-averaged
+    #print(wsra)
     
 # calculate speed of wheelbase center
     travs = ([travL, travR])
     cgTrav = np.average(travs)
-    #print(cgTrav)
     speeds = ([ whlSpdL , whlSpdR ])
+    cgSpeedPrev = cgSpeed
     cgSpeed = np.average(speeds)
+    cgSpeedReport = (cgSpeed + cgSpeedPrev)/2
     
-# calculate theta from heading
+# print imu info
+    accel = round(data_imu['tb'][0],3) #pull the pitch/roll/yaw values from the data array
+    #accel_x = data_imu['accel'] #pull the accelerometer x/y/z value from the data array
+    ms2 = mpu9250.read_accel_data()
+    ms2a = ms2[1]
+    #print("accel: ", ms2a)
+    # get the heading from the onboard IMU "yaw" parameter which uses sensor fusion
+    # we cannot trust the magnetometer directly because the magnetic field from
+    # the robot's motors interferes with measurement.
+    head1 = data_imu['tb'][2]*180/3.14  #third element is yaw, in radians
+    print(round(head1,2))
+    
+# calculate theta from compass heading
+    sc.RotationMatrix(90)  #dpm testing 
     if(heading <90): theta = 90 - heading # quadrant 1
     elif(heading <360): theta = 450 - heading # quadrant 2,3,& 4
+
     
     xInc = cgTrav * np.cos(np.deg2rad(theta))   # calculate y increment of robot
     yInc = cgTrav * np.sin(np.deg2rad(theta))   # calculate x increment of robot
@@ -219,26 +222,34 @@ while 1:
     if key_rec == "c": # attempt a "reset" using keystroke from UDP packet
         yLoc = 0
         xLoc = 0
-        
+    
 # log points to build a map of the room
-    pointX = xLoc + distance * 0.1 * np.cos(np.deg2rad(theta)) # 0.1 converts distance to m
-    pointY = yLoc + distance * 0.1 * np.sin(np.deg2rad(theta)) # 0.1 converts distance to m
-    myPoint = [pointX, pointY]
-
+    if (distance < 150 and distance > 1):                                  # do not collect far away points
+        mag = distance * 0.01 + 0.28                      #convert to m, add distance to wheelbase
+        pointX = xLoc + (mag * np.cos(np.deg2rad(theta))) # grab x component
+        pointX = round(pointX,2)
+        pointY = yLoc + (mag * np.sin(np.deg2rad(theta))) # grab y component
+        pointY = round(pointY,2)
+    else:
+        pointX = 0
+        pointY = 0
+    
+    
 ## --- put data in array to send over udp
     data_snt[0] = heading
-    data_snt[1] = voltage #vDC0
+    data_snt[1] = voltage #barrell plug voltage from battery
     #data_snt[2] = vDC1
-    #data_snt[3] = temp0   # coord (Y)
-    #data_snt[4] = temp1   # coord (X)
-    data_snt[6] = xLoc #distL    # sends to encoder L
-    data_snt[7] = yLoc #distR    # sends to encoder R
-    data_snt[8] = whlSpdL  # sends to speed L
-    data_snt[9] = whlSpdR  # sends to speed R
+    data_snt[3] = pointX   # coord (X)
+    data_snt[4] = pointY   # coord (Y)
+    #data_snt[5] = 0
+    data_snt[6] = xLoc     # robot from origin
+    data_snt[7] = yLoc     # robot from origin
+    data_snt[8] = wsla  # wheel speed L, averaged
+    data_snt[9] = wsra  # wheel speed R, averaged
     data_snt[10] = distance
     data_snt[11] = data_imu['tb'][0] # pitch
     data_snt[12] = data_imu['tb'][1] # roll
-    #print(round(data_snt[11],4))
+
 ## ---
 # close the socket (UDP connection)
 s.close()
