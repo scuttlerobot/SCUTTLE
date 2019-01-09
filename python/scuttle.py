@@ -1,4 +1,4 @@
-# Written By: Daniyal Ansari
+# Written By: Daniyal Ansari, David Malawey
 # contains functions to run the SCUTTLE platform
 
 
@@ -122,58 +122,46 @@ ultrasonic_range = (40,120) # Range in cm to keep object in front of robot
 
 #   Compass
 
-def compass():
+def RotationMatrix(degrees):   #build a 2d rotation matrix
+    theta = np.radians(degrees)
+    c, s = round(np.cos(theta),4), round(np.sin(theta),4)
+    R = np.array(((c,-s), (s, c)))
+    return R
 
-    comapss_i2c.write8(compass_write_registers[0],compass_write_registers_data[0])  # Write Value properties to Compass Data Registers
-    comapss_i2c.write8(compass_write_registers[1],compass_write_registers_data[1])
-
-    compass_data = i2c.readList(0x03,6)     # Read Data from Compass Registers
-
-    compass_x = np.int16((compass_data[0] << 8) | compass_data[1])*0.92
-    compass_z = np.int16((compass_data[2] << 8) | compass_data[3])*0.92
-    compass_y = np.int16((compass_data[4] << 8) | compass_data[5])*0.92
-
-    return(compass_x,compass_y,compass_z)   # Return Compass Values
-    
-def get_angle(i2c):  # designed to return value w.r.t. North
-    x, y, z = read_xyz(i2c)
+def read_xyz(i2c):  #get the values from the compass
     try:
-        if y == 0: y = 0.01  # avoid dividing by zero
-        heading = np.arctan(x/y)  #np.arctan(abs(y)/abs(x))
-        heading = heading*180.0/np.pi
-    except:
-        heading = 0 
-    if y < 0:
-        heading = 90 + heading
-    else:
-        heading = 270 + heading
-    
-    # if y < 0:
-    #     if x < 0:
-    #         heading = 270 - heading 
-    #     else:
-    #         heading = heading + 90
-    # else:
-    #     if x < 0:
-    #         heading = 270 + heading 
-    #     else:
-    #         heading = 90 - heading
-    return heading
-
-def read_xyz(i2c):  # designed to return 3 raw values (not validated)
-    try:
-        i2c.write8(0x02,0x01)
-        a = i2c.readList(0x03,6)
-        x = (np.int16((a[0] << 8) | a[1]) +16) / 274 #197 # use offset and scaling to center on zero
-        x = x -0.17 # additional offset after tuning
-        z = np.int16((a[2] << 8) | a[3])             # this vector is not used
-        y = (np.int16((a[4] << 8) | a[5]) +108) / 330 #228 # use offset and scaling to center on zero
-        y = y - 0.142 # additional offset after tuning
-        print(x)    
+        i2c.write8(0x02,0x01) # request values from compass
+        a = i2c.readList(0x03,6)  # store values
+        # for x and y, use offset and scaling to center on zero and give range of [-1,1]
+        x_init = (np.int16((a[0] << 8) | a[1])/274) - 0.113
+        y_init = (np.int16((a[4] << 8) | a[5])/330) + 0.185
+        x_init = round(x_init,3)
+        y_init = round(y_init,3)
+        q = np.matrix([[x_init],[y_init]]) #create an x,y column matrix
+        R = RotationMatrix(90) # the SCUTTLE compass is offset by +90.  This vector for rotation
+        vectorA = np.dot(R,q) # take vector product, store the product in vectorA
+        #print(vectorA)
+        x = round(-y_init,3) #flip axis for cartesian style heading
+        y = round(x_init,3) #flip axis for cartesian style heading
+        z = 0 # this vector is not used
     except:
         print('Warning (I2C): Could not read compass')
         x,y,z = 0,0,0
     return [x,y,z]
+   
+def get_heading(i2c):  # designed to return value w.r.t. North
+    x, y, z = read_xyz(i2c) #retrieve the scaled x, y, z values
+    if x == 0: x = 0.01  # avoid dividing by zero
+    heading = np.arctan(y/x)*180/np.pi
+    heading = round(heading,1)
+    if x < 0: heading = heading + 180
+    elif y < 0: heading = heading + 360
+    #print("X: ", x ," Y: ", y ," heading: ",heading)
+    return heading
+
+
+    
+
 
 #   Rotary Encoder
 
@@ -219,6 +207,8 @@ def set_speed(speedL, speedR): #in one function, cmd both motor driver channels
 
     motor.set(Motor_L, ((speedL-127)/127))  #h bridge commands
     motor.set(Motor_R, ((speedR-127)/127)) 
+    
+# def control_spd(target)
 
 #       Forward Function
 
@@ -391,66 +381,24 @@ def udp_control(ip=None,port=None):
 #   Ultrasonic Sensor
 
 def distanceMeasurement(TRIG,ECHO, GPIO):  #measure the distance in cm
-    timeout = 0.01 # 10milliseconds
+    timeout = 0.01 # 10 milliseconds (max dist would be 1.71m)
     pulseEnd = time.time()
     pulseStart = time.time()
     GPIO.output(TRIG, True)
-    time.sleep(0.0001)
+    time.sleep(0.0001)   # sleep for 0.1 milliseconds
     GPIO.output(TRIG, False)
 
     while (GPIO.input(ECHO) == 0):
-        pulseStart = time.time()
+        pulseStart = time.time()              #continuosly set start timing until ECHO rises
         if (pulseStart - pulseEnd) > timeout:
             break
-    while GPIO.input(ECHO) == 1:
+    while (GPIO.input(ECHO) == 1):            #continuously set end timing until ECHO falls
         pulseEnd = time.time()
  
-    pulseDuration = pulseEnd - pulseStart
-    distance = pulseDuration * 17150
+    pulseDuration = pulseEnd - pulseStart     #measure amount of time ECHO pin was high
+    distance = pulseDuration * 17150          # convert value to cm
     distance = round(distance, 2)
     return distance
-    
-def ultrasonic(unit=None):	# Unit: raw, cm, inches
-
-    GPIO.setup(echo_pin, GPIO.IN)   # Setup Echo GPIO Pin
-    GPIO.setup(trig_pin, GPIO.OUT)  # Setup Trig GPIO Pin
-
-    pulseEnd = 0
-    pulseStart = time.time()            # Grabs Current Time
-    GPIO.output(trig_pin, True)             # Sets Trig Pin High for Start of Pulse
-    time.sleep(trigger_pulse_duration)  # Delay to Create Pulse Length
-    GPIO.output(trig_pin, False)            # Sets Trig Pin Low to End Pulse
-
-    while (GPIO.input(echo_pin) == 0):      # Waits for Return of Pulse by Checking For High on Echo Pin
-        pulseStart = time.time()
-        if (pulseStart - pulseEnd) > trigger_pulse_duration:   # If Program does not get Echo HIGH move on
-            break
-        else:
-            pass
-    while GPIO.input(echo_pin) == 1:        # Once Recieves Echo check Time
-        pulseEnd = time.time()
-
-    pulseDuration = pulseEnd - pulseStart   # Calculate Pulse Return Time
-    distance = pulseDuration * 17150
-    distance = round(distance, 2)           # Round Datapoint
-
-
-    if unit == "raw":
-        ultrasonic_distance = distance       # Return Raw Value
-        return ultrasonic_distance
-
-    elif unit == "cm":
-        ultrasonic_distance = distance       # Return Value in cm
-        return ultrasonic_distance
-
-    elif unit == "inches":
-        ultrasonic_distance = round(distance * 0.39, 0)  # Return Value in Inches
-        return ultrasonic_distance
-
-    else:
-        print(unit, "is not a valid unit!")
-        exit()   
-    
 
 #   Color Tracking
 
