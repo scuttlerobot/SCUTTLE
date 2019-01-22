@@ -1,5 +1,5 @@
-# Scuttle
-Python and Matlab Code for Texas A&amp;M's open-source Scuttle Mobile Robot
+# S.C.U.T.T.L.E.
+This repository contains Python and Matlab Code for Texas A&amp;M's open-source Scuttle Mobile Robot, the Sensing, Connected, Utility Transport Taxi for Level Environments
 
 # Info for Assembly:
 Hardware Parts instructions - https://youtu.be/wpSIqTLZpCg
