@@ -8,3 +8,6 @@ Hardware Parts instructions - https://youtu.be/wpSIqTLZpCg
 
 Bill of Materials - found in CAD folder
 
+# Project Writeup:
+https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b7
+
