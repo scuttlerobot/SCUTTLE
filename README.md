@@ -10,6 +10,8 @@ Wiring the battery pack - https://youtu.be/JS_9AhtAyLg
 
 Battery pack, soldering the bottom - https://youtu.be/A2vBMLaxQs0
 
+Battery pack, heat-set inserts - https://youtu.be/Fhat7w075Js
+
 Bill of Materials - found in CAD folder
 
 # Project Writeup:
