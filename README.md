@@ -6,6 +6,8 @@ Hardware Parts instructions - https://youtu.be/wpSIqTLZpCg
 
 3D Printing instructions - https://youtu.be/PXD6mWnY9d0
 
+Wiring the battery pack - https://youtu.be/JS_9AhtAyLg
+
 Bill of Materials - found in CAD folder
 
 # Project Writeup:
