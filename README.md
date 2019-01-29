@@ -12,6 +12,8 @@ Battery pack, soldering the bottom - https://youtu.be/A2vBMLaxQs0
 
 Battery pack, heat-set inserts - https://youtu.be/Fhat7w075Js
 
+Battery pack, crimping insluated terminals  - https://youtu.be/GCT9hjeIvX8
+
 Bill of Materials - found in CAD folder
 
 # Project Writeup:
