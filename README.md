@@ -8,6 +8,8 @@ Hardware Parts instructions - https://youtu.be/wpSIqTLZpCg
 
 Wiring the battery pack - https://youtu.be/JS_9AhtAyLg
 
+Battery pack, soldering the bottom - https://youtu.be/A2vBMLaxQs0
+
 Bill of Materials - found in CAD folder
 
 # Project Writeup:
