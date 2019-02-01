@@ -23,3 +23,9 @@ Bill of Materials - found in CAD folder
 # Project Writeup:
 https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b7
 
+# Lessons / Failures
+
+Epoxy does not stick to ABS - https://youtu.be/M9cL-bfdHPk
+
+Slightly oversized print - failed belt mesh - https://youtu.be/F0HP_MXiXHo
+
