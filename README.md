@@ -14,7 +14,9 @@ Battery pack, heat-set inserts - https://youtu.be/Fhat7w075Js
 
 Battery pack, crimping insluated terminals  - https://youtu.be/GCT9hjeIvX8
 
-Scuttle Wiring, power wires overview - https://youtu.be/E7_NHTZwens
+Wiring, power wires overview - https://youtu.be/E7_NHTZwens
+
+Motors, soldering wires - https://youtu.be/d_CcTHs64qQ
 
 Bill of Materials - found in CAD folder
 
