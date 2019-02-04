@@ -380,7 +380,7 @@ def udp_control(ip=None,port=None):
 
 #   Ultrasonic Sensor
 
-def distanceMeasurement(TRIG,ECHO, GPIO):  #measure the distance in cm
+def sonar(TRIG,ECHO, GPIO):  # measure the distance in cm
     timeout = 0.01 # 10 milliseconds (max dist would be 1.71m)
     pulseEnd = time.time()
     pulseStart = time.time()
