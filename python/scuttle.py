@@ -75,19 +75,6 @@ trig_pin = "GPIO3_20"   # Ultrasonic Trigger Pin
 
 trigger_pulse_duration = 0.0001     # How long to hold TRIG On dictating pulse length
 
-    #   Color Tracking Settings
-
-camera_number = 0   # Can be listed with "ls /dev/video*"
-
-range_filter = "HSV"    # HSV or RGB
-
-image_size = (240,160)  # Size of Image from Camera. L * W
-
-min_color_values = (  0,   0,   0)  # Minimum Color Values
-max_color_values = (255, 255, 255)  # Maximum Color Values
-
-ultrasonic_range = (40,120) # Range in cm to keep object in front of robot
-
     #############################################
     #                                           #
     #       Configuration Value Checking        #
@@ -108,7 +95,6 @@ ultrasonic_range = (40,120) # Range in cm to keep object in front of robot
 
 #   Ultrasonic Sensor Settings
 
-#   Color Tracking Settings
 
     #################################
     #                               #
@@ -159,10 +145,6 @@ def get_heading(i2c):  # designed to return value w.r.t. North
     #print("X: ", x ," Y: ", y ," heading: ",heading)
     return heading
 
-
-    
-
-
 #   Rotary Encoder
 
 def rotaryEncoder(motor=None,unit=None): # this function designed by Daniyal A
@@ -178,7 +160,6 @@ def rotaryEncoder(motor=None,unit=None): # this function designed by Daniyal A
         left_encoder.write8(0x02,0x3D)
         left_encoder_data = left_encoder.readList(0xfd,3)
         return(left_encoder_data[0],left_encoder_data[1],left_encoder_data[2])
-
 
 def read_encoders_angle(enc0,enc1):  # this function designed by Ahmad B
     try:
