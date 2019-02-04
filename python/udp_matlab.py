@@ -131,7 +131,7 @@ while 1:
     data_imu = imu.read() #read_accel_data()#
     
 ## --- ultrasonic distance measurement using HC-SR04
-    distance = sc.distanceMeasurement(trig_pin, echo_pin, GPIO) # get distance in cm
+    distance = sc.sonar(trig_pin, echo_pin, GPIO) # get distance in cm
     distance = round(distance,0) 
 
 ## --- encoders
