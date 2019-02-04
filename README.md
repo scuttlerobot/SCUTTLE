@@ -17,6 +17,8 @@ Battery pack, crimping insluated terminals  - https://youtu.be/GCT9hjeIvX8
 
 Wiring, power wires overview - https://youtu.be/E7_NHTZwens
 
+Wiring, crimping signal wires - https://youtu.be/388paGI_ecE
+
 Motors, soldering wires - https://youtu.be/d_CcTHs64qQ
 
 Bill of Materials - found in CAD folder
