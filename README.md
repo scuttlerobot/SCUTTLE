@@ -3,6 +3,8 @@ Sensing, Connected, Utility Transport Taxi for Level Environments (SCUTTLE).
 This repository contains Python and Matlab Code for Texas A&amp;M's open-source Scuttle Mobile Robot.
 
 # Info for Assembly:
+Bill of Materials is found in CAD folder
+
 Hardware Parts instructions - https://youtu.be/wpSIqTLZpCg
 
 3D Printing instructions - https://youtu.be/PXD6mWnY9d0
@@ -21,7 +23,7 @@ Wiring, crimping signal wires - https://youtu.be/388paGI_ecE
 
 Motors, soldering wires - https://youtu.be/d_CcTHs64qQ
 
-Bill of Materials - found in CAD folder
+Wheels, gluing the pulley - https://youtu.be/daPXxpQAJaQ
 
 # Project Writeup:
 https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b7
