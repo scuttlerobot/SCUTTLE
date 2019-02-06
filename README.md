@@ -21,6 +21,8 @@ Wiring, power wires overview - https://youtu.be/E7_NHTZwens
 
 Wiring, crimping signal wires - https://youtu.be/388paGI_ecE
 
+Wiring, I2C bus board - https://youtu.be/THejHu2klQM
+
 Motors, soldering wires - https://youtu.be/d_CcTHs64qQ
 
 Wheels, gluing the pulley - https://youtu.be/daPXxpQAJaQ
