@@ -27,7 +27,7 @@ ssids = scan.stdout.readlines()
 
 print("\n\033[1;32;40mSearching For SSID:\033[1;37;40m", ssid)
 
-os.system("echo \"nameserver 8.8.8.8\" > /etc/resolv.conf")
+os.system("echo \"nameserver 8.8.8.8\" >> /etc/resolv.conf")
 
 #try:
 
