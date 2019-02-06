@@ -1,5 +1,5 @@
 # run this file to connect to the WPA2 Enterprise wifi network
-
+# last edited 2019.02.06
 
 # Import necessary libraries
 
