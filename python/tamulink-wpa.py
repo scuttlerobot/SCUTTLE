@@ -7,6 +7,7 @@ import subprocess	# Runs commands and gets output
 import socket		# Used to test internet connection
 import os		# Used to run system commands and checks if run as root user
 import time		# Used for delays
+import getpass 		# Used to hide user input in password field
 
 # Check if the user that executed this program is root
 
@@ -54,8 +55,8 @@ del ssid[0]				# Delete first entry in list because it's an artifact from
 	
 print("\033[1;32;40m\nFound: \n\033[1;37;40m" + ssid[0] + "\t\t" + ssid[1])	# Output SSID found matching search string
 
-username = input("\n\033[1;37;40mPlease enter your username: \033[0;37;40m")	# Ask for tamulink-wpa username
-password = input("\033[1;37;40mPlease enter your password: \033[0;37;40m")	# Ask fot tamulink-wpa password
+username = input("\n\033[1;37;40mPlease enter your username: \033[0;37;40m")					# Ask for tamulink-wpa username
+password = getpass.getpass(prompt='\033[1;37;40mPlease enter your password: \033[0;37;40m', stream=None)	# Ask for tamulink-wpa password
 
 config_path = "/var/lib/connman/" + ssid[1] + ".config"		# Generate connmanctl wifi configuration file path and name
 
@@ -77,15 +78,15 @@ file.close()						# Close file
 
 os.system("sudo systemctl restart connman")		# Restart connman service so it finds new configuration file
 							# It will automatically try to connect to network if it can see it
-time.sleep(2)						# 
+#time.sleep(2)						# 
 
-if internet() == True:
-    print("\033[1;32;40m\nConnected!\n")
-    exit()
+#if internet() == True:
+#    print("\033[1;32;40m\nConnected!\n")
+#    exit()
 
-else:
-    print("\033[1;31;48mNot connected!\n")
+#else:
+#    print("\033[1;31;48mNot connected!\033[1;37;48m\n")
 
 #except:
-print("\033[1;31;40m" + search, "not found!\n")
-exit()
+#print("\033[1;31;40m" + search, "not found!\033[1;37;48m\n")
+#exit()
