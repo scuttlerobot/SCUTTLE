@@ -29,6 +29,8 @@ Motors, soldering wires - https://youtu.be/d_CcTHs64qQ
 
 Wheels, gluing the pulley - https://youtu.be/daPXxpQAJaQ
 
+Wheels, assembling drivetrain - https://youtu.be/BN1E99_LWlo
+
 # Project Writeup:
 https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b7
 
