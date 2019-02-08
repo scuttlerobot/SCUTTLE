@@ -23,6 +23,8 @@ Wiring, crimping signal wires - https://youtu.be/388paGI_ecE
 
 Wiring, I2C bus board - https://youtu.be/THejHu2klQM
 
+Wiring, I2C board soldering - https://youtu.be/_GyacXFINLY
+
 Wiring, anatomy of duPont crimp - https://youtu.be/388paGI_ecE
 
 Motors, soldering wires - https://youtu.be/d_CcTHs64qQ
