@@ -2,6 +2,8 @@
 Sensing, Connected, Utility Transport Taxi for Level Environments (SCUTTLE).
 This repository contains Python and Matlab Code for Texas A&amp;M's open-source Scuttle Mobile Robot.
 
+![scuttle](https://raw.githubusercontent.com/dmalawey/Scuttle/master/scuttle.png)
+
 # Info for Assembly:
 Bill of Materials is found in CAD folder
 
