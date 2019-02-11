@@ -37,6 +37,8 @@ sudo pip3 install SpeechRecognition
   #git pull
 
   #sudo /opt/scripts/tools/update_kernel.sh --ti-channel --lts-4_14
+  
+  sudo reboot
 
   #sudo /opt/scripts/tools/developers/update_bootloader.sh
 
