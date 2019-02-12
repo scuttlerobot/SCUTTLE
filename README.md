@@ -50,6 +50,8 @@ Epoxy does not stick to ABS - https://youtu.be/M9cL-bfdHPk
 
 Slightly oversized print - failed belt mesh - https://youtu.be/F0HP_MXiXHo
 
+Slipping with unlevel chassis - https://youtu.be/JfYrRua7tiw
+
 # Info for Design Modifications
 
 Modifying the wheel pulley - https://youtu.be/8o-XcZ3_teM
