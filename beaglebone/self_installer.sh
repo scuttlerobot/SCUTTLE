@@ -37,8 +37,6 @@ sudo pip3 install SpeechRecognition
   #git pull
 
   #sudo /opt/scripts/tools/update_kernel.sh --ti-channel --lts-4_14
-  
-  sudo reboot
 
   #sudo /opt/scripts/tools/developers/update_bootloader.sh
 
@@ -100,3 +98,5 @@ sudo apt-get install -y git curl wget zsh
 
 #sudo -u debian sed -i 2d /home/debian/.zshrc
 #sudo -u debian sed -i '2iexport PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH' /home/debian/.zshrc
+
+sudo reboot
