@@ -58,6 +58,7 @@ sudo pip3 install SpeechRecognition
   echo " " >> /etc/banner
   echo "      Sensing, Connected, Utility Transport Taxi for Level Environments" >> /etc/banner
   echo "      Texas A&M's Open-Source SCUTTLE Robot: https://github.com/dmalawey/Scuttle" >> /etc/banner
+  echo "      Built by David Malawey, Programmed by Daniyal Ansari" >> /etc/banner
   echo " " >> /etc/banner
 
   echo -n "" > /etc/motd
