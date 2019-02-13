@@ -19,6 +19,8 @@ Battery pack, heat-set inserts - https://youtu.be/Fhat7w075Js
 
 Battery pack, crimping insluated terminals  - https://youtu.be/GCT9hjeIvX8
 
+Battery Cells, proper use - https://youtu.be/fC4sgXplA3k
+
 Wiring, power wires overview - https://youtu.be/E7_NHTZwens
 
 Wiring, crimping signal wires - https://youtu.be/388paGI_ecE
