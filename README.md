@@ -42,6 +42,8 @@ https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b
 
 Connect by SSH and test motors - https://youtu.be/gOEy8NsPlZY
 
+Change your debian password - https://youtu.be/gOEy8NsPlZY
+
 # Lessons / Failures
 
 Epoxy does not stick to ABS - https://youtu.be/M9cL-bfdHPk
