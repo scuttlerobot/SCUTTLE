@@ -46,6 +46,8 @@ Connect by SSH and test motors - https://youtu.be/gOEy8NsPlZY
 
 Change your debian password - https://youtu.be/gOEy8NsPlZY
 
+Connect to WiFi (WPA Enterprise) - https://youtu.be/6MDQHE0V518
+
 # Lessons / Failures
 
 Epoxy does not stick to ABS - https://youtu.be/M9cL-bfdHPk
