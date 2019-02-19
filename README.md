@@ -37,6 +37,8 @@ Wheels, gluing the pulley - https://youtu.be/daPXxpQAJaQ
 
 Wheels, assembling drivetrain - https://youtu.be/BN1E99_LWlo
 
+Encoders, mounting - https://youtu.be/DEkEQ5825po
+
 # Project Writeup:
 https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b7
 
