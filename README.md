@@ -52,6 +52,8 @@ Connect to WiFi (WPA Enterprise) - https://youtu.be/6MDQHE0V518
 
 Encoders, accuracy to expect - https://youtu.be/WdWj5KSYGlc
 
+Battery, voltage checking - https://youtu.be/yBV0TCLIw5Y
+
 # Lessons / Failures
 
 Epoxy does not stick to ABS - https://youtu.be/M9cL-bfdHPk
