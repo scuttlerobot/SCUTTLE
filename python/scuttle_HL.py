@@ -1,3 +1,8 @@
+# Scuttle High-Level.
+# This file is a work in progress which experiments with adding higher level functions that
+# interpret sensor data, offer commands for driving sequences, and create a structure for
+# openCV-based tasks.
+
 # Written By: Daniyal Ansari, David Malawey
 # contains functions to run the SCUTTLE platform
 
