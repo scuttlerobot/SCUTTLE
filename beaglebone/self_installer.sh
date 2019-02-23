@@ -14,7 +14,7 @@
 
 # Install helpful tools
 
-  sudo apt-get install -y pure-ftpd
+  sudo apt-get install -y pure-ftpd ftp
 
 # Install Python Libraries
 
@@ -26,6 +26,9 @@ sudo apt-get install -y python3-serial
 sudo apt-get install -y python3-pyaudio flac
 sudo pip3 install SpeechRecognition
 
+# Cayenne Library
+
+sudo pip3 install cayenne-mqtt
 
   #sudo dd if=/dev/zero of=/dev/mmcblk1 bs=1M count=10
 
