@@ -10,7 +10,7 @@ import time                     #time access and conversions
 import scuttle as sc            #custom scuttle program
 
 # --- initiliaze compass
-I2Ccompass = Adafruit_I2C.Device(0x1e,1)
+I2Ccompass = Adafruit_I2C.Device(0x1e,1)  # use device address 0x30 for PMOD CMPS2 compass model.
 I2Ccompass.write8(0x00,0x70)
 I2Ccompass.write8(0x02,0x01)
 
