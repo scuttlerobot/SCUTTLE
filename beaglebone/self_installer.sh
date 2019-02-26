@@ -6,11 +6,22 @@
 
 #ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo ok || echo error
 
+#Grow root partition to fill SD card.
+cd /opt/scripts/tools
+git pull
+sudo ./grow_partition.sh
+
+
+
+
 # Updates
+
 
   sudo apt-get update
   sudo apt-get upgrade -y
   sudo apt-get dist-upgrade -y
+
+
 
 # Install helpful tools
 
