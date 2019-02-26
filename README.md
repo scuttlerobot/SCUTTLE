@@ -29,6 +29,8 @@ Wiring, I2C bus board - https://youtu.be/THejHu2klQM
 
 Wiring, I2C board soldering - https://youtu.be/_GyacXFINLY
 
+Wiring, I2C bracket - https://youtu.be/_ZNiIEPJr7c
+
 Wiring, anatomy of duPont crimp - https://youtu.be/388paGI_ecE
 
 Motors, soldering wires - https://youtu.be/d_CcTHs64qQ
@@ -38,6 +40,8 @@ Wheels, gluing the pulley - https://youtu.be/daPXxpQAJaQ
 Wheels, assembling drivetrain - https://youtu.be/BN1E99_LWlo
 
 Encoders, mounting - https://youtu.be/DEkEQ5825po
+
+
 
 # Project Writeup:
 https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b7
