@@ -72,6 +72,8 @@ Screws in PLA issue (student share) - https://youtu.be/qfHjSpBnqg8
 
 Dupont Crimps quality/testing (student share) - https://youtu.be/p01EBFcK8_E
 
+How to cut a PCB  - https://youtu.be/4vjoToIsxR4
+
 # Info for Design Modifications
 
 Modifying the wheel pulley - https://youtu.be/8o-XcZ3_teM
