@@ -2,29 +2,28 @@
 # USE AT YOUR OWN DISCRETION
 # but it works pretty good.
 
+# PLEASE REPORT ALL ISSUES TO:
+# https://github.com/dmalawey/Scuttle/issues
+
 # Erase internal memory (EMMC).
-sudo dd if=/dev/zero of=/dev/mmcblk1 bs=1M count=10
+  
+  sudo dd if=/dev/zero of=/dev/mmcblk1 bs=1M count=10
 
 # Check if Connected to internet
 
-#ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo ok || echo error
+# ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo ok || echo error
 
-#Grow root partition to fill SD card.
-cd /opt/scripts/tools
-git pull
-sudo ./grow_partition.sh
+# Grow root partition to fill SD card.
 
-
-
+  cd /opt/scripts/tools
+  git pull
+  sudo ./grow_partition.sh
 
 # Updates
-
 
   sudo apt-get update
   sudo apt-get upgrade -y
   sudo apt-get dist-upgrade -y
-
-
 
 # Install helpful tools
 
@@ -32,19 +31,17 @@ sudo ./grow_partition.sh
 
 # Install Python Libraries
 
-sudo pip install --upgrade Adafruit_BBIO
-sudo apt-get install -y python3-serial
+  sudo pip install --upgrade Adafruit_BBIO
+  sudo apt-get install -y python3-serial
 
 # Python Speech Recongnition
 
-sudo apt-get install -y python3-pyaudio flac
-sudo pip3 install SpeechRecognition
+  sudo apt-get install -y python3-pyaudio flac
+  sudo pip3 install SpeechRecognition
 
 # Cayenne Library
 
-sudo pip3 install cayenne-mqtt
-
-  #sudo dd if=/dev/zero of=/dev/mmcblk1 bs=1M count=10
+  sudo pip3 install cayenne-mqtt
 
   #sudo apt update ; sudo apt install --only-upgrade bb-cape-overlays
 
@@ -88,20 +85,20 @@ sudo pip3 install cayenne-mqtt
 
 # Fix Adafruit_BBIO.GPIO
 
-sudo python3 /opt/source/rcpy/setup.py install
+  sudo python3 /opt/source/rcpy/setup.py install
 
-sudo python3 /opt/source/pyctrl/setup.py install
+  sudo python3 /opt/source/pyctrl/setup.py install
 
-# Fix Adafruit_GPIO.I2C
+# Install Adafruit_GPIO.I2C
 
-sudo apt-get install -y build-essential python-pip python-dev python-smbus git
-git clone https://github.com/adafruit/Adafruit_Python_GPIO.git
-cd Adafruit_Python_GPIO
-sudo python3 setup.py install
+  sudo apt-get install -y build-essential python-pip python-dev python-smbus git
+  git clone https://github.com/adafruit/Adafruit_Python_GPIO.git
+  cd Adafruit_Python_GPIO
+  sudo python3 setup.py install
 
 # Install zsh
 
-sudo apt-get install -y git curl wget zsh
+  sudo apt-get install -y git curl wget zsh
 
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -110,9 +107,13 @@ sudo apt-get install -y git curl wget zsh
 
 
 
+
 #sudo -u debian sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 #sudo -u debian sed -i 2d /home/debian/.zshrc
 #sudo -u debian sed -i '2iexport PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH' /home/debian/.zshrc
 
-sudo reboot
+# Reboot
+
+  sudo reboot
+  
