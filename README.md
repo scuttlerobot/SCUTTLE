@@ -64,6 +64,8 @@ Battery, voltage checking - https://youtu.be/yBV0TCLIw5Y
 
 Testing Beaglebone with RC_test - https://youtu.be/QZSLSp3yt1U
 
+Using Matlab GUI v1.1 - https://youtu.be/fwuoglO3J0k
+
 # Lessons / Failures
 
 Epoxy does not stick to ABS - https://youtu.be/M9cL-bfdHPk
