@@ -1,4 +1,4 @@
-# udp_matlab.py
+# udp_matlab.py - last updated 2019.03.05 with SCUTTLE_GUI v1.1
 # This program passes sensor data to matlab over UDP and
 # receive commands from the keyboard for driving control.
 
@@ -201,6 +201,9 @@ while 1:
     #accel_x = data_imu['accel'] #pull the accelerometer x/y/z value from the data array
     ms2 = mpu9250.read_accel_data()
     ms2a = ms2[1]
+    
+    imu_pitch = round(data_imu['tb'][0],2) # pitch
+    imu_roll = round(data_imu['tb'][1],2) # roll
     #print("accel: ", ms2a)
     # get the heading from the onboard IMU "yaw" parameter which uses sensor fusion
     # we cannot trust the magnetometer directly because the magnetic field from
@@ -238,17 +241,17 @@ while 1:
 ## --- put data in array to send over udp
     data_snt[0] = heading
     data_snt[1] = voltage #barrell plug voltage from battery
-    #data_snt[2] = vDC1
+    data_snt[2] = 0 # vDC1
     data_snt[3] = pointX   # coord (X)
     data_snt[4] = pointY   # coord (Y)
-    #data_snt[5] = 0
+    data_snt[5] = 0
     data_snt[6] = xLoc     # robot from origin
     data_snt[7] = yLoc     # robot from origin
     data_snt[8] = wsla  # wheel speed L, averaged
     data_snt[9] = wsra  # wheel speed R, averaged
     data_snt[10] = distance
-    data_snt[11] = data_imu['tb'][0] # pitch
-    data_snt[12] = data_imu['tb'][1] # roll
+    data_snt[11] = imu_pitch #data_imu['tb'][0] # pitch
+    data_snt[12] = imu_roll #data_imu['tb'][1] # roll
 
 ## ---
 # close the socket (UDP connection)
