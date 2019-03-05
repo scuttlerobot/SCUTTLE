@@ -4,6 +4,8 @@ This repository contains Python and Matlab Code for Texas A&amp;M's open-source 
 
 Video demo: https://youtu.be/9t1XHcomlIs
 
+Animated assembly (shows all parts) https://youtu.be/1VYjcl6etOM
+
 ![scuttle](https://raw.githubusercontent.com/dmalawey/Scuttle/master/scuttle_rendering.png)
 
 # Info for Assembly:
