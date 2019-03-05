@@ -22,7 +22,7 @@ function varargout = GUI_MXET300(varargin)
 
 % Edit the above text to modify the response to help GUI_MXET300
 
-% Last Modified by GUIDE v2.5 22-Aug-2018 12:40:51
+% Last Modified by GUIDE v2.5 05-Mar-2019 09:42:48
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -89,7 +89,7 @@ handles.roll = 0;
 handles.hBridgeTempL = 0;
 handles.hBridgeTempR = 0;
 handles.hBridgeVoltageL = 0;
-handles.hBridgeVoltageR = 0;
+handles.bbbVoltage = 0;
 % slider listeners
 addlistener(handles.SliderRightSpeed,'Value', 'PostSet',@(src,event) ...
     set(handles.TextRightSpeed, 'String', ...
@@ -566,8 +566,8 @@ set(handles.AxesPlot, 'XData', handles.BBB_data(:,i))
 function Update_Fields(handles)
 handles.pitch = handles.BBB_data(end, 12);
 handles.roll = handles.BBB_data(end, 13);
-handles.hBridgeVoltageL = handles.BBB_data(end, 2);
-handles.hBridgeVoltageR = handles.BBB_data(end, 3);
+handles.bbbVoltage = handles.BBB_data(end, 2);
+handles.hBridgeVoltageL = handles.BBB_data(end, 3);
 handles.hBridgeTempL = handles.BBB_data(end, 4);
 handles.hBridgeTempR = handles.BBB_data(end, 5);
 handles.distance = handles.BBB_data(end, 11);
@@ -585,9 +585,19 @@ set(handles.TextSensorEncoderRight, 'String', round(handles.encoderR,2))
 set(handles.TextSensorTempLeft, 'String', round(handles.hBridgeTempL,2))
 set(handles.TextSensorTempRight, 'String', round(handles.hBridgeTempR,2))
 set(handles.TextSensorVoltageLeft, 'String', round(handles.hBridgeVoltageL,2))
-set(handles.TextSensorVoltageRight, 'String', round(handles.hBridgeVoltageR,2))
+set(handles.TextBarrelVoltage, 'String', round(handles.bbbVoltage,2))
 
 if handles.hBridgeVoltageL < 12
    set(handles.TextSensorVoltageLeft, 'ForegroundColor','Red')
 end
 guidata(handles.fig, handles);
+
+
+
+function TextBarrelVoltage_Callback(hObject, eventdata, handles)
+% hObject    handle to TextBarrelVoltage (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of TextBarrelVoltage as text
+%        str2double(get(hObject,'String')) returns contents of TextBarrelVoltage as a double
