@@ -13,8 +13,4 @@ How to run self_installer.sh:
 #SHELL Cheat Sheet:
 
 Report devices active on the i2c bus:
-sudo i2cdetect -y -r 1
-look at this
-
-look at this too
-
+sudo i2cdetect -y -r 1 #sudo: run the program as root user, i2cdetect: the program name, -y -r 1: additional parameters
