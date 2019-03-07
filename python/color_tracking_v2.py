@@ -55,7 +55,6 @@ def main():
     y = 0
 
     radius = 0
-    dir = "center"
 
     duty_l = 0
     duty_r = 0
@@ -101,7 +100,6 @@ def main():
                     cv2.circle(image, center, 3, (0, 0, 255), -1)
 	            cv2.putText(image,"centroid", (center[0]+10,center[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
 	            cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
-
 
                     c = max(cnts, key=cv2.contourArea)
                     ((x, y), radius) = cv2.minEnclosingCircle(c)
