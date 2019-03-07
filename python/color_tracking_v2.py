@@ -98,10 +98,6 @@ def main():
 
             if x > 0 and x < 40:                  #--------target is on the left--------
 
-    #        if radius > 60:                     # object is too close
-    #            duty_l = [255, 0, 128 - speed +30]  # turn left (slow spd)
-    #            duty_r = [255, 1, 128 + speed -30]
-
                 duty_l = -1       # turn left (reduced spd)
                 duty_r =  1
                 print("LEFT")
@@ -126,11 +122,6 @@ def main():
             elif x > 120:                              #------ target is on the right-------
 
                 print("RIGHT")
-
-
-                #if radius < 20:                       # object is too close
-                    #duty_l = [255, 0, 128 + speed -30]    # turn right (slow spd)
-    		        #duty_r = [255, 1, 128 - speed +30]
 
                 duty_l = 1        # turn right (reduced spd)
                 duty_r = -1
