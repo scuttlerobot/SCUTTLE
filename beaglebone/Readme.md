@@ -15,6 +15,7 @@ How to run self_installer.sh:
 Report devices active on the i2c bus:
 ```
 sudo i2cdetect -y -r 1
+
   sudo:       Executes the command following as root user
   i2cdetect:  A program to scan an I2C bus for devices
   -y  :       Does not prompt
