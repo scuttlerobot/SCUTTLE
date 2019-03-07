@@ -1,3 +1,9 @@
+# color_tracking_v1.py
+# usb camera: Microsoft HD-3000 target: orange basketball
+# This program was designed to have SCUTTLE following a basketball.
+# The calibration was made in a brightly lit indoor environment.
+# Video demo: https://youtu.be/9t1XHcomlIs
+
 import cv2
 import argparse
 import numpy as np
@@ -13,10 +19,10 @@ import rcpy.motor as motor
 
 camera_input = 0
 
-size_w  = 240
-size_h = 160
+size_w  = 240   #this is the pixel width
+size_h = 160	#this is the pixel height
 
-#    Color Range
+#    Color Range, described in HSV
 
 v1_min = 7
 v2_min = 178
@@ -51,13 +57,13 @@ def main():
 
     band = 50   #range of x considered to be centered
 
-    x = 0
-    y = 0
+    x = 0  # will describe target location left to right
+    y = 0  # will describe target location bottom to top
 
-    radius = 0
+    radius = 0  # estimates the radius of the detected target
 
-    duty_l = 0
-    duty_r = 0
+    duty_l = 0 # initialize motor with zero duty cycle
+    duty_r = 0 # initialize motor with zero duty cycle
 
 #    rcpy.set_state(rcpy.RUNNING)
 
@@ -67,11 +73,11 @@ def main():
 
             if True:
 
-                scale_t = 1.3
-                scale_d = 1.3
+                scale_t = 1.3	# a scaling factor for speeds 
+                scale_d = 1.3	# a scaling factor for speeds
 
-                motor_r = 2 	# Right Motor
-                motor_l = 1 	# Left Motor
+                motor_r = 2 	# Right Motor assigned to #2
+                motor_l = 1 	# Left Motor assigned to #1
 
                 ret, image = camera.read()
 
