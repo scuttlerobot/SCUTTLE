@@ -55,7 +55,7 @@ https://www.hackster.io/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b
 
 Connect by SSH and test motors - https://youtu.be/gOEy8NsPlZY
 
-Change your debian password - https://youtu.be/gOEy8NsPlZY
+Change your debian password - https://youtu.be/Scn5cUx_RIU
 
 Connect to WiFi (WPA Enterprise) - https://youtu.be/6MDQHE0V518
 
