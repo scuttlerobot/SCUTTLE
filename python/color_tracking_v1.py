@@ -4,17 +4,20 @@
 # The calibration was made in a brightly lit indoor environment.
 # Video demo: https://youtu.be/9t1XHcomlIs
 
+print("loading libraries for color tracking...")
 import cv2
 import argparse
 import numpy as np
 import os
 import time
 
+
+print("loading rcpy.")
 # import rcpy library
 # This automatically initizalizes the robotics cape
 import rcpy
 import rcpy.motor as motor
-
+print("finished loading libraries.")
 #    Camera
 
 camera_input = 0
@@ -55,16 +58,18 @@ def main():
 
     duty_l = 0 # initialize motor with zero duty cycle
     duty_r = 0 # initialize motor with zero duty cycle
-
+    
+    print("initializing rcpy...")
     rcpy.set_state(rcpy.RUNNING)
-
-    try:
-
-        while 1:
-
-            if True:
-
-                scale_t = 1.3	# a scaling factor for speeds 
+    print("finished initializing rcpy.")
+    
+    try:	
+        
+        while rcpy.get_state() != rcpy.EXITING:
+        
+            if rcpy.get_state() == rcpy.RUNNING:
+            
+                scale_t = 1.3	# a scaling factor for speeds
                 scale_d = 1.3	# a scaling factor for speeds
 
                 motor_r = 2 	# Right Motor assigned to #2
@@ -160,12 +165,14 @@ def main():
                 pass
 
     except KeyboardInterrupt: # condition added to catch a "Ctrl-C" event and exit cleanly
+    	rcpy.set_state(rcpy.EXITING)
         pass
 
     finally:
+    
+    	rcpy.set_state(rcpy.EXITING)
+    	print("Exiting Color Tracking.")
 
-    # say bye
-        print("\nBye Beaglebone!")
 
 # exiting program will automatically clean up cape
 
