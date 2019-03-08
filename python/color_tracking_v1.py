@@ -32,15 +32,6 @@ v1_max = 16
 v2_max = 255
 v3_max = 255
 
-'''
-v1_min = 0
-v2_min = 14
-v3_min = 163
-
-v1_max = 61
-v2_max = 255
-v3_max = 255
-'''
 #    RGB or HSV
 
 filter = 'HSV'
@@ -65,7 +56,7 @@ def main():
     duty_l = 0 # initialize motor with zero duty cycle
     duty_r = 0 # initialize motor with zero duty cycle
 
-#    rcpy.set_state(rcpy.RUNNING)
+    rcpy.set_state(rcpy.RUNNING)
 
     try:
 
@@ -101,12 +92,7 @@ def main():
                 center = None
 
                 if len(cnts) > 0:
-
-                    cv2.circle(image, (int(x), int(y)), int(radius),(0, 255, 255), 2)
-                    cv2.circle(image, center, 3, (0, 0, 255), -1)
-	            cv2.putText(image,"centroid", (center[0]+10,center[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
-	            cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
-
+                    
                     c = max(cnts, key=cv2.contourArea)
                     ((x, y), radius) = cv2.minEnclosingCircle(c)
 
@@ -170,16 +156,10 @@ def main():
                 motor.set(motor_l, duty_l)
                 motor.set(motor_r, duty_r)
 
-	        cv2.imshow("Original", image)
-		cv2.imshow("Thresh", thresh)
-		cv2.imshow("Mask", mask)
-
             elif rcpy.get_state() == rcpy.PAUSED:
-                # do other things
                 pass
 
-    except KeyboardInterrupt:
-    # Catch Ctrl-C
+    except KeyboardInterrupt: # condition added to catch a "Ctrl-C" event and exit cleanly
         pass
 
     finally:
