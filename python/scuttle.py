@@ -44,11 +44,6 @@ compass_write_registers_data = (0x70, 0x01)     # Data to Write to Registers
 right_encoder = Adafruit_I2C.Device(0x40,1) # Power the Rotary Encoder Address Select Pin to change the address of the left encoder
 left_encoder  = Adafruit_I2C.Device(0x41,1) # Power pin A0 to set address to 0x41 (default) or power pin A1 to set address to 0x42
 
-    #   Motor Controller Settings
-
-Motor_L = 1  # left motor connects to output 1
-Motor_R = 2  # right motor connects to output 2
-
     #   UDP Control Settings
 
 ip = "192.168.8.1"      # Set to the interface IP over which you will send UDP Data
@@ -145,15 +140,6 @@ def read_encoders_angle(enc0,enc1):  # this function designed by Ahmad B
     return [angle0, angle1]
 #    else:
 #        continue
-
-#   Motor Controller
-
-def set_speed(speedL, speedR): #in one function, cmd both motor driver channels
-
-    motor.set(Motor_L, ((speedL-127)/127))  #h bridge commands
-    motor.set(Motor_R, ((speedR-127)/127)) 
-    
-
 
 #   UDP Control
 
