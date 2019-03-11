@@ -69,6 +69,8 @@ Using Matlab GUI v1.1 - https://youtu.be/fwuoglO3J0k
 
 Running color_tracking_v1.py - https://youtu.be/PZ6i2W_9lJE
 
+Check devices on i2c bus - https://youtu.be/L2ZTV-0t43Y
+
 # Lessons / Failures
 
 Epoxy does not stick to ABS - https://youtu.be/M9cL-bfdHPk
