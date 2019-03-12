@@ -1,3 +1,0 @@
-The scuttle.py file contains various functions for the robot.
-
-UDP_Matlab.py is a program that calls functions from Scuttle.py and passes data between the BeagleBone Blue and the PC running the matlab script
