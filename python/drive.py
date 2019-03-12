@@ -19,23 +19,23 @@ def set_speed(speedL, speedR): #in one function, cmd both motor driver channels
 
 def turn(angle=None,mode=None,speed=30,direction=None):
 
-    turn = True
+    turn = True # Sets infinite loop to True until turn is complete
 
-    rcpy.set_state(rcpy.RUNNING)
+    rcpy.set_state(rcpy.RUNNING)    # Set RCPY state to running
 
-    mpu9250.initialize(enable_dmp = True)
+    mpu9250.initialize(enable_dmp = True)   # Enable IMU
 
-    while turn:
+    while turn:                             # While turn is True
 
-        if rcpy.state() == rcpy.RUNNING:
+        if rcpy.state() == rcpy.RUNNING:    # Only run if  RCPY is running
 
             imu_data = mpu9250.read()   # Read Data from Sensors
             imu = imu_data['tb']        # Get imu Value and Convert to Degrees (0 to 180 , -180 to 0)
-            imu_deg = (math.degrees(round(imu[2],2))) % 360
+            imu_deg = (math.degrees(round(imu[2],2))) % 360     # Convert IMU reading to degrees
 
-            angle = angle % 360
+            angle = angle % 360         # Get angle
 
-            if mode == "point" or mode == None:
+            if mode == "point" or mode == None:     # If type of turn is "point"
 
                 if angle == 0:
 
