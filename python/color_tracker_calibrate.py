@@ -15,7 +15,6 @@ height = 160
 def callback(value):
 	pass
 
-
 def setup_trackbars(range_filter):
 	cv2.namedWindow("Trackbars", 0)
 
@@ -37,7 +36,6 @@ def get_arguments():
 
 	return args
 
-
 def get_trackbar_values(range_filter):
 	values = []
 
@@ -46,7 +44,6 @@ def get_trackbar_values(range_filter):
 			v = cv2.getTrackbarPos("%s_%s" % (j, i), "Trackbars")
 			values.append(v)
 	return values
-
 
 def main():
 	args = get_arguments()
@@ -62,10 +59,10 @@ def main():
 	camera.set(3, width)
 	camera.set(4, height)
 
-
 	setup_trackbars(range_filter)
 
 	while True:
+		
 		ret, image = camera.read()
 
 		if not ret:
@@ -110,7 +107,6 @@ def main():
 		if cv2.waitKey(1) & 0xFF is ord('q'):
 			
 			break
-
 
 if __name__ == '__main__':
 	main()
