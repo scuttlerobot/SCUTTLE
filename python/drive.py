@@ -1,3 +1,8 @@
+# This file contains the current turn function.
+# To call this function use "import drive"
+# and use drive.turn() in your program.
+
+
 import rcpy
 import rcpy.motor as motor
 
