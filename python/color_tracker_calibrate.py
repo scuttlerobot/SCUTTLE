@@ -1,14 +1,16 @@
+# This code is to visually calibrate the color range
+# for color tracking on the SCUTTLE robot.
+
+# Please make sure X11 forwarding is enabled
+# when running this code.
+
 import cv2
 import argparse
 import numpy as np
 import os
 
-
-
 width  = 240
 height = 160
-
-
 
 def callback(value):
 	pass
