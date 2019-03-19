@@ -1,4 +1,4 @@
-# SICK TiM561 information is located here.
+# SICK TiM561 information for SCUTTLE
 
 The SICK TiM561 2d lidar system is being integrated into the SCUTTLE robot for obstacle detection, localization, and mapping abilities. This folder contains the background info for the lidar.
 
