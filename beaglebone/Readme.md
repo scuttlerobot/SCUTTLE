@@ -21,3 +21,9 @@ sudo i2cdetect -y -r 1
   -y  :       Does not prompt
   -r 1:       I2C bus to read from. Here we read from I2C bus 1.
   ```
+
+Report the messages from kernel ring buffer (system architecture, cpu, attached devices, etc)
+```
+dmesg
+  ```
+  
