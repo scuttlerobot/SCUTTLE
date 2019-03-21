@@ -27,3 +27,11 @@ Report the messages from kernel ring buffer (system architecture, cpu, attached 
 dmesg
   ```
   
+Check battery voltage (with example output)
+```
+➜  ~ sudo rc_battery_monitor
+2S Pack   Jack   #Cells   Cell
+ 8.22V   10.63V  3       3.54V   [1]    1088 killed     sudo rc_battery_monitor
+
+  ```
+  
