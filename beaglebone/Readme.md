@@ -12,7 +12,7 @@ How to run self_installer.sh:
 
 ## SHELL Cheat Sheet:
 
-Report devices active on the i2c bus:
+**Report devices active on the i2c bus:
 ```
 sudo i2cdetect -y -r 1
 
@@ -22,12 +22,12 @@ sudo i2cdetect -y -r 1
   -r 1:       I2C bus to read from. Here we read from I2C bus 1.
   ```
 
-Report the messages from kernel ring buffer (system architecture, cpu, attached devices, etc)
+**Report the messages from kernel ring buffer (system architecture, cpu, attached devices, etc)
 ```
 dmesg
   ```
   
-Check battery voltage (with example output)
+**Check battery voltage (with example output)
 ```
 ➜  ~ sudo rc_battery_monitor
 2S Pack   Jack   #Cells   Cell
