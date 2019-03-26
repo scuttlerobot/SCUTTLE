@@ -40,3 +40,10 @@ dmesg
 Bus 001 Device 003: ID 2f24:0091
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
   ```
+
+**Explicitly Show Debian Release Date**
+  ```
+debian@scuttle:~$ cat /etc/dogtag
+BeagleBoard.org Debian Image 2018-10-07
+
+  ```
