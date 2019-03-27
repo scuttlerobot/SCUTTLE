@@ -47,3 +47,17 @@ debian@scuttle:~$ cat /etc/dogtag
 BeagleBoard.org Debian Image 2018-10-07
 
   ```
+  
+**Check if you have a live internet connection**
+  ```
+debian@scuttle:~$ ping google.com
+PING google.com (216.58.194.110) 56(84) bytes of data.
+64 bytes from dfw06s48-in-f14.1e100.net (216.58.194.110): icmp_seq=1 ttl=55 time                                       =10.5 ms
+64 bytes from dfw06s48-in-f14.1e100.net (216.58.194.110): icmp_seq=2 ttl=55 time                                       =16.3 ms
+64 bytes from dfw06s48-in-f14.1e100.net (216.58.194.110): icmp_seq=3 ttl=55 time                                       =17.8 ms
+64 bytes from dfw06s48-in-f14.1e100.net (216.58.194.110): icmp_seq=4 ttl=55 time                                       =16.5 ms
+^C
+--- google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 10.521/15.320/17.869/2.835 ms
+  ```
