@@ -9,6 +9,7 @@ B078RGGHF5 Amazon - M3 drop-in nuts
 B071K8HYB4 Amazon - GT2 timing belt x 6mm width
 B01FJHZ42M Amazon - Idler roller pulleys
 B06XSYP24P Amazon - Stepper Motor, NEMA 17
+B07DMWJJ6X Amazon - 20 tooth GT2 timing pulley, 5mm ID
 
 **BOM items for other add-ons
 
