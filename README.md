@@ -8,7 +8,7 @@ Computer Vision Demo: https://youtu.be/9t1XHcomlIs
 
 Animated assembly (shows all parts) https://youtu.be/1VYjcl6etOM
 
-![scuttle](https://raw.githubusercontent.com/dmalawey/Scuttle/master/scuttle_rendering.png)
+![scuttle](https://raw.githubusercontent.com/MXET/SCUTTLE/master/docs/scuttle_rendering.png)
 
 # Info for Assembly:
 Bill of Materials is found in CAD folder
