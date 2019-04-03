@@ -11,7 +11,7 @@ As of 2019.02.01 the programs are written for beaglebone blue only.
 5) "y" to save.
 6) Run the script using "sudo python3 tamulink_wpa.py"
 
-**How to install Pygame on your beaglebone blue**
+## How to install Pygame on your beaglebone blue
 
 ```
 # Install required libsdl
