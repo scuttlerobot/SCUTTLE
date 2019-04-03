@@ -27,13 +27,12 @@ The control folder stores all the code related to controling the SCUTTLE remotle
 
 ### Demos ([SCUTTLE/software/python/demos](https://github.com/MXET/SCUTTLE/tree/software/python/demos))
 
-This folder contains scripts useful for installing all the libraries SCUTTLE relies on as well as performing maintenance tasks and installing additional software.
+```[tools](https://github.com/MXET/SCUTTLE/tree/master/software/python/tools)``` contains tools written in python for managing your SCUTTLE.
 
 ### Examples ([SCUTTLE/software/python/examples](https://github.com/MXET/SCUTTLE/tree/software/python/examples))
 
-The MATLAB folder contains the MATLAB Controller Client that allows a user to control the SCUTTLE robot manually as well as show sensor readings and plot the live position of the SCUTTLE robot.
+```[examples](https://github.com/MXET/SCUTTLE/tree/master/software/python/examples)``` contains example programs for reading sensors, driving motors, and more.
 
 ### Tools ([SCUTTLE/software/python/tools](https://github.com/MXET/SCUTTLE/tree/master/software/python/tools))
 
-The MATLAB folder contains the MATLAB Controller Client that allows a user to control the SCUTTLE robot manually as well as show sensor readings and plot the live position of the SCUTTLE robot.
-
+```[tools](https://github.com/MXET/SCUTTLE/tree/master/software/python/tools)``` contains tools written in python for managing your SCUTTLE.
