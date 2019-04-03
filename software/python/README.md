@@ -3,12 +3,6 @@ This folder contains all SCUTTLE python programs.
 
 <br>
 
-### Control ([SCUTTLE/software/python/control](https://github.com/MXET/SCUTTLE/tree/master/software/python/control))
-
-```control``` The control folder stores all the code related to controling the SCUTTLE remotely.
-
-<br>
-
 ### Demos ([SCUTTLE/software/python/demos](https://github.com/MXET/SCUTTLE/tree/software/python/demos))
 
 ```demos``` contains programs demonstrating your SCUTTLE.
