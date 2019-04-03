@@ -13,6 +13,8 @@ As of 2019.02.01 the programs are written for beaglebone blue only.
 
 ## How to install Pygame on your beaglebone blue
 
+Paste the following block of code into your shell and enter.
+
 ```
 # Install required libsdl
 sudo apt install libsdl1.2-dev -y
