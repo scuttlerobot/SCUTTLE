@@ -1,2 +1,2 @@
 # S.C.U.T.T.L.E. Hardware
-This folder contains all scuttle hardware information
+This directory contains all information pertaining to SCUTTLE's hardware.
