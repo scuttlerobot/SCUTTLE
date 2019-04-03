@@ -1,5 +1,5 @@
 # S.C.U.T.T.L.E.
-Sensing, Connected, Utility Transport Taxi for Level Environments (SCUTTLE).
+**Sensing, Connected, Utility Transport Taxi for Level Environments (SCUTTLE).
 This repository contains Python and Matlab Code for Texas A&amp;M's open-source Scuttle Mobile Robot.
 
 Computer Vision Demo: https://youtu.be/9t1XHcomlIs
