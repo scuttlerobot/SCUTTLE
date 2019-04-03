@@ -12,3 +12,6 @@ As of 2019.02.01 the programs are written for beaglebone blue only.
 6) Run the script using "sudo python3 tamulink_wpa.py"
 
 **How to install Pygame on your beaglebone blue**
+
+
+**How to enable X11 forwarding (required for color tracking calibration)**
