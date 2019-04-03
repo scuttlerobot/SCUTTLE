@@ -13,5 +13,16 @@ As of 2019.02.01 the programs are written for beaglebone blue only.
 
 **How to install Pygame on your beaglebone blue**
 
+```
+# Install required libsdl
+sudo apt install libsdl1.2-dev -y
 
-**How to enable X11 forwarding (required for color tracking calibration)**
+# Clone PyGame github repository
+git clone https://github.com/pygame/pygame
+
+# Move to pygame directory
+cd pygame
+
+# Build and Install PyGame
+sudo python3 setup.py install
+```
