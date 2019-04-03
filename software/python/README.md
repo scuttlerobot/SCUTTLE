@@ -26,3 +26,29 @@ cd pygame
 # Build and Install PyGame
 sudo python3 setup.py install
 ```
+### Test PyGame Installation
+
+Run ```python3```.
+
+Type ```import pygame```.
+
+Your installation was successful if you get an output similar to:
+```
+debian@scuttle:~$ python3
+Python 3.5.3 (default, Sep 27 2018, 17:25:39)
+[GCC 6.3.0 20170516] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pygame
+>>>
+```
+or
+```
+debian@scuttle:~$ python3
+Python 3.5.3 (default, Sep 27 2018, 17:25:39) 
+[GCC 6.3.0 20170516] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pygame
+pygame 2.0.0.dev0
+Hello from the pygame community. https://www.pygame.org/contribute.html
+>>> 
+```
