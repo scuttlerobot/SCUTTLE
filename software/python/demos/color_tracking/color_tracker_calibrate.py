@@ -12,6 +12,12 @@ import os
 width  = 240
 height = 160
 
+def rotateImage(image, angle):
+  image_center = tuple(np.array(image.shape[1::-1]) / 2)
+  rot_mat = cv2.getRotationMatrix2D(image_center, angle, 1.0)
+  result = cv2.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv2.INTER_LINEAR)
+  return result
+
 def callback(value):
 	pass
 
@@ -62,8 +68,10 @@ def main():
 	setup_trackbars(range_filter)
 
 	while True:
-		
+
 		ret, image = camera.read()
+
+		image = rotateImage(image,180)
 
 		if not ret:
 			break
@@ -105,7 +113,7 @@ def main():
 		print(x,",",y)
 
 		if cv2.waitKey(1) & 0xFF is ord('q'):
-			
+
 			break
 
 if __name__ == '__main__':

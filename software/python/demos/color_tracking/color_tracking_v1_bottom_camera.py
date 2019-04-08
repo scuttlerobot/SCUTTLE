@@ -27,17 +27,23 @@ size_h = 160	#this is the pixel height
 
 #    Color Range, described in HSV
 
-v1_min = 7
-v2_min = 178
-v3_min = 84
+v1_min = 22
+v2_min = 82
+v3_min = 75
 
-v1_max = 16
+v1_max = 25
 v2_max = 255
 v3_max = 255
 
 #    RGB or HSV
 
 filter = 'HSV'
+
+def rotateImage(image, angle):
+  image_center = tuple(np.array(image.shape[1::-1]) / 2)
+  rot_mat = cv2.getRotationMatrix2D(image_center, angle, 1.0)
+  result = cv2.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv2.INTER_LINEAR)
+  return result
 
 def main():
 
@@ -76,6 +82,8 @@ def main():
                 motor_l = 1 	# Left Motor assigned to #1
 
                 ret, image = camera.read()
+
+                image = rotateImage(image,180)
 
                 height, width, channels = image.shape
 
@@ -165,7 +173,7 @@ def main():
                 pass
 
     except KeyboardInterrupt: # condition added to catch a "Ctrl-C" event and exit cleanly
-    	rcpy.set_state(rcpy.EXITING)
+        rcpy.set_state(rcpy.EXITING)
         pass
 
     finally:
