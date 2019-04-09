@@ -3,13 +3,13 @@ This folder contains all SCUTTLE python programs.
 
 <br>
 
-### Demos ([SCUTTLE/software/python/demos](https://github.com/MXET/SCUTTLE/tree/software/python/demos))
+### Demos ([SCUTTLE/software/python/demos](https://github.com/MXET/SCUTTLE/tree/master/software/python/demos))
 
 ```demos``` contains programs demonstrating your SCUTTLE.
 
 <br>
 
-### Examples ([SCUTTLE/software/python/examples](https://github.com/MXET/SCUTTLE/tree/software/python/examples))
+### Examples ([SCUTTLE/software/python/examples](https://github.com/MXET/SCUTTLE/tree/master/software/python/examples))
 
 ```examples``` contains example programs for reading sensors, driving motors, and more.
 
