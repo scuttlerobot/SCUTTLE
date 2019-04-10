@@ -19,3 +19,6 @@ This folder contains all SCUTTLE python programs.
 ### Tools ([SCUTTLE/software/python/tools](https://github.com/MXET/SCUTTLE/tree/master/software/python/tools))
 
 ```tools``` contains tools written in python for managing your SCUTTLE.
+
+## Other required Information
+To run pygame-based programs you need to install pygame on your BeagleBone.  (This is different than installing pygame/python on your PC). The steps for this are:
