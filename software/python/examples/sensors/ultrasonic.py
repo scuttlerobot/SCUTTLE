@@ -2,9 +2,9 @@ import Adafruit_BBIO.GPIO as GPIO
 import time
 import signal
 
-echo_pin = 'P9_28' # GPIO1_17 actual name on BB Black
-trig_pin = 'GPIO1_25' # name on board diagram
-GPIO.setup(echo_pin, GPIO.IN) 
+echo_pin = 'P9_23'
+trig_pin = 'GP0_3'
+GPIO.setup(echo_pin, GPIO.IN)
 GPIO.setup(trig_pin, GPIO.OUT)
 
 def distanceMeasurement(TRIG,ECHO):
@@ -29,5 +29,3 @@ while True:
     recoveredDistance = distanceMeasurement(trig_pin, echo_pin)
     print ("Distance: ", recoveredDistance, "cm")
     time.sleep(0.1)
-
-

@@ -27,12 +27,12 @@ size_h = 160	#this is the pixel height
 
 #    Color Range, described in HSV
 
-v1_min = 7
-v2_min = 178
-v3_min = 84
+v1_min = 30
+v2_min = 20
+v3_min = 245
 
-v1_max = 16
-v2_max = 255
+v1_max = 43
+v2_max = 98
 v3_max = 255
 
 #    RGB or HSV
@@ -165,7 +165,7 @@ def main():
                 pass
 
     except KeyboardInterrupt: # condition added to catch a "Ctrl-C" event and exit cleanly
-    	rcpy.set_state(rcpy.EXITING)
+        rcpy.set_state(rcpy.EXITING)
         pass
 
     finally:
