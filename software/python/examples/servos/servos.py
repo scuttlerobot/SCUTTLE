@@ -6,33 +6,33 @@ import getopt, sys
 # This automatically initizalizes the robotics cape
 import rcpy 
 import rcpy.servo as servo
-import rcpy.clock as clock
+import rcpy.clock as clock	# For PWM period for servos
 
 # defaults
-duty = 1.5
-period = 0.02
-channel = 0
+duty = 1.5	# Duty cycle (-1.5,1.5)
+period = 0.02	# Set servo period to 20ms
+channel = 0	# Which channel (1-8), 0 outputs to all channels
 
 # set state to rcpy.RUNNING
 rcpy.set_state(rcpy.RUNNING)
 
-# Create servo
-srvo = servo.Servo(channel)
+srvo = servo.Servo(channel)	# Create servo object
 
-clck = clock.Clock(srvo, period)
+
+clck = clock.Clock(srvo, period)	# Set PWM period for servos
 
 try:
 
 	# enable servos
-	servo.enable()
+	servo.enable()		# Enables 6v rail
 
 	# start clock
-	clck.start()
+	clck.start()		# Starts PWM
 
 	# keep running
 	while rcpy.get_state() != rcpy.EXITING:
 
-		srvo.set(duty)
+		srvo.set(duty)	# Set servo duty
 
 except KeyboardInterrupt:
 	
