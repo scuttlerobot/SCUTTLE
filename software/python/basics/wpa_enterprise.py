@@ -11,7 +11,7 @@ import getpass 		# Used to hide user input in password field
 
 # Check if the user that executed this program is root
 
-user = os.getenv("SUDO_USER")	
+user = os.getenv("SUDO_USER")
 if user is None:						# If not root
     print("\n   Execute as \033[1;31;48msudo\033[1;37;48m\n")	# Prints request to run as root
     exit()							# Closes program
@@ -25,8 +25,10 @@ def internet(host="8.8.8.8", port=53, timeout=3):		# Function to check if intern
         print(ex)
         return False
 
-search = "tamulink-wpa"						# SSID to seach for tamulink-wpa. Will accept 
-ssid = search							# Also accepts parts of SSID like, "tam" or "link"
+
+#       Enter wifi name here.
+search = "tamulink-wpa"						# SSID to seach for tamulink-wpa.
+ssid = search					      		# Also accepts parts of SSID like, "tam" or "link"
 
 scan = subprocess.Popen( ["connmanctl","services"], stdout=subprocess.PIPE)	# Run connmanctl services and get output
 ssids = scan.stdout.readlines()							# Break output into list named "ssids"
@@ -42,7 +44,7 @@ while len(ssids) <= 1:					# Checks how many SSIDs where found during scan
 	subprocess.call("connmanctl"," scan"," wifi")	# Runs system command to scan for more ssids
 	print("Have ", len(ssids), " ssids.")		# Prints number of SSIDs found after scan
 
-for x in range(len(ssids)):		# Looks at each SSID in list and converts each list entry to string	
+for x in range(len(ssids)):		# Looks at each SSID in list and converts each list entry to string
   ssids[x] = str(ssids[x])		# Convert to string
 
 for idx, val in enumerate(ssids):	# Search through list for specified SSID or specified part of SSID
@@ -52,7 +54,7 @@ for idx, val in enumerate(ssids):	# Search through list for specified SSID or sp
 ssid = ssid[0:len(ssid)-3].split()	# Split SSID string along space chars and store in list
 del ssid[0]				# Delete first entry in list because it's an artifact from
 					# bytes to sting in lines 44 and 45
-	
+
 print("\033[1;32;40m\nFound: \n\033[1;37;40m" + ssid[0] + "\t\t" + ssid[1])	# Output SSID found matching search string
 
 username = input("\n\033[1;37;40mPlease enter your username: \033[0;37;40m")					# Ask for tamulink-wpa username
@@ -78,7 +80,7 @@ file.close()						# Close file
 
 os.system("sudo systemctl restart connman")		# Restart connman service so it finds new configuration file
 							# It will automatically try to connect to network if it can see it
-#time.sleep(2)						# 
+#time.sleep(2)						#
 
 #if internet() == True:
 #    print("\033[1;32;40m\nConnected!\n")

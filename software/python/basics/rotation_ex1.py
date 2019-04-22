@@ -1,3 +1,5 @@
+# This code outputs the rotation of your SCUTTLE robot about vertical axis.
+
 #!/usr/bin/env python3
 # import python libraries
 import time

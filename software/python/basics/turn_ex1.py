@@ -1,3 +1,5 @@
+# This code contains a function to turn your robot a specified angle.
+
 import Adafruit_GPIO.I2C as Adafruit_I2C
 import time
 import math
@@ -31,7 +33,7 @@ def read_accel():
 
     data = mpu9250.read()
     data = data['accel']
-    x = data[0]          
+    x = data[0]
     y = data[1]
     return(x,y)
 
@@ -79,4 +81,3 @@ def turn(angle, speed=0.7):
     final_imu_deg = read_accel()
 
     return(final_imu_deg)
-
