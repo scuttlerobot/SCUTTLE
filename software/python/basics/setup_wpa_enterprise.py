@@ -1,5 +1,9 @@
-# run this file to connect to the WPA2 Enterprise wifi network
-# last edited 2019.02.06
+# run this file to connect to a WPA2 Enterprise wifi network.
+# after running once, the beaglebone automatically connects 
+# unless a network change was made. In order to connect to a 
+# different WPA2-Enterprise network, update the SSID by changing 
+# the "search" string.
+# last edited 2019.04
 
 # Import necessary libraries
 
