@@ -2,7 +2,7 @@
 
 mrsDiffDriveDiscreteSCTL.m
 
-- This file originated in an example in Matlab's toobox called
+- This file originated from an example in Matlab's [Mobile Robotics Simulation Toolbox](https://www.mathworks.com/matlabcentral/fileexchange/66586-mobile-robotics-simulation-toolbox?s_tid=srchtitle)
 
 - Mobile Robotics Simulation Toolbox as an ```.m``` file called
 
