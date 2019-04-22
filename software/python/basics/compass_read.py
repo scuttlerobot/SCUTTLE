@@ -1,6 +1,6 @@
-# compass_read.py
+# compass_ex1.py
 
-# a simple tool to read and print the compass x and y values
+# a simple tool to read and print the compass x and y values from the beaglebone onboard imu
 # NOTE: This program does not calibrate your compass.
 # This program does not check if your compass is oriented properly.
 # The x-axis should point forward on the robot
