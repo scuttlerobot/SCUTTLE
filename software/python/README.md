@@ -3,6 +3,12 @@ This folder contains all SCUTTLE python programs.
 
 <br>
 
+### Basics ([SCUTTLE/software/python/basics](https://github.com/MXET/SCUTTLE/tree/master/software/python/basics))
+
+```tools``` contains tools written in python for operating the main functions of the robot (used in almost all occasions and with standard hardware configuration).
+
+<br>
+
 ### Demos ([SCUTTLE/software/python/demos](https://github.com/MXET/SCUTTLE/tree/master/software/python/demos))
 
 ```demos``` contains programs demonstrating your SCUTTLE.
@@ -16,6 +22,4 @@ This folder contains all SCUTTLE python programs.
 <br>
 
 
-### Basics ([SCUTTLE/software/python/basics](https://github.com/MXET/SCUTTLE/tree/master/software/python/basics))
 
-```tools``` contains tools written in python for operating the main functions of the robot (used in almost all occasions and with standard hardware configuration).
