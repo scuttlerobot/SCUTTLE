@@ -1,3 +1,5 @@
+#This example drives the robot with the DSTR mobile app. (andoid and ios)
+
 # import python libraries
 
 import time
