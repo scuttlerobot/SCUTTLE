@@ -1,3 +1,5 @@
+#This example sets the motors to full speed forward.
+
 import rcpy
 import rcpy.motor as motor
 
