@@ -1,3 +1,5 @@
+# This code outputs the rotation of your SCUTTLE robot about vertical axis.
+
 # import python libraries
 import time
 import getopt, sys
@@ -63,4 +65,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
