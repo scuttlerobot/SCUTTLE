@@ -1,3 +1,5 @@
+#This example reads the analog voltage from the beaglebone adc.
+
 # import rcpy libraries
 import rcpy
 import rcpy.adc as adc
