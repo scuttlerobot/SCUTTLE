@@ -1,3 +1,6 @@
+#This example takes a data point from the ultrasonic sensor (HC-SR04)
+# and prints the data point, then repeats.
+
 import Adafruit_BBIO.GPIO as GPIO
 import time
 import signal
