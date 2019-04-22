@@ -11,7 +11,7 @@ This folder contains all SCUTTLE python programs.
 
 ### Demos ([SCUTTLE/software/python/demos](https://github.com/MXET/SCUTTLE/tree/master/software/python/demos))
 
-```demos``` contains programs demonstrating your SCUTTLE.
+```demos``` contains programs demonstrating your SCUTTLE.  As of 2019.04, there is joystick_control for operating with a joypad controller and color_tracking which uses machine vision to follow a basketball.
 
 <br>
 
