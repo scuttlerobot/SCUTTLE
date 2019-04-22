@@ -1,3 +1,5 @@
+#This example reads left and right encoders and outputs the position (deg) to the terminal
+
 import Adafruit_GPIO.I2C as Adafruit_I2C
 import time
 
