@@ -1,3 +1,6 @@
+# This example moves the servos to the position specified by "duty."   
+# If the servo is a continuous type, the duty will set the speed instead of the position. 
+
 # import python libraries
 import time, math
 import getopt, sys
