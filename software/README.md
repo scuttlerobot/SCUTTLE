@@ -70,3 +70,16 @@ PING google.com (216.58.194.110) 56(84) bytes of data.
 4 packets transmitted, 4 received, 0% packet loss, time 3005ms
 rtt min/avg/max/mdev = 10.521/15.320/17.869/2.835 ms
   ```
+
+**Copy a GitHub repository to your device**
+  ```
+debian@scuttle:~$ git clone http://github.com/MXET/SCUTTLE
+Cloning into 'SCUTTLE'...
+remote: Enumerating objects: 262, done.
+remote: Counting objects: 100% (262/262), done.
+remote: Compressing objects: 100% (215/215), done.
+remote: Total 1356 (delta 128), reused 99 (delta 41), pack-reused 1094
+Receiving objects: 100% (1356/1356), 82.88 MiB | 1.17 MiB/s, done.
+Resolving deltas: 100% (610/610), done.
+debian@scuttle:~$
+  ```
