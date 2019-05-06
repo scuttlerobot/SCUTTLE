@@ -83,3 +83,11 @@ Receiving objects: 100% (1356/1356), 82.88 MiB | 1.17 MiB/s, done.
 Resolving deltas: 100% (610/610), done.
 debian@scuttle:~$
   ```
+
+**Expand the partition on your Blue SD card**
+  ```
+cd /opt/scripts/tools #navigate to the right directory
+git pull  #update the tools repository
+sudo ./grow_partition.sh  # the command to expand the boot partition
+sudo reboot # the command to reboot the blue
+  ```
