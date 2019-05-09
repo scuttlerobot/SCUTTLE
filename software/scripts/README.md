@@ -1,6 +1,6 @@
-# BEAGLEBONE SUBFOLDER README:
+# SCRIIPTS SUBFOLDER README:
 
-This folder links to the latest beaglebone image for SCUTTLE project.
+These are linux scripts to run on your beaglebone blue after installing the proper debian image.
 
 ## Beaglebone Image:
 Please navigate to the "releases" tab of this github to download the latest image.
