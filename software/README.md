@@ -91,3 +91,8 @@ git pull  #update the tools repository
 sudo ./grow_partition.sh  # the command to expand the boot partition
 sudo reboot # the command to reboot the blue
   ```
+
+## Beaglebone Blue Cheat Sheet:
+
+**Instructions to connect to SSH using putty:**
+([beaglebone how-to-connect](https://www.dummies.com/computers/beaglebone/how-to-connect-your-beaglebone-via-ssh-over-usb/))
