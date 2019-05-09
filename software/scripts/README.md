@@ -1,4 +1,4 @@
-# SCRIIPTS SUBFOLDER README:
+# SCRIPTS SUBFOLDER README:
 
 These are linux scripts to run on your beaglebone blue after installing the proper debian image.
 
