@@ -1,3 +1,6 @@
+# A barebones example code to operate motors on the SCUTTLE robot.
+# Uses Pi hardware.
+
 import RPi.GPIO as io
 import time
 io.setmode(io.BOARD)
