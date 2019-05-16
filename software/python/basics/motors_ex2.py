@@ -27,7 +27,7 @@ pwm_l = io.PWM(pwm_l_pin, 1000)     # set Frequece to 1KHz
 pwm_r = io.PWM(pwm_r_pin, 1000)     # set Frequece to 1KHz
 
 
-while 1:
+while time.time > 10:
 
     io.output(dir_r,1)
     io.output(dir_l,1)
