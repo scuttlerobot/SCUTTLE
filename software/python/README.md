@@ -8,6 +8,9 @@ This folder contains all SCUTTLE python programs.
 ```tools``` contains tools written in python for operating the main functions of the robot (used in almost all occasions and with standard hardware configuration).
 
 <br>
+Files ending in ex1 are written for Beagle and ex2 are written for Pi.
+<br>
+
 
 ### Demos ([SCUTTLE/software/python/demos](https://github.com/MXET/SCUTTLE/tree/master/software/python/demos))
 
