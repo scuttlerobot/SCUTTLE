@@ -6,29 +6,15 @@
 import os
 import time
 
-# Create Dummy Display
-# PyGame relies on having a display connected when the library is initialized
-# This section of code uses a pygame function to fake a display outputself.
-os.environ['SDL_VIDEODRIVER'] = 'dummy' #create dummy display
-import pygame
-pygame.init()
-pygame.display.set_mode((1,1))
-pygame.init()
+def GP():  #function for reading the game pad
 
-#Loop until the user clicks the close button.
-# Initialize the joysticks
-pygame.joystick.init()
-
-os.system("reset")  # Clear the terminal
-print("Running!")
-
-while 1:  #loop for 20 seconds
-    # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-    for event in pygame.event.get():
-        pass
+    print("hi")
 
     # Get count of gamepads connected
     gamepad_count = pygame.joystick.get_count()
+
+    print(gamepad_count)
+    print(len(gamepad_count))
 
     # For each gamepad:
     for i in range(gamepad_count):
@@ -37,7 +23,7 @@ while 1:  #loop for 20 seconds
         joystick.init()
 
         # Get Left X and Y Joystick Values
-        axis_0 = round(joystick.get_axis( 0 ),3) #left thumb, right is positive
+        GP.axis_0 = round(joystick.get_axis( 0 ),3) #left thumb, right is positive
         axis_1 = round(joystick.get_axis( 1 ),3) # left thumb, down is positive
         axis_2 = round(joystick.get_axis( 2 ),3) # right thumb, right is positive
         axis_3 = round(joystick.get_axis( 3 ),3) # right thumb, down is positive
@@ -59,6 +45,30 @@ while 1:  #loop for 20 seconds
         B10 = joystick.get_button( 10 ) # left thumb press
         B11 = joystick.get_button( 11 ) # right thumb press
 
-        print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
-        time.sleep(0.1)
+# Create Dummy Display
+# PyGame relies on having a display connected when the library is initialized
+# This section of code uses a pygame function to fake a display outputself.
+os.environ['SDL_VIDEODRIVER'] = 'dummy' #create dummy display
+import pygame
+pygame.init()
+pygame.display.set_mode((1,1))
+pygame.init()
 
+#Loop until the user clicks the close button.
+# Initialize the joysticks
+pygame.joystick.init()
+
+os.system("reset")  # Clear the terminal
+print("Running!")
+
+while 1:  #loop for 20 seconds
+    # collect commands from the gamepad.  Run as many times as there are commands in the queue.
+    for event in pygame.event.get():
+        pass
+
+        # axis0 = GP.axis_0
+        print(GP.axis_0)
+
+
+        #print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
+        time.sleep(0.1)
