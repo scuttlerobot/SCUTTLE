@@ -96,7 +96,26 @@ sudo reboot # the command to reboot the blue
   ```
 iwconfig
   ```
+  
+**Copy a github repository**
+  ```
+git clone http://www.github.com/MXET/SCUTTLE
+  ```
+  This will copy all of the contents of SCUTTLE repo into a folder called SCUTTLE in the working directory.
+  
+## Windows Cheat Sheet:
+**find out the IP address of a connected device**
+Press the windows key, type "cmd" then ENTER.  In the command prompt, type ipconfig.  If you are connected to your linux device that is in access-point mode with your wireless wifi adapter, look at Wireless LAN section and the Default Gateway is the IP address of your linux device.
 
+```
+Wireless LAN adapter Wi-Fi:
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::8123:73e7:ace0:720c%15
+   IPv4 Address. . . . . . . . . . . : 192.168.50.50
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.50.1
+```
+   
 ## Beaglebone Blue Cheat Sheet:
 
 **Instructions to connect to SSH using putty:**
