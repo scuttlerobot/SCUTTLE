@@ -91,6 +91,11 @@ git pull  #update the tools repository
 sudo ./grow_partition.sh  # the command to expand the boot partition
 sudo reboot # the command to reboot the blue
   ```
+  
+**Print the current connections**
+  ```
+iwconfig
+  ```
 
 ## Beaglebone Blue Cheat Sheet:
 
