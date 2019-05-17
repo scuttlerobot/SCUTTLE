@@ -6,8 +6,8 @@ import time
 
 bus=smbus.SMBus(1)
 
-right_encoder = 0x41
-left_encoder  = 0x42
+right_encoder = 0x40
+left_encoder  = 0x41
 
 def read_encoders_angle(enc0,enc1):
     try:
