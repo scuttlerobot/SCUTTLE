@@ -11,4 +11,4 @@ for x in range(10):
 	lidar.scan()	# Requests and returns list of LIDAR
 					# distance information in meters
 
-	print(lidar.scan.distances)		# print distance list
+	print(lidar.scan.distances)		# print distance list for latest scan
