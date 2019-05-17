@@ -7,6 +7,6 @@ for x in range(10):
 # while True:
 
 lidar.scan()	# Requests and returns list of LIDAR
-    					# distance information in meters
+    			# distance information in meters
 
 print(lidar.scan.distances)		# print distance list
