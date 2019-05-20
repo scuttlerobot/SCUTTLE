@@ -131,3 +131,5 @@ Wireless LAN adapter Wi-Fi:
 **Instructions to flash a new SD card with an image:**
 ([beagleboard.org getting started](http://beagleboard.org/getting-started#step3))
 
+**broadcom BCM pin numbering scheme:**
+https://gpiozero.readthedocs.io/en/stable/recipes.html#pin-numbering
