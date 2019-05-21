@@ -14,11 +14,9 @@ import time
 
 
 def worker( Id ):
-    """
-    thread worker function.  It receives an Id,
-    and prints a message indicating it's starting.
-    waits 0.5 seconds, prints another message, and dies.
-    """
+    #thread worker function.  It receives an Id,
+    #and prints a message indicating it's starting.
+    #waits 0.5 seconds, prints another message, and dies.
     print( 'Worker %d started\n' % Id )
     time.sleep( 0.5 )
     print( 'Worker %d finished\n' % Id )
