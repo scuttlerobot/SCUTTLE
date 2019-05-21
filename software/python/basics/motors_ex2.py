@@ -37,13 +37,14 @@ def MotorR(speed):
         RightOutB.value = 0
         RightOutA.value = 0
 
-try:
-    while 1:
-        MotorL(0.5)
-        #MotorR(0.5)
-        time.sleep(4)
-        MotorL(-0.5)
-        #MotorR(-0.6)
-        time.sleep(4)
-except KeyboardInterrupt:
-    pass
+# Uncomment the section below to run this code by itself!
+# try:
+#     while 1:  # This loop will drive both motors forwards and backwards, repeatedly
+#         MotorL(0.3)
+#         #MotorR(0.3)
+#         time.sleep(2)
+#         MotorL(-0.3)
+#         #MotorR(-0.3)
+#         time.sleep(2)
+# except KeyboardInterrupt:
+#     pass
