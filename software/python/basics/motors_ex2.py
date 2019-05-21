@@ -1,6 +1,9 @@
-import gpiozero
-from gpiozero import PWMOutputDevice
-import time
+# This example sends commands to two motors on the appropriate pins for H-bridge
+# Designed for Pi hardware.
+
+import gpiozero #gpiozero is the chosen library for PWM functionality
+from gpiozero import PWMOutputDevice 
+import time 
 
 #info on pins:
 # Broadcom (BCM) pin numbering for Pi gives names of GPIO17
