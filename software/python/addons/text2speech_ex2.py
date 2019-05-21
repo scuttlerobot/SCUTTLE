@@ -1,6 +1,7 @@
 # Please run "sudo apt-get install festival" before running this program.
 # Next, run the command: 'sudo amixer cset numid=1 100%' 
 # this will raise the volume of your Pi audio output to 100%
+# designed for Pi setup.
 
 import os
 
