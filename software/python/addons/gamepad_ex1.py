@@ -5,25 +5,19 @@
 
 import os
 import time
+import numpy as np # use numpy to build arrays of gamepad status
+import pygame
 
 def GP():  #function for reading the game pad
 
-    print("hi")
-
-    # Get count of gamepads connected
-    gamepad_count = pygame.joystick.get_count()
-
-    print(gamepad_count)
-    print(len(gamepad_count))
-
-    # For each gamepad:
-    for i in range(gamepad_count):
+    gamepad_count = pygame.joystick.get_count()     # Get count of gamepads connected
+    for i in range(gamepad_count): # For each gamepad:
 
         joystick = pygame.joystick.Joystick(i)
         joystick.init()
 
         # Get Left X and Y Joystick Values
-        GP.axis_0 = round(joystick.get_axis( 0 ),3) #left thumb, right is positive
+        axis_0 = round(joystick.get_axis( 0 ),3) #left thumb, right is positive
         axis_1 = round(joystick.get_axis( 1 ),3) # left thumb, down is positive
         axis_2 = round(joystick.get_axis( 2 ),3) # right thumb, right is positive
         axis_3 = round(joystick.get_axis( 3 ),3) # right thumb, down is positive
@@ -45,30 +39,20 @@ def GP():  #function for reading the game pad
         B10 = joystick.get_button( 10 ) # left thumb press
         B11 = joystick.get_button( 11 ) # right thumb press
 
-# Create Dummy Display
-# PyGame relies on having a display connected when the library is initialized
-# This section of code uses a pygame function to fake a display outputself.
-os.environ['SDL_VIDEODRIVER'] = 'dummy' #create dummy display
-import pygame
-pygame.init()
+        #print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
+        axes_status = np.array([axis_0, axis_1, axis_2, axis_3]) # store all axes in an array
+        button_status = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]) # store all buttons in array
+        print("right/left axis: ", axes_status[0])  #just print one of the axes to keep screen clean.
+
+os.environ['SDL_VIDEODRIVER'] = 'dummy' # create dummy display as required for lib initialization
+pygame.init() # initialize pygame
 pygame.display.set_mode((1,1))
-pygame.init()
-
-#Loop until the user clicks the close button.
-# Initialize the joysticks
-pygame.joystick.init()
-
+pygame.joystick.init() # Initialize the joysticks
 os.system("reset")  # Clear the terminal
-print("Running!")
+print("Running!")   # indicate when running (takes ~10 seconds)
 
-while 1:  #loop for 20 seconds
+while 1:  #Loop until the user clicks the close button
     # collect commands from the gamepad.  Run as many times as there are commands in the queue.
     for event in pygame.event.get():
+        GP()  #this will only run when the gamepad sends a new change
         pass
-
-        # axis0 = GP.axis_0
-        print(GP.axis_0)
-
-
-        #print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
-        time.sleep(0.1)
