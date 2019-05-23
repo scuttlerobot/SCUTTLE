@@ -44,11 +44,21 @@ def MotorR(speed):
 # Uncomment the section below to run this code by itself!
 # try:
 #     while 1:  # This loop will drive both motors forwards and backwards, repeatedly
-#         MotorL(0.3)
+#         print("running")
+#         MotorL(1)
 #         #MotorR(0.3)
 #         time.sleep(2)
-#         MotorL(-0.3)
+#         MotorL(-1)
 #         #MotorR(-0.3)
 #         time.sleep(2)
-# except KeyboardInterrupt:
-#     pass
+#         MotorL(0)
+#         MotorR(1)
+#         #MotorR(0.3)
+#         time.sleep(2)
+#         MotorR(-1)
+#         #MotorR(-0.3)
+#         time.sleep(2)
+#         MotorR(0)
+
+except KeyboardInterrupt:
+    pass
