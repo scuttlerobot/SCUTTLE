@@ -1,4 +1,5 @@
 # This code allows you to drive SCUTTLE robot using a USB or Bluetooth joystick.
+# Designed for Beagle hardware setup.
 
 #!/usr/bin/env python
 import Adafruit_BBIO.GPIO as GPIO
