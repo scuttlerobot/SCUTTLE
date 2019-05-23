@@ -2,8 +2,8 @@
 # Designed for Pi hardware.
 
 import gpiozero #gpiozero is the chosen library for PWM functionality
-from gpiozero import PWMOutputDevice 
-import time 
+from gpiozero import PWMOutputDevice
+import time
 
 #info on pins:
 # Broadcom (BCM) pin numbering for Pi gives names of GPIO17
@@ -14,8 +14,9 @@ leftOutB = PWMOutputDevice(18, frequency=1000,initial_value=0)
 RightOutA = PWMOutputDevice(22, frequency=1000,initial_value=0)
 RightOutB = PWMOutputDevice(23, frequency=1000,initial_value=0)
 
-leftOutA.frequency = 1000 #this is redundant
-leftOutA.value = 0.50 # this is for duty cycle
+# This section shows another way to assign parameters if uncommented
+# leftOutA.frequency = 1000 #this is redundant
+# leftOutA.value = 0.0 # this is for duty cycle
 
 #channel refers to left(0) or right(1)
 def MotorL(speed):

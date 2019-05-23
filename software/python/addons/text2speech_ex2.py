@@ -1,5 +1,5 @@
 # Please run "sudo apt-get install festival" before running this program.
-# Next, run the command: 'sudo amixer cset numid=1 100%' 
+# Next, run the command: 'sudo amixer cset numid=1 100%'
 # this will raise the volume of your Pi audio output to 100%
 # designed for Pi setup.
 
@@ -23,8 +23,10 @@ def say(s):
     # can move on without having to wait for the text to speech to complete
     # "festival" will die in the background once it is done.
 
-text = "I am scuttle robot with 2 DC motors and 2.4gig-ahertz waifai \
-as well as 5 gig-ahertz waifai. I have a maximum cruise velocity of 0.5 \
-meters per second and my three cell lithium ion battery has 14 volts \
-on a full charge."
+text = " danger danger will robertson!  danger impending ahead."
+
+# I am scuttle robot with 2 DC motors and 2.4gig-ahertz waifai \
+# as well as 5 gig-ahertz waifai. I have a maximum cruise velocity of 0.5 \
+# meters per second and my three cell lithium ion battery has 14 volts \
+# on a full charge."
 say(text)

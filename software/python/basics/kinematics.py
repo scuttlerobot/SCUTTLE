@@ -1,10 +1,9 @@
 # This program takes the encoder values from encoders, computes wheel movement
 # and computes the movement of the wheelbase center based on SCUTTLE kinematics.
 
-# //usr/bin/python3
-import Adafruit_GPIO.I2C as Adafruit_I2C #i2c communication
-import numpy as np			  #scientific computing
-import time					 #time access and conversions
+import encoder_ex2 as enc # local library for encoders
+import numpy as np			 # library for math operations
+import time					 # library for time access
 
 # --- david M speed calc-----
 degL0 = 0
@@ -26,44 +25,24 @@ cgSpeed = 0
 theta = 0
 
 # --- encoders
-enc0 = Adafruit_I2C.Device(0x40,1)
-enc1 = Adafruit_I2C.Device(0x41,1)
 PreviousEncoderL=0
 PreviousEncoder1 = 0
 t0 = time.time()
 t2 = 0;
 timeA = 0
 
-def read_encoders_angle(enc0,enc1):  # this function designed by Ahmad B
-    try:
-        x = enc0.readU16(0xFE)
-        x = ((x << 8) | (x >> 8)) & 0xFFFF
-        meas = ((x & 0xFF00) >> 2) | ( x & 0x3F)
-        angle0 = meas*0.0219  # convert to degrees
-    except:
-        print('Warning (I2C): Could not read encoder0')
-        angle0 = 0
-    try:
-        x = enc1.readU16(0xFE)
-        x = ((x << 8) | (x >> 8)) & 0xFFFF
-        meas = ((x & 0xFF00) >> 2) | ( x & 0x3F)
-        angle1 = meas*0.0219 # convert to degrees
-    except:
-        print('Warning (I2C): Could not read encoder1')
-        angle1 = 0
-    return [angle0, angle1]
-
 while 1:
     time.sleep(0.10) #delay 100ms
     ## --- grab encoders values
-    encoderL, encoderR = read_encoders_angle(enc0,enc1)
+    encoders = enc.read()  # grabs the current encoder readings in degrees
+    degL1 = round(encoders[0],3) # reading in degrees. Convert to meters by 0.0007306
+    degR1 = round(encoders[1],3) # reading in degrees. Convert to meters by 0.0007306
     deltaT = time.time() - timeA
     timeA = time.time()
 
     #---- movement calculations
     # calculate the delta on Left wheel
     case_number = 0
-    degL1 = round(encoderL,2)  # reading in degrees. Convert to meters by 0.0007306
     if(abs(abs(degL1) - abs(degL0)) < 1 ):
     	travL = 0 #ignore tiny movements
     	case_number=1
@@ -106,8 +85,6 @@ while 1:
     whlSpdR = travR/deltaT  #current speed
     wsra = (wsr0 + whlSpdR)/2 #wheel-speed-right-averaged
 
-    print(wsra)
-
     # calculate speed of wheelbase center
     travs = ([travL, travR])
     cgTrav = np.average(travs)
@@ -115,3 +92,5 @@ while 1:
     cgSpeedPrev = cgSpeed
     cgSpeed = np.average(speeds)
     cgSpeedReport = (cgSpeed + cgSpeedPrev)/2
+
+    print("cg speed is:", cgSpeed)

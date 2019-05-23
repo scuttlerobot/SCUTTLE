@@ -40,9 +40,10 @@ def GP():  #function for reading the game pad
         B11 = joystick.get_button( 11 ) # right thumb press
 
         #print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
-        axes_status = np.array([axis_0, axis_1, axis_2, axis_3]) # store all axes in an array
-        button_status = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]) # store all buttons in array
-        print("right/left axis: ", axes_status[0])  #just print one of the axes to keep screen clean.
+        axes = np.array([axis_0, axis_1, axis_2, axis_3]) # store all axes in an array
+        buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]) # store all buttons in array
+        #print("right/left axis: ", axes[0])  #just print one of the axes to keep screen clean.
+        return(axes)
 
 os.environ['SDL_VIDEODRIVER'] = 'dummy' # create dummy display as required for lib initialization
 pygame.init() # initialize pygame
@@ -51,8 +52,13 @@ pygame.joystick.init() # Initialize the joysticks
 os.system("reset")  # Clear the terminal
 print("Running!")   # indicate when running (takes ~10 seconds)
 
-while 1:  #Loop until the user clicks the close button
-    # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-    for event in pygame.event.get():
-        GP()  #this will only run when the gamepad sends a new change
-        pass
+# create a function to call from outside the program.
+def getGP():
+    for event in pygame.event.get(): # loop necessary to get all buttons
+        axes = GP()  #this will only run when the gamepad sends a new change
+        return(axes)
+
+#Uncomment this section to run as a standalone program
+# while 1:  #Loop until the user clicks the close button
+#     # collect commands from the gamepad.  Run as many times as there are commands in the queue.
+#     getGP()
