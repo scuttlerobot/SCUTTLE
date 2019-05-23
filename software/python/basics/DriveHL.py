@@ -25,9 +25,10 @@ try:
         except:
             pass
         #right = axes[0][0]
-        print("steering axis reads ", axes[0])
-        # m.MotorL(0.3)
-        # m.MotorR(0.3)
+        mySpeed = axes[1];
+        print("speed axis reads ", mySpeed)
+        m.MotorL(mySpeed)
+        m.MotorR(mySpeed)
         # time.sleep(2)
         # m.MotorL(-0.3)
         # m.MotorR(-0.3)
