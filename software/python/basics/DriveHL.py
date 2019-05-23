@@ -25,7 +25,8 @@ try:
         except:
             pass
         #right = axes[0][0]
-        mySpeed = axes[1];
+        mySpeed = -1*axes[1];
+
         print("speed axis reads ", mySpeed)
         m.MotorL(mySpeed)
         m.MotorR(mySpeed)
