@@ -59,6 +59,6 @@ def MotorR(speed):
 #         #MotorR(-0.3)
 #         time.sleep(2)
 #         MotorR(0)
-
-except KeyboardInterrupt:
-    pass
+#
+# except KeyboardInterrupt:
+#     pass
