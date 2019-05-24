@@ -11,6 +11,15 @@ import numpy as np # for handling matrices
 m.MotorL(0)
 m.MotorR(0)
 axes = np.zeros(4)
+
+# generate_duty is a placeholder function for the inverse kinematics program
+def generate_duty(x_dot,theta_dot):
+        # Calculate Left and Right Wheel Duty Cycles
+    duty_r = ((  1 * (theta_dot)) + x_dot )
+    duty_l = (( -1 * (theta_dot))  + x_dot )
+    duties = np.array([ duty_l, duty_r ])
+    return duties
+
 try:
     while 1:
         # verify encoders are working
@@ -24,12 +33,17 @@ try:
                 axes = update
         except:
             pass
-        #right = axes[0][0]
-        mySpeed = -1*axes[1];
 
-        print("speed axis reads ", mySpeed)
-        m.MotorL(mySpeed)
-        m.MotorR(mySpeed)
+        # assign axes grom gamepad to requested velocities
+        x_dot = -1*axes[1] # times -1 so forward gives positive
+        theta_dot = -1*axes[0]
+        #generate duty cycles
+        duties = generate_duty(x_dot, theta_dot)
+        duties[0] = sorted([-1, duties[0], 1])[1] # place bounds on duty cycle
+        duties[1] = sorted([-1, duties[1], 1])[1] # place bounds on duty cycle
+        print("x dot: ", x_dot)
+        m.MotorL(duties[0]) # fcn allows -1 to 1
+        m.MotorR(duties[1]) # fcn allows -1 to 1
         # time.sleep(2)
         # m.MotorL(-0.3)
         # m.MotorR(-0.3)
