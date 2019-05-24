@@ -5,9 +5,9 @@
 
 import os
 
-def say(s):
+def say(myString):
 
-    s = str(s)  # Make sure input is a string by casting all inputs to a string.
+    s = str(myString)  # Make sure input is a string by casting all inputs to a string.
 
     os.system("echo \"" + text + "\" | festival --tts")
     # Basically running a system command to perform text to speech
@@ -23,10 +23,12 @@ def say(s):
     # can move on without having to wait for the text to speech to complete
     # "festival" will die in the background once it is done.
 
-text = " danger danger will robertson!  danger impending ahead."
+text = "I am SCUTTLE robot."
 
 # I am scuttle robot with 2 DC motors and 2.4gig-ahertz waifai \
 # as well as 5 gig-ahertz waifai. I have a maximum cruise velocity of 0.5 \
 # meters per second and my three cell lithium ion battery has 14 volts \
 # on a full charge."
-say(text)
+
+# UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
+# say(text)
