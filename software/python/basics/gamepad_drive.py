@@ -3,13 +3,12 @@ import numpy as np
 import motors_ex2 as m #module calculates PWM commands
 import gamepad_ex2 as gp #for gamepad
 
-m.MotorL(0)
-m.MotorR(0)
-axes = np.zeros(4)
-
 def set_motors(L,R):
     m.MotorL(L)
     m.MotorR(R)
+
+set_motors(0,0)
+axes = np.zeros(4)
 
 try:
     while 1:
@@ -20,7 +19,9 @@ try:
         except:
             pass
 
-        print(axes)
+        # mySpeed = -1*axes[1]
+
+        set_motors(-1*axes[1],-1*axes[3])
 
         time.sleep(0.1)
         # verify gamepad is working

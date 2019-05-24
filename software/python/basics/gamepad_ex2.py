@@ -7,6 +7,10 @@ import pygame
 import numpy as np
 import os
 
+os.putenv('DISPLAY', ':0.0') # create dummy display as required for lib initialization
+pygame.display.init() # Initialize the dummy display
+pygame.joystick.init() # Initialize the joysticks
+
 def getGP():  #function for reading the game pad
 
     for event in pygame.event.get(): # User did something
@@ -45,10 +49,6 @@ def getGP():  #function for reading the game pad
         axes = np.array([axis_0, axis_1, axis_2, axis_3]) # store all axes in an array
         buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]) # store all buttons in array
         return(axes)
-
-os.putenv('DISPLAY', ':0.0') # create dummy display as required for lib initialization
-pygame.display.init() # Initialize the dummy display
-pygame.joystick.init() # Initialize the joysticks
 
 # Uncomment this section to run as a standalone program
 # while 1:  #Loop until the user clicks the close button
