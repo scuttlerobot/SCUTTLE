@@ -1,7 +1,8 @@
 # an example to grab values from the wireless gamepads (EasySMX brand) and print them.
-# gamepad must be plugged in at start of program.
+# gamepad must be plugged in and activated at start of program.
 # see the scuttle software documentation for a map of buttons.
-# last updated 2019.05.23
+# 16 values will be returned, 4 floatig and 12 boolean
+# last updated 2019.05.24
 
 import pygame
 import numpy as np
