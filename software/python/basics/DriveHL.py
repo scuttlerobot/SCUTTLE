@@ -4,7 +4,7 @@
 
 import motors_ex2 as m #module calculates PWM commands
 import encoder_ex2 as enc # for encoders
-import gamepad_ex1 as gp #for gamepad
+import gamepad_ex2 as gp #for gamepad
 import time
 import numpy as np # for handling matrices
 
