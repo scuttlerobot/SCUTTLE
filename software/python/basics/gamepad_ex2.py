@@ -44,13 +44,12 @@ def getGP():  #function for reading the game pad
         # print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
         axes = np.array([axis_0, axis_1, axis_2, axis_3]) # store all axes in an array
         buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]) # store all buttons in array
-        print(buttons)
 
 os.putenv('DISPLAY', ':0.0') # create dummy display as required for lib initialization
 pygame.display.init() # Initialize the dummy display
 pygame.joystick.init() # Initialize the joysticks
 
 # Uncomment this section to run as a standalone program
-while 1:  #Loop until the user clicks the close button
-    # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-    getGP()
+# while 1:  #Loop until the user clicks the close button
+#     # collect commands from the gamepad.  Run as many times as there are commands in the queue.
+#     getGP()
