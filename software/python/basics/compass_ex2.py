@@ -5,8 +5,11 @@
 # This program does not check if your compass is oriented properly.
 # The x-axis should point forward on the robot
 
-import Adafruit_GPIO.I2C as Adafruit_I2C #i2c communication
-import time                     #time access and conversions
+import smbus
+import time
+import numpy as np # use numpy to build the angles array
+
+bus=smbus.SMBus(1)
 
 def RotationMatrix(degrees):   #build a 2d rotation matrix
     theta = np.radians(degrees)
@@ -16,8 +19,8 @@ def RotationMatrix(degrees):   #build a 2d rotation matrix
 
 def read_xyz(i2c):  #get the values from the compass
     try:
-        i2c.write8(0x02,0x01) # request values from compass
-        a = i2c.readList(0x03,6)  # store values
+        bus.write_byte_data(I2Ccompass, 0x02, 0x01) # request values from compass
+        a = bus.read_i2c_block_data(i2c, 0x03, 6)  # store values
         # for x and y, use offset and scaling to center on zero and give range of [-1,1]
         x_init = (np.int16((a[0] << 8) | a[1])/274) - 0.113
         y_init = (np.int16((a[4] << 8) | a[5])/330) + 0.185
@@ -35,12 +38,11 @@ def read_xyz(i2c):  #get the values from the compass
         x,y,z = 0,0,0
     return [x,y,z]
 
-# --- initiliaze compass
-I2Ccompass = Adafruit_I2C.Device(0x30,1)    #   For Pmod CMPS2: 3-Axis Compass Address: 0x30
-#I2Ccompass = Adafruit_I2C.Device(0x1e,1)    #   For Pmod CMPS: 3-axis Digital Compass: 0x1e
+# --- define compass address
+I2Ccompass = 0x1e
 
-I2Ccompass.write8(0x00,0x70)
-I2Ccompass.write8(0x02,0x01)
+bus.write_byte_data(I2Ccompass, 0x00, 0x70)
+bus.write_byte_data(I2Ccompass, 0x02, 0x01)
 
 while 1:
 
