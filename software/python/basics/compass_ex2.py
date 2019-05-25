@@ -49,5 +49,6 @@ while 1:
 ## --- reading the compass angle
     #heading = sc.get_heading(I2Ccompass)  #get the compass heading
     compass = read_xyz(I2Ccompass) #grabs 3 axes, x points forward
+
     print("compass[0]: ", compass[0], ", compass[1]: ", compass[1]) # x axis
     time.sleep(0.5) #pause for 500ms
