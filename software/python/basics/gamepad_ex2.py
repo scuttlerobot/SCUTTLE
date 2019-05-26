@@ -46,7 +46,7 @@ def getGP():  #function for reading the game pad
         B10 = joystick.get_button( 10 ) # left thumb press
         B11 = joystick.get_button( 11 ) # right thumb press
 
-        print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
+        # print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
         axes = np.array([axis_0, axis_1, axis_2, axis_3]) # store all axes in an array
         buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11]) # store all buttons in array
         gp_data = np.hstack((axes, buttons)) # this array will have 15 elements
