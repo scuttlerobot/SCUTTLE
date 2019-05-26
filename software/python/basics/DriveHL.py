@@ -1,6 +1,11 @@
-# this program demonstrates importing of other python files and
-# calling functions from child files.
-# last updated 2019.05.23
+# this program currently features:
+# importing of other our 'basic' python files and calling functions from those
+# performing multithreading with two loops (loop_speak and loop_drive)
+# a crude but simplified mapping of the gamepad axes 0 and 1 to the driving.
+# reciting strings upon button presses (a,x,b on gamepad)
+# generate_duty is intended to be replaced by a kinematics program PLUS pid controller program.
+
+# last significant update: 2019.05.24
 
 import motors_ex2 as m #module calculates PWM commands
 import encoder_ex2 as enc # for encoders
