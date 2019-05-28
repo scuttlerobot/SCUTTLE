@@ -24,7 +24,7 @@ def say(s):
     # can move on without having to wait for the text to speech to complete
     # "festival" will die in the background once it is done.
 
-
+# UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
 # while 1:
 #     text = input("Enter text:")
 #     say(text)
