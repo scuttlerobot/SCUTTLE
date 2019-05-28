@@ -1,4 +1,8 @@
-# Please run "sudo apt-get install festival"
+# text2speech_ex2.py takes a message "s" and sends it as a voice to the audio output.
+# Please run "sudo apt-get install festival" before running this program.
+# Next, run the command: 'sudo amixer cset numid=1 100%'
+# this will raise the volume of your Pi audio output to 100%
+# designed for Pi setup.
 
 import os
 
