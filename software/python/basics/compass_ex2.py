@@ -1,4 +1,4 @@
-# compass_ex1.py
+# compass_ex2.py
 
 # a simple tool to read and print the compass x and y values from the beaglebone onboard imu
 # NOTE: This program does not calibrate your compass.
