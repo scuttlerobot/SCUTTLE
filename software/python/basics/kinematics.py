@@ -5,7 +5,7 @@ import encoder_ex2 as enc # local library for encoders
 import numpy as np			 # library for math operations
 import time					 # library for time access
 
-# --- david M speed calc-----
+# --- speed calculation variables-----
 degL0 = 0
 degL1 = 0
 travL = 0
@@ -61,7 +61,7 @@ while 1:
     distL = distL + travL  #distance in total since boot
     wsl0 = whlSpdL #store the previous value for averaging
     whlSpdL = travL/deltaT  #current speed
-    wsla = (wsl0 + whlSpdL)/2 #wheel-speed-left-averaged
+    wsla = (wsl0 + whlSpdL)/2 #wheel-speed-left-averaged (m/s)
 
     # calculate the delta on Right wheel
     degR1 = round(encoderR,2)  # reading in degrees
@@ -83,7 +83,7 @@ while 1:
     distR = distR + travR  #distance in total since boot
     wsr0 = whlSpdR #store the previous value for averaging
     whlSpdR = travR/deltaT  #current speed
-    wsra = (wsr0 + whlSpdR)/2 #wheel-speed-right-averaged
+    wsra = (wsr0 + whlSpdR)/2 #wheel-speed-right-averaged (m/s)
 
     # calculate speed of wheelbase center
     travs = ([travL, travR])
