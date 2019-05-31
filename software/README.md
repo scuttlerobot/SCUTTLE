@@ -103,6 +103,20 @@ git clone http://www.github.com/MXET/SCUTTLE
   ```
   This will copy all of the contents of SCUTTLE repo into a folder called SCUTTLE in the working directory.
   
+**github - push updates from local to online repository**
+  ```
+git add -A
+git commit # then make brief comment on your update
+git push # then provide credentials as needed
+  ```
+  This will push the updates from your local device back to the online repo.
+
+**github - pull updates from online to local repository**
+  ```
+git pull
+  ```
+  This will pull updates from online.  If it has conflicts and you want to force it, follow the steps in [this link](https://learn.adafruit.com/an-introduction-to-collaborating-with-version-control/https-credential-caching-and-ssh-keys).
+  
 ## Windows Cheat Sheet:
 **find out the IP address of a connected device**
 Press the windows key, type "cmd" then ENTER.  In the command prompt, type ipconfig.  If you are connected to your linux device that is in access-point mode with your wireless wifi adapter, look at Wireless LAN section and the Default Gateway is the IP address of your linux device.
@@ -115,7 +129,7 @@ Wireless LAN adapter Wi-Fi:
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
    Default Gateway . . . . . . . . . : 192.168.50.1
 ```
-   
+
 ## Beaglebone Blue Cheat Sheet:
 
 **Instructions to connect to SSH using putty:**
