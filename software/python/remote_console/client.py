@@ -1,13 +1,10 @@
 import math
 import socket
-import numpy as np
-import matplotlib
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+import json
 
 class network:
 
-    ip = "192.168.1.1"
+    ip = "localhost"
     port = 9999
 
 try:
@@ -20,14 +17,14 @@ except socket.error:
     print("Oops, something went wrong connecting the server!")
     exit()
 
-def get(items)
+def get(items):
 
     try:
 
-        message = items.encode()
+        message = json.dumps(items).encode()
         socket.sendto(message, (network.ip, network.port))
         data, ip = socket.recvfrom(4000)
-        data = data.split()
+        data = json.loads(data)
 
     except:
 
@@ -36,3 +33,7 @@ def get(items)
         pass
 
     return data
+
+items = ["a","b","c"]
+items = get(items)
+print(items)
