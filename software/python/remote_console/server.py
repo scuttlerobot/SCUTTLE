@@ -10,40 +10,40 @@ socket.bind(("localhost", port))
 
 print("Server running!")
 
-# while 1:
+while 1:
 
-data = {
-  "a": 1,
-  "b": 2,
-  "c": 3
-}
+    data = {
+      "a": 1,
+      "b": 2,
+      "c": 3
+    }
 
-try:
+    try:
 
-    request, ip = socket.recvfrom(1024)
-    request = json.loads(request)
+        request, ip = socket.recvfrom(1024)
+        request = json.loads(request)
 
-    print("got data: ",request)
+        print("got data: ",request)
 
-    packet = []
+        packet = []
 
-    for item in request:
+        for item in request:
 
-        if item in data:
+            if item in data:
 
-            packet.append(data[item])
+                packet.append(data[item])
 
-        elif item not in data:
+            elif item not in data:
 
-            packet.append(None)
+                packet.append(None)
 
-    print(packet)
+        print(packet)
 
-    packet = json.dumps(packet)
+        packet = json.dumps(packet)
 
-    socket.sendto(packet.encode(), ip)
+        socket.sendto(packet.encode(), ip)
 
-except:
+    except:
 
-    socket.sendto(packet.encode(), ip)
-    pass
+        socket.sendto(packet.encode(), ip)
+        pass

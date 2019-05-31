@@ -1,7 +1,7 @@
 # This program sends data from beaglebone sensors to the mydevices.com IOT broker, Cayenne.
-# The values are accelerometer (3 axes), gyroscope (3 axes), magnetometer (3 axes), 
-# voltage at the barrell plug DC jack, voltage at the JST LiPo Battery connector, and 
-# temperature of the imu chip.  
+# The values are accelerometer (3 axes), gyroscope (3 axes), magnetometer (3 axes),
+# voltage at the barrell plug DC jack, voltage at the JST LiPo Battery connector, and
+# temperature of the imu chip.
 #
 # To run the program, you need to create a Cayenne account and enter your credentials
 # for username, password, and client ID.
