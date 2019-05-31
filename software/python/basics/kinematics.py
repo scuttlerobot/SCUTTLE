@@ -24,7 +24,7 @@ cgSpeedPrev = 0
 cgSpeed = 0
 theta = 0
 
-# --- encoders
+# --- encoders variable 
 PreviousEncoderL=0
 PreviousEncoder1 = 0
 t0 = time.time()
