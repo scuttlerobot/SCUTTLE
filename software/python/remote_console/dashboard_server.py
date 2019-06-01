@@ -5,6 +5,8 @@ import json
 port = 9999
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+# socket = sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 # socket.bind(("", port))
 socket.bind(("localhost", port))
 
@@ -45,5 +47,4 @@ while 1:
 
     except:
 
-        socket.sendto(packet.encode(), ip)
         pass
