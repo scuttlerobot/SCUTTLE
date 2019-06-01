@@ -30,7 +30,7 @@ def populate_gp():
 
     # assign axes from gamepad to requested velocities
     x_dot = -1*axes[1] # assign forward axis, inverted
-    theta_dot = -1*axes[0] # assign L/R axis, inverted
+    theta_dot = 1*axes[0] # assign L/R axis, non inverted
     B_raw = np.array([x_dot, theta_dot]) # form the B matrix
     B = map_speeds(B_raw) # re map the values to within max achievable speeds
     return(B)
@@ -40,6 +40,19 @@ def populate_gp():
 def get_phis():
     B = populate_gp()
     C = np.matmul(A, B)
+    return(C)
+
+#create a function that can convert an obstacle into an influence on theta dot
+def phi_influence(yValue):
+    limit = 0.30 # meters to limit influence
+    if (yValue < limit and yValue > 0):
+        theta_influence = max_td*0.7*(limit - yValue) #give theta push only if object is near
+    elif (yValue > -limit and yValue < 0):
+        theta_influence = -1*max_td*0.7*(limit - yValue) #give theta push only if object is near
+    else:
+        theta_influence = 0
+    B = np.array([0,theta_influence])
+    C = np.matmul(A,B)
     return(C)
 
 # UNCOMMENT THE CODE BELOW TO RUN AS A STANDALONE PROGRAM
