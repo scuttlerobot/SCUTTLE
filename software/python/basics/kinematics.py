@@ -54,6 +54,7 @@ def getMotion():
     C = np.round(C,decimals=3)  # round the matrix
     return(C) # returns a matrix containing thetaDot & xDot
 
-while 1:
-    C = getMotion()
-    print("thetadot,xdot", C)
+# UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
+# while 1:
+#     C = getMotion()
+#     print("thetadot,xdot", C)
