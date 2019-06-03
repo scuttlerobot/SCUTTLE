@@ -54,7 +54,7 @@ def phi_influence(yValue):
     B = np.array([0,theta_influence])
     C = np.matmul(A,B)
     return(C)
-
+    
 # UNCOMMENT THE CODE BELOW TO RUN AS A STANDALONE PROGRAM
 # while(1):
 #     x_dot = 1 #meters per second
