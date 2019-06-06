@@ -8,19 +8,25 @@ import time					 # library for time access
 #define kinematics
 R = 0.041 # radius in meters
 L = 0.201 # half of wheelbase meters
+gap = 130 # degress specified as limit for rollover
+
 A = np.array([[-R/2*L, R/2*L],[R/2, R/2]])
-deltaT = 0.10
+deltaT = 0.04
+
+# create a class to store global info on movements
+class wheels:
+    latest_speeds = np.zeros(2, )
 
 def grab_travel(degL0,degL1): # calculate the delta on Left wheel
     travL = 0
     if(abs(abs(degL1) - abs(degL0)) < 1 ):
     	travL = 0 #ignore tiny movements
-    elif(abs(abs(degL1) - abs(degL0)) < 100 ): # if movement is small (no rollover)
+    elif(abs(abs(degL1) - abs(degL0)) < gap ): # if movement is small (no rollover)
     	if(degL1 > degL0 + 2): travL = (degL1 - degL0) # if movement is positive
     	elif(degL0 > degL1 + 2): travL = (degL1 - degL0) # if movement is negative
-    elif(degL0 - degL1 > 100):
+    elif(degL0 - degL1 > gap):
     	travL = ((degL1 + 360.0) - degL0) # if movement is large (rollover)
-    elif(degL1 - degL0 > 100):
+    elif(degL1 - degL0 > gap):
     	travL = (degL1 - (degL0 + 360.0)) # reverse and large (rollover)
     return(travL)
 
@@ -40,12 +46,15 @@ def getPhiDots():
     travR = grab_travel(degR0,degR1) #grabs travel of right wheel in radians
     degR0 = degR1 # setup for next loop
 
-    # calculate speed of wheelbase center
+    # build an array of wheel speeds in rad/s
     travs = np.array([travL, travR])
+    travs = travs * 0.5 # pulley ratio = 0.5 wheel turns per pulley turn
+    travs = travs * np.pi / 180 # convert degrees to radians
     travs = np.round(travs,decimals=3) # round the array
     #print("travels:", travs)
     speeds = travs / deltaT
     speeds = np.round(speeds, decimals=3)
+    wheels.latest_speeds = speeds #store the updated most recent speeds to the class variable
     return(speeds)
 
 def getMotion():
