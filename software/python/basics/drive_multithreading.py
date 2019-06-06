@@ -19,10 +19,10 @@ axes = np.zeros(16) #number of elements returned by gamepad
 
 def loop_speak( ID ):
     while(1):
-        myStringA = "hello everybody, I am scuttle robot"
-        myStringX = "do you smell what the rock is cooking?"
+        myStringA = "I am scuttle robot"
+        myStringX = "the future of meka tronics"
         myStringB = "Special delivery"
-        myStringY = "gig em aggieees"
+        myStringY = "gig em aggies"
         signals = gp.getGP()
         if signals[6]==1: # A button is pressed
             t2s.say(myStringA)
@@ -40,21 +40,26 @@ def loop_drive( ID ):
             phis = inv.get_phis() # populates target phi dots, targets
             #print("phi dot left:", phis[0])
 
-            d = repel.nearest_point() #returns the distance and the y-value of nearest obstacle
-            print("nearest point:", d)
-            phi_influence = inv.phi_influence(d[1]) #send the y-value of nearest point to this fcn.
-            phis = phis + phi_influence #combine the obstacle influence with phis
-            
+            #d = repel.nearest_point() #returns the distance and the y-value of nearest obstacle
+            #print("nearest point:", d)
+            #phi_influence = inv.phi_influence(d[1]) #send the y-value of nearest point to this fcn.
+            #phis = phis + phi_influence #combine the obstacle influence with phis
+            # if d[0] < 0.13: #if the nearest obstacle less than 10cm
+            #     t2s.say("NO")
+
             #call the speed control system to action:
             sc.driveOpenLoop(phis[0],phis[1])
+            print("latest speeds:", kin.wheels.latest_speeds)
             time.sleep(0.1)
             motion = kin.getMotion() # populate thetaDot & xDot
             #print("thetadot,xdot", motion)
 
 def loop_scan( ID ):
     while(1):
-            # d = repel.nearest_point() #returns the distance and the y-value of nearest obstacle
-            # print("nearest point:", d)
+            d = repel.nearest_point() #returns the distance and the y-value of nearest obstacle
+            #print("nearest point:", d)
+            if d[0] < 0.15: #if the nearest obstacle less than 10cm
+                    t2s.say("NO")
             time.sleep(0.1)
 
 def main():
