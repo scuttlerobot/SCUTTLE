@@ -21,7 +21,7 @@ while 1:
     try:
 
         request, ip = socket.recvfrom(1024)
-        request = json.loads(request)
+        request = json.loads(request.decode('utf-8'))
 
         print("got data: ",request)
 
@@ -44,5 +44,5 @@ while 1:
         socket.sendto(packet.encode(), ip)
 
     except KeyboardInterrupt:
-        
+
         exit()
