@@ -6,7 +6,7 @@ port = 9999
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-socket.bind(("localhost", port))
+socket.bind(("192.168.50.1", port))
 
 print("Server running!")
 

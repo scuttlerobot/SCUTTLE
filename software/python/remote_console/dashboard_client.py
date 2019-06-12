@@ -5,7 +5,7 @@ import time
 
 class network:
 
-    ip = "localhost"
+    ip = "192.168.50.1"
     port = 9999
 
 try:
