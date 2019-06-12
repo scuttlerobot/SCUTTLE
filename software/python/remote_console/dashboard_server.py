@@ -44,5 +44,5 @@ while 1:
         socket.sendto(packet.encode(), ip)
 
     except KeyboardInterrupt:
-    # Catch Ctrl-C
+        
         exit()
