@@ -34,8 +34,9 @@ def read():
 
 # UNCOMMENT THIS SECTION TO USE ENCODER_EX2.PY AS A STANDALONE PROGRAM
 # ------------------------------------------------------------------------------
-# while 1:
-#     encValues = read() # read the values.  Reading will only change if you move the motors
-#     # round the values and print them separated by a tab
-#     print("Left: ",round(encValues[0],3),"\t","Right: ",round(encValues[1],3))
-#     time.sleep(0.1)
+while 1:
+     encValues = read() # read the values.  Reading will only change if you move the motors
+     # round the values and print them separated by a tab
+     print("Left: ",round(encValues[0],3),"\t","Right: ",round(encValues[1],3))
+
+     time.sleep(0.1)
