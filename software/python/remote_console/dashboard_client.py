@@ -6,7 +6,7 @@ import time
 class network:
 
     ip = "192.168.50.1"
-    port = 9999
+    port = 2442
 
 try:
 
