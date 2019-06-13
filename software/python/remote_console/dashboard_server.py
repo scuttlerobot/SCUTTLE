@@ -1,12 +1,14 @@
 import socket
 import time
 import json
+import sys
 
+ip = "192.168.50.1"
 port = 9999
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-socket.bind(("192.168.50.1", port))
+socket.bind((ip, port))
 
 print("Server running!")
 
@@ -21,9 +23,8 @@ while 1:
     try:
 
         request, ip = socket.recvfrom(1024)
-        request = json.loads(request.decode('utf-8'))
 
-        print("got data: ",request)
+        request = json.loads(request.decode('utf-8'))
 
         packet = []
 
@@ -37,12 +38,17 @@ while 1:
 
                 packet.append(None)
 
-        print(packet)
-
         packet = json.dumps(packet)
 
         socket.sendto(packet.encode(), ip)
 
-    except KeyboardInterrupt:
+    except Exception as e:
 
-        exit()
+        if e == "KeyboardInterrupt":
+
+            print("Exiting!")
+            exit()
+
+        else:
+
+            print(e)
