@@ -28,21 +28,18 @@ def get(items):
         network.port))
         data, ip = socket.recvfrom(4000)
         data = json.loads(data)
+        data = dict(zip(items, data))
+        return data
 
-    except:
+    except Exception as e:
 
+        print(e)
         return 1
 
-        pass
 
-    return data
-
-items = ["a","b","c"]
+items = ['a','b','c']
 
 while 1:
 
     data = get(items)
-
-    print(data)
-
-    time.sleep(0.05)
+    print(data['a'],data['b'],data['c'])
