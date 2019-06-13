@@ -4,7 +4,7 @@ import json
 import sys
 
 ip = "192.168.50.1"
-port = 9999
+port = 2442
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
