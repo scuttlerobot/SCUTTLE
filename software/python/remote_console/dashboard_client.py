@@ -11,7 +11,7 @@ class network:
 try:
 
     socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    socket.settimeout(0.1)
+    socket.settimeout(0.2)
 
 except socket.error:
 
@@ -35,7 +35,6 @@ def get(items):
 
         print(e)
         return 1
-
 
 items = ['a','b','c']
 
