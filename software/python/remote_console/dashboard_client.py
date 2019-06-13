@@ -1,44 +1,48 @@
 import math
-import socket
 import json
 import time
+import socket
 
-class network:
+class network:              # Holds IP and port as global variables
 
-    ip = "192.168.50.1"
-    port = 2442
+    ip = "192.168.50.1"     # SCUTTLE IP
+    port = 2442             # SCUTTLE server port
 
 try:
 
-    socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    socket.settimeout(0.2)
-
+    socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)   # Setup UDP Communication
+    socket.settimeout(0.2)                                      # If response from server takes longer than
+                                                                # time in seconds, move on.
 except socket.error:
 
-    print("Oops, something went wrong connecting the server!")
-
+    print("Oops, something went wrong connecting the server!")  # If cannot connect, stop program.
     exit()
 
 def get(items):
 
     try:
 
-        message = json.dumps(items).encode('utf-8')
-        socket.sendto(message, (network.ip,
-        network.port))
-        data, ip = socket.recvfrom(4000)
-        data = json.loads(data)
-        data = dict(zip(items, data))
-        return data
+        message = json.dumps(items).encode('utf-8')         # Take requested data and convert to bytes
+        socket.sendto(message, (network.ip,network.port))   # Send data to server
+        data, ip = socket.recvfrom(4000)                    # Wait for response, create 4000 byte buffer to store response.
+        data = json.loads(data)                             # Take response and convert from bytes to string
+        data = dict(zip(items, data))                       # Combine request list with respose list to create dictionary
+        return data                                         # Return data
 
     except Exception as e:
 
         print(e)
         return 1
 
-items = ['a','b','c']
+print("SCUTTLE IP:", network.ip)
 
-while 1:
+items = ['a','b','c']   # Construct request of data you want from server
 
-    data = get(items)
-    print(data['a'],data['b'],data['c'])
+while 1:    # Infinite loop
+
+    data = get(items)   # Call function to request data from server
+
+    if data != 1:       # If data is not equal to 1 (error code from get() function)
+        print(data)     # print whole dictionary
+    else:
+        pass            # Else, ignore unsuccessful request fro data.
