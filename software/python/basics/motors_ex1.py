@@ -11,10 +11,10 @@ rcpy.set_state(rcpy.RUNNING)
 
 #channel refers to left(0) or right(1)
 def MotorL(speed):
-    motor.set(motor_l, duty_l)
+    motor.set(motor_l, speed)
     
 def MotorR(speed):
-    motor.set(motor_r, duty_r)
+    motor.set(motor_r, speed)
 
 # Uncomment this section to run this program as a standalone loop
 while rcpy.get_state() != rcpy.EXITING:
