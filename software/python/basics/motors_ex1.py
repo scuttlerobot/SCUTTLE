@@ -23,7 +23,7 @@ while rcpy.get_state() != rcpy.EXITING:
 
         MotorL(0.5)  # gentle speed for testing program. 0.3 PWM may not spin wheels.
         MotorR(0.5)
-        time.sleep(2) # run fwd for 2 seconds
+        time.sleep(4) # run fwd for 4 seconds
         MotorL(-0.5)
         MotorR(-0.5) 
         time.sleep(2) # run reverse for 2 seconds
