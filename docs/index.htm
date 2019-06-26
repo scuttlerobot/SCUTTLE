@@ -676,7 +676,7 @@ target="index_files/props002.xml">
 @font-face
 	{font-family:"MS Mincho";
 	panose-1:2 2 6 9 4 2 5 8 3 4;
-	mso-font-alt:"Yu Gothic UI";
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
 	mso-font-charset:128;
 	mso-generic-font-family:modern;
 	mso-font-pitch:fixed;
@@ -692,10 +692,10 @@ target="index_files/props002.xml">
 @font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;
-	mso-font-charset:0;
+	mso-font-charset:1;
 	mso-generic-font-family:roman;
 	mso-font-pitch:variable;
-	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+	mso-font-signature:0 0 0 0 0 0;}
 @font-face
 	{font-family:"Segoe UI";
 	panose-1:2 11 5 2 4 2 4 2 2 3;
@@ -5112,7 +5112,12 @@ span.QuoteemphasisChar
 	mso-header-margin:.2in;
 	mso-footer-margin:.5in;
 	mso-page-numbers:1;
+	mso-even-header:url("index_files/header.htm") eh1;
+	mso-header:url("index_files/header.htm") h1;
+	mso-even-footer:url("index_files/header.htm") ef1;
 	mso-footer:url("index_files/header.htm") f1;
+	mso-first-header:url("index_files/header.htm") fh1;
+	mso-first-footer:url("index_files/header.htm") ff1;
 	mso-paper-source:0;}
 div.WordSection1
 	{page:WordSection1;}
@@ -58318,8 +58323,8 @@ Software Architecture</p>
 <p class=MsoNormal>The <em>blocks in yellow</em> are inputs to the system, and
 the items in orange are outputs or actuators. The level-2 <em>blocks in teal</em>
 are specific to the hardware platform (beagle, pi, etc) and perform
-communication with the low level devices. The <em>blocks above level 2</em> are
-non-hardware specific.</p>
+communication with the low level devices.<span style='mso-spacerun:yes'> 
+</span>The <em>blocks above level 2</em> are non-hardware specific.</p>
 
 <p class=MsoNormal>Each block aside from sensors and actuators represent an
 individual python program. The purple text indicates what important information
@@ -58454,8 +58459,9 @@ components, their configuration, and links to datasheets.</p>
 
 <p class=MsoNormal>The latest <a
 href="https://github.com/MXET/SCUTTLE/blob/master/hardware/Wiring%20Graphics%20Rev2019.02.06.pdf">Wiring
-Diagram PDF</a> is hosted on the SCUTTLE github. This document shows how each
-sensor/actuator is connected on the robot.</p>
+Diagram PDF</a> is hosted on the SCUTTLE github.<span
+style='mso-spacerun:yes'>   </span>This document shows how each sensor/actuator
+is connected on the robot.</p>
 
 <h2><a name="_Toc1632091">BeagleBone Blue</a></h2>
 
@@ -58551,9 +58557,9 @@ href="https://www.nxp.com/docs/en/data-sheet/MC33886.pdf">Datasheet</a></p>
 
 <p class=MsoNormal>The ultrasonic sensor is an optional item to support
 autonomous driving and obstacle avoidance. There are versions of this board
-which require 5v (more common) or only 3.3v (less common). If your board
-requires 5.0v then power will need to be drawn directly from the power port on
-the beaglebone.</p>
+which require 5v (more common) or only 3.3v (less common).<span
+style='mso-spacerun:yes'>  </span>If your board requires 5.0v then power will
+need to be drawn directly from the power port on the beaglebone.</p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
 style='mso-no-proof:yes'><v:shape id="Picture_x0020_56" o:spid="_x0000_i1034"
@@ -58586,15 +58592,16 @@ one at each motor pulley. Some details about the encoders:</p>
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;mso-list:l11 level1 lfo45'><![if !supportLists]><span
 style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
 Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>They are actually angular position sensors. They
-return a degrees value from 0 to 360.</p>
+</span></span></span><![endif]>They are actually angular position sensors.<span
+style='mso-spacerun:yes'>  </span>They return a degrees value from 0 to 360.</p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l11 level1 lfo45'><![if !supportLists]><span
 style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
 Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>This sensor communicates over I2C. The left-hand
-encoder is addressed as 0x40 and the Right-hand encoder is addressed as 0x41,
-with the pullup wire connected to the A1 contact.</p>
+</span></span></span><![endif]>This sensor communicates over I2C.<span
+style='mso-spacerun:yes'>  </span>The left-hand encoder is addressed as 0x40
+and the Right-hand encoder is addressed as 0x41, with the pullup wire connected
+to the A1 contact.</p>
 
 <p class=MsoListParagraphCxSpLast style='text-indent:-.25in;mso-list:l11 level1 lfo45'><![if !supportLists]><span
 style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
@@ -58603,14 +58610,14 @@ Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"
 and the software must adjust for 1:2 wheel:motor turn ratio</p>
 
 <p class=MsoNormal>There is one standardized encoder bracket used for right and
-left, but different mounting holes are used. as shown in <!--[if supportFields]><span
-style='mso-element:field-begin'></span><span
+left, but different mounting holes are used.<span style='mso-spacerun:yes'> 
+</span>as shown in <!--[if supportFields]><span style='mso-element:field-begin'></span><span
 style='mso-spacerun:yes'> </span>REF _Ref534184316 \h <span style='mso-element:
 field-separator'></span><![endif]-->Figure <span style='mso-no-proof:yes'>20</span><!--[if gte mso 9]><xml>
  <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F005200650066003500330034003100380034003300310036000000</w:data>
-</xml><![endif]--><!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->.
-The proper mounting holes make the sensor centered over the magnet which mounts
-to the end of the motor output shaft.</p>
+</xml><![endif]--><!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->.<span
+style='mso-spacerun:yes'>  </span>The proper mounting holes make the sensor
+centered over the magnet which mounts to the end of the motor output shaft.</p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
 style='mso-no-proof:yes'><v:shape id="Picture_x0020_26" o:spid="_x0000_i1033"
@@ -58643,10 +58650,11 @@ href="https://www.mouser.com/ds/2/588/AS5048_DS000298_3-00-522570.pdf">Datasheet
 <p class=MsoNormal>The battery pack is a 3-cell lithium ion pack with a nominal
 voltage of 11.1v (3.7v per cell) combined with a few off-the-shelf parts and a
 3D printed case. The capacity is 3400 mAh (we verified!) And they have enough
-capacity to drive SCUTTLE for several hours. With additional actuators, a
-significant payload, or demanding sensors such as the SICK LIDAR, it is advised
-to add more capacity to the robot. The cells must not be drained below 2.8
-volts each to prevent damage.</p>
+capacity to drive SCUTTLE for several hours.<span style='mso-spacerun:yes'> 
+</span>With additional actuators, a significant payload, or demanding sensors
+such as the SICK LIDAR, it is advised to add more capacity to the robot.<span
+style='mso-spacerun:yes'>  </span>The cells must not be drained below 2.8 volts
+each to prevent damage.</p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
@@ -58692,9 +58700,9 @@ Cell supplemental info</a> sheet shows more on assembly.</p>
 
 <h2><a name="_Toc1632096">USB Camera</a></h2>
 
-<p class=MsoNormal>The integrated USB camera is a Microsoft LifeCam HD-3000. On
-the robot, we remove the camera’s mounting bracket and insert the camer into a
-3D printed bracket.</p>
+<p class=MsoNormal>The integrated USB camera is a Microsoft LifeCam
+HD-3000.<span style='mso-spacerun:yes'>   </span>On the robot, we remove the
+camera’s mounting bracket and insert the camer into a 3D printed bracket.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><span
 style='mso-no-proof:yes'><v:shape id="Picture_x0020_57" o:spid="_x0000_i1031"
@@ -58735,8 +58743,8 @@ field-separator'></span><![endif]-->Figure <span style='mso-no-proof:yes'>31</sp
 with a gearbox that reduces the output speed to 200 RPM.<span
 style='mso-spacerun:yes'>  </span>The shaft is offset by 7mm from the
 centerline of the motor, which helps raise the clearance of the motor housing
-from the ground in the robot chassis. Three M3x10 screws fasten the motor to
-the motor plate. </p>
+from the ground in the robot chassis.<span style='mso-spacerun:yes'>  
+</span>Three M3x10 screws fasten the motor to the motor plate. </p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
 style='mso-no-proof:yes'><v:shape id="Picture_x0020_46" o:spid="_x0000_i1030"
@@ -58756,9 +58764,10 @@ style='mso-bookmark:_Ref534192286'></span><span style='mso-element:field-end'></
 style='mso-bookmark:_Ref534192286'></span>. Driving Motors, 12v DC with gearbox</p>
 
 <p class=MsoNormal>The motor leads must be soldered to wires of 18 AWG or
-larger. The other ends of those wires connect to an Anderson Powerpole
-connector with a 15 amp crimp connector, or heavier. The powerpole connectors
-shown in <!--[if supportFields]><span style='mso-element:field-begin'></span><span
+larger.<span style='mso-spacerun:yes'>  </span>The other ends of those wires
+connect to an Anderson Powerpole connector with a 15 amp crimp connector, or
+heavier.<span style='mso-spacerun:yes'>  </span>The powerpole connectors shown
+in <!--[if supportFields]><span style='mso-element:field-begin'></span><span
 style='mso-spacerun:yes'> </span>REF _Ref534198768 \h <span style='mso-element:
 field-separator'></span><![endif]-->Figure <span style='mso-no-proof:yes'>32</span><!--[if gte mso 9]><xml>
  <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F005200650066003500330034003100390038003700360038000000</w:data>
@@ -58771,10 +58780,10 @@ and motor driver.</p>
 <h2>LIDAR (optional)</h2>
 
 <p class=MsoNormal>SCUTTLE has been enhanced with a lidar manufactured by SICK
-sensor company. This lidar performs laser-based ranging in 270 degree plane at
-0.33 degree resolution, 15 times per second! The USB interface is used to
-communicate to the microprocessor and the power is directly provided by the
-11.1v battery pack.</p>
+sensor company.<span style='mso-spacerun:yes'>   </span>This lidar performs
+laser-based ranging in 270 degree plane at 0.33 degree resolution, 15 times per
+second! The USB interface is used to communicate to the microprocessor and the
+power is directly provided by the 11.1v battery pack.</p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
 style='mso-no-proof:yes'><v:shape id="Picture_x0020_58" o:spid="_x0000_i1029"
