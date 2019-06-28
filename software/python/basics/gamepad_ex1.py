@@ -54,8 +54,8 @@ def getGP():  #function for reading the game pad
         return(gp_data)
 
 #Uncomment this section to run as a standalone program
-while 1:  #Loop until the user clicks the close button
-    # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-    myGpData = getGP() # store data from all axes to the myGpData variable
-    print("the first axis value:", myGpData[1])  # print out the first element of the data to confirm functionality
-    time.sleep(0.25)
+# while 1:  #Loop until the user clicks the close button
+#     # collect commands from the gamepad.  Run as many times as there are commands in the queue.
+#     myGpData = getGP() # store data from all axes to the myGpData variable
+#     print("the first axis value:", myGpData[1])  # print out the first element of the data to confirm functionality
+#     time.sleep(0.25)
