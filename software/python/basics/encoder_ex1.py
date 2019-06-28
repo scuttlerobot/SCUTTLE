@@ -7,7 +7,7 @@ import time
 import numpy as np
 
 
-encL = Adafruit_I2C.Device(0x40,1) # encoder i2c address
+encL = Adafruit_I2C.Device(0x42,1) # encoder i2c address
 encR  = Adafruit_I2C.Device(0x41,1) # encoder i2c address
 
 def read():
@@ -35,8 +35,8 @@ def read():
 # UNCOMMENT THIS SECTION TO USE ENCODER_EX2.PY AS A STANDALONE PROGRAM
 # ------------------------------------------------------------------------------
 # while 1:
-#     encValues = read()
-#     # round the values and print them separated by a tab
-#     print("Left: ",round(encValues[0],1),"\t","Right: ",round(encValues[1],1))
-
-#     time.sleep(0.1)
+#       encValues = read()
+# #      round the values and print them separated by a tab
+#       print("Left: ",round(encValues[0],1),"\t","Right: ",round(encValues[1],1))
+# #
+#       time.sleep(0.1)
