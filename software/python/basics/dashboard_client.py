@@ -1,5 +1,3 @@
-# client file gets data from server file and generates live updating GUI
-# This file should be run on your computer after you run the server file 
 import math
 import json
 import time
@@ -66,6 +64,7 @@ def animate(i):
 
             # phi_plot.legend()
             # phi_plot.xticks(x, ('Left', 'Right'))
+            phi_plot.axhline(0, color='black', lw=1)
 
             phi_plot.bar(x, phi_dots, label='Phi Dots', color='r')
 
