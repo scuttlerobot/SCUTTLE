@@ -2149,7 +2149,7 @@ SCUTTLE Mobile Robot Rendering</p>
 
 </div>
 
-<p class=MsoNormal>A few highlights of this open-source mobile platform </p>
+<p class=MsoNormal>A few highlights of this open-source mobile platform. Also see the " <a href="../../gui.htm"> web GUI</a> "." </p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -2248,7 +2248,7 @@ width=337 height=353 id="Picture 65" src="index_files/image008.png"></p>
 <h2>Affordable, Available, Off-The-Shelf</h2>
 
 <p class=MsoNormal>Affordability is an important target and this bot can be built
-from under $350 in parts.  After exploring the designs availble (from DIY all
+from under $350 in parts.Â  After exploring the designs availble (from DIY all
 the way to turnkey solutions) we found there was a need for this kind of robot.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img border=0
@@ -2339,7 +2339,7 @@ Designs</p>
 <p class=MsoNormal>Figure 9 Compares some qualities of holonomic and non-holonomic
 designs. In the case of a mecanum robot, there are four motors required and the
 user can directly make a command for a movement in x, y, or theta (provided
-that the software was written for it).  The SCUTTLE robot has only two
+that the software was written for it).Â  The SCUTTLE robot has only two
 controlled degrees of freedom (phi dot left and right). Only two motors are
 required and the user cannot directly request a movement in the y-direction,
 for example.</p>
@@ -2365,10 +2365,10 @@ border=0 width=669 height=266 id="Picture 62" src="index_files/image014.png"></p
 name="_Ref11828699">Figure </a>12. Controller Driving Configuration</p>
 
 <p class=MsoNormal>In the provided demo program, the EasySMX USB wireless
-controller sends commands to the robot.  The left-hand joystick outputs the
+controller sends commands to the robot.Â  The left-hand joystick outputs the
 motor-controlling axes, which correspond to an x_dot request and a theta_dot
-request as shown in Figure 11.   With this configuration, each axis actually
-effects both wheels.   When an autonomous driving program is implemented, the
+request as shown in Figure 11.Â Â  With this configuration, each axis actually
+effects both wheels.Â Â  When an autonomous driving program is implemented, the
 navigation software replaces the human driver to generate x_dot and theta_dot
 requests.</p>
 
@@ -2624,7 +2624,7 @@ Software Architecture</p>
 <p class=MsoNormal>The <em>blocks in yellow</em> are inputs to the system, and
 the items in orange are outputs or actuators. The level-2 <em>blocks in teal</em>
 are specific to the hardware platform (beagle, pi, etc) and perform
-communication with the low level devices.  The <em>blocks above level 2</em>
+communication with the low level devices.Â  The <em>blocks above level 2</em>
 are non-hardware specific.</p>
 
 <p class=MsoNormal>Each block aside from sensors and actuators represent an
@@ -2661,56 +2661,56 @@ etc)</em></p>
 <p class=MsoNormal><strong>BeagleBone Blue Integration:</strong></p>
 
 <p class=MsoListParagraphCxSpFirst style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://github.com/mcdeoliveira/rcpy">RCPY</a><em> </em>for
 communicating with MPU9250 &amp; commanding motor drivers</p>
 
 <p class=MsoListParagraphCxSpLast style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://github.com/adafruit/Adafruit_Python_GPIO">Adafruit
 GPIO</a><em> </em>for I2C Communication</p>
 
 <p class=MsoNormal><strong>Raspberry Pi integration:</strong></p>
 
 <p class=MsoListParagraphCxSpFirst style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://github.com/ansarid/pysicktim">pysicktim</a> for
 accessing LIDAR data</p>
 
 <p class=MsoListParagraphCxSpLast style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://gpiozero.readthedocs.io/en/stable/">gpiozero</a>
 for controlling GPIO pins.</p>
 
 <p class=MsoNormal><strong>Common Libraries</strong></p>
 
 <p class=MsoListParagraphCxSpFirst style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://docs.python.org/3/library/os.html">os</a> for
 making shell commands via python code.</p>
 
 <p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://docs.python.org/3/library/time.html">time</a>
 for keeping track of time</p>
 
 <p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://docs.python.org/3/library/threading.html">threading</a>
 for peforming multithreading</p>
 
 <p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://www.numpy.org/">numpy</a> for performing math
 operations</p>
 
 <p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://www.pygame.org/news">pygame</a> for accessing
 gamepad controller data</p>
 
 <p class=MsoListParagraphCxSpLast style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://github.com/myDevicesIoT/Cayenne-MQTT-Python">cayenne.client</a>
 for sending MQTT messages</p>
 
@@ -2729,13 +2729,13 @@ components, their configuration, and links to datasheets.</p>
 
 <p class=MsoNormal>The latest <a
 href="https://github.com/MXET/SCUTTLE/blob/master/hardware/Wiring%20Graphics%20Rev2019.02.06.pdf">Wiring
-Diagram PDF</a> is hosted on the SCUTTLE github.   This document shows how each
+Diagram PDF</a> is hosted on the SCUTTLE github.Â Â  This document shows how each
 sensor/actuator is connected on the robot.</p>
 
 <h2><a name="_Toc1632091">BeagleBone Blue</a></h2>
 
 <p class=MsoNormal style='page-break-after:avoid'>The beaglebone Blue has been
-fully integrated in the SCUTTLE robot.  Figure 13 shows the ports on the board.
+fully integrated in the SCUTTLE robot.Â  Figure 13 shows the ports on the board.
 </p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><a
@@ -2750,18 +2750,18 @@ name="_Ref534189071">Figure </a>14. Beaglebone Bubble Diagram</p>
 following resources:</p>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>Beaglebone Blue <a
 href="https://github.com/beagleboard/beaglebone-blue/wiki">Wiki</a></p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>Beaglebone Blue <a
 href="https://github.com/beagleboard/beaglebone-blue/blob/master/docs/BeagleBone_Blue_ShortSpec.pdf">Specification
 Sheet</a></p>
 
 <p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>Beaglebone Blue <a
 href="https://github.com/beagleboard/beaglebone-blue/blob/master/BeagleBone_Blue_sch.pdf">Schematic</a></p>
 
@@ -2786,7 +2786,7 @@ Motor Driver</p>
 <p class=MsoNormal>Resources for the motor driver are here:</p>
 
 <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
-Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>MC3386 <a
 href="https://www.nxp.com/docs/en/data-sheet/MC33886.pdf">Datasheet</a></p>
 
@@ -2794,7 +2794,7 @@ href="https://www.nxp.com/docs/en/data-sheet/MC33886.pdf">Datasheet</a></p>
 
 <p class=MsoNormal>The ultrasonic sensor is an optional item to support
 autonomous driving and obstacle avoidance. There are versions of this board
-which require 5v (more common) or only 3.3v (less common).  If your board
+which require 5v (more common) or only 3.3v (less common).Â  If your board
 requires 5.0v then power will need to be drawn directly from the power port on
 the beaglebone.</p>
 
@@ -2807,7 +2807,7 @@ alt="SainSmart HC-SR04 Ranging Detector Mod Distance Sensor (Blue)"></p>
 <p class=MsoNormal>Resources for the HC-SR04 are here:</p>
 
 <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
-Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>HC-SR04 <a
 href="https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf">Datasheet</a></p>
 
@@ -2817,36 +2817,36 @@ href="https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf">Datashee
 one at each motor pulley. Some details about the encoders:</p>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>They are actually angular position sensors.  They return a
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>They are actually angular position sensors.Â  They return a
 degrees value from 0 to 360.</p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>This sensor communicates over I2C.  The left-hand encoder is
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>This sensor communicates over I2C.Â  The left-hand encoder is
 addressed as 0x40 and the Right-hand encoder is addressed as 0x41, with the
 pullup wire connected to the A1 contact.</p>
 
 <p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>They measure the rotation of the motor pulley, and the software
 must adjust for 1:2 wheel:motor turn ratio</p>
 
 <p class=MsoNormal>There is one standardized encoder bracket used for right and
-left, but different mounting holes are used.  as shown in Figure
-20.  The proper mounting holes make the sensor centered over the magnet which
+left, but different mounting holes are used.Â  as shown in Figure
+20.Â  The proper mounting holes make the sensor centered over the magnet which
 mounts to the end of the motor output shaft.</p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
 border=0 width=364 height=190 id="Picture 26" src="index_files/image039.png"></p>
 
 <p class=MsoCaption align=center style='text-align:center'><a
-name="_Ref534184316">Figure </a>17.  Left and Right Encoder Brackets</p>
+name="_Ref534184316">Figure </a>17.Â  Left and Right Encoder Brackets</p>
 
 <p class=MsoNormal>Resources for the encoder are here:</p>
 
 <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
-Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>AMS AS5048B <a
 href="https://www.mouser.com/ds/2/588/AS5048_DS000298_3-00-522570.pdf">Datasheet</a></p>
 
@@ -2855,9 +2855,9 @@ href="https://www.mouser.com/ds/2/588/AS5048_DS000298_3-00-522570.pdf">Datasheet
 <p class=MsoNormal>The battery pack is a 3-cell lithium ion pack with a nominal
 voltage of 11.1v (3.7v per cell) combined with a few off-the-shelf parts and a
 3D printed case. The capacity is 3400 mAh (we verified!) And they have enough
-capacity to drive SCUTTLE for several hours.  With additional actuators, a
+capacity to drive SCUTTLE for several hours.Â  With additional actuators, a
 significant payload, or demanding sensors such as the SICK LIDAR, it is advised
-to add more capacity to the robot.  The cells must not be drained below 2.8
+to add more capacity to the robot.Â  The cells must not be drained below 2.8
 volts each to prevent damage.</p>
 
 <p class=MsoNormal>&nbsp;</p>
@@ -2871,18 +2871,18 @@ Battery Pack with Cover Removed</p>
 <p class=MsoNormal>Resources for the battery pack are here:</p>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span>Panasonic NCR18650B <a
 href="https://www.batteryspace.com/prod-specs/NCR18650B.pdf">datasheet</a></p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
 class=MsoHyperlink><span style='font-family:Symbol;color:windowtext;text-decoration:
-none'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+none'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span></span>Battery Cell handling and protection <a
 href="https://www.youtube.com/watch?v=fC4sgXplA3k&amp;t=2s">youtube video</a></p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a
 href="https://github.com/MXET/SCUTTLE/blob/master/docs/supplemental/Battery%20Pack%20Supplemental%20Info.pdf">Battery
 Cell supplemental info</a> sheet shows more on assembly.</p>
@@ -2891,8 +2891,8 @@ Cell supplemental info</a> sheet shows more on assembly.</p>
 
 <h2><a name="_Toc1632096">USB Camera</a></h2>
 
-<p class=MsoNormal>The integrated USB camera is a Microsoft LifeCam HD-3000.   On
-the robot, we remove the camera’s mounting bracket and insert the camer into a
+<p class=MsoNormal>The integrated USB camera is a Microsoft LifeCam HD-3000.Â Â  On
+the robot, we remove the cameraÂ’s mounting bracket and insert the camer into a
 3D printed bracket.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img border=0
@@ -2903,12 +2903,12 @@ alt="LifeCam HD-3000"></p>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
 class=MsoHyperlink><span style='font-family:Symbol;color:windowtext;text-decoration:
-none'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+none'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span></span>LifeCam HD-3000 <a
 href="https://dl2jx7zfbtwvr.cloudfront.net/specsheets/WEBC1010.pdf">datasheet</a></p>
 
 <p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a
 href="https://github.com/MXET/SCUTTLE/blob/master/docs/supplemental/USB%20Camera%20Supplemental%20Info.pdf">Camera
 Supplemental Info</a> sheet shows how to remove the flexible grip and infrared
@@ -2920,9 +2920,9 @@ filter</p>
 
 <p class=MsoNormal>Scuttle has two motors for driving the rear wheels. Each is
 a DC 12v motor (shown in Figure 31) with a gearbox that reduces the output
-speed to 200 RPM.  The shaft is offset by 7mm from the centerline of the motor,
+speed to 200 RPM.Â  The shaft is offset by 7mm from the centerline of the motor,
 which helps raise the clearance of the motor housing from the ground in the
-robot chassis.   Three M3x10 screws fasten the motor to the motor plate. </p>
+robot chassis.Â Â  Three M3x10 screws fasten the motor to the motor plate. </p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
 border=0 width=167 height=153 id="Picture 46" src="index_files/image042.jpg"></p>
@@ -2931,8 +2931,8 @@ border=0 width=167 height=153 id="Picture 46" src="index_files/image042.jpg"></p
 name="_Ref534192286">Figure </a>19. Driving Motors, 12v DC with gearbox</p>
 
 <p class=MsoNormal>The motor leads must be soldered to wires of 18 AWG or
-larger.  The other ends of those wires connect to an Anderson Powerpole
-connector with a 15 amp crimp connector, or heavier.  The powerpole connectors
+larger.Â  The other ends of those wires connect to an Anderson Powerpole
+connector with a 15 amp crimp connector, or heavier.Â  The powerpole connectors
 shown in Figure 32 are used throughout the robot to isolate the battery pack,
 beaglebone, motors, and motor driver.</p>
 
@@ -2941,7 +2941,7 @@ beaglebone, motors, and motor driver.</p>
 <h2>LIDAR (optional)</h2>
 
 <p class=MsoNormal>SCUTTLE has been enhanced with a lidar manufactured by SICK
-sensor company.   This lidar performs laser-based ranging in 270 degree plane
+sensor company.Â Â  This lidar performs laser-based ranging in 270 degree plane
 at 0.33 degree resolution, 15 times per second! The USB interface is used to
 communicate to the microprocessor and the power is directly provided by the
 11.1v battery pack.</p>
@@ -2956,18 +2956,18 @@ Sick TiM561 LIDAR unit.</p>
 <p class=MsoNormal>Resources for the LIDAR unit are here:</p>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a href="https://github.com/ansarid/pysicktim">Pysicktim</a>
 python library on github</p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a
 href="https://cdn.sick.com/media/docs/3/43/143/Operating_instructions_TiM55x_TiM56x_TiM57x_TiM58x_2D_LIDAR_SENSORS_en_IM0053143.PDF">Operating
 instructions</a> from SICK</p>
 
 <p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+style='font-family:Symbol'>Â·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><a
 href="https://cdn.sick.com/media/docs/3/33/133/Technical_information_TiM55x_TiM56x_TiM57x_TiM58x_2D_LIDAR_SENSORS_en_IM0053133.PDF">Technical
 information</a> from SICK</p>
