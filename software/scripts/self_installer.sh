@@ -3,7 +3,7 @@
 # but it works pretty good.
 
 # PLEASE REPORT ALL ISSUES TO:
-# https://github.com/dmalawey/Scuttle/issues
+# https://github.com/MXET/SCUTTLE/issues
 
 # Erase internal memory (EMMC).
   
