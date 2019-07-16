@@ -31,11 +31,11 @@ def grab_travel(degL0,degL1): # calculate the delta on Left wheel
     return(travL)
 
 def getPhiDots():
-    encoders = enc.read()           # grabs the current encoder readings in degrees
+    encoders = enc.readEncs()           # grabs the current encoder readings in degrees
     degL0 = round(encoders[0],3)    # reading in degrees.
     degR0 = round(encoders[1],3)    # reading in degrees.
     time.sleep(deltaT)              # delay specified amount
-    encoders = enc.read()           # grabs the current encoder readings in degrees
+    encoders = enc.readEncs()           # grabs the current encoder readings in degrees
     degL1 = round(encoders[0],3)    # reading in degrees.
     degR1 = round(encoders[1],3)    # reading in degrees.
 
@@ -58,7 +58,7 @@ def getPhiDots():
     return(speeds)
 
 def getMotion():
-    B = getPhiDots()             # store phidots to array B
+    B = getPhiDots()             # store phidots to array B (here still in rad/s)
     C = np.matmul(A,B)          # perform matrix multiplication
     C = np.round(C,decimals=3)  # round the matrix
     return(C) # returns a matrix containing thetaDot & xDot
@@ -67,3 +67,4 @@ def getMotion():
 # while 1:
 #     C = getMotion()
 #     print("thetadot,xdot", C)
+
