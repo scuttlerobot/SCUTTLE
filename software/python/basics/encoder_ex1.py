@@ -8,7 +8,7 @@ import numpy as np
 
 encL = Adafruit_I2C.Device(0x42,1) # encoder i2c address
 encR  = Adafruit_I2C.Device(0x41,1) # encoder i2c address
-def read(channel):
+def readEncs(channel):
     try:
         # The AS5048B encoder gives a 14 bit angular reading
         if channel == 'L':
@@ -32,7 +32,7 @@ def read(channel):
     return angle
 
 #the second function returns the encoder values that will be used in the rest of the programs
-def readEncs():
+def read():
     encLeft = round(read('L'),1)
     encRight = round(read('R'),1)
     encoders = np.array([encLeft,encRight])
