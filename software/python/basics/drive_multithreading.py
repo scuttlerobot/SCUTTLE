@@ -16,6 +16,19 @@ import kinematics as kin
 # import repel as repel
 
 axes = np.zeros(16) #number of elements returned by gamepad
+current_phis = np.zeros(2)
+
+def writeFiles(current_phis):
+    txt = open("/home/debian/SCUTTLE/phi_dot_data_L.txt", 'w+')
+    txt2 = open("/home/debian/SCUTTLE/phi_dot_data_R.txt", 'w+')
+    phi_dotL = round(current_phis[0],1)
+    phi_dotR = round(current_phis[1],1)
+    #print("Left Phi:", phi_dotL, "Right Phi:", phi_dotR)
+    txt.write(str(phi_dotL))
+    txt2.write(str(phi_dotR))
+    txt.close()
+    txt2.close()
+
 
 def loop_speak( ID ):
     while(1):
@@ -49,10 +62,13 @@ def loop_drive( ID ):
 
             #call the speed control system to action:
             sc.driveOpenLoop(phis[0],phis[1])
-            print("latest speeds:", kin.wheels.latest_speeds)
+            current_phis = kin.getPhiDots()
+            writeFiles(current_phis)
+            #print("latest speeds:", current_phis)
+
+            # print(f"target phis: {phis}  ,  current phi dots:{current_phis} ")
+            print("target phis:", phis, "current phi dots:", current_phis)
             time.sleep(0.1)
-            motion = kin.getMotion() # populate thetaDot & xDot
-            #print("thetadot,xdot", motion)
 
 def loop_scan( ID ):
     while(1):
