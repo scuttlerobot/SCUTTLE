@@ -31,11 +31,11 @@ def grab_travel(degL0,degL1): # calculate the delta on Left wheel
     return(travL)
 
 def getPhiDots():
-    encoders = enc.readEncs()           # grabs the current encoder readings in degrees
+    encoders = enc.read()           # grabs the current encoder readings in degrees
     degL0 = round(encoders[0],3)    # reading in degrees.
     degR0 = round(encoders[1],3)    # reading in degrees.
     time.sleep(deltaT)              # delay specified amount
-    encoders = enc.readEncs()           # grabs the current encoder readings in degrees
+    encoders = enc.read()           # grabs the current encoder readings in degrees
     degL1 = round(encoders[0],3)    # reading in degrees.
     degR1 = round(encoders[1],3)    # reading in degrees.
 
