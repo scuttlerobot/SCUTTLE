@@ -11,7 +11,7 @@ L = 0.201 # half of wheelbase meters
 gap = 130 # degress specified as limit for rollover
 
 A = np.array([[-R/2*L, R/2*L],[R/2, R/2]])
-wait = 0.1
+wait = 0.05
 
 # create a class to store global info on movements
 class wheels:
