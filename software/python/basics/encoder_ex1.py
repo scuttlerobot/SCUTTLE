@@ -6,7 +6,7 @@ import Adafruit_GPIO.I2C as Adafruit_I2C
 import time
 import numpy as np
 
-encL = Adafruit_I2C.Device(0x42,1) # encoder i2c address
+encL = Adafruit_I2C.Device(0x40,1) # encoder i2c address
 encR  = Adafruit_I2C.Device(0x41,1) # encoder i2c address
 def readEncs(channel):
     try:
@@ -27,21 +27,21 @@ def readEncs(channel):
         # add the x and y values to get the full measurement
         angle = x + y
     except:
-        print('Warning (I2C): Could not read encoder0')
+        print('Warning (I2C): Could not read encoder' + channel)
         angle = 0
     return angle
 
 #the second function returns the encoder values that will be used in the rest of the programs
 def read():
-    encLeft = round(read('L'),1)
-    encRight = round(read('R'),1)
+    encLeft = round(readEncs('L'),1)
+    encRight = round(readEncs('R'),1)
     encoders = np.array([encLeft,encRight])
     return encoders
 
 # UNCOMMENT THIS SECTION TO USE ENCODER_EX2.PY AS A STANDALONE PROGRAM
 # ------------------------------------------------------------------------------
 # while 1:
-#       encoders = readEncs()
+#       encoders = read()
 #       # round the values and print them
 #       print("encoders: ", encoders)
 #       time.sleep(0.1)
