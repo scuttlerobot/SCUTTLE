@@ -11,11 +11,11 @@ L = 0.201 # half of wheelbase meters
 gap = 130 # degress specified as limit for rollover
 
 A = np.array([[-R/2*L, R/2*L],[R/2, R/2]])
-wait = 0.05
+wait = 0.05 #in seconds so it would be 40 ms
 
-# create a class to store global info on movements
-class wheels:
-    latest_speeds = np.zeros(2, )
+
+# global info on movements
+#latest_speeds = np.zeros(2, )
 
 def grab_travel(degL0,degL1): # calculate the delta on Left wheel
     travL = 0
@@ -31,25 +31,19 @@ def grab_travel(degL0,degL1): # calculate the delta on Left wheel
     return(travL)
 
 def getPhiDots():
-    encoders = enc.read()           # grabs the current encoder readings in degrees
-    
-    degL0 = round(encoders[0],3)    # reading in degrees.
-    degR0 = round(encoders[1],3)    # reading in degrees.
+    global latest_speeds
+    encoders = enc.readEncs()       # grabs the current encoder readings in degrees
+
+    degL0 = round(encoders[0],1)    # reading in degrees.
+    degR0 = round(encoders[1],1)    # reading in degrees.
     t1 = time.time()                # time.time() reports in seconds
     time.sleep(wait)              # delay specified amount
-   
-    encoders = enc.read()           # grabs the current encoder readings in degrees
-    degL1 = round(encoders[0],3)    # reading in degrees.
-    degR1 = round(encoders[1],3)    # reading in degrees.
-    t2 = time.time() 
-    
+    encoders = enc.readEncs()       # grabs the current encoder readings in degrees
+    degL1 = round(encoders[0],1)    # reading in degrees.
+    degR1 = round(encoders[1],1)    # reading in degrees.
+    t2 = time.time()                # reading about .003 seconds
     deltaT = round((t2 - t1),3)
-    t3 =  1000 * (t2 - t1)          # converting to ms
-    t3 = t3 - (wait * 1000)         # subracting the input delay time between encoder readings
-    timeStr = str(round(t3,3))      # round and cast to string in 1 line necessary
-    t3_data = open("/home/debian/SCUTTLE/t3_data.txt", 'w+')
-    t3_data.write(timeStr)
-  
+
     #---- movement calculations
     travL = grab_travel(degL0,degL1) #grabs travel of left wheel in radians
     travL = -1 * travL # this wheel is inverted from the right side
@@ -65,8 +59,8 @@ def getPhiDots():
     #print("travels:", travs)
     speeds = travs / deltaT
     speeds = np.round(speeds, decimals=3)
-    wheels.latest_speeds = speeds #store the updated most recent speeds to the class variable
-    return(speeds)
+    latest_speeds = speeds #store the updated most recent speeds to the class variable
+    #return(speeds)
 
 def getMotion():
     B = getPhiDots()             # store phidots to array B (here still in rad/s)
@@ -78,4 +72,3 @@ def getMotion():
 # while 1:
 #     C = getMotion()
 #     print("thetadot,xdot", C)
-
