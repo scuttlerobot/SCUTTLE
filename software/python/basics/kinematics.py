@@ -1,4 +1,4 @@
-getTravel# This program takes the encoder values from encoders, computes wheel movement
+# This program takes the encoder values from encoders, computes wheel movement
 # and computes the movement of the wheelbase center based on SCUTTLE kinematics.
 
 import encoder_ex1 as enc # local library for encoders
