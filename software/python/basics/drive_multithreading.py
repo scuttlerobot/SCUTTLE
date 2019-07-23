@@ -20,22 +20,22 @@ import gamepad_ex1 as gp
 
 def loop_speak( ID ):
     while(1):
-        myStringA = "I am scuttle robot"
-        myStringX = "the future of meka tronics"
-        myStringB = "Special delivery"
-        myStringY = "gig em aggies"
-        signals = gp.getGP()
-        print(signals)
-        if signals[6]==1: # A button is pressed
-            print("you pressed A.")
-            t2s.say(myStringA)
-        if signals[7]==1: # x button is pressed
-            t2s.say(myStringX)
-        if signals[5]==1: # x button is pressed
-            t2s.say(myStringB)
-        if signals[4]==1: #
-            t2s.say(myStringY)
-        time.sleep(0.05)
+        # myStringA = "I am scuttle robot"
+        # myStringX = "the future of meka tronics"
+        # myStringB = "Special delivery"
+        # myStringY = "gig em aggies"
+        # signals = gp.getGP()
+        # print(signals)
+        # if signals[6]==1: # A button is pressed
+        #     print("you pressed A.")
+        #     t2s.say(myStringA)
+        # if signals[7]==1: # x button is pressed
+        #     t2s.say(myStringX)
+        # if signals[5]==1: # x button is pressed
+        #     t2s.say(myStringB)
+        # if signals[4]==1: #
+        #     t2s.say(myStringY)
+         time.sleep(0.05)
 
 def loop_drive( ID ):
     while(1):
@@ -46,7 +46,7 @@ def loop_drive( ID ):
         sc.driveOpenLoop(pdTargets[0],pdTargets[1]) #call the speed control system to action:
         #sc.driveClosdedLoop(pdTargets[0], pdCurrent[0])  # testing driveCL with left wheel
         log.writeFiles(pdCurrent)
-        print("latest speeds:", pdCurrent)
+        #print("latest speeds:", pdCurrent)
         time.sleep(0.1)
 
 def loop_scan( ID ):
