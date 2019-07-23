@@ -1,22 +1,20 @@
-# this program demonstrates importing of other python files and
+# This program demonstrates importing of other python files and
 # calling functions from child files.
 # last updated 2019.05.23
 
 # IMPORT EXTERNAL ITEMS
 import time
 import numpy as np # for handling matrices
-# import text2speech_ex2 as t2s #for speaking by aux port
+import text2speech_ex2 as t2s # for speaking by aux port
 import threading # only used for threading functions
 # # IMPORT INTERNAL ITEMS
-import encoder_ex1 as enc # for encoders
-import speed_control as sc # for generating speed commands
+import speed_control2 as sc # closed loop control. Import speed_control for open-loop
 import inverse_kinematics as inv
-import gamepad_ex1 as gp # TEMPORARILY IMPORT THIS FILE ONLY!
 import kinematics as kin
 # import repel as repel
 
 axes = np.zeros(16) #number of elements returned by gamepad
-current_phis = np.zeros(2)
+
 
 def writeFiles(current_phis):
     txt = open("/home/debian/SCUTTLE/phi_dot_data_L.txt", 'w+')
@@ -28,7 +26,6 @@ def writeFiles(current_phis):
     txt2.write(str(phi_dotR))
     txt.close()
     txt2.close()
-
 
 def loop_speak( ID ):
     while(1):
@@ -48,27 +45,53 @@ def loop_speak( ID ):
         time.sleep(0.05)
 
 def loop_drive( ID ):
+
     while(1):
+#####################################################################
+# THIS CODE IS FOR CLOSED LOOP CONTROL
+        # #get the latest target phi_dots from inverse kinematics
+        # phis = inv.get_phis() # populates target phi dots, targets
+        # #print("phi dot left and right:", phis)
+        # kin.getPhiDots()
+        # print(current_phis)
+        # writeFiles(current_phis)
+        # #print("latest speeds:", current_phis)
+        #
+        # #call the speed control system to action:
+        # sc.driveClosdedLoop(phis[0], current_phis[0])  # Currently just working with Left
+        #                               # THis is sending left target and current
+        #
+        # # print(f"target phis: {phis}  ,  current phi dots:{current_phis} ")
+        # #print("target phis:", phis, "current phi dots:", current_phis)
+        # time.sleep(0.1)
+#######################################################################
+
+
+
+#########################################################################
+# THIS CODE IS FOR OPEN LOOP control
             #get the latest target phi_dots from inverse kinematics
             phis = inv.get_phis() # populates target phi dots, targets
-            #print("phi dot left:", phis[0])
-
-            #d = repel.nearest_point() #returns the distance and the y-value of nearest obstacle
-            #print("nearest point:", d)
-            #phi_influence = inv.phi_influence(d[1]) #send the y-value of nearest point to this fcn.
-            #phis = phis + phi_influence #combine the obstacle influence with phis
-            # if d[0] < 0.13: #if the nearest obstacle less than 10cm
-            #     t2s.say("NO")
+            #print("phi dot left and right:", phis)
+            kin.getPhiDots()
+            print("This is kin.latest_speeds: ", kin.latest_speeds)
 
             #call the speed control system to action:
             sc.driveOpenLoop(phis[0],phis[1])
-            current_phis = kin.getPhiDots()
-            writeFiles(current_phis)
+            #writeFiles(current_phis)
             #print("latest speeds:", current_phis)
 
             # print(f"target phis: {phis}  ,  current phi dots:{current_phis} ")
-            print("target phis:", phis, "current phi dots:", current_phis)
+            #print("target phis:", phis, "current phi dots:", current_phis)
             time.sleep(0.1)
+################################################################################
+
+
+
+
+
+             # populate thetaDot & xDot
+            #print("thetadot, xdot", motion)
 
 def loop_scan( ID ):
     while(1):
