@@ -39,3 +39,27 @@ def driveOpenLoop(dutyl,dutyr):
     duties = openLoop(dutyl,dutyr)
     m.MotorL(duties[0])
     m.MotorR(duties[1])
+
+# def driveClosedLoop()
+
+#     #calculate the error 
+#     e = targ_phi[0] - curr_phi[0]
+#     print(targ_phi[0], ' ', curr_phi[0])
+#     time.sleep(0.5)
+#     #define e_max
+#     #e_max = 0.4 #m/s
+#     #define u_max
+#     #u_max = 1.0 #duty
+#     #calculate the kp value 
+#     #kp = u_max/e_max #This five you a Kp of 2.5
+#     #variable Kp 
+#     kp = 0.5 
+#     #multiply the k by the error to get U_poroportional 
+#     u_proportional = e * kp 
+#     #sort u_proportional equal to duty 
+#     duty = u_proportional
+#     duty = sorted([-1,duty,1])[1]
+#     #send duty to m.MotorL 
+#     m.MotorL(duty)
+#     #send 0 to m.MotorR
+#     m.MotorR(0)
