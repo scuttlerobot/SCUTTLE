@@ -21,10 +21,10 @@ def map_speeds(B): # this function will map the gamepad speeds to max values
 
 def populate_gp():
     gpData = gp.getGP() #when there is no controller input, update is empty
+    global axes
     try:                      # when update has no data, update.size DNE
         if gpData.size == 16:  # if update has data, store it to axes
             axes = gpData # now axes is a 16-element array
-            #print("gpData size :", gpData.size)
     except:
         pass
 
@@ -35,9 +35,9 @@ def populate_gp():
     B = map_speeds(B_raw) # re map the values to within max achievable speeds
     return(B)
 
-# get_inv will take the "B" matrix containing x_dot and theta_dot
-# and return the C matrix containing phi_dot (left and right)
-def get_phis():
+# phi dot targets will take the "B" matrix containing x_dot and theta_dot
+# and return the C matrix containing phi_dots (left and right)
+def getPdTargets():
     B = populate_gp()
     C = np.matmul(A, B)
     return(C)
@@ -54,7 +54,7 @@ def phi_influence(yValue):
     B = np.array([0,theta_influence])
     C = np.matmul(A,B)
     return(C)
-    
+
 # UNCOMMENT THE CODE BELOW TO RUN AS A STANDALONE PROGRAM
 # while(1):
 #     x_dot = 1 #meters per second
