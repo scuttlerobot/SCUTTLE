@@ -147,3 +147,105 @@ Wireless LAN adapter Wi-Fi:
 
 **broadcom BCM pin numbering scheme:**
 https://gpiozero.readthedocs.io/en/stable/recipes.html#pin-numbering
+
+# Linux Cheatsheet
+
+### File System Navigation and Information
+
+`ls` - **List** - List the files and folders in a directory.<br>
+`cd` - **Change Directory** - Move into a folder.<br>
+`pwd` - **Print Working Directory** - Prints your current location to the terminal.<br>
+`cp` - **Copy** - Copies a file from a location, to a location.<br>
+`mv` - **Move** - Moves a file from a location, to a location.<br>
+`touch` - **Touch** - Create a file.<br>
+`mkdir` - **Make Directory** - Make a directory with given name.<br>
+`nano` - File editor.<br>
+`cat` - **Concatenate** - Concatenate files and print file contents to the terminal.<br>
+`head` - Output the first part of files.<br>
+`tail` - Output the last part of files.<br>
+`more` - View a file and scroll through it.<br>
+`less` - View a file and scroll through it. (Consumes less resources than `more`)<br>
+`rm` - **Remove** - Remove files or directories.<br>
+`rmdir` - **Remove Directory** - Remove empty directories.<br>
+`file` - Determine file type.<br>
+
+### System and User Info
+
+`whoami` - **Who Am I?** - Print current user.<br>
+`date` - Print or set the system date and time.<br>
+`df` - Report file system disk space usage.<br>
+`which` - Locate a command.<br>
+`whereis` - Locate the binary, source, and manual page files for a command.<br>
+
+### Searching
+
+`grep` - Print lines that match patterns.<br>
+`locate` - Find files by name.<br>
+
+### Administrator
+
+`sudo` - **Superuser Do** - Execute a command as root(superuser).<br>
+`sudo su` - Switch to the root user.<br>
+
+### Modify Permissions
+
+`chown` - **Change Owner** - Change ownership of a file.<br>
+`chmod` - **Change Mode** - Change file mode bits.<br>
+
+### Network Information
+
+`ping` - Send ICMP ECHO_REQUEST to network hosts.<br>
+`ifconfig` - Configure a network interface.<br>
+`iwconfig` - Configure a wireless network interface.<br>
+`connmanctl` - **Connection Manager** - WiFi connection Utility.<br>
+
+### Web Tools
+
+`wget` - **Web Get** - Get a file from a server.<br>
+
+### Process Management and Resource Monitoring
+
+`top` - Display Linux processes.<br>
+`htop` - Interactive process viewer.<br>
+`kill` - Kill a process.<br>
+`time` - Run programs and summarize system resource usage.<br>
+
+### Installing Programs and Libraries
+
+`apt-get` - APT package handling utility.<br>
+`pip` - A tool for installing and managing Python packages.<br>
+`pip2` - A tool for installing and managing Python2 packages.<br>
+`pip3` - A tool for installing and managing Python3 packages.<br>
+
+### Running Code and Scripts
+
+`sh` - **SHell** - Command interpreter.<br>
+`bash` - **Bourne Again SHell** - Command interpreter. (More updated than `sh`)<br>
+`python` - Python interpreter (typically defaults to python2).<br>
+`python2` - Python2 interpreter.<br>
+`python3` - Python3 interpreter.<br>
+
+### USB Information
+
+`lsusb` - **List USB** - list USB devices.<br>
+
+### Script Commands
+
+`echo` - Display a line of text.<br>
+`sleep` - Sleep for a specified number of seconds.<br>
+
+### Command Help
+
+`man` - **Manual** - an interface to the on-line reference manuals.<br>
+`whatis` - **What Is** - display one-line manual page descriptions.<br>
+
+### Power
+
+`reboot` - Restart the device.<br>
+`shutdown` - Power-off the device.<br>
+
+### Other Helpful Commands
+
+`ssh` - **Secure SHell** - OpenSSH SSH client. (remote login program)<br>
+`git` - Code version control suite.<br>
+
