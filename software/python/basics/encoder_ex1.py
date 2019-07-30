@@ -17,15 +17,12 @@ def readEncs(channel):
         elif channel == "R":
             x = encR.readU16(0xFE) # capture the 8 msb's from encoder
             y = encR.readU16(0xFF) # capture the 6 lsb's from encoder
-        y = y * 0.0219  # convert y directly to degrees.
         # y can contribute 1.4 degrees to the reading at most
         # for x, perform bitwise operation to get true scaling of these bits
         x = ((x << 8) | (x >> 8)) & 0xFFFF
         x = ((x & 0xFF00) >> 2) | ( x & 0x3F)
-        # x value now ready to convert to degrees
-        x = x*0.0219
-        # add the x and y values to get the full measurement
-        angle = x + y
+        # add the x and y values to get the full measurement, scale to degrees
+        angle = 0.0219*(x + y)
     except:
         print('Warning (I2C): Could not read encoder' + channel)
         angle = 0
