@@ -10,8 +10,8 @@ R = 0.041 # wheel radius
 L = 0.201 # half of the wheelbase
 A = np.array([[1/R, L/R],[1/R, -L/R]])
 # define constraints for theta and x speeds
-max_td = 1.99 # maximum achievable theta x_dot
-max_xd = 0.4 # maximum achievable x_dot
+max_td = 1.99 # maximum achievable theta_dot (rad/s)
+max_xd = 0.4 # maximum achievable x_dot (m/s)
 
 def map_speeds(B): # this function will map the gamepad speeds to max values
     B_mapped = np.zeros(2)
@@ -40,6 +40,7 @@ def populate_gp():
 def getPdTargets():
     B = populate_gp()
     C = np.matmul(A, B)
+    C = np.round(C, decimals=3)
     return(C)
 
 #create a function that can convert an obstacle into an influence on theta dot
