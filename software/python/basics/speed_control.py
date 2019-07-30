@@ -3,12 +3,15 @@
 
 import motors_ex1 as m
 import numpy as np
+import time
+import log
 
 
 # THE FOLLOWING FUNCTION PAIR IS FOR BOTH MAPPING AND DRIVING BY THETA & # X
 # DO NOT USE THIS SECTION UNLESS INVERSE KINEMATICS IS BROKEN.
 #----------------------------------------------------------------------------
 # generate_duty is a placeholder function for the inverse kinematics program
+u_integral = 0
 def generate_duty(x_dot,theta_dot):
     # Calculate Left and Right Wheel Duty Cycles
     duty_r = ((  1 * (theta_dot)) + x_dot )
@@ -40,26 +43,58 @@ def driveOpenLoop(dutyl,dutyr):
     m.MotorL(duties[0])
     m.MotorR(duties[1])
 
-# def driveClosedLoop()
+def Deadzone(dd):
+    dd = (dd * 3)
+    return dd
 
-#     #calculate the error 
-#     e = targ_phi[0] - curr_phi[0]
-#     print(targ_phi[0], ' ', curr_phi[0])
-#     time.sleep(0.5)
-#     #define e_max
-#     #e_max = 0.4 #m/s
-#     #define u_max
-#     #u_max = 1.0 #duty
-#     #calculate the kp value 
-#     #kp = u_max/e_max #This five you a Kp of 2.5
-#     #variable Kp 
-#     kp = 0.5 
-#     #multiply the k by the error to get U_poroportional 
-#     u_proportional = e * kp 
-#     #sort u_proportional equal to duty 
-#     duty = u_proportional
-#     duty = sorted([-1,duty,1])[1]
-#     #send duty to m.MotorL 
-#     m.MotorL(duty)
-#     #send 0 to m.MotorR
-#     m.MotorR(0)
+def Nonedeadzone(dn):
+    dn = ((dn * 0.7778) + 0.2222)
+    return dn
+
+
+def driveClosedLoop(pdt, pdc,dt):
+    #print(pdt[0],'  ',pdc[0])
+    #calculate the error
+    global u_integral
+
+    e = (pdt - pdc)
+    #print("EL value",eL,'  ',"Target Speed L:",pdt[0],'  ',"Current Speed L:",pdc[0],'--------'"ER value",eR,'  ',"Target Speed L:",pdt[1],'  ',"Current Speed L:",pdc[1])
+
+    # e_max = 9.7 #r/s        #define e_max
+    # u_max = 1.0 #duty       #define u_max
+    # kp = np.round(u_max/e_max, decimals=3) #calculate the kp value  #This gives you a Kp of 2.5
+    #kp = 1.0/9.7
+    kp = 0.06 #variable Kp
+    ki = 0.1
+    #kd = 0.08
+    #multiply the k by the error to get U_poroportional
+    u_proportional = (e * kp)    #will re-define later, u is just the control signal
+    u_integral += (e * ki * dt)
+    #u_derivative += (e / dt)
+
+    #u = u_proportional
+    u = u_proportional + (ki * u_integral)
+    # u = u_proportional + (kd * u_derivative)
+    # u = u_proportional + (ki * u_integral) + (kd * u_derivative)
+
+    dutyL = u[0]  #sort u_proportional equal to duty
+    dutyR = u[1]
+    dutyL = sorted([-1,dutyL,1])[1]
+    dutyR = sorted([-1,dutyR,1])[1]
+
+    if (dutyL < 0.2):
+        pwmL = Deadzone(dutyL)
+        m.MotorL(pwmL)
+        #print(pwmL)
+    if (dutyR < 0.2):
+        pwmR = Deadzone(dutyR)
+        m.MotorR(pwmR)
+        print(pwmR)
+    if (dutyL > 0.2):
+        pwmL = Nonedeadzone(dutyL)
+        m.MotorL(pwmL)
+        #print(pwmL)
+    if (dutyR > 0.2):
+        pwmR = Nonedeadzone(dutyR)
+        m.MotorR(pwmR)
+        print(pwmR)
