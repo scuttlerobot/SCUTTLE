@@ -11,23 +11,23 @@ L = 0.201 # half of wheelbase meters
 gap = 130 # degress specified as limit for rollover
 
 A = np.array([[-R/2*L, R/2*L],[R/2, R/2]])
-wait = 0.05 #in seconds so it would be 40 ms
+wait = 0.02 # wait time between encoder measurements (s)
 
 def getTravel(degL0,degL1): # calculate the delta on Left wheel
     travL = 0
-    if(abs(abs(degL1) - abs(degL0)) < 1 ):
+    if(abs(abs(degL1) - abs(degL0)) < 0.2 ):
     	travL = 0 #ignore tiny movements
     elif(abs(abs(degL1) - abs(degL0)) < gap ): # if movement is small (no rollover)
-    	if(degL1 > degL0 + 2): travL = (degL1 - degL0) # if movement is positive
-    	elif(degL0 > degL1 + 2): travL = (degL1 - degL0) # if movement is negative
-    elif(degL0 - degL1 > gap):
+    	if(degL1 > degL0): travL = (degL1 - degL0) # if movement is positive
+    	elif(degL0 > degL1): travL = (degL1 - degL0) # if movement is negative
+    elif(degL0 - degL1 > gap): # if movement is large (has rollover)
     	travL = ((degL1 + 360.0) - degL0) # if movement is large (rollover)
     elif(degL1 - degL0 > gap):
     	travL = (degL1 - (degL0 + 360.0)) # reverse and large (rollover)
     return(travL)
 
 def getPdCurrent():
-    global pdCurrent                # make a global var for easy retrieval
+    global pdCurrents                # make a global var for easy retrieval
     encoders = enc.read()           # grabs the current encoder readings in degrees
     degL0 = round(encoders[0],1)    # reading in degrees.
     degR0 = round(encoders[1],1)    # reading in degrees.
@@ -37,6 +37,7 @@ def getPdCurrent():
     degL1 = round(encoders[0],1)    # reading in degrees.
     degR1 = round(encoders[1],1)    # reading in degrees.
     t2 = time.time()                # reading about .003 seconds
+    global deltaT
     deltaT = round((t2 - t1),3)     # new scalar dt value
 
     #---- movement calculations
@@ -53,7 +54,7 @@ def getPdCurrent():
     travs = np.round(travs,decimals=3) # round the array
     wheelSpeeds = travs / deltaT
     wheelSpeeds = np.round(wheelSpeeds, decimals=3)
-    pdCurrent = wheelSpeeds #store the updated most recent wheel speeds to the class variable
+    pdCurrents = wheelSpeeds #store the updated most recent wheel speeds to the class variable
 
 def getMotion():
     B = getPhiDots()             # store phidots to array B (here still in rad/s)
