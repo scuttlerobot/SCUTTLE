@@ -10,8 +10,9 @@ R = 0.041 # wheel radius
 L = 0.201 # half of the wheelbase
 A = np.array([[1/R, L/R],[1/R, -L/R]])
 # define constraints for theta and x speeds
-max_td = 1.99 # maximum achievable theta_dot (rad/s)
-max_xd = 0.4 # maximum achievable x_dot (m/s)
+
+max_xd = 0.4 # maximum achievable x_dot (m/s) FW  translation
+max_td = (max_xd / L) # maximum achievable theta_dot (rad/s)
 
 def map_speeds(B): # this function will map the gamepad speeds to max values
     B_mapped = np.zeros(2)
