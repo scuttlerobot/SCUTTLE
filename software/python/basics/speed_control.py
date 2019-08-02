@@ -38,8 +38,10 @@ def openLoop(pdl,pdr):
     duties[1] = sorted([-1, duties[1], 1])[1] # place bounds on duty cycle
     return duties
 
-def driveOpenLoop(dutyl,dutyr):
+def driveOpenLoop(dutyl,dutyr,pdc):
     duties = openLoop(dutyl,dutyr)
+    log.duty_speed(duties[0], pdc[0])
+    print("Left:", duties[0],"\t Right:", duties[1])
     m.MotorL(duties[0])
     m.MotorR(duties[1])
 
@@ -52,28 +54,31 @@ def Nonedeadzone(dn):
     return dn
 
 
-def driveClosedLoop(pdt, pdc,dt):
+def driveClosedLoop(pdt, pdc):
     #print(pdt[0],'  ',pdc[0])
     #calculate the error
     global u_integral
 
-    e = (pdt - pdc)
+    e1 = (pdt - pdc)
+
     #print("EL value",eL,'  ',"Target Speed L:",pdt[0],'  ',"Current Speed L:",pdc[0],'--------'"ER value",eR,'  ',"Target Speed L:",pdt[1],'  ',"Current Speed L:",pdc[1])
 
     # e_max = 9.7 #r/s        #define e_max
     # u_max = 1.0 #duty       #define u_max
     # kp = np.round(u_max/e_max, decimals=3) #calculate the kp value  #This gives you a Kp of 2.5
     #kp = 1.0/9.7
-    kp = 0.06 #variable Kp
-    ki = 0.1
+    kp = 0.07 #variable Kp
+    #original was kp = 0.06 and ki = 0.0012
+    ki = 0.011
     #kd = 0.08
     #multiply the k by the error to get U_poroportional
     u_proportional = (e * kp)    #will re-define later, u is just the control signal
-    u_integral += (e * ki * dt)
+    u_integral    += (e * ki)
     #u_derivative += (e / dt)
 
     #u = u_proportional
-    u = u_proportional + (ki * u_integral)
+    u = np.round((u_proportional + u_integral),3) # round to ensure driver handling
+
     # u = u_proportional + (kd * u_derivative)
     # u = u_proportional + (ki * u_integral) + (kd * u_derivative)
 
@@ -82,19 +87,33 @@ def driveClosedLoop(pdt, pdc,dt):
     dutyL = sorted([-1,dutyL,1])[1]
     dutyR = sorted([-1,dutyR,1])[1]
 
-    if (dutyL < 0.2):
-        pwmL = Deadzone(dutyL)
-        m.MotorL(pwmL)
-        #print(pwmL)
-    if (dutyR < 0.2):
-        pwmR = Deadzone(dutyR)
-        m.MotorR(pwmR)
-        print(pwmR)
-    if (dutyL > 0.2):
-        pwmL = Nonedeadzone(dutyL)
-        m.MotorL(pwmL)
-        #print(pwmL)
-    if (dutyR > 0.2):
-        pwmR = Nonedeadzone(dutyR)
-        m.MotorR(pwmR)
-        print(pwmR)
+    m.MotorL(round(dutyL,2))
+    m.MotorR(round(dutyR,2))
+    #print("left:", dutyL, "\t right:", dutyR)
+    # if (dutyL < 0.2):
+    #     pwmL = Deadzone(dutyL)
+    #     m.MotorL(pwmL)
+    #     print(pwmL)
+    #     #print(pwmL)
+    # if (dutyR < 0.2):
+    #     pwmR = Deadzone(dutyR)
+    #     m.MotorR(pwmR)
+    #     #print(pwmR)
+    # if (dutyL > 0.2):
+    #     pwmL = Nonedeadzone(dutyL)
+    #     m.MotorL(pwmL)
+    #     print(pwmL)
+    # if (dutyR > 0.2):
+    #     pwmR = Nonedeadzone(dutyR)
+    #     m.MotorR(pwmR)
+    #     #print(pwmR)
+    log.controlsignal(u_proportional, u_integral)
+    #log.error(pdt,pdc)
+
+
+    # m.MotorL(dutyL)     #send duty to m.MotorL
+    # m.MotorR(dutyR)     #send 0 to m.MotorR
+    #t3 = time.time()
+    #print(t3 - t2)
+    # tcal = t1 - t0
+    # tmot = t3 - t2
