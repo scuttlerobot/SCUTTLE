@@ -21,17 +21,16 @@ def readEncs(channel):
         # for x, perform bitwise operation to get true scaling of these bits
         x = ((x << 8) | (x >> 8)) & 0xFFFF
         x = ((x & 0xFF00) >> 2) | ( x & 0x3F)
-        # add the x and y values to get the full measurement, scale to degrees
-        angle = 0.0219*(x + y)
+        angle_raw = x + y  # multiplying by 0.0219 will give degrees
     except:
         print('Warning (I2C): Could not read encoder' + channel)
-        angle = 0
-    return angle
+        angle_raw = 0
+    return angle_raw
 
 #the second function returns the encoder values that will be used in the rest of the programs
 def read():
-    encLeft = round(readEncs('L'),1)
-    encRight = round(readEncs('R'),1)
+    encLeft = readEncs('L')
+    encRight = readEncs('R')
     encoders = np.array([encLeft,encRight])
     return encoders
 
@@ -39,6 +38,7 @@ def read():
 # ------------------------------------------------------------------------------
 # while 1:
 #       encoders = read()
+#       encoders = 0.0219 * encoders
 #       # round the values and print them
 #       print("encoders: ", encoders)
 #       time.sleep(0.1)
