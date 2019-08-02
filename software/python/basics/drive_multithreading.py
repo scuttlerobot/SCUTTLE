@@ -17,9 +17,6 @@ import math
 import encoder_ex1 as enc
 # import repel as repel
 
-# testing proper global var initialization within inverse kin
-#axes = np.zeros(16) #number of elements returned by gamepad
-
 def loop_speak( ID ):
     while(1):
         myStringA = "I am scuttle robot"
@@ -37,29 +34,39 @@ def loop_speak( ID ):
         if signals[4]==1: #
             t2s.say(myStringY)
         time.sleep(0.05)
-   
+
 def loop_drive( ID ):
+    
+    t0 = 0
+    t1 = 1
+    e00 = 0
+    e0 = 0
+    e1 = 0
+    dt = 0
+    de_dt = np.zeros(2) # initialize the de_dt
+    
     while(1):
-   
+
         # THIS CODE IS FOR OPEN AND CLOSED LOOP control
         pdTargets = inv.getPdTargets() # populates target phi dots from GamePad
         kin.getPdCurrent() # capture latest phi dots & update global var
         pdCurrents = kin.pdCurrents # assign the global variable value to a local var
 
-        # delete this block when done logging encoders
-        encoders = enc.read()
-        log.currentspeed(pdCurrents)
-        log.encoders(encoders)
-
         # The following block is for continuous driving
-        myThetaDot = 1.5 # target, rad/s
-        myXDot = 0.2 # target, m/sc
-        A = np.array([myXDot, myThetaDot])
-        myPhiDots = inv.convert(A)
-        sc.driveClosedLoop(pdTargets, pdCurrents)
-
-        #sc.driveOpenLoop(pdTargets[0], pdTargets[1],pdCurrents) #call the speed control system to action:
-        #sc.driveClosedLoop(pdTargets, pdCurrents,dt)  # testing driveCL with left wheel
+        # myThetaDot = 1.5 # target, rad/s
+        # myXDot = 0.2 # target, m/sc
+        # A = np.array([myXDot, myThetaDot])
+        # myPhiDots = inv.convert(A)
+        
+        t0 = t1  # assign t0
+        t1 = time.time() # generate current time
+        dt = t1 - t0 # calculate dt
+        print("dt = ", round(dt,3))
+        e00 = e0 # assign previous previous error
+        e0 = e1  # assign previous error
+        e1 = pdCurrents - pdTargets # calculate the latest error
+        de_dt = (e1 - e0) / dt # calculate derivative of error
+        sc.driveClosedLoop(pdTargets, pdCurrents, de_dt)  # call the control system
 
 def loop_scan( ID ):
     while(1):
@@ -79,7 +86,6 @@ def main():
         t.start()
         print("started thread1")
 
-
         t2 = threading.Thread( target=loop_drive, args=(2,) ) # make 2nd thread object
         threads.append(t2)
         t2.start()
@@ -90,8 +96,7 @@ def main():
         t3.start()
         print("started thread3")
 
-
-                                     #should have while loop to run 'joins' not the threaded functions
+ #should have while loop to run 'joins' not the threaded functions
         t.join()
         t2.join()
         t3.join()
