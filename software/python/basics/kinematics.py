@@ -2,29 +2,25 @@
 # and computes the movement of the wheelbase center based on SCUTTLE kinematics.
 
 import encoder_ex1 as enc # local library for encoders
-import numpy as np			 # library for math operations
-import time					 # library for time access
+import numpy as np        # library for math operations
+import time               # library for time access
 
-#define kinematics
+# define kinematics
 R = 0.041 # radius in meters
 L = 0.201 # half of wheelbase meters
-gap = 130 # degress specified as limit for rollover
+gap = int(179/0.0219) # degress specified as limit for rollover
+roll = int(360/0.0219) # variable for rollover logic
 
 A = np.array([[-R/2*L, R/2*L],[R/2, R/2]])
 wait = 0.02 # wait time between encoder measurements (s)
 
-def getTravel(degL0,degL1): # calculate the delta on Left wheel
-    travL = 0
-    if(abs(abs(degL1) - abs(degL0)) < 0.2 ):
-    	travL = 0 #ignore tiny movements
-    elif(abs(abs(degL1) - abs(degL0)) < gap ): # if movement is small (no rollover)
-    	if(degL1 > degL0): travL = (degL1 - degL0) # if movement is positive
-    	elif(degL0 > degL1): travL = (degL1 - degL0) # if movement is negative
-    elif(degL0 - degL1 > gap): # if movement is large (has rollover)
-    	travL = ((degL1 + 360.0) - degL0) # if movement is large (rollover)
-    elif(degL1 - degL0 > gap):
-    	travL = (degL1 - (degL0 + 360.0)) # reverse and large (rollover)
-    return(travL)
+def getTravel(deg0,deg1): # calculate the delta on Left wheel
+    trav = deg1 - deg0 # reset the travel reading
+    if( (-trav) >= gap): # if movement is large (has rollover)
+        trav = (deg1 - deg0 + roll) # forward rollover
+    if( trav >= gap):
+        trav = (deg1 - deg0 - roll) # reverse rollover
+    return(trav)
 
 def getPdCurrent():
     global pdCurrents                # make a global var for easy retrieval
@@ -41,16 +37,14 @@ def getPdCurrent():
     deltaT = round((t2 - t1),3)     # new scalar dt value
 
     #---- movement calculations
-    travL = getTravel(degL0,degL1) #grabs travel of left wheel in radians
+    travL = getTravel(degL0,degL1) * 0.0219 #grabs travel of left wheel, degrees
     travL = -1 * travL # this wheel is inverted from the right side
-    degL0 = degL1 # setup for next loop
-    travR = getTravel(degR0,degR1) #grabs travel of right wheel in radians
-    degR0 = degR1 # setup for next loop
+    travR = getTravel(degR0,degR1) * 0.0219 #grabs travel of right wheel, degrees
 
     # build an array of wheel speeds in rad/s
-    travs = np.array([travL, travR])
+    travs = np.array([travL, travR]) # stores the travel in degrees
     travs = travs * 0.5 # pulley ratio = 0.5 wheel turns per pulley turn
-    travs = travs * np.pi / 180 # convert degrees to radians
+    travs = travs * 3.14 / 180 # convert degrees to radians
     travs = np.round(travs,decimals=3) # round the array
     wheelSpeeds = travs / deltaT
     wheelSpeeds = np.round(wheelSpeeds, decimals=3)
@@ -60,7 +54,7 @@ def getMotion():
     B = getPhiDots()             # store phidots to array B (here still in rad/s)
     C = np.matmul(A,B)          # perform matrix multiplication
     C = np.round(C,decimals=3)  # round the matrix
-    return(C) # returns a matrix containing thetaDot & xDot
+    return(C)                   # returns a matrix containing thetaDot & xDot
 
 # UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
 # while 1:
