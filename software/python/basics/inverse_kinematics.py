@@ -36,13 +36,18 @@ def populate_gp():
     B = map_speeds(B_raw) # re map the values to within max achievable speeds
     return(B)
 
-# phi dot targets will take the "B" matrix containing x_dot and theta_dot
-# and return the C matrix containing phi_dots (left and right)
-def getPdTargets():
-    B = populate_gp()
-    C = np.matmul(A, B)
-    C = np.round(C, decimals=3)
+# convert will take the "B" matrix containing [x_dot, theta_dot]
+# and return the C matrix containing [phi_dot_L, phi_dot_R]
+def convert(B):
+    C = np.matmul(A, B)  # matrix multiplication
+    C = np.round(C, decimals=3) # round both elements in the array
     return(C)
+
+def getPdTargets():
+    B = populate_gp() # retrieves targets in [xdot, thetadot] form
+    C = convert(B) # convert the targets to [pdl, pdr] form
+    return(C)
+
 
 #create a function that can convert an obstacle into an influence on theta dot
 def phi_influence(yValue):
