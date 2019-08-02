@@ -59,7 +59,7 @@ def driveClosedLoop(pdt, pdc):
     #calculate the error
     global u_integral
 
-    e1 = (pdt - pdc)
+    e = (pdt - pdc)
 
     #print("EL value",eL,'  ',"Target Speed L:",pdt[0],'  ',"Current Speed L:",pdc[0],'--------'"ER value",eR,'  ',"Target Speed L:",pdt[1],'  ',"Current Speed L:",pdc[1])
 
