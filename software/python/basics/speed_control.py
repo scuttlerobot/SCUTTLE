@@ -111,9 +111,4 @@ def driveClosedLoop(pdt, pdc):
     #log.error(pdt,pdc)
 
 
-    # m.MotorL(dutyL)     #send duty to m.MotorL
-    # m.MotorR(dutyR)     #send 0 to m.MotorR
-    #t3 = time.time()
-    #print(t3 - t2)
-    # tcal = t1 - t0
-    # tmot = t3 - t2
+    
