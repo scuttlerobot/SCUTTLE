@@ -1,4 +1,5 @@
-
+# This file receives data from a server program and can be used to receive telemetry. 
+# The client runs on a local pc.
 
 import math
 import json
