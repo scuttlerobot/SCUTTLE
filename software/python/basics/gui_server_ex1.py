@@ -1,4 +1,7 @@
-#
+# This file is a customized server which operates on the embedded compute and sends wheelspeed
+# data from the robot.  A client must be configured to 
+# receive this data over direct wifi connection.  
+
 import time
 import json
 import socket
