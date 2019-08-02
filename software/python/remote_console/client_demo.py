@@ -1,3 +1,7 @@
+# This file is just a basic example of the client communication structure to a server file.
+# This file is run on the embedded computer and passes data to a server on your local pc
+# over a direct wifi connection.
+
 import math
 import json
 import time
