@@ -1,4 +1,7 @@
-# 
+# This file is just a basic example of the server comunication structure to a client program.
+# The server is run on the embedded computer and passes data to a client on your local pc
+# over a direct wifi connection. This can be used to display telemetry. 
+
 import time
 import json
 import socket
