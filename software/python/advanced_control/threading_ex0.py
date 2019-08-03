@@ -1,4 +1,4 @@
-# multithreading_ex0.py
+# threading_ex0.py
 # Python3 program illustrating how threads can be created and started in Python
 # this example is not intended to be imported into another main program
 
