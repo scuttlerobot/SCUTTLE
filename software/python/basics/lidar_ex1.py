@@ -1,11 +1,11 @@
-# repel_v2.py is intended to do the following:
+# This File performs the following:
 # 1) grab a subset of the readings from the lidar for lightweight purposes
 # 2) assign the proper angle value to the reading, with respect to robot x-axis
 # 3) create a 2d array of [distances, angles] from the data
 # 4) find the point in the array that is closest to P1 (point of interest regarding collision)
 
-import numpy as np
-import pysicktim as lidar
+import numpy as np # for array handling
+import pysicktim as lidar # required for communication with TiM561 lidar sensor
 
 np.set_printoptions(suppress=True)  # Suppress Scientific Notation
 
