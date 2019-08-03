@@ -1,4 +1,4 @@
-# multithreading_ex0.2.py
+# threading_ex0.2.py
 # A program for learning about threads.  Explicitly defines two functions
 # and calls them into threading.
 
