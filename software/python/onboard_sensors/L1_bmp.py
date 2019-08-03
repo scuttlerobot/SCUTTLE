@@ -1,13 +1,15 @@
-# Install required libaries using:
+# This program reads information from the onboard Temperature & Pressure sensors
+# on the beaglebone blue.  Before running the code, you need to install required 
+# library using the command:
 # sudo pip3 install bmp280
 
 #!/usr/bin/env python
 
 import time
-from smbus import SMBus #library for accessing i2c devices
+from smbus import SMBus #library for accessing i2c devices through python
 from bmp280 import BMP280 #library dedicated to BMP280 sensor
 
-# Initialise the BMP280
+# Initialize the BMP280
 bus = SMBus(2) # the sensor is located on the i2c bus no.2
 bmp280 = BMP280(i2c_dev=bus)
 
