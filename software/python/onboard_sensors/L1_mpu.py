@@ -1,3 +1,5 @@
+# This program reads accelerometer, gyro, and magnetometer data from the onboard MPU9250 sensor.
+
 #!/usr/bin/env python3
 # import python libraries
 import time
@@ -22,7 +24,7 @@ while True:
     if rcpy.get_state() == rcpy.RUNNING:
 
         # temp = mpu9250.read_imu_temp()
-        data = mpu9250.read()
+        data = mpu9250.read() # this command returns a string with many parameters.
 
         print("Accel,\tX:{} m/s^2\t Y:{} m/s^2\t Z:{} m/s^2\t\tGyro, X:{} deg/s\t Y:{} deg/s\t Z:{} deg/s".format(round(data['accel'][0],3) , round(data['accel'][1],3) , round(data['accel'][2],3) , round(data['gyro'][0],3) , round(data['gyro'][1],3) , round(data['gyro'][2],3) ))
 
