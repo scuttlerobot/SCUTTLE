@@ -1,3 +1,6 @@
+# This program returns the wifi RSSI of the beaglebone blue.
+# Typical values fall near -70dB.  Values near -90dB or lower may lose connection.
+
 #!/usr/bin/env python
 
 import sys
