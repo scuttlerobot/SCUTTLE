@@ -18,70 +18,36 @@ def rotateImage(image, angle):
   result = cv2.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv2.INTER_LINEAR)
   return result
 
-def callback(value):
-	pass
+#    Color Range, described in HSV
 
-def setup_trackbars(range_filter):
-	cv2.namedWindow("Trackbars", 0)
+v1_min = 30     # Minimum H value
+v2_min = 20     # Minimum S value
+v3_min = 245    # Minimum V value
 
-	for i in ["MIN", "MAX"]:
-		v = 0 if i == "MIN" else 255
+v1_max = 43     # Maximum H value
+v2_max = 98     # Maximum S value
+v3_max = 255    # Maximum V value
 
-		for j in range_filter:
-			cv2.createTrackbar("%s_%s" % (j, i), "Trackbars", v, 255, callback)
+#    RGB or HSV
 
-def get_arguments():
-	ap = argparse.ArgumentParser()
-	ap.add_argument('-f', '--filter', required=True,
-					help='Range filter. RGB or HSV')
-
-	args = vars(ap.parse_args())
-
-	if not args['filter'].upper() in ['RGB', 'HSV']:
-		ap.error("Please speciy a correct filter.")
-
-	return args
-
-def get_trackbar_values(range_filter):
-	values = []
-
-	for i in ["MIN", "MAX"]:
-		for j in range_filter:
-			v = cv2.getTrackbarPos("%s_%s" % (j, i), "Trackbars")
-			values.append(v)
-	return values
+filter = 'HSV'  # Use HSV to describe pixel color values
 
 def main():
-	args = get_arguments()
 
-	range_filter = args['filter'].upper()
-
-	os.system("ls /dev/ | grep \"video\"")
-
-	videoCapture = input("What video device do you want to use?:")
-
-	camera = cv2.VideoCapture(int(videoCapture))
+	camera = cv2.VideoCapture(0)
 
 	camera.set(3, width)
 	camera.set(4, height)
 
-	setup_trackbars(range_filter)
-
 	while True:
 
 		ret, image = camera.read()
-
-		image = rotateImage(image,180)
-
 		if not ret:
 			break
 
-		if range_filter == 'RGB':
-			frame_to_thresh = image.copy()
-		else:
-			frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+		image = rotateImage(image,180)
 
-		v1_min, v2_min, v3_min, v1_max, v2_max, v3_max = get_trackbar_values(range_filter)
+		frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 		thresh = cv2.inRange(frame_to_thresh, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max))
 
@@ -106,15 +72,11 @@ def main():
 				cv2.putText(image,"centroid", (center[0]+10,center[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
 				cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
 
-		cv2.imshow("Original", image)
-		cv2.imshow("Thresh", thresh)
-		cv2.imshow("Mask", mask)
+		# cv2.imshow("Original", image)
+		# cv2.imshow("Thresh", thresh)
+		# cv2.imshow("Mask", mask)
 
-		print(x,",",y)
-
-		if cv2.waitKey(1) & 0xFF is ord('q'):
-
-			break
+		return image
 
 if __name__ == '__main__':
 	main()
