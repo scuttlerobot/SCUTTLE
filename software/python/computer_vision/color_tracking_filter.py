@@ -1,6 +1,9 @@
 import cv2
 import numpy as np
 
+font = cv2.FONT_HERSHEY_SIMPLEX
+
+
 v1_min = 0     # Minimum H value
 v2_min = 180     # Minimum S value
 v3_min = 130    # Minimum V value
@@ -47,11 +50,19 @@ class MyFilter:
                 cv2.putText(image,"centroid", (center[0]+10,center[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
                 cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
 
-    	# cv2.imshow("Original", image)
-		# cv2.imshow("Thresh", thresh)
-		# cv2.imshow("Mask", mask)
+        thresh = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
+        mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
 
-        return mask
+        all = np.hstack((image, thresh, mask))
+
+        cv2.line(all,(width,0),(width,height), (0xff, 0xff, 0xff), thickness=3)
+        cv2.line(all,(width*2,0),(width*2,height), (0xff, 0xff, 0xff), thickness=3)
+
+        cv2.putText(all,'Original',(10,int(height/10)), font, 0.5,(255,255,255),1,cv2.LINE_AA)
+        cv2.putText(all,'Thresh',(width+10,int(height/10)), font, 0.5,(255,255,255),1,cv2.LINE_AA)
+        cv2.putText(all,'Mask',((width*2)+10,int(height/10)), font, 0.5,(255,255,255),1,cv2.LINE_AA)
+
+        return all
 
 def init_filter():
     f = MyFilter()
