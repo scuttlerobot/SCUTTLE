@@ -5,7 +5,6 @@
 # IMPORT EXTERNAL ITEMS
 import time
 import numpy as np # for handling matrices
-import text2speech_ex2 as t2s # for speaking by aux port
 import threading # only used for threading functions
 import math
 # IMPORT INTERNAL ITEMS
@@ -15,6 +14,7 @@ import L2_kinematics as kin    # calculates chassis parameters from wheels
 import L2_log # log live data to local files
 import L1_gamepad as gp
 import L1_encoder as enc
+import L1_text2speech as t2s # for speaking by aux port
 # import L2_obstacle as obs
 
 def loop_speak( ID ):
