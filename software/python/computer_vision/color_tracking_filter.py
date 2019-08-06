@@ -15,8 +15,6 @@ height = 160
 class MyFilter:
 
     def colorTracking(self, image):
-#        myfilter()
-#        buildimage()
 
 # def myFilter():
         image = cv2.resize(image,(width,height)) # resize the image
@@ -28,9 +26,8 @@ class MyFilter:
 
         # apply a blur function
         kernel = np.ones((5,5),np.uint8)
-        mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
-
+        mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel) # Apply blur
+        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel) # Blur again
 
         cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2] #generates number of contiguous "1" pixels
         center = None # create a variable for x, y location of target
@@ -61,7 +58,6 @@ class MyFilter:
         mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
         # border2 = np.array() # same as above
         all = np.hstack((image, spacer, thresh, spacer, mask))
-
 
         # cv2.line(all,(image_width,0),(image_width,image_height), (0xff, 0xff, 0xff), thickness=3)
         # cv2.line(all,(image_width*2,0),(image_width*2,image_height), (0xff, 0xff, 0xff), thickness=3)
