@@ -12,13 +12,20 @@ v3_max = 255    # Maximum V value
 width  = 240  # please attempt to put back into the function
 height = 160
 
+#    RGB or HSV
+
+filter = 'HSV'  # Use HSV to describe pixel color values
+
 class MyFilter:
 
-    def colorTracking(self, image):
+    def colorTracking(self, image, range, min_size=6, max_size=):
 
         image = cv2.resize(image,(width,height)) # resize the image
 
-        frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # convert image to hsv colorspace RENAME THIS TO IMAGE_HSV
+        if filter == 'RGB':
+            frame_to_thresh = image.copy()
+        else:
+            frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # convert image to hsv colorspace RENAME THIS TO IMAGE_HSV
 
         thresh = cv2.inRange(frame_to_thresh, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max)) # Converts a 240x160x3 matrix to a 240x160x1 matrix
         # cv2.inrange discovers the pixels that fall within the specified range and assigns 1's to these pixels and 0's to the others.
@@ -39,7 +46,7 @@ class MyFilter:
             # center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))  # defines a circle around the largest target area
             center = (int(x), int(y))  # defines a circle around the largest target area
 
-            if radius > 6:
+            if radius > min_size:
 
                 cv2.circle(image, (int(x), int(y)), int(radius),(0, 255, 255), 2) #draw a circle on the image
                 cv2.circle(image, (int(x), int(y)), 3, (0, 0, 0), -1) # draw a dot on the target center
@@ -50,6 +57,8 @@ class MyFilter:
                 cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0,0,0),2,cv2.LINE_AA)
                 cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(255,255,255),1,cv2.LINE_AA)
 
+        # else:
+        #     return None
 
 #    def build_image():
         image_height, image_width, channels = image.shape   # get image dimensions

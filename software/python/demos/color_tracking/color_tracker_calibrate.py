@@ -47,7 +47,10 @@ def main():
 
 		image = rotateImage(image,180)
 
-		frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        if filter == 'RGB':
+            frame_to_thresh = image.copy()
+        else:
+            frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 		thresh = cv2.inRange(frame_to_thresh, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max))
 
