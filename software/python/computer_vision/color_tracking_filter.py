@@ -16,7 +16,6 @@ class MyFilter:
 
     def colorTracking(self, image):
 
-# def myFilter():
         image = cv2.resize(image,(width,height)) # resize the image
 
         frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # convert image to hsv colorspace RENAME THIS TO IMAGE_HSV
@@ -36,15 +35,21 @@ class MyFilter:
 
             c = max(cnts, key=cv2.contourArea)  # return the largest target area
             ((x, y), radius) = cv2.minEnclosingCircle(c)
-            M = cv2.moments(c)
-            center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))  # defines a circle around the largest target area
+            # M = cv2.moments(c)
+            # center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))  # defines a circle around the largest target area
+            center = (int(x), int(y))  # defines a circle around the largest target area
 
             if radius > 6:
 
                 cv2.circle(image, (int(x), int(y)), int(radius),(0, 255, 255), 2) #draw a circle on the image
-                cv2.circle(image, center, 3, (0, 0, 255), -1) # draw a dot on the target center
-                cv2.putText(image,"centroid", (center[0]+10,center[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
-                cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
+                cv2.circle(image, (int(x), int(y)), 3, (0, 0, 0), -1) # draw a dot on the target center
+                cv2.circle(image, (int(x), int(y)), 1, (255, 255, 255), -1) # draw a dot on the target center
+
+                # cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
+
+                cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0,0,0),2,cv2.LINE_AA)
+                cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(255,255,255),1,cv2.LINE_AA)
+
 
 #    def build_image():
         image_height, image_width, channels = image.shape   # get image dimensions
