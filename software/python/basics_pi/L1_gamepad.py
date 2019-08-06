@@ -1,3 +1,4 @@
+# version for Pi setup
 # an example to grab values from the wireless gamepads (EasySMX brand) and print them.
 # gamepad must be plugged in and activated at start of program.
 # see the scuttle software documentation for a map of buttons.
