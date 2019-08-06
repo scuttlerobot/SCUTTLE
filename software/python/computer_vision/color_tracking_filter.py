@@ -51,16 +51,20 @@ class MyFilter:
 
 #    def build_image():
         image_height, image_width, channels = image.shape   # get image dimensions
+
+        spacer = np.zeros((image_height,3,3), np.uint8)
+        spacer[:,0:width//2] = (255,255,255)      # (B, G, R)
+
         # make 3 images to have the same colorspace, for combining
         thresh = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
         # border1 = np.array() # use H, height of photos to define
         mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
         # border2 = np.array() # same as above
-        all = np.hstack((image, thresh, mask))
+        all = np.hstack((image, spacer, thresh, spacer, mask))
 
 
-        cv2.line(all,(image_width,0),(image_width,image_height), (0xff, 0xff, 0xff), thickness=3)
-        cv2.line(all,(image_width*2,0),(image_width*2,image_height), (0xff, 0xff, 0xff), thickness=3)
+        # cv2.line(all,(image_width,0),(image_width,image_height), (0xff, 0xff, 0xff), thickness=3)
+        # cv2.line(all,(image_width*2,0),(image_width*2,image_height), (0xff, 0xff, 0xff), thickness=3)
 
         # draw text on top of the image for identification
         cv2.putText(all,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
@@ -74,6 +78,6 @@ class MyFilter:
 
         return all
 
-def init_filter():
+def init_filter():  # The function MJPG-Streamer calls.
     f = MyFilter()
     return f.colorTracking
