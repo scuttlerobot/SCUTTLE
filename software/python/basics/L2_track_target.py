@@ -1,16 +1,14 @@
-# track_target.py
-
 # This program takes the [x,y,radius] parameters of a target and
 # generates movement commands to follow it.
 # The calibration was made in a brightly lit indoor environment.
 # Video demo: https://youtu.be/9t1XHcomlIs
 
-# color Tracking libraries
+# Color Tracking libraries
 import color_target_ex1	as ct 	# for capturing camera info
 import argparse         		# For fetching user arguments
 import numpy as np      	
 
-#    Camera
+# Camera
 size_w  = 240   # Resized image width. This is the image width in pixels.
 size_h = 160	# Resized image height. This is the image height in pixels.
 
