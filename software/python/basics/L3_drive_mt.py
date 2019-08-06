@@ -7,15 +7,15 @@ import time
 import numpy as np # for handling matrices
 import text2speech_ex2 as t2s # for speaking by aux port
 import threading # only used for threading functions
-# IMPORT INTERNAL ITEMS
-import speed_control as sc # closed loop control. Import speed_control for open-loop
-import inverse_kinematics as inv #calculates wheel parameters from chassis
-import kinematics as kin    # calculates chassis parameters from wheels
-import log # log live data to local files
-import gamepad_ex1 as gp
 import math
-import encoder_ex1 as enc
-# import repel as repel
+# IMPORT INTERNAL ITEMS
+import L2_speed_control as sc # closed loop control. Import speed_control for open-loop
+import L2_inverse_kinematics as inv #calculates wheel parameters from chassis
+import L2_kinematics as kin    # calculates chassis parameters from wheels
+import L2_log # log live data to local files
+import L1_gamepad as gp
+import L1_encoder as enc
+# import L2_obstacle as obs
 
 def loop_speak( ID ):
     while(1):
@@ -70,7 +70,7 @@ def loop_drive( ID ):
 
 def loop_scan( ID ):
     while(1):
-            # d = repel.nearest_point() #returns the distance and the y-value of nearest obstacle
+            # d = obs.nearest_point() #returns the distance and the y-value of nearest obstacle
             # #print("nearest point:", d)
             # if d[0] < 0.15: #if the nearest obstacle less than 10cm
             #         t2s.say("NO")
