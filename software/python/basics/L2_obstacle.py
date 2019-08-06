@@ -2,7 +2,7 @@
 # it is a level 2 program.
 
 import time
-import lidar_ex1 as lidar  # import the level 1 program
+import L1_lidar as lidar  # import the level 1 program
 import numpy as np # for operating on arrays
 
 p0 = np.asarray([0,0]) #define p0, which is the location of the lidar (x and y).
