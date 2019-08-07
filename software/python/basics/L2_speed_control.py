@@ -1,7 +1,7 @@
 # speed_control.py takes target speeds and generates duty cycles
 # to send to motors, and will perform PID control (when finalized)
 
-import motors_ex1 as m
+import L1_motors as m
 import numpy as np
 import time
 import log
