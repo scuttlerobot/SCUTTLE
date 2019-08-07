@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import L1_camera as cam
 
-def colorTracking(img, color_range=((0,0,0),(255,255,255))):
+def colorTarget(img, color_range=((0,0,0),(255,255,255))):
 
     global image
     image = img
@@ -34,12 +34,24 @@ def colorTracking(img, color_range=((0,0,0),(255,255,255))):
 
     else:
         return((None, None), 0)
+        
+def horizLoc(target_x):  # generate an estimate of the angle of the target from center
+    viewAngle = 90 # camera view, degrees
+    ratio = target_x / 240 # divide by pixels in width
+    wrtCenter = ratio - 0.5 # offset.  Now, positive = right, negative = left
+    targetTheta = -1 * wrtCenter * viewAngle  # scale the value roughly to degrees
+    return int(targetTheta)
+    
 
 # Uncomment the section below to run as a standalone program
 #-----------------------------------------------------------
-color_range = ((0,180,130),(10,255,255))
-while True:
-
-    image = cam.newImage()
-    ((x, y), radius) = colorTracking(image, color_range)
-    print(x,y, "\t", radius)
+# color_range = ((0,180,130),(10,255,255))
+# while True:
+#     image = cam.newImage()
+#     ((x, y), radius) = colorTarget(image, color_range)
+#     #print(x,y, "\t", radius)
+#     if x == None:
+#         print("no target located.")
+#     else:
+#         targetTheta = horizLoc(x)
+#         print(targetTheta) 
