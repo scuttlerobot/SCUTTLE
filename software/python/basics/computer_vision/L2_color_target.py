@@ -5,26 +5,9 @@ class MyFilter:
 
     def colorTracking(self, image, color_range):
 
-
-
         return ((x,y),radius)
 
-
-
     def build_image(self, img):
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         return all
 
