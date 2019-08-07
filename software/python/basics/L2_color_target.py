@@ -1,3 +1,6 @@
+# This program takes an image, applies filters with openCV, and returns
+# a color target if located in the image.  The target parameters are (x,y,radius).
+
 import cv2
 import numpy as np
 import L1_camera as cam
