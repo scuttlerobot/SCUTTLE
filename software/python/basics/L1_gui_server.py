@@ -6,11 +6,11 @@ import time
 import json
 import socket
 ###############################
-import encoder_ex1 as enc
-import speed_control as sc
-import inverse_kinematics as inv
-import gamepad_ex1 as gp
-import kinematics as kin
+import L1_encoder as enc
+import L2_speed_control as sc
+import L2_inverse_kinematics as inv
+import L1_gamepad as gp
+import L2_kinematics as kin
 ###############################
 
 def current_time(start_time):
