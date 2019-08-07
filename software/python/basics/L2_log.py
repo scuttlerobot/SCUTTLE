@@ -12,3 +12,23 @@ def writeFiles(current_phis):
     txt2.write(str(round(phi_dotR,1)))
     txt.close()
     txt2.close()
+    
+def Node_Red2(val):
+    txt = open("/home/debian/SCUTTLE/a.txt",'w+') # file for phi dot left
+    txt2 = open("/home/debian/SCUTTLE/b.txt",'w+') # file for phi dot left
+    a = round(val[0],2)
+    b = round(val[1],2)
+    txt.write(str(a))
+    txt2.write(str(b))
+    txt.close()
+    txt2.close() 
+    
+def csv_write(list):
+    # for item in list:
+    #     item = str(item)
+    list = [str(i) for i in list]
+    #print(list)
+    with open('excel_data.csv', 'a') as csvFile:
+        writer = csv.writer(csvFile)
+        writer.writerow(list)
+    csvFile.close()
