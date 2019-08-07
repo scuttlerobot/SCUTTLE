@@ -61,12 +61,16 @@ def loop_drive( ID ):
         t0 = t1  # assign t0
         t1 = time.time() # generate current time
         dt = t1 - t0 # calculate dt
-        print("dt = ", round(dt,3))
+        #print("dt = ", round(dt,3))
         e00 = e0 # assign previous previous error
         e0 = e1  # assign previous error
         e1 = pdCurrents - pdTargets # calculate the latest error
         de_dt = (e1 - e0) / dt # calculate derivative of error
         sc.driveClosedLoop(pdTargets, pdCurrents, de_dt)  # call the control system
+        if (pdCurrents[0] > pdTargets[0]):
+            print(count)
+            break
+    log.csv_write([count, pdCurrents[0], pdCurrents[1]])
 
 def loop_scan( ID ):
     while(1):
