@@ -1,3 +1,6 @@
+# This file is for defining a filter to be used with mjpg streamer, which
+# 
+
 import cv2
 import numpy as np
 
