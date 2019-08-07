@@ -31,8 +31,9 @@ def populate_gp():
 
     # assign axes from gamepad to requested velocities
     x_dot = -1*axes[1] # assign forward axis, inverted
-    theta_dot = 1*axes[0] # assign L/R axis, non inverted
-    B_raw = np.array([x_dot, theta_dot]) # form the B matrix
+    theta_dot = -1*axes[0] # assign L/R axis, non inverted
+    print("TD:", theta_dot,"XD:",x_dot)
+    B_raw = np.array([theta_dot, x_dot]) # form the B matrix
     B = map_speeds(B_raw) # re map the values to within max achievable speeds
     return(B)
 
@@ -67,6 +68,6 @@ def phi_influence(yValue):
 #     x_dot = 1 #meters per second
 #     theta_dot = 0 # radians per second
 #     B = np.array([x_dot, theta_dot])
-#     phis = get_inv(B)
+#     phis = convert(B)
 #     print(phis[0])
 #     time.sleep(0.5)
