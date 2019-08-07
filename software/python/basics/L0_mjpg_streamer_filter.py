@@ -1,16 +1,16 @@
-# This file is for defining a filter to be used with mjpg streamer, which
-# 
+# This file is referenced by mjpg streamer to filter images before creating a live feed.
+# After mjpg streamer is initiated, it sends a feed to 192.168.8.1:8090 for viewing in browser
+# the myFilter class should be updated to match any changes made in the L2_color_target.py
 
 import cv2
 import numpy as np
 
-v1_min = 0     # Minimum H value
+v1_min = 0       # Minimum H value
 v2_min = 180     # Minimum S value
-v3_min = 130    # Minimum V value
-
-v1_max = 10     # Maximum H value
+v3_min = 130     # Minimum V value
+v1_max = 10      # Maximum H value
 v2_max = 255     # Maximum S value
-v3_max = 255    # Maximum V value
+v3_max = 255     # Maximum V value
 
 width  = 240  # please attempt to put back into the function
 height = 160
@@ -38,8 +38,6 @@ class MyFilter:
 
             c = max(cnts, key=cv2.contourArea)  # return the largest target area
             ((x, y), radius) = cv2.minEnclosingCircle(c)
-            # M = cv2.moments(c)
-            # center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))  # defines a circle around the largest target area
             center = (int(x), int(y))  # defines a circle around the largest target area
 
             if radius > 6:
