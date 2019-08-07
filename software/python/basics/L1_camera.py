@@ -1,3 +1,5 @@
+# this file retrieves an image from the usb camera.
+
 import cv2
 
 width  = 240
