@@ -1,3 +1,5 @@
+# this program needs to be reviewed - update or delete.
+
 # colorTarget_ex1.py
 # usb camera: Microsoft HD-3000 webcam
 # This program collects the camera images and outputs color target info.
