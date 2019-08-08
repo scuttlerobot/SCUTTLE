@@ -8,9 +8,9 @@ import L1_gamepad as gp # to call getGP from gamepad
 # define robot geometry
 R = 0.041 # wheel radius
 L = 0.201 # half of the wheelbase
-A = np.array([[1/R, L/R],[1/R, -L/R]])
-# define constraints for theta and x speeds
+A = np.array([[1/R, L/R],[1/R, -L/R]]) # matrix A * [xd, td] = [pdl, pdr] 
 
+# define constraints for theta and x speeds
 max_xd = 0.4 # maximum achievable x_dot (m/s) FW  translation
 max_td = (max_xd / L) # maximum achievable theta_dot (rad/s)
 
