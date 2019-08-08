@@ -13,7 +13,7 @@ def newImage(size=(width, height)):
     image = cv2.resize(image,size) # resize the image
     return image
     
-# UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
-while 1:
-    image = newImage()
-    print(image.shape) #print info about the image (height, width, colorspace)
+# # UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
+# while 1:
+#     image = newImage()
+#     print(image.shape) #print info about the image (height, width, colorspace)
