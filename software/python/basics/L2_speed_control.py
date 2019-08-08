@@ -19,8 +19,8 @@ def openLoop(pdl,pdr):
     duties[1] = sorted([-1, duties[1], 1])[1] # place bounds on duty cycle
     return duties
 
-def driveOpenLoop(pdl,pdr):  # Pass Phi dot targets to this function
-    duties = openLoop(pdl,pdr) # produce duty cycles from the phi dots
+def driveOpenLoop(pdTargets):  # Pass Phi dot targets to this function
+    duties = openLoop(pdTargets[0], pdTargets[1]) # produce duty cycles from the phi dots
     m.MotorL(duties[0]) # send command to motors
     m.MotorR(duties[1]) # send command to motors
 
