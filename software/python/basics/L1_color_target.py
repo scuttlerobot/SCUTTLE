@@ -14,7 +14,7 @@ size_h = 160	# Resized image height. This is the image height in pixels.
 filter = 'HSV'  # Use HSV rather than RGB to describe pixel color values
 
 def getFrame(color_cal):
-	
+
     camera = cv2.VideoCapture(camera_input)     # Define camera variable
     camera.set(3, size_w)                       # Set width of images that will be retrived from camera
     camera.set(4, size_h)                       # Set height of images that will be retrived from camera
@@ -36,7 +36,7 @@ def getFrame(color_cal):
 		# Pickup Target Data
 		cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]     # Find closed shapes in image
 		center = None   # Create variable to store point
-			
+
 		if len(cnts) > 0:   # If more than 0 closed shapes exist, evaluate location
 
 			c = max(cnts, key=cv2.contourArea)              # Get the properties of the largest circle
@@ -45,15 +45,15 @@ def getFrame(color_cal):
 			x = int(x)          # Cast x value to an integer
 			M = cv2.moments(c)  # Gets area of circle contour
 			center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))   # Get center x,y value of circle
-			
+
 		target = np.zeros(3) 	#create a variable to store target info
 		target[0] = center(1)	# target x location (of 240)
 		target[1] = center(2)	# target y location	(of 160)
 		target[2] = radius		# target radius
-		
+
 		return(target)
 
-# uncomment the below section to run as a standalone program		
+# uncomment the below section to run as a standalone program
 while(1)
 	#    Color Range, described in HSV
 	color_cal = np.array([30,20,245,43,98,255]) #example calibration tuned for basketball

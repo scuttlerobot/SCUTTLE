@@ -18,9 +18,11 @@ height = 160
 
 filter = 'HSV'  # Use HSV to describe pixel color values
 
+color_range = ((0,180,130),(10,255,255))
+
 class MyFilter:
 
-    def colorTracking(self, image, range, min_size=6, max_size=):
+    def colorTracking(self, image, range=color_range, min_size=6, max_size=6):
 
         image = cv2.resize(image,(width,height)) # resize the image
 
@@ -29,11 +31,52 @@ class MyFilter:
         else:
             frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # convert image to hsv colorspace RENAME THIS TO IMAGE_HSV
 
-            
-        # Copy and paste this section into the MJPEG streamer file to make 
+        with open('/tmp/h_min') as h_min_file:
+            h_min_file.seek(0)
+            try:
+                h_min = int(h_min_file.read())
+            except:
+                h_min = 0
+
+        with open('/tmp/s_min') as s_min_file:
+            s_min_file.seek(0)
+            try:
+                s_min = int(s_min_file.read())
+            except:
+                s_min = 0
+
+        with open('/tmp/v_min') as v_min_file:
+            v_min_file.seek(0)
+            try:
+                v_min = int(v_min_file.read())
+            except:
+                v_min = 0
+        with open('/tmp/h_max') as h_max_file:
+            h_max_file.seek(0)
+            try:
+                h_max = int(h_max_file.read())
+            except:
+                h_max= 0
+        with open('/tmp/s_max') as s_max_file:
+            s_max_file.seek(0)
+            try:
+                s_max = int(s_max_file.read())
+            except:
+                s_max= 0
+        with open('/tmp/v_max') as v_max_file:
+            v_max_file.seek(0)
+            try:
+                v_max = int(v_max_file.read())
+            except:
+                v_max= 0
+
+        color_range = (((h_min), (s_min), (v_min)),((h_max), (s_max), (v_max)))
+        # print(color_range)
+
+        # Copy and paste this section into the MJPEG streamer file to make
         # your video output agree with the target capturing function.
         #-------------------------------------------------------------------------
-        thresh = cv2.inRange(frame_to_thresh, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max)) # Converts a 240x160x3 matrix to a 240x160x1 matrix
+        thresh = cv2.inRange(frame_to_thresh, color_range[0], color_range[1]) # Converts a 240x160x3 matrix to a 240x160x1 matrix
         # cv2.inrange discovers the pixels that fall within the specified range and assigns 1's to these pixels and 0's to the others.
 
         # apply a blur function
@@ -77,7 +120,8 @@ class MyFilter:
         # border1 = np.array() # use H, height of photos to define
         mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
         # border2 = np.array() # same as above
-        all = np.hstack((image, spacer, thresh, spacer, mask))
+        # all = np.hstack((image, spacer, thresh, spacer, mask))
+        all = np.vstack((image, thresh, mask))
 
         # cv2.line(all,(image_width,0),(image_width,image_height), (0xff, 0xff, 0xff), thickness=3)
         # cv2.line(all,(image_width*2,0),(image_width*2,image_height), (0xff, 0xff, 0xff), thickness=3)
