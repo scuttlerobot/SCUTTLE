@@ -6,7 +6,7 @@
 import sys
 import subprocess
 
-def get_rssi(interface):
+def get_rssi(interface): # ie, 'wlan0'
     proc = subprocess.Popen(["iwlist", interface, "scan"],stdout=subprocess.PIPE, universal_newlines=True)
     out, err = proc.communicate()
     out = out.split("\n")
@@ -17,5 +17,7 @@ def get_rssi(interface):
                 rssi = int(signal_line[signal_line.index('Signal')+1].split('=')[1])
     return rssi
 
-rssi = get_rssi('wlan0')
-print(rssi)
+# # UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
+# while 1:
+#     rssi = get_rssi('wlan0')
+#     print(rssi)
