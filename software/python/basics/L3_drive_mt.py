@@ -65,7 +65,7 @@ def loop_drive( ID ):
     mode = 0
     
     while(1):
-        
+        count += 1
         # THIS BLOCK IS FOR COLOR TRACKING
         # colorTarget = ct.colorTarget(color_range) # use color tracking to generate targets
         # x = colorTarget[0]
@@ -109,6 +109,19 @@ def loop_drive( ID ):
         else:
             sc.driveClosedLoop(pdTargets, pdCurrents, de_dt)  # call the control system
         time.sleep(0.05)
+        
+        # THIS BLOCK OUTPUTS DATA TO A CSV FILE
+        if count == 1:
+            log.clear_file()
+            log.csv_write([count,pdCurrents[0], pdTargets[0],u[0],u_integral[0],u_derivative[0]])
+            #log.csv_write([count,pdCurrents[0], pdTargets[0], u[0]] )
+        elif count > 1 and count <= 400:
+            #log.csv_write([count,pdCurrents[0], pdTargets[0], u[0]])
+            log.csv_write([count,pdCurrents[0],pdTargets[0],u[0],u_integral[0],u_derivative[0]])
+            #print(count,pdCurrents[0], pdTargets[0])
+        else:
+            break
+
 
 def loop_scan( ID ):
     while(1):
