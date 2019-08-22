@@ -8,9 +8,9 @@ import time               # library for time access
 # define kinematics
 R = 0.041 # radius in meters
 L = 0.201 # half of wheelbase meters
-gap = int(179/0.0219) # degress specified as limit for rollover
-roll = int(360/0.0219) # variable for rollover logic
-
+res = (360/2**14)
+roll = int(360/res) # variable for rollover logic
+gap = 0.5 * roll # degress specified as limit for rollover
 A = np.array([[-R/2*L, R/2*L],[R/2, R/2]])
 wait = 0.02 # wait time between encoder measurements (s)
 
