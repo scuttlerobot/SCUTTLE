@@ -24,11 +24,11 @@ def Node_Red2(val):
     txt2.close() 
     
 def csv_write(list):
-    # for item in list:
-    #     item = str(item)
     list = [str(i) for i in list]
-    #print(list)
     with open('excel_data.csv', 'a') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(list)
     csvFile.close()
+
+def clear_file():
+    open('excel_data.csv','w').close()
