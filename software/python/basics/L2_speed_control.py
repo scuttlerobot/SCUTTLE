@@ -44,8 +44,8 @@ def driveClosedLoop(pdt, pdc, de_dt):
     global u_integral       #Global var must be available for first assignment
     e = (pdt - pdc) # compute error
 
-    kp = 0.09      # proportional constant, 0.07 best result
-    ki = 0.01    # integral constant, 0.011 best result
+    kp = 0.04      # proportional constant, 0.07 best result
+    ki = 0.04    # integral constant, 0.011 best result
     kd = 0     # derivative constant, 0 best result
 
     # generate components of the control effort, u
