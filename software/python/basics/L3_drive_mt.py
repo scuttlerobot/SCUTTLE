@@ -11,15 +11,17 @@ import L2_speed_control as sc # closed loop control. Import speed_control for op
 import L2_inverse_kinematics as inv #calculates wheel parameters from chassis
 import L2_kinematics as kin    # calculates chassis parameters from wheels
 import L2_log # log live data to local files
+# import L2_obstacle as obs  # for detecting obstacles
+# import L2_color_target as ct # for driving with computer vision tracking
 import L1_text2speech as t2s # for speaking over aux port
-import L1_gamepad as gp
-import L1_encoder as enc
-import L1_bmp as bmp
-import L1_adc as adc
-import L1_rssi as rssi
-# import L2_obstacle as obs
-# import L2_color_target as ct
+import L1_gamepad as gp # for accessing gamepad directly
+import L1_encoder as enc # for accessing encoders directly
+import L1_bmp as bmp # for accessing bmp sensor onboard
+import L1_adc as adc # for accessing adc sensor onboard
+import L1_rssi as rssi # for accessing rssi value
 
+
+# CREATE A THREAD FOR SPEAKING
 def loop_speak( ID ):
     myStringA = "I am scuttle robot"
     myStringX = "the future of meka tronics"
@@ -47,7 +49,8 @@ def loop_speak( ID ):
             myString = "wifi rssi is" +str(myRSSI)+ " decibels."
             t2s.say(myString)
         time.sleep(0.020)
-
+        
+# CREATE A THREAD FOR DRIVING
 def loop_drive( ID ):
     
     # initialize variables for control system
@@ -66,7 +69,7 @@ def loop_drive( ID ):
     
     while(1):
         count += 1
-        # THIS BLOCK IS FOR COLOR TRACKING
+        # THIS BLOCK IS FOR DRIVING BY COLOR TRACKING
         # colorTarget = ct.colorTarget(color_range) # use color tracking to generate targets
         # x = colorTarget[0]
         # if x != None:
@@ -78,7 +81,7 @@ def loop_drive( ID ):
         # pdTargets = inv.convert(A) # convert [xd, td] to [pdl, pdr]
         # print(pdTargets)
         
-        # THIS BLOCK IS FOR CONTINUOUS DRIVING
+        # THIS BLOCK IS FOR CONSTANT SPEED DRIVING (NO CONTROL INPUT)
         # constantThetaDot = 1.5 # target, rad/s
         # constantXDot = 0.2 # target, m/sc
         # A = np.array([constantXDot, constantThetaDot])
@@ -122,7 +125,7 @@ def loop_drive( ID ):
         else:
             break
 
-
+# CREATE A THREAD FOR SCANNING FOR OBSTACLES
 def loop_scan( ID ):
     while(1):
         #d = obs.nearest_point() #returns the distance and the y-value of nearest obstacle
@@ -131,6 +134,7 @@ def loop_scan( ID ):
         #         t2s.say("NO")
         time.sleep(0.1)
 
+# ALL THREADS ARE CALLED TO RUN IN THE MAIN FUNCTION
 def main():
 
         print("starting the main fcn")
@@ -151,7 +155,7 @@ def main():
         t3.start()
         print("started thread3")
 
- #should have while loop to run 'joins' not the threaded functions
+        # the join commands manipulate the way the program concludes multithreading.
         t.join()
         t2.join()
         t3.join()
