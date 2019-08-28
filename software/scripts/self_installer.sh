@@ -90,6 +90,11 @@
 
   sudo python3 /opt/source/pyctrl/setup.py install
 
+# Install PyGame
+
+  sudo apt-get install git python3-dev python3-setuptools python3-numpy python3-opengl libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev libtiff5-dev libx11-6 libx11-dev fluid-soundfont-gm timgm6mb-soundfont xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic fontconfig fonts-freefont-ttf libfreetype6-dev
+  sudo pip3 install pygame
+  
 # Install Adafruit_GPIO.I2C
 
   sudo apt-get install -y build-essential python-pip python-dev python-smbus git
