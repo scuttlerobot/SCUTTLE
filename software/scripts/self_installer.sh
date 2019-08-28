@@ -57,6 +57,7 @@
 # Install OpenCV and other Libraries Color Tracking Relies on
 
   sudo apt-get install -y python-pip python3-pip libopencv-dev python3-opencv python-numpy
+  sudo apt install mjpg-streamer-opencv-python
 
 # Make SSH pretty
 
