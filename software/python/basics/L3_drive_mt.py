@@ -61,6 +61,7 @@ def loop_drive( ID ):
     e1 = 0
     dt = 0
     de_dt = np.zeros(2) # initialize the de_dt
+    count = 0
     # initialize variables for color tracking
     color_range = np.array([[0, 180, 130], [10, 255, 255]])
     thetaOffset = 0
