@@ -24,6 +24,8 @@
 
   sudo pip3 install cayenne-mqtt
 
+  sudo pip3 install bmp280
+
   #sudo apt update ; sudo apt install --only-upgrade bb-cape-overlays
 
   #uboot_overlay_pru=/lib/firmware/AM335X-PRU-RPROC-4-14-TI-00A0.dtbo
