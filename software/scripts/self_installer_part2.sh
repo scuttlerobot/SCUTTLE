@@ -1,4 +1,7 @@
-# SELF-INSTALLER PART 2.  RUN THIS AFTER RUNNING PART 1
+# self_installer_part2.sh
+# This script is used to install important packages for operating SCUTTLE.
+# Instructions: Connect the blue to wifi, then run self_installer_part1.sh, allow
+# your device to reboot, and then run self_installer_part2.sh
 
 # Updates
 
@@ -23,18 +26,12 @@
 # Cayenne Library
 
   sudo pip3 install cayenne-mqtt
-
   sudo pip3 install bmp280
-
   #sudo apt update ; sudo apt install --only-upgrade bb-cape-overlays
-
   #uboot_overlay_pru=/lib/firmware/AM335X-PRU-RPROC-4-14-TI-00A0.dtbo
-
   #cd /opt/scripts/
   #git pull
-
   #sudo /opt/scripts/tools/update_kernel.sh --ti-channel --lts-4_14
-
   #sudo /opt/scripts/tools/developers/update_bootloader.sh
 
 # Install OpenCV and other Libraries Color Tracking Relies on
@@ -55,10 +52,8 @@
   echo "      Sensing, Connected, Utility Transport Taxi for Level Environments" >> /etc/banner
   echo "      Texas A&M's Open-Source SCUTTLE Robot: https://github.com/dmalawey/Scuttle" >> /etc/banner
   echo " " >> /etc/banner
-
   echo -n "" > /etc/motd
   sudo sed -i 's|Banner none|Banner /etc/banner|g' /etc/ssh/sshd_config
-
   sudo /etc/init.d/ssh restart
 
 # Change Hostname
@@ -70,7 +65,6 @@
 # Fix Adafruit_BBIO.GPIO
 
   sudo python3 /opt/source/rcpy/setup.py install
-
   sudo python3 /opt/source/pyctrl/setup.py install
 
 # Install PyGame
@@ -90,15 +84,9 @@
   sudo apt-get install -y git curl wget zsh
 
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 #sudo sed -i 2d /home/debian/.zshrc
 #sudo sed -i '2iexport PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH' /home/debian/.zshrc
-
-
-
-
 #sudo -u debian sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 #sudo -u debian sed -i 2d /home/debian/.zshrc
 #sudo -u debian sed -i '2iexport PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH' /home/debian/.zshrc
 
