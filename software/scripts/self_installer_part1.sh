@@ -1,9 +1,7 @@
-# THIS IS NOT AT ALL A POLISHED SCRIPT
-# USE AT YOUR OWN DISCRETION
-# but it works pretty good.
-
-# PLEASE REPORT ALL ISSUES TO:
-# https://github.com/MXET/SCUTTLE/issues
+# self_installer_part1.sh
+# This script is used to install important packages for operating SCUTTLE.
+# Instructions: Connect the blue to wifi, then run self_installer_part1.sh, allow
+# your device to reboot, and then run self_installer_part2.sh
 
 # Erase internal memory (EMMC).
   
@@ -18,6 +16,6 @@
   cd /opt/scripts/tools
   git pull
   sudo ./grow_partition.sh
-  sudo reboot # added 2019.08.30 to guarantee linux recognizes the new partition size.
+  sudo reboot # added 2019.08.30 to guarantee linux recognizes the increased drive partition size.
   
 # END OF SELF-INSTALLER PART 1.  CONTINUE BY RUNNING PART 2.
