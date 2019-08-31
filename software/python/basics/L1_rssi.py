@@ -1,4 +1,5 @@
-# This program returns the wifi RSSI of the beaglebone blue.
+# This program accesses info from the onboard WiFi module of the blue.
+# it returns the RECEIVED wifi signal strength of the AP to which the blue is connected.
 # Typical values fall near -70dB.  Values near -90dB or lower may lose connection.
 
 #!/usr/bin/env python
@@ -21,3 +22,4 @@ def get_rssi(interface): # ie, 'wlan0'
 # while 1:
 #     rssi = get_rssi('wlan0')
 #     print(rssi)
+#     time.sleep(0.2)
