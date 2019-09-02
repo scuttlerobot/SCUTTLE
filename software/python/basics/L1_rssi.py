@@ -6,6 +6,7 @@
 
 import sys
 import subprocess
+import time
 
 def get_rssi(interface): # ie, 'wlan0'
     proc = subprocess.Popen(["iwlist", interface, "scan"],stdout=subprocess.PIPE, universal_newlines=True)
