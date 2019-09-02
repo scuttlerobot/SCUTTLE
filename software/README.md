@@ -138,6 +138,9 @@ Wireless LAN adapter Wi-Fi:
 **Instructions to flash a new SD card with an image:**
 ([beagleboard.org getting started](http://beagleboard.org/getting-started#step3))
 
+**Access NodeRed:**
+Navigate to nodered: 192.168.8.1:1880
+
 ## Raspberry Pi Cheat Sheet:
 **Instructions to connect to SSH using putty:**
 ([beaglebone how-to-connect](https://www.dummies.com/computers/beaglebone/how-to-connect-your-beaglebone-via-ssh-over-usb/))
