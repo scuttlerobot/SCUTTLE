@@ -1,51 +1,58 @@
-# This program takes the [x,y,radius] parameters of a target and
-# generates movement commands to follow it.
-# The calibration was made in a brightly lit indoor environment.
-# Video demo: https://youtu.be/9t1XHcomlIs
+# This program takes an image, applies filters with openCV, and returns
+# a color target if located in the image.  The target parameters are (x,y,radius).
 
-# Color Tracking libraries
-import color_target_ex1	as ct 	# for capturing camera info
-import argparse         		# For fetching user arguments
-import numpy as np      	
+import cv2
+import numpy as np
+import L1_camera as cam
 
-# Camera
-size_w  = 240   # Resized image width. This is the image width in pixels.
-size_h = 160	# Resized image height. This is the image height in pixels.
+color_range = ((0,0,0),(255,255,255))
 
-myCal = np.array([30,20,245,43,98,255]) #example calibration tuned for basketball
-# getFrame requires an argument color_cal consisting of minimum H,S,V followed by high H,S,V
+def colorTarget(color_range=((0,0,0),(255,255,255))):
 
-# a function to produce target x_dot and theta_dot (fwd and turning)
-def track():
+    image = cam.newImage()
+    if filter == 'RGB':
+        frame_to_thresh = image.copy()
+    else:
+        frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # convert image to hsv colorspace RENAME THIS TO IMAGE_HSV
 
-    tc = 70     # Too Close     - Maximum pixel size of object to track
-    tf = 6      # Too Far       - Minimum pixel size of object to track
-    tp = 65     # Target Pixels - Target size of object to track
-    band = 50   # range of x considered to be centered
-	
-	target = ct.getFrame(myCal)  # capture a frame from camera
-    x = target[0]  # will describe target location left to right
-    y = target[1]  # will describe target location bottom to top
-    radius = target[2]  # estimates the radius of the detected target
+                                    # (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max)) # Converts a 240x160x3 matrix to a 240x160x1 matrix
+    #thresh = cv2.inRange(frame_to_thresh, (color_range[0][0], color_range[0][1], color_range[0][2]), (color_range[1][0], color_range[1][1], color_range[1][2])) # Converts a 240x160x3 matrix to a 240x160x1 matrix
+    thresh = cv2.inRange(frame_to_thresh, color_range[0], color_range[1])
+    #thresh = cv2.inRange(frame_to_thresh, (color_range[0], color_range[1], color_range[2]), (color_range[3], color_range[4], color_range[5]))
+    # cv2.inrange discovers the pixels that fall within the specified range and assigns 1's to these pixels and 0's to the others.
 
-	scale_xd = 1.3	# a scaling factor for x_dot speeds
-	scale_td = 1.3	# a scaling factor for theta_dot speeds
+    # apply a blur function
+    kernel = np.ones((5,5),np.uint8)
+    mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel) # Apply blur
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel) # Apply blur 2nd iteration
 
-	# handle centered condition (approach, stall, or reverse?)
-	if x > ((width/2)-(band/2)) and x < ((width/2)+(band/2)):       # If target center point is in middle
-		dir = "driving"
-		if radius >= tp:    # Too Close
-			case = "too close"
-			xd_request = -1 * ((radius-tp)/(tc-tp))
-		elif radius < tp:   # Too Far
-			case = "too far"
-			xd_request = 1 - ((radius - tf)/(tp - tf))
-			x_duty = scale_d * duty
-			
-	xd_request = scale_xd * xd_request 	# apply scaling to fwd/back movement
-	
-	# handle the turning condition (left or right)
-	else:
-		case = "turning"
-		duty_l = round((0.5*width-x)/(0.5*width),2)     # a ratio describing how left-biased is target wrt center
-		td_request = duty_l*scale_td					# generate a theta_dot request.  positive gives left turn
+    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2] #generates number of contiguous "1" pixels
+    center = None # create a variable for x, y location of target
+    if len(cnts) > 0:   # begin processing if there are "1" pixels discovered
+        c = max(cnts, key=cv2.contourArea)  # return the largest target area
+        ((x, y), radius) = cv2.minEnclosingCircle(c)
+        return np.array([round(x,1), round(y,1), round(radius,1)])
+    else:
+        return np.array([None, None, 0])
+
+def horizLoc(target_x):  # generate an estimate of the angle of the target from center
+    if target_x != None:
+        viewAngle = 90 # camera view, degrees
+        ratio = target_x / 240 # divide by pixels in width
+        wrtCenter = ratio - 0.5 # offset.  Now, positive = right, negative = left
+        targetTheta = -1 * wrtCenter * viewAngle  # scale the value roughly to degrees
+        return int(targetTheta)
+    else:
+        return None
+
+# Uncomment the section below to run as a standalone program
+#-----------------------------------------------------------
+# while True:
+    # target = colorTarget(color_range)
+    # #print(x,y, "\t", radius)
+    # x = target[0]
+    # if x == None:
+    #     print("no target located.")
+    # else:
+    #     targetTheta = horizLoc(x)
+    #     print(targetTheta)

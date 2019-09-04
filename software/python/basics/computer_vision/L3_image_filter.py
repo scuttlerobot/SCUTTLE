@@ -18,7 +18,7 @@ height = 160
 
 filter = 'HSV'  # Use HSV to describe pixel color values
 
-color_range = ((0,180,130),(10,255,255))
+color_range = ((0,0,0),(255,255,255))
 
 class MyFilter:
 
@@ -121,11 +121,9 @@ class MyFilter:
         cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
         cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
 
-
         # draw text on top of the image for identification
         cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
         cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
-
 
         # draw text on top of the image for identification
         cv2.putText(mask,'Mask',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)

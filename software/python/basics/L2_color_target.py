@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import L1_camera as cam
 
-color_range = ((0,180,130),(10,255,255))
+color_range = ((0,0,0),(255,255,255))
 
 def colorTarget(color_range=((0,0,0),(255,255,255))):
 
@@ -36,11 +36,14 @@ def colorTarget(color_range=((0,0,0),(255,255,255))):
         return np.array([None, None, 0])
 
 def horizLoc(target_x):  # generate an estimate of the angle of the target from center
-    viewAngle = 90 # camera view, degrees
-    ratio = target_x / 240 # divide by pixels in width
-    wrtCenter = ratio - 0.5 # offset.  Now, positive = right, negative = left
-    targetTheta = -1 * wrtCenter * viewAngle  # scale the value roughly to degrees
-    return int(targetTheta)
+    if target_x != None:
+        viewAngle = 90 # camera view, degrees
+        ratio = target_x / 240 # divide by pixels in width
+        wrtCenter = ratio - 0.5 # offset.  Now, positive = right, negative = left
+        targetTheta = -1 * wrtCenter * viewAngle  # scale the value roughly to degrees
+        return int(targetTheta)
+    else:
+        return None
 
 # Uncomment the section below to run as a standalone program
 #-----------------------------------------------------------
