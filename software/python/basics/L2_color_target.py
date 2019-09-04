@@ -34,14 +34,14 @@ def colorTarget(color_range=((0,0,0),(255,255,255))):
         return np.array([round(x,1), round(y,1), round(radius,1)])
     else:
         return np.array([None, None, 0])
-        
+
 def horizLoc(target_x):  # generate an estimate of the angle of the target from center
     viewAngle = 90 # camera view, degrees
     ratio = target_x / 240 # divide by pixels in width
     wrtCenter = ratio - 0.5 # offset.  Now, positive = right, negative = left
     targetTheta = -1 * wrtCenter * viewAngle  # scale the value roughly to degrees
     return int(targetTheta)
-    
+
 # Uncomment the section below to run as a standalone program
 #-----------------------------------------------------------
 # while True:
@@ -52,4 +52,4 @@ def horizLoc(target_x):  # generate an estimate of the angle of the target from 
     #     print("no target located.")
     # else:
     #     targetTheta = horizLoc(x)
-    #     print(targetTheta) 
+    #     print(targetTheta)

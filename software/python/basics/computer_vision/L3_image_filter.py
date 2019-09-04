@@ -71,7 +71,6 @@ class MyFilter:
                 v_max= 0
 
         color_range = (((h_min), (s_min), (v_min)),((h_max), (s_max), (v_max)))
-        # print(color_range)
 
         # Copy and paste this section into the MJPEG streamer file to make
         # your video output agree with the target capturing function.
@@ -106,10 +105,7 @@ class MyFilter:
                 cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0,0,0),2,cv2.LINE_AA)
                 cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(255,255,255),1,cv2.LINE_AA)
         # -----------------------------------------------------------------------------------------------------
-        # else:
-        #     return None
 
-#    def build_image():
         image_height, image_width, channels = image.shape   # get image dimensions
 
         spacer = np.zeros((image_height,3,3), np.uint8)
@@ -120,21 +116,22 @@ class MyFilter:
         # border1 = np.array() # use H, height of photos to define
         mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
         # border2 = np.array() # same as above
-        # all = np.hstack((image, spacer, thresh, spacer, mask))
-        all = np.vstack((image, thresh, mask))
-
-        # cv2.line(all,(image_width,0),(image_width,image_height), (0xff, 0xff, 0xff), thickness=3)
-        # cv2.line(all,(image_width*2,0),(image_width*2,image_height), (0xff, 0xff, 0xff), thickness=3)
 
         # draw text on top of the image for identification
-        cv2.putText(all,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
-        cv2.putText(all,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
+        cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
+        cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
 
-        cv2.putText(all,'Thresh',(image_width+10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
-        cv2.putText(all,'Thresh',(image_width+10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
 
-        cv2.putText(all,'Mask',((image_width*2)+10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
-        cv2.putText(all,'Mask',((image_width*2)+10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
+        # draw text on top of the image for identification
+        cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
+        cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
+
+
+        # draw text on top of the image for identification
+        cv2.putText(mask,'Mask',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
+        cv2.putText(mask,'Mask',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
+
+        all = np.vstack((image, thresh, mask))
 
         return all
 
