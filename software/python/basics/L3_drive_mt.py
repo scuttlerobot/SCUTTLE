@@ -89,7 +89,7 @@ def loop_drive( ID ):
         # myPhiDots = inv.convert(A)
        
         # THIS CODE IS FOR OPEN AND CLOSED LOOP control
-        pdTargets = np.array([9.7, 9.7]) #Fixed requested PhiDots; SPECIFICALLY FOR PID LAB
+        #pdTargets = np.array([9.7, 9.7]) #Fixed requested PhiDots; SPECIFICALLY FOR PID LAB
         pdTargets = inv.getPdTargets() # populates target phi dots from GamePad
         kin.getPdCurrent() # capture latest phi dots & update global var
         pdCurrents = kin.pdCurrents # assign the global variable value to a local var
