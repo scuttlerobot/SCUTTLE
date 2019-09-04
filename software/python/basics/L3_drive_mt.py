@@ -114,6 +114,12 @@ def loop_drive( ID ):
             sc.driveClosedLoop(pdTargets, pdCurrents, de_dt)  # call the control system
         time.sleep(0.05)
         
+        
+        u = sc.u 
+        u_proportional = sc.u_proportional
+        u_integral = sc.u_integral
+        u_derivative = sc.u_derivative
+        
         # THIS BLOCK OUTPUTS DATA TO A CSV FILE
         if count == 1:
             log.clear_file()
