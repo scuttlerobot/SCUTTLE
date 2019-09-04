@@ -3,6 +3,7 @@
 # Nodered can be found on the beagle at port 1880. ie, 192.168.8.1:1880
 
 import numpy as np # for handling arrays
+import csv
 
 # A function for populating 2 text files with updated phi-dots
 def writeFiles(current_phis): 
