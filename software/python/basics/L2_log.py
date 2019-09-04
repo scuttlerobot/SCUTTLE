@@ -3,6 +3,7 @@
 # Nodered can be found on the beagle at port 1880. ie, 192.168.8.1:1880
 
 import numpy as np # for handling arrays
+import csv
 
 # A function for populating 2 text files with updated phi-dots
 def writeFiles(current_phis): 
@@ -29,11 +30,11 @@ def Node_Red2(val): # this function takes a 2-element array called val
 # A function for creating a CSV file from a list of values.    
 def csv_write(list):
     list = [str(i) for i in list]
-    with open('excel_data.csv', 'a') as csvFile:
+    with open('PID_Lab_Data.csv', 'a') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(list)
     csvFile.close()
 
 # A function to clear an existing CSV file
 def clear_file():
-    open('excel_data.csv','w').close()
+    open('PID_Lab_Data.csv','w').close()
