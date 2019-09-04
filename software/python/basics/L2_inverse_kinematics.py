@@ -47,6 +47,7 @@ def convert(B):
 def getPdTargets():
     B = populate_gp() # retrieves targets in [xdot, thetadot] form
     C = convert(B) # convert the targets to [pdl, pdr] form
+    C = np.clip(C,-9.7, 9.7)
     return(C)
 
 #create a function that can convert an obstacle into an influence on theta dot

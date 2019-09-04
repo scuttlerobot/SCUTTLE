@@ -10,7 +10,7 @@ import math
 import L2_speed_control as sc # closed loop control. Import speed_control for open-loop
 import L2_inverse_kinematics as inv #calculates wheel parameters from chassis
 import L2_kinematics as kin    # calculates chassis parameters from wheels
-import L2_log # log live data to local files
+import L2_log as log # log live data to local files
 # import L2_obstacle as obs  # for detecting obstacles
 # import L2_color_target as ct # for driving with computer vision tracking
 import L1_text2speech as t2s # for speaking over aux port
@@ -113,6 +113,12 @@ def loop_drive( ID ):
         else:
             sc.driveClosedLoop(pdTargets, pdCurrents, de_dt)  # call the control system
         time.sleep(0.05)
+        
+        
+        u = sc.u 
+        u_proportional = sc.u_proportional
+        u_integral = sc.u_integral
+        u_derivative = sc.u_derivative
         
         # THIS BLOCK OUTPUTS DATA TO A CSV FILE
         if count == 1:
