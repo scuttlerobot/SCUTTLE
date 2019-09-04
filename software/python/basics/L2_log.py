@@ -29,11 +29,11 @@ def Node_Red2(val): # this function takes a 2-element array called val
 # A function for creating a CSV file from a list of values.    
 def csv_write(list):
     list = [str(i) for i in list]
-    with open('excel_data.csv', 'a') as csvFile:
+    with open('PID_Lab_Data.csv', 'a') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(list)
     csvFile.close()
 
 # A function to clear an existing CSV file
 def clear_file():
-    open('excel_data.csv','w').close()
+    open('PID_Lab_Data.csv','w').close()
