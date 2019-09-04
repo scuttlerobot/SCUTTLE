@@ -77,7 +77,8 @@ def loop_drive( ID ):
         #     thetaOffset = ct.horizLoc(x) #grabs the angle of the target in degrees
         # myThetaDot = thetaOffset * 3.14/180 *2 # achieve centering in 0.5 seconds
         # print(myThetaDot)
-        # myXDot = 0
+        # myXDot = 0 # enable this line to freeze driving, and turn only.
+        # myXDot = 
         # A = np.array([ myXDot, myThetaDot ])
         # pdTargets = inv.convert(A) # convert [xd, td] to [pdl, pdr]
         # print(pdTargets)
