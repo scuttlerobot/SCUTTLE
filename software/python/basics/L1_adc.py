@@ -1,5 +1,6 @@
 # This code retrieves information from the onboard analog-to-digital converter
-# on the beaglebone blue
+# on the beaglebone blue.
+# Uses rcpy library.  Documentation at guitar.ucsd.edu/rcpy/rcpy.pdf
 
 import time
 import numpy as np
@@ -19,8 +20,14 @@ def getAdc():
     #print("\nA0:",A0, "\nA1:",A1, "\nA2:", A2, "\nA3:", A3, "\nA4:", A4, "\nA5:", A5, "\nA6:", A6)
     return(adcData)
 
+def getDcJack():
+    voltage = round(get_dc_jack_voltage(), 2)
+    return (voltage)
+
 # UNCOMMENT THE SECTION BELOW TO RUN AS STANDALONE CODE    
-# while 1:
-#     myAdcData = getAdc()
-#     print (myAdcData)
-#     time.sleep(0.5)
+while 1:
+    myAdcData = getAdc()
+    print (myAdcData)
+    dcJack = getDcJack()
+    print("battery:", dcJack, "v")
+    time.sleep(0.5)
