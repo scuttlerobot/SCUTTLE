@@ -7,6 +7,7 @@ import L1_camera as cam
 
 color_range = ((0,180,130),(10,255,255))
 
+# This function searches an image for an object of the specified color.  Returns array containing [x, y, radius] in pixels.
 def colorTarget(color_range=((0,0,0),(255,255,255))):
 
     image = cam.newImage()
