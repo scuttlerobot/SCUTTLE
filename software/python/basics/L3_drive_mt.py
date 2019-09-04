@@ -10,7 +10,7 @@ import math
 import L2_speed_control as sc # closed loop control. Import speed_control for open-loop
 import L2_inverse_kinematics as inv #calculates wheel parameters from chassis
 import L2_kinematics as kin    # calculates chassis parameters from wheels
-import L2_log # log live data to local files
+import L2_log as log # log live data to local files
 # import L2_obstacle as obs  # for detecting obstacles
 # import L2_color_target as ct # for driving with computer vision tracking
 import L1_text2speech as t2s # for speaking over aux port
