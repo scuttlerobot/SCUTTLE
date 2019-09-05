@@ -1,25 +1,20 @@
 # This program accesses info from the Blue's onboard sensor, MPU9250
-# It reads accelerometer, gyro, and magnetometer data from the sensor.
+# It reads temp, accelerometer, gyro, and magnetometer data from the sensor.
 # Uses RCPY library.  See guitar.ucsd.edu/rcpy/rcpy.pdf for documentation
 
 #!/usr/bin/env python3
 import time # for time.sleep function
-import getopt, sys
-import numpy as np
-
+import numpy as np # for working with matrices
 import rcpy # import rcpy library (this automatically initializes robotics cape)
-import rcpy.mpu9250 as mpu9250
+import rcpy.mpu9250 as mpu9250 # for mpu sensor functions
 
 rcpy.set_state(rcpy.RUNNING) # set state to rcpy.RUNNING
-mpu9250.initialize(enable_magnetometer = True) # by default, mag is not initialized. Uncomment for mag usage.
+mpu9250.initialize(enable_magnetometer = True) # by default, mag is not initialized.
 mpu9250.initialize() # initialize the sensor
 
 def getAccel():
-    data = mpu9250.read() # this command returns a string with many parameters.
-    a1 = round(data['accel'][0],3) # store x axis
-    a2 = round(data['accel'][1],3) # store y axis
-    a3 = round(data['accel'][2],3) # store z axis
-    axes = np.array([a1, a2, a3])  # form an array
+    axes = mpu9250.read_accel_data() # returns x, y, z acceleration (m/s^2)
+    axes = np.round(axes,3) # round values to 3 decimals
     return(axes)
     
 def getAll(): 
@@ -27,14 +22,25 @@ def getAll():
     return(data)
     
 def getTemp():
-    temp = mpu9250.read_imu_temp() # this rcpy command returns just temperature
+    temp = mpu9250.read_imu_temp() # returns just temperature (deg C)
     return(temp)
+    
+def getMag():  
+    mag = mpu9250.read_mag_data() # gets x,y,z mag values (microtesla)
+    mag = np.round(mag,1) # round values to 1 decimal
+    return(mag)
 
+def getGyro():
+    gyro = mpu9250.read_gyro_data() # returns 3 axes gyro data (deg/s)
+    gyro = np.round(gyro, 2)
+    return(gyro)
+    
 # UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
 while True:
     if rcpy.get_state() == rcpy.RUNNING: # verify the rcpy package is running
-        data = getAll() # store all the data
-        print("Accel (m/s^2)\tX:{} \t Y:{} \t Z:{} \tGyro (deg/s) X:{} \t Y:{}\t Z:{}" \
-        .format(round(data['accel'][0],3) , round(data['accel'][1],3) , round(data['accel'][2],3) , round(data['gyro'][0],3) , \
-        round(data['gyro'][1],3) , round(data['gyro'][2],3) ))
-    time.sleep(.5) # delay 0.5s
+        myTemp = getTemp()
+        myMag = getMag()
+        myGyro = getGyro()
+        myAccel = getAccel()
+        print("mag (μT):", myMag, "\t accel(m/s^2):", myAccel) 
+    time.sleep(.2) # delay 0.5s
