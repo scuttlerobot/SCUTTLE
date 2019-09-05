@@ -3,7 +3,6 @@
 # Nodered can be found on the beagle at port 1880. ie, 192.168.8.1:1880
 
 import numpy as np # for handling arrays
-import csv
 
 # A function for populating 2 text files with updated phi-dots
 def writeFiles(current_phis): 
@@ -17,7 +16,7 @@ def writeFiles(current_phis):
     txt2.close()
 
 # A function for populating 2 text files with updating variables    
-def Node_Red2(val): # this function takes a 2-element array called val
+def NodeRed2(val): # this function takes a 2-element array called val
     txt = open("/home/debian/basics/a.txt",'w+') # file for generic variable a
     txt2 = open("/home/debian/basics/b.txt",'w+') # file for generic variable b
     a = round(val[0],2)
@@ -30,11 +29,11 @@ def Node_Red2(val): # this function takes a 2-element array called val
 # A function for creating a CSV file from a list of values.    
 def csv_write(list):
     list = [str(i) for i in list]
-    with open('PID_Lab_Data.csv', 'a') as csvFile:
+    with open('excel_data.csv', 'a') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(list)
     csvFile.close()
 
 # A function to clear an existing CSV file
 def clear_file():
-    open('PID_Lab_Data.csv','w').close()
+    open('excel_data.csv','w').close()
