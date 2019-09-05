@@ -13,12 +13,23 @@ from bmp280 import BMP280 #library dedicated to BMP280 sensor
 bus = SMBus(2) # the sensor is located on the i2c bus no.2
 bmp280 = BMP280(i2c_dev=bus)
 
+def temp(): # get the sensor temp (C)
+    temperature = round(bmp280.get_temperature(),2)
+    return(temperature)
+
+def pressure(): # get the ambient pressure (kPa)
+    pressure = round(bmp280.get_pressure()*0.1,1)
+    return(pressure)
+
+# altitude is not reliable unless you know how to calibrate it    
+def altitude(): # get the estimated altitude (m) (not calibrated)
+    altitude = round(bmp280.get_altitude(),1)
+    return(altitude)
+
 # UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
 # while True:
-    
-#     temperature = round(bmp280.get_temperature(),2)
-#     pressure = round(bmp280.get_pressure()*0.1,1)
-#     altitude = round(bmp280.get_altitude(),1)
-
-#     print("Temperature:", temperature, "C\tPressure:", pressure,"kPa\tAltitude:", altitude, "m")
-#     time.sleep(0.1)
+#     t = temp()
+#     p = pressure()
+#     a = altitude()
+#     print("Temperature: (C)", t, "\t Pressure (kPa):", p)
+#     time.sleep(0.5)
