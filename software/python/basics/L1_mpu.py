@@ -36,11 +36,11 @@ def getGyro():
     return(gyro)
     
 # UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
-while True:
-    if rcpy.get_state() == rcpy.RUNNING: # verify the rcpy package is running
-        myTemp = getTemp()
-        myMag = getMag()
-        myGyro = getGyro()
-        myAccel = getAccel()
-        print("mag (μT):", myMag, "\t accel(m/s^2):", myAccel) 
-    time.sleep(.2) # delay 0.5s
+# while True:
+#     if rcpy.get_state() == rcpy.RUNNING: # verify the rcpy package is running
+#         myTemp = getTemp()
+#         myMag = getMag()
+#         myGyro = getGyro()
+#         myAccel = getAccel()
+#         print("mag (μT):", myMag, "\t accel(m/s^2):", myAccel) 
+#     time.sleep(.2) # delay 0.5s
