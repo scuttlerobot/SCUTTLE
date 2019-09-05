@@ -71,6 +71,12 @@ PING google.com (216.58.194.110) 56(84) bytes of data.
 rtt min/avg/max/mdev = 10.521/15.320/17.869/2.835 ms
   ```
 
+**Manually Connect to the internet**
+<br>
+Use commands: sudo connmanctl, scan wifi, agent on, services, connect (service)
+<br>
+[see steps and example output here](https://gist.github.com/dmalawey/e4be9f3b5beba8ed49868065935127b7)
+
 **Copy a GitHub repository to your device**
   ```
 debian@scuttle:~$ git clone http://github.com/MXET/SCUTTLE
