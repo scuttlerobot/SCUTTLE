@@ -9,39 +9,26 @@
   sudo apt-get upgrade -y
   sudo apt-get dist-upgrade -y
 
-# Install helpful tools
+# Install required Packages
 
-  sudo apt-get install -y pure-ftpd ftp
+  sudo apt-get install -y git ftp zsh curl wget flac libx11-6 pure-ftpd python-pip python-dev libx11-dev python3-pip python3-dev python-numpy libopencv-dev python3-serial python3-opencv python3-numpy python3-opengl libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev libtiff5-dev fluid-soundfont-gm timgm6mb-soundfont xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic fontconfig fonts-freefont-ttf python3-setuptools libfreetype6-dev build-essential python-smbus python3-pyaudio libsdl-image1.2-dev libsdl-mixer1.2-dev mjpg-streamer-opencv-python
 
 # Install Python Libraries
 
   sudo pip install --upgrade Adafruit_BBIO
-  sudo apt-get install -y python3-serial
-
-# Python Speech Recongnition
-
-  sudo apt-get install -y python3-pyaudio flac
-  sudo pip3 install SpeechRecognition
-
-# Cayenne Library
-
-  sudo pip3 install cayenne-mqtt
+  sudo pip3 install SpeechRecognition cayenne-mqtt bmp280 pygame
   
-# BMP280 sensor Library
+  # Fix Adafruit_BBIO.GPIO
+  
+  sudo python3 /opt/source/rcpy/setup.py install
+  sudo python3 /opt/source/pyctrl/setup.py install
+  
+  # Install Adafruit_GPIO.I2C
 
-  sudo pip3 install bmp280
-
-  #sudo apt update ; sudo apt install --only-upgrade bb-cape-overlays
-  #uboot_overlay_pru=/lib/firmware/AM335X-PRU-RPROC-4-14-TI-00A0.dtbo
-  #cd /opt/scripts/
-  #git pull
-  #sudo /opt/scripts/tools/update_kernel.sh --ti-channel --lts-4_14
-  #sudo /opt/scripts/tools/developers/update_bootloader.sh
-
-# Install OpenCV and other Libraries Color Tracking Relies on
-
-  sudo apt-get install -y python-pip python3-pip libopencv-dev python3-opencv python-numpy
-  sudo apt install -y mjpg-streamer-opencv-python
+  cd /tmp
+  git clone https://github.com/adafruit/Adafruit_Python_GPIO.git
+  cd Adafruit_Python_GPIO
+  sudo python3 setup.py install
 
 # Make SSH pretty
 
@@ -66,35 +53,6 @@
   sudo sed -i 2d /etc/hosts
   sudo sed -i '2i127.0.1.1       scuttle.localdomain  scuttle' /etc/hosts
 
-# Fix Adafruit_BBIO.GPIO
-
-  sudo python3 /opt/source/rcpy/setup.py install
-  sudo python3 /opt/source/pyctrl/setup.py install
-
-# Install PyGame
-
-  sudo apt-get install -y git python3-dev python3-setuptools python3-numpy python3-opengl libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev libtiff5-dev libx11-6 libx11-dev fluid-soundfont-gm timgm6mb-soundfont xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic fontconfig fonts-freefont-ttf libfreetype6-dev
-  sudo pip3 install pygame
-  
-# Install Adafruit_GPIO.I2C
-
-  sudo apt-get install -y build-essential python-pip python-dev python-smbus git
-  git clone https://github.com/adafruit/Adafruit_Python_GPIO.git
-  cd Adafruit_Python_GPIO
-  sudo python3 setup.py install
-
-# Install zsh
-
-  sudo apt-get install -y git curl wget zsh
-
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#sudo sed -i 2d /home/debian/.zshrc
-#sudo sed -i '2iexport PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH' /home/debian/.zshrc
-#sudo -u debian sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#sudo -u debian sed -i 2d /home/debian/.zshrc
-#sudo -u debian sed -i '2iexport PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH' /home/debian/.zshrc
-
 # Reboot
 
   sudo reboot
-  
