@@ -1,8 +1,6 @@
-# compass_ex1.py
-
-# a simple tool to read and print the compass x and y values from the beaglebone onboard imu
+# This program is for communicating with an external i2C Compass, PMOD CMPS or CMPS2
 # NOTE: This program does not calibrate your compass.
-# This program does not check if your compass is oriented properly.
+# This program does not check if your compass is mounted/oriented properly.
 # The x-axis should point forward on the robot
 
 import Adafruit_GPIO.I2C as Adafruit_I2C #i2c communication
