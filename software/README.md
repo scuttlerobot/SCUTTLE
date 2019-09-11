@@ -3,23 +3,7 @@ This folder contains all scuttle software and software information.
 
 <br>
 
-## Python ([SCUTTLE/software/python](https://github.com/MXET/SCUTTLE/tree/master/software/python))
-
-The python folder stores all the code needed to drive the SCUTTLE robot using simplified functions allowing the user to perform motor functions such as driving and turning as well as reading sensor values from onboard sensors and external sensors like the rotary encoders and compass. Using these functions helps anyone start writing their own programs for the SCUTTLE robot as quickly as possible.
-
-<br>
-
-## Scripts ([SCUTTLE/software/scripts](https://github.com/MXET/SCUTTLE/tree/master/software/scripts))
-
-This folder contains scripts useful for installing all the libraries SCUTTLE relies on as well as performing maintenance tasks and installing additional software.
-
-<br>
-
-## MATLAB ([SCUTTLE/software/matlab](https://github.com/MXET/SCUTTLE/tree/master/software/matlab))
-
-The MATLAB folder contains the MATLAB Controller Client that allows a user to control the SCUTTLE robot manually as well as show sensor readings and plot the live position of the SCUTTLE robot.
-
-## SHELL Cheat Sheet:
+# SHELL Processes Cheat Sheet:
 
 **Report devices active on the i2c bus:**
 ```
@@ -137,6 +121,12 @@ Wireless LAN adapter Wi-Fi:
 ```
 
 ## Beaglebone Blue Cheat Sheet:
+
+**Important ip addresses:**
+192.168.8.1:22 default terminal session over wifi
+192.168.7.2:22 default terminal session over USB
+192.168.8.1:3000 Cloud9 (over wifi)
+192.168.8.1:1880 Nodered (over wifi)
 
 **Instructions to connect to SSH using putty:**
 ([beaglebone how-to-connect](https://www.dummies.com/computers/beaglebone/how-to-connect-your-beaglebone-via-ssh-over-usb/))
