@@ -65,9 +65,9 @@ def phi_influence(yValue):
 
 # UNCOMMENT THE CODE BELOW TO RUN AS A STANDALONE PROGRAM
 # while(1):
-#     x_dot = 1 #meters per second
-#     theta_dot = 0 # radians per second
-#     B = np.array([x_dot, theta_dot])
+#     x_dot = 1 #meters per second (choose a value)
+#     theta_dot = 0 # radians per second (choose a value)
+#     B = np.array([x_dot, theta_dot]) # form your column matrix
 #     phis = convert(B) # convert [xd, td] to [pdl, pdr]
-#     print(phis[0]) # print pdl
+#     print("pdl:", phis[0], "pdr:", phis[1]) # print pdl and pdr
 #     time.sleep(0.5)
