@@ -4,6 +4,7 @@
 # Software TM:
 # Date:
 # Code purpose: 
+# indicate d1 and d2 distances:
 
 # Import Internal Programs
 import L2_speed_control as sc
