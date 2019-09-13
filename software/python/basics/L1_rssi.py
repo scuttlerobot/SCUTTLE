@@ -2,8 +2,6 @@
 # it returns the RECEIVED wifi signal strength of the AP to which the blue is connected.
 # Typical values fall near -70dB.  Values near -90dB or lower may lose connection.
 
-#!/usr/bin/env python
-
 import sys
 import subprocess
 import time
