@@ -2,7 +2,7 @@
 # Please run "sudo apt-get install flite" before running this program.
 # Next, you can adust volume with a GUI by the command "alsamixer"
 
-import os
+import os # enables usage of shell commands
 
 def say(message):
     s = str(message)  # Make sure input is a string by casting all inputs to a string.
