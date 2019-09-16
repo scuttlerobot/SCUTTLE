@@ -4,9 +4,9 @@
 # 16 values will be returned, 4 floatig and 12 boolean
 # last updated 2019.05.24
 
-import pygame
-import numpy as np
-import os
+import pygame # this library contains functions to communicate with a gamepad
+import numpy as np # for working with arrays
+import os # for making commands directly to the OS
 import time  # only required if we run this program  in a loop
 
 os.environ['SDL_VIDEODRIVER'] = 'dummy'
