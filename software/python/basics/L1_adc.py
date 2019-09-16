@@ -24,9 +24,9 @@ def getDcJack(): # return the voltage measured at the barrel plug
     voltage = round(get_dc_jack_voltage(), 2)
     return (voltage)
 
-# UNCOMMENT THE SECTION BELOW TO RUN AS STANDALONE CODE    
-while 1:
-    adcData = getAdc()
-    dcJack = getDcJack()
-    print("adc (v):", adcData, "\t battery (v):", dcJack)
-    time.sleep(0.5)
+# # UNCOMMENT THE SECTION BELOW TO RUN AS STANDALONE CODE    
+# while 1:
+#     adcData = getAdc()
+#     dcJack = getDcJack()
+#     print("adc (v):", adcData, "\t battery (v):", dcJack)
+#     time.sleep(0.5)
