@@ -2,6 +2,7 @@
 # to local files.  The files can be accessed by NodeRed or other programs.
 # Nodered can be found on the beagle at port 1880. ie, 192.168.8.1:1880
 
+# Import external libraries
 import numpy as np # for handling arrays
 
 # A function for populating 2 text files with updated phi-dots
@@ -16,15 +17,22 @@ def writeFiles(current_phis):
     txt2.close()
 
 # A function for populating 2 text files with updating variables    
-def NodeRed2(val): # this function takes a 2-element array called val
+def NodeRed2(values): # this function takes a 2-element array called val
     txt = open("/home/debian/basics/a.txt",'w+') # file for generic variable a
     txt2 = open("/home/debian/basics/b.txt",'w+') # file for generic variable b
-    a = round(val[0],2)
-    b = round(val[1],2)
+    a = round(values[0],2)
+    b = round(values[1],2)
     txt.write(str(a))
     txt2.write(str(b))
     txt.close()
     txt2.close() 
+    
+    # A function for sending 1 value to a log file of specified name  
+def uniqueFile(value, fileName): # this function takes a 2-element array called val
+    txt = open("/home/debian/basics/" + fileName,'w+') # file with specified name
+    myValue = round(value,2)
+    txt.write(str(myValue))
+    txt.close()
 
 # A function for creating a CSV file from a list of values.    
 def csv_write(list):
