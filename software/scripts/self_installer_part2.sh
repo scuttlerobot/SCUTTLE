@@ -18,7 +18,7 @@
   sudo pip install --upgrade Adafruit_BBIO
   sudo pip3 install SpeechRecognition cayenne-mqtt bmp280 pygame
   
-  # Fix Adafruit_BBIO.GPIO
+  # Fix Adafruit_BBIO.GPIO (default install is setup for bb black)
   
   sudo python3 /opt/source/rcpy/setup.py install
   sudo python3 /opt/source/pyctrl/setup.py install
