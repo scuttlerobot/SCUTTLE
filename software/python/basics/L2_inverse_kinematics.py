@@ -1,8 +1,11 @@
 # inverse_kinematics.py will take in motion requests in theta
 # and x form, and output motion requests in phi dot (left & right)
 
+# Import external libraries
 import numpy as np # to perform matrix operations
 import time
+
+# Import internal programs
 import L1_gamepad as gp # to call getGP from gamepad
 
 # define robot geometry
@@ -65,9 +68,9 @@ def phi_influence(yValue):
 
 # UNCOMMENT THE CODE BELOW TO RUN AS A STANDALONE PROGRAM
 # while(1):
-#     x_dot = 1 #meters per second (choose a value)
-#     theta_dot = 0 # radians per second (choose a value)
-#     B = np.array([x_dot, theta_dot]) # form your column matrix
+#     x_dot = 1 #meters per second
+#     theta_dot = 0 # radians per second
+#     B = np.array([x_dot, theta_dot])
 #     phis = convert(B) # convert [xd, td] to [pdl, pdr]
-#     print("pdl:", phis[0], "pdr:", phis[1]) # print pdl and pdr
+#     print(phis[0]) # print pdl
 #     time.sleep(0.5)
