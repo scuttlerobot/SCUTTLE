@@ -2,6 +2,7 @@
 # It reads temp, accelerometer, gyro, and magnetometer data from the sensor.
 # Uses RCPY library.  See guitar.ucsd.edu/rcpy/rcpy.pdf for documentation
 
+# Import external librarires
 import time # for time.sleep function
 import numpy as np # for working with matrices
 import rcpy # import rcpy library (this automatically initializes robotics cape)
