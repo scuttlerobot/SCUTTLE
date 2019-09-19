@@ -10,7 +10,7 @@ spinner() {
     done
 }
 
-#Promt root
+#Promt for root password
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
 # Check for internet connection.
@@ -25,6 +25,10 @@ else
 	echo ""
 fi
 
+echo "#################################################################" >> /home/debian/.install_log
+date >> /home/debian/.install_log
+echo "#################################################################" >> /home/debian/.install_log
+
 PROGS=(git ftp zsh curl wget flac libx11-6 pure-ftpd python-pip python-dev libx11-dev python3-pip python3-dev python-numpy libopencv-dev python3-serial python3-opencv python3-numpy python3-opengl libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev libtiff5-dev fluid-soundfont-gm timgm6mb-soundfont xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic fontconfig fonts-freefont-ttf python3-setuptools libfreetype6-dev build-essential python-smbus python3-pyaudio libsdl-image1.2-dev libsdl-mixer1.2-dev mjpg-streamer-opencv-python)
 
 # Check if apt packages installed
@@ -34,10 +38,13 @@ do
 
 	if [ $? -eq 1 ]; then
 		echo -e "\e[1m\e[31m$i not installed!\e[0m"
-		printf "Installing $i."
+		printf "InstalliDone!ng $i."
 		spinner &
-		yes | apt -qq install -y $i > /dev/null 2>&1
+		yes | apt -qq install -y $i >> /home/debian/.install_log 2>&1
 	else
 		echo -e "\e[1m\e[32m$i installed!\e[0m"
 	fi
 done
+
+echo ""
+echo "Done!"
