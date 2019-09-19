@@ -73,7 +73,7 @@ do
 		printf "Installing $i."
 		spinner &
 		pip3 install --quiet $i >> /home/debian/.install_log 2>&1
-        python3 -c "import $i" > /dev/null 2>&1 || pip3 install --quiet $i >> /home/debian/.install_log 2>&1
+        	python3 -c "import $i" > /dev/null 2>&1 || pip3 install --quiet $i >> /home/debian/.install_log 2>&1
 		if [ $? -eq 0 ]; then
 			printf "\n"
 			echo -e "\e[1m\e[32m$i installed!\e[0m"
