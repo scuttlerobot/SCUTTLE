@@ -82,5 +82,5 @@ do
 		echo -e "\e[1m\e[32m$i installed!\e[0m"
 	fi
 done
-
+printf(\n)
 pip3 --quiet install --upgrade Adafruit_BBIO
