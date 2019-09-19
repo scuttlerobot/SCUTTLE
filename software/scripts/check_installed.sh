@@ -41,13 +41,12 @@ do
 		printf "Installing $i."
 		spinner &
 		yes | apt -qq install -y $i >> /home/debian/.install_log 2>&1
-
-        dpkg-query --list | grep " $i" > /dev/null 2>&1
-    	if [ $? -eq 0 ]; then
-            printf "\n"
-    		echo -e "\e[1m\e[32m$i installed!\e[0m"
+		dpkg-query --list | grep " $i" > /dev/null 2>&1
+		if [ $? -eq 0 ]; then
+			printf "\n"
+			echo -e "\e[1m\e[32m$i installed!\e[0m"
         fi
 	else
 		echo -e "\e[1m\e[32m$i installed!\e[0m"
-    fi
+	fi
 done
