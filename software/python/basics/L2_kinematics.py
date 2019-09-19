@@ -59,4 +59,4 @@ def getMotion():
 # UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
 # while 1:
 #     C = getMotion()
-#     print("thetadot (rad/s), xdot(m/s)", C)
+#     print("xdot(m/s), thetadot (rad/s):", C)
