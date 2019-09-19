@@ -36,7 +36,7 @@ do
 		echo -e "\e[1m\e[31m$i not installed!\e[0m"
 		printf "Installing $i."
 		spinner &
-		apt -qq install -y $i > /dev/null 2>&1
+		yes | apt -qq install -y $i > /dev/null 2>&1
 	else
 		echo -e "\e[1m\e[32m$i installed!\e[0m"
 	fi
