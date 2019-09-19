@@ -37,7 +37,7 @@ PROGS=(git ftp zsh curl wget flac libx11-6 pure-ftpd python-pip python-dev libx1
 printf "Running apt update."
 spinner &
 apt -qq update >> /home/debian/.install_log 2>&1
-printf "\nDone.\n"
+printf "\nDone.\n\n"
 
 printf "Checking Installed Programs...\n\n"
 
