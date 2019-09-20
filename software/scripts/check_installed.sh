@@ -23,9 +23,10 @@ if [ $? -eq 0 ]; then
     echo ""
 else
 	echo ""
-	echo -e "\e[1m\e[31mERROR: \nNo Internet Connection!\e[0m"
+	echo -e "\e[1m\e[31mERROR: No Internet Connection!\e[0m"
 	echo -e "       \e[1m\e[31mPlease run setup_wpa_enterprise.py\e[0m" >&2
 	echo ""
+	exit
 fi
 
 echo "#################################################################" >> /home/debian/.install_log
