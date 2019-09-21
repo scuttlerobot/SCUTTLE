@@ -137,6 +137,10 @@ Wireless LAN adapter Wi-Fi:
 **Access NodeRed:**
 Navigate to nodered: 192.168.8.1:1880
 
+**Reinstall RCPY/librobotcontrol if it becomes corrupted**
+sudo apt-get purge roboticscape
+sudo apt-get install librobotcontrol
+
 ## Raspberry Pi Cheat Sheet:
 **Instructions to connect to SSH using putty:**
 ([beaglebone how-to-connect](https://www.dummies.com/computers/beaglebone/how-to-connect-your-beaglebone-via-ssh-over-usb/))
