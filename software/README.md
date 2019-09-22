@@ -122,23 +122,34 @@ Wireless LAN adapter Wi-Fi:
 
 ## Beaglebone Blue Cheat Sheet:
 
+**Need extra help troubleshooting?**
+<br/>
+([beaglebone Live Chat](https://beagleboard.org/chat))
+<br/>
+Make sure 1) it's a beagle related issue 2) you give 30 minutes for an expert to respond (they will!) before you close the window. 3) If you learn something helpful for the project, share with our github admins
+
 **Important ip addresses:**
-192.168.8.1:22 default terminal session over wifi
-192.168.7.2:22 default terminal session over USB
-192.168.8.1:3000 Cloud9 (over wifi)
-192.168.8.1:1880 Nodered (over wifi)
+<br/>
+192.168.8.1:22 default terminal session over wifi <br/>
+192.168.7.2:22 default terminal session over USB <br/>
+192.168.8.1:3000 Cloud9 (over wifi) <br/>
+192.168.8.1:1880 Nodered (over wifi) <br/>
 
 **Instructions to connect to SSH using putty:**
+<br/>
 ([beaglebone how-to-connect](https://www.dummies.com/computers/beaglebone/how-to-connect-your-beaglebone-via-ssh-over-usb/))
 
 **Instructions to flash a new SD card with an image:**
+<br/>
 ([beagleboard.org getting started](http://beagleboard.org/getting-started#step3))
 
 **Access NodeRed:**
+<br/>
 Navigate to nodered: 192.168.8.1:1880
 
 **Reinstall RCPY/librobotcontrol if it becomes corrupted**
-sudo apt-get purge roboticscape
+<br/>
+sudo apt-get purge roboticscape <br/>
 sudo apt-get install librobotcontrol
 
 ## Raspberry Pi Cheat Sheet:
