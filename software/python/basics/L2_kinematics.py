@@ -22,8 +22,10 @@ def getTravel(deg0,deg1): # calculate the delta on Left wheel
         trav = (deg1 - deg0 - roll) # reverse rollover
     return(trav)
 
-def getPdCurrent():
-    global pdCurrents                # make a global var for easy retrieval
+# Note:  this function takes at least 5ms to run.  It also populates a global 
+# variable so programs can access the previous measurement instantaneously.
+def getPdCurrent():                 
+    global pdCurrents               # make a global var for easy retrieval
     encoders = enc.read()           # grabs the current encoder readings in degrees
     degL0 = round(encoders[0],1)    # reading in degrees.
     degR0 = round(encoders[1],1)    # reading in degrees.
@@ -49,12 +51,13 @@ def getPdCurrent():
     wheelSpeeds = travs / deltaT
     wheelSpeeds = np.round(wheelSpeeds, decimals=3)
     pdCurrents = wheelSpeeds #store the updated most recent wheel speeds to the class variable
-
-def getMotion():
-    B = getPhiDots()             # store phidots to array B (here still in rad/s)
+    return(pdCurrents)
+    
+def getMotion():                # this function returns the chassis speeds
+    B = getPdCurrent()          # store phidots to array B (here still in rad/s)
     C = np.matmul(A,B)          # perform matrix multiplication
     C = np.round(C,decimals=3)  # round the matrix
-    return(C)                   # returns a matrix containing thetaDot & xDot
+    return(C)                   # returns a matrix containing [xDot, thetaDot]
 
 # UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
 # while 1:
