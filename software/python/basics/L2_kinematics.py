@@ -11,7 +11,7 @@ L = 0.201 # half of wheelbase meters
 res = (360/2**14) # resolution of the encoders
 roll = int(360/res) # variable for rollover logic
 gap = 0.5 * roll # degress specified as limit for rollover
-A = np.array([[R/2, R/2],[-R/2*L, R/2*L],]) # This matrix relates [PDL, PDR] to [XD,TD]
+A = np.array([[R/2, R/2],[-R/(2*L), R/(2*L)],]) # This matrix relates [PDL, PDR] to [XD,TD]
 wait = 0.02 # wait time between encoder measurements (s)
 
 def getTravel(deg0,deg1): # calculate the delta on Left wheel
