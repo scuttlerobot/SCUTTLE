@@ -90,3 +90,5 @@ do
 done
 printf "\n"
 pip3 --quiet install --upgrade Adafruit_BBIO
+
+reboot
