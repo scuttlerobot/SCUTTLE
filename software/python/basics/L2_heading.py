@@ -36,12 +36,12 @@ def getHeading(myAxes): # convert scaled values to a heading
     return(h)
     
 # # UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
-while 1:
-    axes = getXY() # call xy function
-    print("raw values:", axes)
-    axesScaled = scale(axes) # perform scale function
-    print("scaled values:", axesScaled) # print it out
-    h = getHeading(axesScaled) # compute the heading
-    headingDegrees = round(h*180/np.pi,2)
-    print("heading:", headingDegrees)
-    time.sleep(0.25) # delay 0.25sec
+# while 1:
+#     axes = getXY() # call xy function
+#     print("raw values:", axes)
+#     axesScaled = scale(axes) # perform scale function
+#     print("scaled values:", axesScaled) # print it out
+#     h = getHeading(axesScaled) # compute the heading
+#     headingDegrees = round(h*180/np.pi,2)
+#     print("heading:", headingDegrees)
+#     time.sleep(0.25) # delay 0.25sec
