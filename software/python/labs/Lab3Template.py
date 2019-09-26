@@ -14,7 +14,7 @@ import L2_inverse_kinematics as inv
 import numpy as np
 import time
 
-def task2()
+def task2():
 	myVelocities = np.array([1, 1]) #input your first pair
 	myPhiDots = inv.convert(myVelocities)
 	sc.driveOpenLoop(myPhiDots)
