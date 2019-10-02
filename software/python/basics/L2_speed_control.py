@@ -4,9 +4,11 @@
 # Import external libraries
 import numpy as np
 import time
-import csv
+
 # Import local files
 import L1_motors as m
+
+# declare variables
 u_integral = 0
 
 # a function for converting target rotational speeds to PWMs without feedback\
