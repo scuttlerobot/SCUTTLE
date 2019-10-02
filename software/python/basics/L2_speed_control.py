@@ -6,7 +6,6 @@ import numpy as np
 import time
 import csv
 # Import local files
-import L2_log as log
 import L1_motors as m
 u_integral = 0
 
