@@ -19,13 +19,13 @@ def MotorR(speed): # takes argument in range [-1,1]
     motor.set(motor_r, speed)
 
 # Uncomment this section to run this program as a standalone loop
-while rcpy.get_state() != rcpy.EXITING: # exit loop if rcpy not ready
-    if rcpy.get_state() == rcpy.RUNNING: # execute loop when rcpy is ready
-        print("L1_motors.py: driving fwd")
-        MotorL(0.5)  # gentle speed for testing program. 0.3 PWM may not spin the wheels.
-        MotorR(0.5)
-        time.sleep(4) # run fwd for 4 seconds
-        print("L1_motors.py: driving reverse")
-        MotorL(-0.5)
-        MotorR(-0.5)
-        time.sleep(2) # run reverse for 2 seconds
+# while rcpy.get_state() != rcpy.EXITING: # exit loop if rcpy not ready
+#     if rcpy.get_state() == rcpy.RUNNING: # execute loop when rcpy is ready
+#         print("L1_motors.py: driving fwd")
+#         MotorL(0.5)  # gentle speed for testing program. 0.3 PWM may not spin the wheels.
+#         MotorR(0.5)
+#         time.sleep(4) # run fwd for 4 seconds
+#         print("L1_motors.py: driving reverse")
+#         MotorL(-0.5)
+#         MotorR(-0.5)
+#         time.sleep(2) # run reverse for 2 second
