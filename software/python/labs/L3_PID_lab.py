@@ -14,7 +14,7 @@ import L2_kinematics as kin    # calculates chassis parameters from wheels
 import L2_log as log # log live data to local files
 #import L1_gamepad as gp # for accessing gamepad directly
 
-# CREATE A THREAD FOR DRIVING
+# CREATE A FUNCTION FOR DRIVING
 def loop_drive():
     count = 0 # number of loop iterations
     # INITIALIZE VARIABLES FOR CONTROL SYSTEM
@@ -29,7 +29,7 @@ def loop_drive():
     while(1):
         count += 1 #count the number of times this loop has run
         # THIS CODE IS FOR OPEN AND CLOSED LOOP control
-        pdTargets = np.array([9.7, 9.7]) #Fixed requested PhiDots (radians/s); SPECIFICALLY FOR PID LAB
+        pdTargets = np.array([9.7, 9.7]) # Input requested PhiDots (radians/s)
         #pdTargets = inv.getPdTargets() # populates target phi dots from GamePad
         kin.getPdCurrent() # capture latest phi dots & update global var
         pdCurrents = kin.pdCurrents # assign the global variable value to a local var
