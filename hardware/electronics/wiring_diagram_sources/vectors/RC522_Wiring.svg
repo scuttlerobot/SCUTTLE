@@ -15,9 +15,9 @@
    width="1205.821"
    height="538.65997"
    viewBox="0 0 1205.8211 538.65997"
-   sodipodi:docname="RC522_Wiring_Fixed.svg"
+   sodipodi:docname="RC522_Wiring.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   inkscape:export-filename="/home/daniyal/SCUTTLE/hardware/electronics/wiring_diagram_sources/RC522_Wiring_Red&amp;Black_Switched.png"
+   inkscape:export-filename="/home/daniyal/SCUTTLE/hardware/electronics/wiring_diagram_sources/RC522_Wiring.png"
    inkscape:export-xdpi="800"
    inkscape:export-ydpi="800">
   <metadata
@@ -28,7 +28,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -381,9 +381,9 @@
      inkscape:window-height="1021"
      id="namedview871"
      showgrid="false"
-     inkscape:zoom="2.3190464"
-     inkscape:cx="588.69075"
-     inkscape:cy="217.87373"
+     inkscape:zoom="1.6398134"
+     inkscape:cx="516.89522"
+     inkscape:cy="286.58161"
      inkscape:window-x="46"
      inkscape:window-y="22"
      inkscape:window-maximized="1"
@@ -3440,22 +3440,22 @@
          inkscape:connector-curvature="0"
          id="path7981"
          d="m 514.42662,633.38267 138.0371,0.0531 V 530.26035 l 198.67881,0"
-         style="fill:none;stroke:#231f20;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:none;stroke:#339967;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <path
-       style="fill:none;stroke:#ed2224;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#4b68b1;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 374.98021,617.11749 h 169.21188 v -71.25152 l 167.50403,2.12672"
        id="path7981-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
     <path
-       style="display:inline;fill:none;stroke:#339967;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:none;stroke:#231f20;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 374.98021,550.25578 200.38666,0.0653 v 68.60075 l 136.32925,0"
        id="path7981-5-8-7-0-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
     <path
-       style="display:inline;fill:none;stroke:#4b68b1;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:none;stroke:#ed2224;stroke-width:14.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 374.98021,516.92498 h 231.56144 v 84.55558 l 105.15447,-0.29099"
        id="path7981-5-8-7-0-4-9"
        inkscape:connector-curvature="0"
