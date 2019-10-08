@@ -46,7 +46,7 @@ def driveClosedLoop(pdt, pdc, de_dt):
     e = (pdt - pdc) # compute error
 
     kp = 0.04      # proportional constant, 0.04 fastest smooth response time
-    ki = 0.04    # integral constant, 0.04 fastest sooth response time
+    ki = 0.04    # integral constant, 0.04 fastest smooth response time
     kd = 0     # derivative constant, 0 best result
 
     # generate components of the control effort, u
