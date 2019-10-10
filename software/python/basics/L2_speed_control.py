@@ -2,16 +2,23 @@
 # to send to motors, and has a function to execute PID control.
 
 # Import external libraries
-import numpy as np
-import time
+import numpy as np # for handling arrays
+import time # for handling time
+import csv # for comma-separated-values files
 
 # Import local files
-import L1_motors as m
+import L2_log as log # for data logging
+import L1_motors as m # for controlling motors
 
-# declare variables
+# Initialize variables
 u_integral = 0
+DRS = 0.8
+kp = 0.04 # proportional term
+ki = 0.04 # integral term
+kd = 0.0 # derivative term
+pidGains = np.array([kp, ki, kd]) # form an array to collect pid gains.
 
-# a function for converting target rotational speeds to PWMs without feedback\
+# a function for converting target rotational speeds to PWMs without feedback
 def openLoop(pdl,pdr):
     DRS = 0.8   # create a variable for direct-re-scaling
     duties = np.array([ pdl, pdr ])     # put the values into an array
@@ -41,17 +48,20 @@ def scaleMotorEffort(u): # send the control effort signals to the scaling functi
     u_out[1] = scalingFunction(u[1])
     return(u_out)
 
-def driveClosedLoop(pdt, pdc, de_dt):
-    global u_integral       #Global var must be available for first assignment
+def driveClosedLoop(pdt, pdc, de_dt): # new function requires pidGains argument
+    global u_integral
     e = (pdt - pdc) # compute error
-
-    kp = 0.04      # proportional constant, 0.04 fastest smooth response time
-    ki = 0.04    # integral constant, 0.04 fastest smooth response time
-    kd = 0     # derivative constant, 0 best result
-
+    
+    kp = pidGains[0]
+    ki = pidGains[1] 
+    kd = pidGains[2]
+    
     # generate components of the control effort, u
     u_proportional = (e * kp)     # proportional term
-    u_integral    += (e * ki)     # integral term
+    #u_integral += (e * ki)
+    try: u_integral += (e * ki)     # integral term
+    except:
+        u_integral = (e*ki)
     u_derivative   = (de_dt * kd) # derivative term
 
     # condition the signal before sending to motors
