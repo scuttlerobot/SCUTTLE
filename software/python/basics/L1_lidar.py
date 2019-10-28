@@ -1,3 +1,5 @@
+# Installation of pysicktim library is required for this program.
+
 # This File performs the following:
 # 1) grab a subset of the readings from the lidar for lightweight purposes
 # 2) assign the proper angle value to the reading, with respect to robot x-axis
@@ -37,3 +39,9 @@ def polarScan(num_points):
     scan_points = np.round(scan_points,3) # Round each element in array to 3 decimal places
 
     return(scan_points)
+
+# UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
+while (1):
+    lidarData = polarScan(50)
+    print(LidarData)
+    time.sleep(2)
