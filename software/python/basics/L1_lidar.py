@@ -41,7 +41,7 @@ def polarScan(num_points):
     return(scan_points)
 
 # UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
-while (1):
-    lidarData = polarScan(50)
-    print(LidarData)
-    time.sleep(2)
+# while (1):
+#     lidarData = polarScan(50)
+#     print(LidarData)
+#     time.sleep(2)
