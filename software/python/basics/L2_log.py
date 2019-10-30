@@ -4,6 +4,7 @@
 
 # Import external libraries
 import numpy as np # for handling arrays
+import csv # for handling comma-separated-values file type
 
 # A function for populating 2 text files with updated phi-dots
 def writeFiles(current_phis): 
@@ -16,7 +17,7 @@ def writeFiles(current_phis):
     txt.close()
     txt2.close()
 
-# A function for populating 2 text files with updating variables    
+# A function for populating 2 text files with updating variables
 def NodeRed2(values): # this function takes a 2-element array called val
     txt = open("/home/debian/basics/a.txt",'w+') # file for generic variable a
     txt2 = open("/home/debian/basics/b.txt",'w+') # file for generic variable b
@@ -30,6 +31,13 @@ def NodeRed2(values): # this function takes a 2-element array called val
     # A function for sending 1 value to a log file of specified name  
 def uniqueFile(value, fileName): # this function takes a 2-element array called val
     txt = open("/home/debian/basics/" + fileName,'w+') # file with specified name
+    myValue = round(value,2)
+    txt.write(str(myValue))
+    txt.close()
+    
+    # A function for sending 1 value to a log file in a temporary folder 
+def tmpFile(value, fileName): # this function takes a 2-element array called val
+    txt = open("/tmp/" + fileName,'w+') # file with specified name
     myValue = round(value,2)
     txt.write(str(myValue))
     txt.close()
