@@ -1,4 +1,5 @@
-#FILTER
+# This file defines a filter for openCV processing.
+# it is passed as an argument to the BASH command when running setup_mjpg_streamer
 
 import cv2
 import numpy as np
