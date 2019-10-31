@@ -1,25 +1,14 @@
 # This file defines a filter for openCV processing.
 # it is passed as an argument to the BASH command when running setup_mjpg_streamer
 
+# Import external libraries
 import cv2
 import numpy as np
 
-v1_min = 0     # Minimum H value
-v2_min = 180     # Minimum S value
-v3_min = 130    # Minimum V value
-
-v1_max = 10     # Maximum H value
-v2_max = 255     # Maximum S value
-v3_max = 255    # Maximum V value
-
-width  = 240  # please attempt to put back into the function
-height = 160
-
-#    RGB or HSV
-
+width  = 120  # width of image to process (pixels)
+height = 80 # height of image to process (pixels)
 filter = 'HSV'  # Use HSV to describe pixel color values
-
-color_range = ((0,0,0),(255,255,255))
+color_range = np.array([[0, 0, 0], [255, 255, 255]]) # declare HSV range before overwrighting with user inputs
 
 class MyFilter:
 
@@ -27,6 +16,7 @@ class MyFilter:
 
         image = cv2.resize(image,(width,height)) # resize the image
 
+# Grab the HSV inputs from the NodeRed selections by accesing the files 
         if filter == 'RGB':
             frame_to_thresh = image.copy()
         else:
@@ -71,11 +61,8 @@ class MyFilter:
             except:
                 v_max= 0
 
+# PROCESS THE IMAGE
         color_range = (((h_min), (s_min), (v_min)),((h_max), (s_max), (v_max)))
-
-        # Copy and paste this section into the MJPEG streamer file to make
-        # your video output agree with the target capturing function.
-        #-------------------------------------------------------------------------
         thresh = cv2.inRange(frame_to_thresh, color_range[0], color_range[1]) # Converts a 240x160x3 matrix to a 240x160x1 matrix
         # cv2.inrange discovers the pixels that fall within the specified range and assigns 1's to these pixels and 0's to the others.
 
@@ -83,6 +70,7 @@ class MyFilter:
         kernel = np.ones((5,5),np.uint8)
         mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel) # Apply blur
         mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel) # Blur again
+        mask = thresh
 
         cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2] #generates number of contiguous "1" pixels
         center = None # create a variable for x, y location of target
@@ -101,12 +89,11 @@ class MyFilter:
                 cv2.circle(image, (int(x), int(y)), 3, (0, 0, 0), -1) # draw a dot on the target center
                 cv2.circle(image, (int(x), int(y)), 1, (255, 255, 255), -1) # draw a dot on the target center
 
-                # cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
-
-                cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0,0,0),2,cv2.LINE_AA)
-                cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(255,255,255),1,cv2.LINE_AA)
-        # -----------------------------------------------------------------------------------------------------
-
+                cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.2,(0,0,0),2,cv2.LINE_AA)
+                cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.2,(255,255,255),1,cv2.LINE_AA)
+        
+# -----------------------------------------------------------------------------------------------------
+# GENERATE 3 IMAGES SHOWING STAGES OF FILTER & STACK THEM VERTICALLY TO OUTPUT FOR THE USER
         image_height, image_width, channels = image.shape   # get image dimensions
 
         spacer = np.zeros((image_height,3,3), np.uint8)
@@ -119,19 +106,18 @@ class MyFilter:
         # border2 = np.array() # same as above
 
         # draw text on top of the image for identification
-        cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
-        cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
+        cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.3,(0,0,0),2,cv2.LINE_AA)
+        cv2.putText(image,'Original',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.3,(255,255,255),1,cv2.LINE_AA)
 
         # draw text on top of the image for identification
-        cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
-        cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
+        cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.3,(0,0,0),2,cv2.LINE_AA)
+        cv2.putText(thresh,'Thresh',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.3,(255,255,255),1,cv2.LINE_AA)
 
         # draw text on top of the image for identification
-        cv2.putText(mask,'Mask',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0,0,0),2,cv2.LINE_AA)
-        cv2.putText(mask,'Mask',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255,255,255),1,cv2.LINE_AA)
+        cv2.putText(mask,'Mask',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.3,(0,0,0),2,cv2.LINE_AA)
+        cv2.putText(mask,'Mask',(10,int(image_height/10)), cv2.FONT_HERSHEY_SIMPLEX, 0.3,(255,255,255),1,cv2.LINE_AA)
 
         all = np.vstack((image, thresh, mask))
-
         return all
 
 def init_filter():  # The function MJPG-Streamer calls.
