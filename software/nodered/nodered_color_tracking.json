@@ -1,172 +1,172 @@
 [
     {
-        "id": "4b48be67.37bd9",
+        "id": "32980006.220a9",
         "type": "tab",
         "label": "Color Tracking Calibration",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "96c19a0e.75fa98",
+        "id": "44770ebe.3adbe",
         "type": "ui_slider",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "label": "H Min",
         "tooltip": "",
-        "group": "89b0f371.a3e26",
+        "group": "cdfc2e26.64916",
         "order": 0,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "outs": "all",
+        "outs": "end",
         "topic": "h_min",
         "min": 0,
         "max": "255",
-        "step": 1,
+        "step": "5",
         "x": 310,
         "y": 120,
         "wires": [
             [
-                "59500b34.bf7a64",
-                "848c53b1.f5ec5"
+                "784d9bca.3a1ff4",
+                "24318164.00ebee"
             ]
         ]
     },
     {
-        "id": "506010c2.a3aa9",
+        "id": "57ac5031.1bfd",
         "type": "ui_slider",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "label": "S Min",
         "tooltip": "",
-        "group": "89b0f371.a3e26",
+        "group": "cdfc2e26.64916",
         "order": 0,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "outs": "all",
+        "outs": "end",
         "topic": "s_min",
         "min": 0,
         "max": "255",
-        "step": 1,
+        "step": "5",
         "x": 310,
         "y": 280,
         "wires": [
             [
-                "a13de828.cdcce8",
-                "796dcee5.6a306"
+                "36f2e614.75bbba",
+                "7ae78629.7c5898"
             ]
         ]
     },
     {
-        "id": "94be63e9.d0307",
+        "id": "eb91bdf0.aa434",
         "type": "ui_slider",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "label": "V Min",
         "tooltip": "",
-        "group": "89b0f371.a3e26",
+        "group": "cdfc2e26.64916",
         "order": 0,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "outs": "all",
+        "outs": "end",
         "topic": "v_min",
         "min": 0,
         "max": "255",
-        "step": 1,
+        "step": "5",
         "x": 310,
         "y": 440,
         "wires": [
             [
-                "74c236ed.0b8848",
-                "7148336c.eb638c"
+                "a549c5d8.47f4e8",
+                "ba29f9ca.4579e8"
             ]
         ]
     },
     {
-        "id": "bc548590.361d88",
+        "id": "1d75c343.736b7d",
         "type": "ui_slider",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "label": "H Max",
         "tooltip": "",
-        "group": "89b0f371.a3e26",
+        "group": "cdfc2e26.64916",
         "order": 0,
         "width": 0,
         "height": 0,
         "passthru": true,
-        "outs": "all",
+        "outs": "end",
         "topic": "",
         "min": 0,
         "max": "255",
-        "step": 1,
+        "step": "5",
         "x": 310,
         "y": 600,
         "wires": [
             [
-                "d9ba93c4.1fee",
-                "68ec454f.f6c88c"
+                "c77316a9.c98618",
+                "691f3b54.392ab4"
             ]
         ]
     },
     {
-        "id": "47fdc7ed.537c78",
+        "id": "dbfdd65a.57a958",
         "type": "ui_slider",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "label": "S Max",
         "tooltip": "",
-        "group": "89b0f371.a3e26",
+        "group": "cdfc2e26.64916",
         "order": 0,
         "width": 0,
         "height": 0,
         "passthru": true,
-        "outs": "all",
+        "outs": "end",
         "topic": "",
         "min": 0,
         "max": "255",
-        "step": 1,
+        "step": "5",
         "x": 310,
         "y": 760,
         "wires": [
             [
-                "9a799eb2.b1be7",
-                "9d344709.834778"
+                "98a4b7f5.a40688",
+                "409ffaf.7a9f604"
             ]
         ]
     },
     {
-        "id": "69559684.3d08e8",
+        "id": "47693504.7b1d9c",
         "type": "ui_slider",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "label": "V Max",
         "tooltip": "",
-        "group": "89b0f371.a3e26",
+        "group": "cdfc2e26.64916",
         "order": 0,
         "width": 0,
         "height": 0,
         "passthru": true,
-        "outs": "all",
+        "outs": "end",
         "topic": "",
         "min": 0,
         "max": "255",
-        "step": 1,
+        "step": "5",
         "x": 310,
         "y": 920,
         "wires": [
             [
-                "280aea5d.49e9f6",
-                "a4da74a2.5f3dd8"
+                "df0ed501.d3a848",
+                "7fd96026.1f4b4"
             ]
         ]
     },
     {
-        "id": "59500b34.bf7a64",
+        "id": "784d9bca.3a1ff4",
         "type": "ui_text",
-        "z": "4b48be67.37bd9",
-        "group": "aa2556b8.a5ab78",
+        "z": "32980006.220a9",
+        "group": "826beb48.533878",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -179,10 +179,10 @@
         "wires": []
     },
     {
-        "id": "a13de828.cdcce8",
+        "id": "36f2e614.75bbba",
         "type": "ui_text",
-        "z": "4b48be67.37bd9",
-        "group": "aa2556b8.a5ab78",
+        "z": "32980006.220a9",
+        "group": "826beb48.533878",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -195,10 +195,10 @@
         "wires": []
     },
     {
-        "id": "74c236ed.0b8848",
+        "id": "a549c5d8.47f4e8",
         "type": "ui_text",
-        "z": "4b48be67.37bd9",
-        "group": "aa2556b8.a5ab78",
+        "z": "32980006.220a9",
+        "group": "826beb48.533878",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -211,10 +211,10 @@
         "wires": []
     },
     {
-        "id": "d9ba93c4.1fee",
+        "id": "c77316a9.c98618",
         "type": "ui_text",
-        "z": "4b48be67.37bd9",
-        "group": "aa2556b8.a5ab78",
+        "z": "32980006.220a9",
+        "group": "826beb48.533878",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -227,10 +227,10 @@
         "wires": []
     },
     {
-        "id": "9a799eb2.b1be7",
+        "id": "98a4b7f5.a40688",
         "type": "ui_text",
-        "z": "4b48be67.37bd9",
-        "group": "aa2556b8.a5ab78",
+        "z": "32980006.220a9",
+        "group": "826beb48.533878",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -243,10 +243,10 @@
         "wires": []
     },
     {
-        "id": "280aea5d.49e9f6",
+        "id": "df0ed501.d3a848",
         "type": "ui_text",
-        "z": "4b48be67.37bd9",
-        "group": "aa2556b8.a5ab78",
+        "z": "32980006.220a9",
+        "group": "826beb48.533878",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -259,10 +259,10 @@
         "wires": []
     },
     {
-        "id": "c835a8c9.907ca8",
+        "id": "4aad901a.c4f48",
         "type": "ui_template",
-        "z": "4b48be67.37bd9",
-        "group": "67c631db.0c84e",
+        "z": "32980006.220a9",
+        "group": "112a075e.b4c559",
         "name": "Stream",
         "order": 6,
         "width": "6",
@@ -278,9 +278,9 @@
         ]
     },
     {
-        "id": "848c53b1.f5ec5",
+        "id": "24318164.00ebee",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/h_min",
         "appendNewline": false,
@@ -293,9 +293,9 @@
         ]
     },
     {
-        "id": "796dcee5.6a306",
+        "id": "7ae78629.7c5898",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/s_min",
         "appendNewline": false,
@@ -308,9 +308,9 @@
         ]
     },
     {
-        "id": "7148336c.eb638c",
+        "id": "ba29f9ca.4579e8",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/v_min",
         "appendNewline": false,
@@ -323,9 +323,9 @@
         ]
     },
     {
-        "id": "68ec454f.f6c88c",
+        "id": "691f3b54.392ab4",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/h_max",
         "appendNewline": false,
@@ -338,9 +338,9 @@
         ]
     },
     {
-        "id": "9d344709.834778",
+        "id": "409ffaf.7a9f604",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/s_max",
         "appendNewline": false,
@@ -353,9 +353,9 @@
         ]
     },
     {
-        "id": "a4da74a2.5f3dd8",
+        "id": "7fd96026.1f4b4",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/v_max",
         "appendNewline": false,
@@ -368,9 +368,9 @@
         ]
     },
     {
-        "id": "e0928ed.843e07",
+        "id": "bcf3978e.897848",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/h_min",
         "appendNewline": false,
@@ -383,9 +383,9 @@
         ]
     },
     {
-        "id": "4cc3d35e.3f6b4c",
+        "id": "56d1c72c.9fd0a8",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/s_min",
         "appendNewline": false,
@@ -398,9 +398,9 @@
         ]
     },
     {
-        "id": "fad76570.40a7f8",
+        "id": "ef711ca.9b71be",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/v_min",
         "appendNewline": false,
@@ -413,9 +413,9 @@
         ]
     },
     {
-        "id": "9586a88.6a34c58",
+        "id": "c70e813e.89e91",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/h_max",
         "appendNewline": false,
@@ -428,9 +428,9 @@
         ]
     },
     {
-        "id": "f8e34a56.831b08",
+        "id": "4d21650a.6400fc",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/s_max",
         "appendNewline": false,
@@ -443,9 +443,9 @@
         ]
     },
     {
-        "id": "c4c0846b.32f828",
+        "id": "53f5ebb4.609f14",
         "type": "file",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "filename": "/tmp/v_max",
         "appendNewline": false,
@@ -458,9 +458,9 @@
         ]
     },
     {
-        "id": "fa272bed.19f318",
+        "id": "969d630.7145fa",
         "type": "inject",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "topic": "",
         "payload": "0",
@@ -473,15 +473,15 @@
         "y": 120,
         "wires": [
             [
-                "e0928ed.843e07",
-                "96c19a0e.75fa98"
+                "bcf3978e.897848",
+                "44770ebe.3adbe"
             ]
         ]
     },
     {
-        "id": "c152ae28.ed41c",
+        "id": "f626c359.7f805",
         "type": "inject",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "topic": "",
         "payload": "0",
@@ -494,15 +494,15 @@
         "y": 280,
         "wires": [
             [
-                "4cc3d35e.3f6b4c",
-                "506010c2.a3aa9"
+                "56d1c72c.9fd0a8",
+                "57ac5031.1bfd"
             ]
         ]
     },
     {
-        "id": "7c39e637.7ed1e8",
+        "id": "bad8dea.ba2072",
         "type": "inject",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "topic": "",
         "payload": "0",
@@ -515,15 +515,15 @@
         "y": 440,
         "wires": [
             [
-                "fad76570.40a7f8",
-                "94be63e9.d0307"
+                "ef711ca.9b71be",
+                "eb91bdf0.aa434"
             ]
         ]
     },
     {
-        "id": "f5be8891.b57db8",
+        "id": "a69f28b6.819258",
         "type": "inject",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "topic": "",
         "payload": "255",
@@ -536,15 +536,15 @@
         "y": 600,
         "wires": [
             [
-                "9586a88.6a34c58",
-                "bc548590.361d88"
+                "c70e813e.89e91",
+                "1d75c343.736b7d"
             ]
         ]
     },
     {
-        "id": "fdbaf6e8.7dfe68",
+        "id": "d5bf52f1.4582e",
         "type": "inject",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "topic": "",
         "payload": "255",
@@ -557,15 +557,15 @@
         "y": 760,
         "wires": [
             [
-                "f8e34a56.831b08",
-                "47fdc7ed.537c78"
+                "4d21650a.6400fc",
+                "dbfdd65a.57a958"
             ]
         ]
     },
     {
-        "id": "9ef4772e.412658",
+        "id": "d4468fd.bb11c7",
         "type": "inject",
-        "z": "4b48be67.37bd9",
+        "z": "32980006.220a9",
         "name": "",
         "topic": "",
         "payload": "255",
@@ -578,46 +578,46 @@
         "y": 920,
         "wires": [
             [
-                "c4c0846b.32f828",
-                "69559684.3d08e8"
+                "53f5ebb4.609f14",
+                "47693504.7b1d9c"
             ]
         ]
     },
     {
-        "id": "89b0f371.a3e26",
+        "id": "cdfc2e26.64916",
         "type": "ui_group",
         "z": "",
         "name": "Color Sliders",
-        "tab": "5f2d0d15.208674",
+        "tab": "be2adfe.9f92d2",
         "order": 3,
         "disp": true,
         "width": "6",
         "collapse": true
     },
     {
-        "id": "aa2556b8.a5ab78",
+        "id": "826beb48.533878",
         "type": "ui_group",
         "z": "",
         "name": "Values",
-        "tab": "5f2d0d15.208674",
+        "tab": "be2adfe.9f92d2",
         "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "67c631db.0c84e",
+        "id": "112a075e.b4c559",
         "type": "ui_group",
         "z": "",
         "name": "Stream",
-        "tab": "5f2d0d15.208674",
+        "tab": "be2adfe.9f92d2",
         "order": 1,
         "disp": true,
         "width": "12",
         "collapse": false
     },
     {
-        "id": "5f2d0d15.208674",
+        "id": "be2adfe.9f92d2",
         "type": "ui_tab",
         "z": "",
         "name": "MJPG-Streamer",
