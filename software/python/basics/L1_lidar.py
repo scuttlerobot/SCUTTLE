@@ -2,7 +2,9 @@
 # 1) grab a subset of the readings from the lidar for lightweight purposes
 # 2) assign the proper angle value to the reading, with respect to robot x-axis
 # 3) create a 2d array of [distances, angles] from the data
+
 # Note: installation of pysicktim library is required for to run this program.
+# perform "sudo pip3 install pyusb," then "sudo pip3 install pysicktim"
 
 # Import external libraries
 import numpy as np # for array handling
