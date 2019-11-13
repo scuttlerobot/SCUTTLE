@@ -14,7 +14,7 @@ import time # for timekeeping
 np.set_printoptions(suppress=True)  # Suppress Scientific Notation
 start_angle = -135.0 # lidar points will range from -135 to 135 degrees
 
-def polarScan(num_points=54):
+def polarScan(num_points=54): # You may request up to 811 points, max.
 
     lidar.scan() #take reading
 
