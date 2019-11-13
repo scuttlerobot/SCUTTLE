@@ -1,5 +1,6 @@
 # This program manipulates distance vectors in the robot coordinate frame,
-# as well as arrays of vectors.
+# as well as arrays of vectors.  Pay attention to format of arguments since
+# some functions are not yet optimized to handle numpy [1x2] vectors directly.
 # Further functions will be added for rotation of vectors in various coordinate frames.
 
 # Import external libraries
@@ -54,7 +55,6 @@ def getNearest(): # combine multiple functions into one.  Call to get nearest ob
 
 # UNCOMMENT THE LOOP BELOW TO RUN AS A STANDALONE PROGRAM
 # while 1:
-#     scan = lidar.polarScan()  # this loop simply grabs the lidar scan.
-#     # Implement further functions from this program to explore vector manipulation.
-#     print("scan results [m, degrees]:\n", scan) # print all of the resulting vectors (54x2 by default)
-#     time.sleep(0.1)
+#     myVector = getNearest() # call the function which utilizes several functions in this program
+#     print("\n The nearest object (m,deg):\n", myVector) # print the result
+#     time.sleep(0.1) # small delay
