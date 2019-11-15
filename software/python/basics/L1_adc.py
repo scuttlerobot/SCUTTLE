@@ -2,12 +2,14 @@
 # on the beaglebone blue.
 # Uses rcpy library.  Documentation at guitar.ucsd.edu/rcpy/rcpy.pdf
 
-import time
-import numpy as np
-import rcpy
-from rcpy._adc import *
+# Import External Libraries
+import time # for handing timing
+import numpy as np # for handling arrays
+import rcpy # library for driving several peripherals on beaglebone blue
+from rcpy._adc import *  # this allows functions from rcpy adc to be called directly
 
-def getAdc():
+# Define Relevant Functions
+def getAdc():  # get readings from all channels of onboard ADC.
     A0 = round(get_voltage(0),3)    # ADC channel 0 
     A1 = round(get_voltage(1),3)    # ADC channel 1 
     A2 = round(get_voltage(2),3)    # ADC channel 2 
