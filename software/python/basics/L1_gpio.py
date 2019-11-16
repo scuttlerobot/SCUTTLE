@@ -1,14 +1,15 @@
 # This code writes and reads from the GPIO pins available on the BeagleBone Blue
 # BeagleBone Blue Pinout https://github.com/beagleboard/beaglebone-blue/wiki/Pinouts
 # Uses Adafruit library
-# Created by Team NexTec
+# Created by NexTec Capstone Team at Texas A&M, Fall 2019
 
 # Import external librarires
 import Adafruit_BBIO
 from Adafruit_BBIO.GPIO import *
 import time
 
-# These GPIO variable pin names can be referenced in the BeagleBone Blue Pinout diagram (link in description above)
+#DEFINE I/O NAMES FROM BBIO LIBRARY (referenced from pinout diagram above)
+#-------------------------------------------------------------------------
 #LEDs
 USR_LED0 = "USR0"
 USR_LED1 = "USR1"
@@ -35,16 +36,12 @@ INPUT = 0
 HIGH = 1
 LOW = 0
 
-# Initialize GPIO pin as either Output or Input
-def init(Pin, Mode):
+# DEFINE RELEVANT FUNCTIONS
+def init(Pin, Mode): # Initialize GPIO pin as either Output or Input
     setup(Pin, Mode)
-
-# Write to Output GPIO pin as either High or Low
-def write(Pin, State):
+def write(Pin, State): # Write to Output GPIO pin as either High or Low
     output(Pin, State)
-
-# Read State (High or Low) of Input GPIO pin 
-def read(Pin):
+def read(Pin): # Read State (High or Low) of Input GPIO pin 
     State = input(Pin)
     return(State)
 
