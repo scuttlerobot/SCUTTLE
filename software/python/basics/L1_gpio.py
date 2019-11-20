@@ -1,6 +1,6 @@
 # This code writes and reads from the GPIO pins available on the BeagleBone Blue
 
-# import Adafruit_BBIO.GPIO as GPIO
+# Import external libraries
 from Adafruit_BBIO.GPIO import *
 import time
 
@@ -52,7 +52,7 @@ def check_args(port=None, pin=None, state=None):    # Check that the values pass
     # return pin_valid and port_valid and state_valid
     return pin_valid and port_valid
 
-def read(port, pin):
+def read(port, pin): # Use this function to read an input.
     if check_args(port, pin):
         if gpio[port][pin]['modes'][0] == IN:
             state = input(gpio[port][pin]['key'])
@@ -62,7 +62,7 @@ def read(port, pin):
     else:
         exit(1)
 
-def write(port, pin, state):
+def write(port, pin, state):  # Use this function to control an output.
     if check_args(port, pin, state):
         if gpio[port][pin]['modes'][0] == OUT:
             output(gpio[port][pin]['key'], state)
@@ -73,7 +73,8 @@ def write(port, pin, state):
 
 pin_setup()
 
-# # WRITE EXAMPLE
+# UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
+# # READ EXAMPLE
 # # This example will blink the RED LED.
 
 # while 1:
