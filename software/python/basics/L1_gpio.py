@@ -77,6 +77,13 @@ pin_setup()
 # # This example will blink the RED LED.
 
 # while 1:
+# 	read(0,2)
+#     time.sleep(1)
+
+# # WRITE EXAMPLE
+# # This example will blink the RED LED.
+
+# while 1:
 # 	time.sleep(1)
 # 	write(0,0,1)
 # 	time.sleep(1)
