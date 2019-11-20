@@ -1,9 +1,14 @@
-# This code writes and reads from the GPIO pins available on the BeagleBone Blue
+# This code writes and reads from the GPIO pins available on the BeagleBone Blue.
+# See the scuttle wiring graphics pdf at github.com/MXET/SCUTTLE/tree/master/hardware
+# Default outputs: Port 0: pins 0, 2.  Port 1: pins 0,1,2,3
+# Default inputs: Port 0: pins 1,3
+# Thanks to D. Ansari & Nextec capstone team for contributing this.
 
 # Import external libraries
 from Adafruit_BBIO.GPIO import *
 import time
 
+# DEFINE PIN DICTIONARY
 #   This dictionary stores our pins in a way that makes them easy to address
 #   without mapping certain inputs to certain outputs. Makes code shorter.
 gpio = [
@@ -21,8 +26,8 @@ gpio = [
         ]
     ]
 
-def pin_setup(port=None, pin=None, state=None):
-    #gpio[port][pin][state].insert(0, mylist.pop(1))
+# DEFINE RELEVANT FUNCTIONS
+def pin_setup(port=None, pin=None, state=None):  # A function for setting up pins.
     for port in gpio:                               # Setup all GPIO pins to default I/O state. (The first mode in the 'modes' dictionary)
         for pin in port:
             setup(pin['key'], pin['modes'][0])
@@ -35,21 +40,12 @@ def index_exists(index,i):                          # Check that an idex exists.
         return False
 
 def check_args(port=None, pin=None, state=None):    # Check that the values passed to our functions are valid
-
     port_valid = isinstance(port,int) and port in [0,1]         # Check that the port is in the list of valid port numbers
     pin_valid  = isinstance(pin,int)  and pin  in [0,1,2,3]     # Check that the pin is in the list of valid pin numbers
-    # state_valid = isinstance(state,int)        and state in [0,1, None]
-
     if not port_valid:
         print("ERROR: {} is Not a Valid Port Number!".format(port))
-
     elif not pin_valid:
         print("ERROR: {} is Not a Valid Pin Number!".format(pin))
-
-    # elif not state_valid:
-    #     print("ERROR: Invalid Pin State!")
-
-    # return pin_valid and port_valid and state_valid
     return pin_valid and port_valid
 
 def read(port, pin): # Use this function to read an input.
@@ -70,22 +66,19 @@ def write(port, pin, state):  # Use this function to control an output.
             print("ERROR: Pin {} on port {} is not setup as an output!".format(pin, port))
     else:
         exit(1)
+        
+# SET UP ALL OF THE PINS TO DEFAULT
+pin_setup()  # set up all pins with the default modes.
 
-pin_setup()
-
-# UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
+# # UNCOMMENT THE SECTION BELOW TO RUN AS A STANDALONE PROGRAM
 # # READ EXAMPLE
-# # This example will blink the RED LED.
-
 # while 1:
-#     pin = read(0,1)
-#     print(pin)
-#     time.sleep(0.1)
+#     pin = read(0,1) # read port 0, pin 1
+#     print("Port 0 Pin 1 Condition:",pin) # print the state that was read.
+#     time.sleep(1) # delay 1 second
 
 # # WRITE EXAMPLE
-# # This example will blink the RED LED.
-
-# while 1:
+# while 1:  # a loop to blink the red LED.
 # 	time.sleep(1)
 # 	write(0,0,1)
 # 	time.sleep(1)
