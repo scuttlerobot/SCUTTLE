@@ -155,7 +155,7 @@ sudo apt-get install librobotcontrol
 **A Tool for Pin Checking:**
 <br/>
 This tool is great for debugging connections to pins. <br/>
-(current pin configuration, nicely formatted.](https://github.com/mvduin/bbb-pin-utils/tree/blue#show-pins))
+([Pin configuration viewer tool, nicely formatted.](https://github.com/mvduin/bbb-pin-utils/tree/blue#show-pins))
 
 ## Raspberry Pi Cheat Sheet:
 **Instructions to connect to SSH using putty:**
