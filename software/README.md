@@ -120,7 +120,7 @@ Wireless LAN adapter Wi-Fi:
    Default Gateway . . . . . . . . . : 192.168.50.1
 ```
 
-## Beaglebone Blue Cheat Sheet:
+# Beaglebone Blue Cheat Sheet:
 
 **Need extra help troubleshooting?**
 <br/>
@@ -151,6 +151,11 @@ Navigate to nodered: 192.168.8.1:1880
 <br/>
 sudo apt-get purge roboticscape <br/>
 sudo apt-get install librobotcontrol
+
+**A Tool for Pin Checking:**
+<br/>
+This tool is great for debugging connections to pins. <br/>
+(current pin configuration, nicely formatted.](https://github.com/mvduin/bbb-pin-utils/tree/blue#show-pins))
 
 ## Raspberry Pi Cheat Sheet:
 **Instructions to connect to SSH using putty:**
