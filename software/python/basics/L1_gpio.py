@@ -1,56 +1,83 @@
 # This code writes and reads from the GPIO pins available on the BeagleBone Blue
-# BeagleBone Blue Pinout https://github.com/beagleboard/beaglebone-blue/wiki/Pinouts
-# Uses Adafruit library
-# Created by NexTec Capstone Team at Texas A&M, Fall 2019
 
-# Import external librarires
-import Adafruit_BBIO
+# import Adafruit_BBIO.GPIO as GPIO
 from Adafruit_BBIO.GPIO import *
 import time
 
-#DEFINE I/O NAMES FROM BBIO LIBRARY (referenced from pinout diagram above)
-#-------------------------------------------------------------------------
-#LEDs
-USR_LED0 = "USR0"
-USR_LED1 = "USR1"
-USR_LED2 = "USR2"
-USR_LED3 = "USR3"
-LED_RED = "RED_LED"
-LED_GREEN = "GREEN_LED"
-#OUTPUTS
-GPIO1_25 = "GP0_3"
-GPIO1_17 = "GP0_4"
-GPIO3_20 = "GP0_5"
-GPIO3_17 = "GP0_6"
-GPIO3_2 = "GP1_3"
-GPIO3_1 = "GP1_4"
-#INPUTS
-GPIO1_17 = "GP0_4"
-GPIO3_17 = "GP0_6"
+#   This dictionary stores our pins in a way that makes them easy to address
+#   without mapping certain inputs to certain outputs. Makes code shorter.
+gpio = [
+        [
+            {'key':'GP0_3',   'modes':[   OUT]},
+            {'key':'P9_23',   'modes':[IN,OUT]},
+            {'key':'GP0_5',   'modes':[   OUT]},
+            {'key':'P9_28',   'modes':[IN,OUT]}
+        ],
+        [
+            {'key':'GP1_3',       'modes':[OUT]},
+            {'key':'GP1_4',       'modes':[OUT]},
+            {'key':'RED_LED',     'modes':[OUT]},
+            {'key':'GREEN_LED',   'modes':[OUT]}
+        ]
+    ]
 
-#MODES
-OUTPUT = 1
-INPUT = 0
+def pin_setup(port=None, pin=None, state=None):
+    #gpio[port][pin][state].insert(0, mylist.pop(1))
+    for port in gpio:                               # Setup all GPIO pins to default I/O state. (The first mode in the 'modes' dictionary)
+        for pin in port:
+            setup(pin['key'], pin['modes'][0])
 
-#STATES
-HIGH = 1
-LOW = 0
+def index_exists(index,i):                          # Check that an idex exists. Used to check if a pin exists.
+    try:
+        a = gpio[i]
+        return True
+    except IndexError:
+        return False
 
-# DEFINE RELEVANT FUNCTIONS
-def init(Pin, Mode): # Initialize GPIO pin as either Output or Input
-    setup(Pin, Mode)
-def write(Pin, State): # Write to Output GPIO pin as either High or Low
-    output(Pin, State)
-def read(Pin): # Read State (High or Low) of Input GPIO pin 
-    State = input(Pin)
-    return(State)
+def check_args(port=None, pin=None, state=None):    # Check that the values passed to our functions are valid
 
-# # UNCOMMENT THE SECTION BELOW TO RUN AS STANDALONE CODE
-# init(USR_LED0, OUTPUT)
+    port_valid = isinstance(port,int) and port in [0,1]         # Check that the port is in the list of valid port numbers
+    pin_valid  = isinstance(pin,int)  and pin  in [0,1,2,3]     # Check that the pin is in the list of valid pin numbers
+    # state_valid = isinstance(state,int)        and state in [0,1, None]
+
+    if not port_valid:
+        print("ERROR: {} is Not a Valid Port Number!".format(port))
+
+    elif not pin_valid:
+        print("ERROR: {} is Not a Valid Pin Number!".format(pin))
+
+    # elif not state_valid:
+    #     print("ERROR: Invalid Pin State!")
+
+    # return pin_valid and port_valid and state_valid
+    return pin_valid and port_valid
+
+def read(port, pin):
+    if check_args(port, pin):
+        if gpio[port][pin]['modes'][0] == IN:
+            state = input(gpio[port][pin]['key'])
+            return state
+        else:
+            print("ERROR: Pin {} on port {} is not setup as an input!".format(pin, port))
+    else:
+        exit(1)
+
+def write(port, pin, state):
+    if check_args(port, pin, state):
+        if gpio[port][pin]['modes'][0] == OUT:
+            output(gpio[port][pin]['key'], state)
+        else:
+            print("ERROR: Pin {} on port {} is not setup as an output!".format(pin, port))
+    else:
+        exit(1)
+
+pin_setup()
+
+# # WRITE EXAMPLE
+# # This example will blink the RED LED.
+
 # while 1:
-#     print("LED ON")
-#     write(USR_LED0, HIGH)
-#     time.sleep(3)
-#     print("LED OFF")
-#     write(USR_LED0, LOW)
-#     time.sleep(2)
+# 	time.sleep(1)
+# 	write(0,0,1)
+# 	time.sleep(1)
+# 	write(0,0,0)
