@@ -1,4 +1,9 @@
-# A Program for demonstrating PID feedback control for SCUTTLE wheelspeed.
+# Lab6Template.py
+# Team Number:
+# Hardware TM:
+# Software TM:
+# Date:
+# Code purpose: A Program for demonstrating PID feedback control for SCUTTLE wheelspeed.
 # This program is to be used to begin Lab 6 exercises (covering PID control).
 
 # IMPORT EXTERNAL ITEMS
