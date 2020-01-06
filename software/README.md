@@ -4,6 +4,13 @@ This folder contains all scuttle software and software information.
 <br>
 
 # SHELL Processes Cheat Sheet:
+**Remove your Tamulink WPA credentials from the device:**
+* Navigate to the connmanctl folder located at /var/lib/connman$
+* Find the configuration file with extension .config
+* remove the config file with "rm."  Example: 
+```
+debian@scuttle:/var/lib/connman$ sudo rm wifi_8030dc035d88_74616d756c696e6b2d777061_managed_ieee8021x.config
+  ```
 
 **Report devices active on the i2c bus:**
 ```
