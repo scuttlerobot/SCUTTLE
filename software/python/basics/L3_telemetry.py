@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # L3_telemetry.py
 # This program grabs data from the onboard sensors and log data in files
 # for NodeRed access and integrate into a custom "flow".
@@ -11,12 +13,12 @@ import L2_log as log
 import numpy as np
 import time
 
-# Run the main loop    
-while 1:
-    accel = mpu.getAccel() # call the function from within L1_mpu.py
-    (xAccel) = accel[0] # x axis is stored in the first element
-    (yAccel) = accel[1] # y axis is stored in the second element
-    print ("x axis:", xAccel, "y axis:", yAccel) # print the two values
-    axes = np.array([xAccel, yAccel]) #store just 2 axes in an array
-    log.NodeRed2(axes) # send the data to txt files for NodeRed to access.
+# Run the main loop
+while True:
+    accel = mpu.getAccel()                          # call the function from within L1_mpu.py
+    (xAccel) = accel[0]                             # x axis is stored in the first element
+    (yAccel) = accel[1]                             # y axis is stored in the second element
+    print("x axis:", xAccel, "y axis:", yAccel)     # print the two values
+    axes = np.array([xAccel, yAccel])               # store just 2 axes in an array
+    log.NodeRed2(axes)                              # send the data to txt files for NodeRed to access.
     time.sleep(0.2)
