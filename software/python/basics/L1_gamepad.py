@@ -6,23 +6,24 @@
 # 16 values will be returned, 4 floatig and 12 boolean
 # last updated 2019.05.24
 
-import pygame           # this library contains functions to communicate with a gamepad
-import numpy as np      # for working with arrays
-import os               # for making commands directly to the OS
-import time             # only required if we run this program  in a loop
+import pygame                                       # this library contains functions to communicate with a gamepad
+import numpy as np                                  # for working with arrays
+import os                                           # for making commands directly to the OS
+import time                                         # only required if we run this program  in a loop
 
 os.environ['SDL_VIDEODRIVER'] = 'dummy'
 pygame.display.set_mode((1, 1))
 pygame.init()
 
 
-def getGP():    # function for reading the game pad
+# function for reading the game pad
+def getGP():
 
-    for event in pygame.event.get():    # User did something
+    for event in pygame.event.get():                # User did something
         pass
 
-    gamepad_count = pygame.joystick.get_count()         # Get count of gamepads connected
-    for i in range(gamepad_count):                      # For each gamepad:
+    gamepad_count = pygame.joystick.get_count()     # Get count of gamepads connected
+    for i in range(gamepad_count):                  # For each gamepad:
 
         joystick = pygame.joystick.Joystick(i)
         joystick.init()
@@ -37,20 +38,19 @@ def getGP():    # function for reading the game pad
         buttons = joystick.get_numbuttons()
 
         # Get Button States
-        B0 = joystick.get_button(0)   # Y
-        B1 = joystick.get_button(1)   # B
-        B2 = joystick.get_button(2)   # A
-        B3 = joystick.get_button(3)   # X
-        B4 = joystick.get_button(4)   # LB
-        B5 = joystick.get_button(5)   # RB
-        B6 = joystick.get_button(6)   # LT
-        B7 = joystick.get_button(7)   # RT
-        B8 = joystick.get_button(8)   # back
-        B9 = joystick.get_button(9)   # start
-        B10 = joystick.get_button(10)     # left thumb press
-        B11 = joystick.get_button(11)     # right thumb press
+        B0 = joystick.get_button(0)                 # Y
+        B1 = joystick.get_button(1)                 # B
+        B2 = joystick.get_button(2)                 # A
+        B3 = joystick.get_button(3)                 # X
+        B4 = joystick.get_button(4)                 # LB
+        B5 = joystick.get_button(5)                 # RB
+        B6 = joystick.get_button(6)                 # LT
+        B7 = joystick.get_button(7)                 # RT
+        B8 = joystick.get_button(8)                 # back
+        B9 = joystick.get_button(9)                 # start
+        B10 = joystick.get_button(10)               # left thumb press
+        B11 = joystick.get_button(11)               # right thumb press
 
-        # print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
         axes = np.array([axis_0, axis_1, axis_2, axis_3])                       # store all axes in an array
         buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11])  # store all buttons in array
         gp_data = np.hstack((axes, buttons))                                    # this array will have 16 elements
@@ -58,8 +58,8 @@ def getGP():    # function for reading the game pad
 
 
 if __name__ == "__main__":
-    while True:     # Loop until the user clicks the close button
+    while True:
         # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-        myGpData = getGP()                              # store data from all axes to the myGpData variable
-        print("the first axis value:", myGpData[1])     # print out the first element of the data to confirm functionality
+        myGpData = getGP()                          # store data from all axes to the myGpData variable
+        print(myGpData)                             # print out the first element of the data to confirm functionality
         time.sleep(0.25)

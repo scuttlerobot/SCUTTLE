@@ -9,21 +9,21 @@
 # perform "sudo pip3 install pyusb," then "sudo pip3 install pysicktim"
 
 # Import external libraries
-import numpy as np          # for array handling
-import pysicktim as lidar   # required for communication with TiM561 lidar sensor
-import time                 # for timekeeping
+import numpy as np                                  # for array handling
+import pysicktim as lidar                           # required for communication with TiM561 lidar sensor
+import time                                         # for timekeeping
 
-np.set_printoptions(suppress=True)  # Suppress Scientific Notation
-start_angle = -135.0                # lidar points will range from -135 to 135 degrees
+np.set_printoptions(suppress=True)                  # Suppress Scientific Notation
+start_angle = -135.0                                # lidar points will range from -135 to 135 degrees
 
 
-def polarScan(num_points=54):       # You may request up to 811 points, max.
+def polarScan(num_points=54):                       # You may request up to 811 points, max.
 
-    lidar.scan()                    # take reading
+    lidar.scan()                                    # take reading
 
     # LIDAR data properties
-    dist_amnt = lidar.scan.dist_data_amnt       # Number of distance data points reported from the lidar
-    angle_res = lidar.scan.dist_angle_res       # Angular resolution reported from lidar
+    dist_amnt = lidar.scan.dist_data_amnt                               # Number of distance data points reported from the lidar
+    angle_res = lidar.scan.dist_angle_res                               # Angular resolution reported from lidar
 
     # create the column of distances
     scan_points = np.asarray(lidar.scan.distances)                      # store the reported readings and cast as numpy.array
@@ -36,13 +36,14 @@ def polarScan(num_points=54):       # You may request up to 811 points, max.
     # create the column of angles
     angles = np.zeros(num_points)
     x = len(angles)
-    for i in range(x):      # run this loop
+    for i in range(x):
         angles[i] = (i*lidar.scan.dist_angle_res*lidar.scan.dist_data_amnt/num_points)+(start_angle)
-    angles = np.reshape(angles, (angles.shape[0], 1))   # Turn angles row into column
+
+    angles = np.reshape(angles, (angles.shape[0], 1))                   # Turn angles row into column
 
     # create the polar coordinates of scan
-    scan_points = np.hstack((scan_points, angles))       # Turn two (54,) arrays into a single (54,2) matrix
-    scan_points = np.round(scan_points, 3)               # Round each element in array to 3 decimal places
+    scan_points = np.hstack((scan_points, angles))                      # Turn two (54,) arrays into a single (54,2) matrix
+    scan_points = np.round(scan_points, 3)                              # Round each element in array to 3 decimal places
 
     return(scan_points)
 

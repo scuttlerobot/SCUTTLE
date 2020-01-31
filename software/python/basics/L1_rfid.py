@@ -19,22 +19,24 @@ def read_rfid():
 def write_rfid(text):
     reader.write(text)          # Write data to RFID
 
-# # ======================================================================================================================= #
+# ======================================================================================================================= #
 
 # # UNCOMMENT THE SECTION BELOW TO RUN AS STANDALONE CODE
 # # Read RFID
 
+
 # if __name__ == "__main__":
 #     while True:
-#         sn, data = read_rfid()  # Read card serial number and data and store to sn and data variables
-#         print("Serial Number: ", sn, "\t Data: ", data) # Print serial number and data
+#         sn, data = read_rfid()                              # Read card serial number and data and store to sn and data variables
+#         print("Serial Number: ", sn, "\t Data: ", data)     # Print serial number and data
 
 # ======================================================================================================================= #
 
 # # UNCOMMENT THE SECTION BELOW TO RUN AS STANDALONE CODE
 # # Write To RFID
 
+
 # if __name__ == "__main__":
 #     print("Place RFID on RFID writer.")
-#     write_rfid("Hello World!")  # Write "Hello World!" to RFID
+#     write_rfid("Hello World!")                              # Write "Hello World!" to RFID
 #     print("Written")

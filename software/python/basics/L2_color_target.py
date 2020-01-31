@@ -21,7 +21,7 @@ def colorTarget(color_range=((0, 0, 0), (255, 255, 255))):
     if filter == 'RGB':
         frame_to_thresh = image.copy()
     else:
-        frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # convert image to hsv colorspace RENAME THIS TO IMAGE_HSV
+        frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)                # convert image to hsv colorspace RENAME THIS TO IMAGE_HSV
 
     thresh = cv2.inRange(frame_to_thresh, color_range[0], color_range[1])
     mask = thresh

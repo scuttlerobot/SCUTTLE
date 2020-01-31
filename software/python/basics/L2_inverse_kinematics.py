@@ -20,7 +20,7 @@ max_xd = 0.4                                # maximum achievable x_dot (m/s) FW 
 max_td = (max_xd / L)                       # maximum achievable theta_dot (rad/s)
 
 
-def map_speeds(B):                  # this function will map the gamepad speeds to max values
+def map_speeds(B):                          # this function will map the gamepad speeds to max values
     B_mapped = np.zeros(2)
     B_mapped[0] = max_xd*B[0]
     B_mapped[1] = max_td*B[1]

@@ -7,31 +7,32 @@
 # Import external libraries
 import rcpy
 import rcpy.motor as motor
-import time             # only necessary if running this program as a loop
-import numpy as np      # for clip function
+import time                                     # only necessary if running this program as a loop
+import numpy as np                              # for clip function
 
-motor_l = 1 	# Left Motor (ch1)
-motor_r = 2 	# Right Motor (ch2)
+motor_l = 1 	                                # Left Motor (ch1)
+motor_r = 2 	                                # Right Motor (ch2)
+
 # NOTE: THERE ARE 4 OUTPUTS.  3 & 4 ACCESSIBLE THROUGH diode & accy functions
 
-rcpy.set_state(rcpy.RUNNING)    # initialize the rcpy library
+rcpy.set_state(rcpy.RUNNING)                    # initialize the rcpy library
 
 
 # define functions to command motors, effectively controlling PWM
-def MotorL(speed):              # takes argument in range [-1,1]
+def MotorL(speed):                              # takes argument in range [-1,1]
     motor.set(motor_l, speed)
 
 
-def MotorR(speed):              # takes argument in range [-1,1]
+def MotorR(speed):                              # takes argument in range [-1,1]
     motor.set(motor_r, speed)
 
 
-def diode(state, channel):      # takes argument in range [0,1]
-    np.clip(state, 0, 1)        # limit the output, disallow negative voltages
+def diode(state, channel):                      # takes argument in range [0,1]
+    np.clip(state, 0, 1)                        # limit the output, disallow negative voltages
     motor.set(channel, state)
 
 
-def accy(state, channel):       # takes argument in range [-1,1]
+def accy(state, channel):                       # takes argument in range [-1,1]
     motor.set(channel, state)
 
 

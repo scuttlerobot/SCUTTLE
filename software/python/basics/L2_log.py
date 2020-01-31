@@ -10,8 +10,8 @@ import csv      # for handling comma-separated-values file type
 
 # A function for populating 2 text files with updated phi-dots
 def writeFiles(current_phis):
-    txt = open("/home/debian/basics/PDL.txt", 'w+')     # file for phi dot left
-    txt2 = open("/home/debian/basics/PDR.txt", 'w+')    # file for phi dot right
+    txt = open("/home/debian/basics/PDL.txt", 'w+')         # file for phi dot left
+    txt2 = open("/home/debian/basics/PDR.txt", 'w+')        # file for phi dot right
     phi_dotL = round(current_phis[0], 1)
     phi_dotR = round(current_phis[1], 1)
     txt.write(str(round(phi_dotL, 1)))
@@ -21,9 +21,9 @@ def writeFiles(current_phis):
 
 
 # A function for populating 2 text files with updating variables
-def NodeRed2(values):                               # this function takes a 2-element array called val
-    txt = open("/home/debian/basics/a.txt", 'w+')   # file for generic variable a
-    txt2 = open("/home/debian/basics/b.txt", 'w+')  # file for generic variable b
+def NodeRed2(values):                                       # this function takes a 2-element array called val
+    txt = open("/home/debian/basics/a.txt", 'w+')           # file for generic variable a
+    txt2 = open("/home/debian/basics/b.txt", 'w+')          # file for generic variable b
     a = round(values[0], 2)
     b = round(values[1], 2)
     txt.write(str(a))
@@ -41,8 +41,8 @@ def uniqueFile(value, fileName):                            # this function take
 
 
 # A function for sending 1 value to a log file in a temporary folder
-def tmpFile(value, fileName):               # this function takes a 2-element array called val
-    txt = open("/tmp/" + fileName, 'w+')    # file with specified name
+def tmpFile(value, fileName):                               # this function takes a 2-element array called val
+    txt = open("/tmp/" + fileName, 'w+')                    # file with specified name
     myValue = round(value, 2)
     txt.write(str(myValue))
     txt.close()

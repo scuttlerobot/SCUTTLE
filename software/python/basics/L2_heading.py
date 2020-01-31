@@ -5,12 +5,12 @@
 # minus the magnetic North vector.
 # Using this program requires calibration of xRange and yRange
 
-import mpu              # retrieve magnetometer info
-import numpy as np      # library for math operations
-import time             # library for time access
+import mpu                                          # retrieve magnetometer info
+import numpy as np                                  # library for math operations
+import time                                         # library for time access
 
-xRange = np.array([-80, 5])     # range must be updated for your device
-yRange = np.array([-29, 26])    # range must be updated for your device
+xRange = np.array([-80, 5])                         # range must be updated for your device
+yRange = np.array([-29, 26])                        # range must be updated for your device
 
 
 def getXY():                                        # this function returns an average of several magnetometer readings for x and y
@@ -24,7 +24,7 @@ def getXY():                                        # this function returns an a
     return(data_av)
 
 
-def scale(axes):    # convert raw values to range of [-1 1]
+def scale(axes):                                    # convert raw values to range of [-1 1]
 
     # re-scale the returned values to a ratio of the value to it's maximum value (0 to 1)
     xScaled = (axes[0] - xRange[0]) / (xRange[1]-xRange[0])
@@ -35,21 +35,21 @@ def scale(axes):    # convert raw values to range of [-1 1]
     yCentered = (yScaled - 0.5) * 2
     axes = np.array([xCentered, yCentered])
     axes = np.round(axes, 2)
-    return(axes)                            # returns scaled, centered axes in range [-1 1]
+    return(axes)                                    # returns scaled, centered axes in range [-1 1]
 
 
-def getHeading(myAxes):                     # convert scaled values to a heading
-    h = np.arctan2(myAxes[0], myAxes[1])    # atan2 uses all four quadrants to return [-180, 180] range
+def getHeading(myAxes):                             # convert scaled values to a heading
+    h = np.arctan2(myAxes[0], myAxes[1])            # atan2 uses all four quadrants to return [-180, 180] range
     return(h)
 
 
 if __name__ == "__main__":
     while True:
-        axes = getXY()                          # call xy function
+        axes = getXY()                              # call xy function
         print("raw values:", axes)
-        axesScaled = scale(axes)                # perform scale function
-        print("scaled values:", axesScaled)     # print it out
-        h = getHeading(axesScaled)              # compute the heading
+        axesScaled = scale(axes)                    # perform scale function
+        print("scaled values:", axesScaled)         # print it out
+        h = getHeading(axesScaled)                  # compute the heading
         headingDegrees = round(h*180/np.pi, 2)
         print("heading:", headingDegrees)
-        time.sleep(0.25)                        # delay 0.25 sec
+        time.sleep(0.25)                            # delay 0.25 sec
