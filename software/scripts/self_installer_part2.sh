@@ -52,9 +52,9 @@
 
 # Change Hostname
 
-  echo "scuttle" > /etc/hostname
-  sudo sed -i 2d /etc/hosts
-  sudo sed -i '2i127.0.1.1       scuttle.localdomain  scuttle' /etc/hosts
+#   echo "scuttle" > /etc/hostname
+#   sudo sed -i 2d /etc/hosts
+#   sudo sed -i '2i127.0.1.1       scuttle.localdomain  scuttle' /etc/hosts
 
 # Reboot
 
