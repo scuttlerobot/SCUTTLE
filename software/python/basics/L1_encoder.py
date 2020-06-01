@@ -21,17 +21,16 @@ def readEnc(channel):
     try:
         # The AS5048B encoder gives a 14 bit angular reading
         if channel == 'L':
-            msB = encL.readU16(0xFE)            # capture the 8 msb's from encoder
-            lsB = encL.readU16(0xFF)            # capture the 6 lsb's from encoder
+            msB = encL.readU8(0xFE)    # capture the 8 msb's from encoder
+            lsB = encL.readU8(0xFF)    # capture the 6 lsb's from encoder
         elif channel == "R":
-            msB = encR.readU16(0xFE)            # capture the 8 msb's from encoder
-            lsB = encR.readU16(0xFF)            # capture the 6 lsb's from encoder
+            msB = encR.readU8(0xFE)    # capture the 8 msb's from encoder
+            lsB = encR.readU8(0xFF)    # capture the 6 lsb's from encoder
 
         # lsB can contribute  at most 1.4 degrees to the reading
         # for msB, perform bitwise operation to get true scaling of these bits
-        msB = ((msB << 8) | (msB >> 8)) & 0xFFFF
-        msB = ((msB & 0xFF00) >> 2) | (msB & 0x3F)
-        angle_raw = msB + lsB                   # multiplying by 0.0219 will give degrees
+        angle_raw = (msB << 6) | lsB
+
     except:
         print('Warning (I2C): Could not read encoder ' + channel)
         angle_raw = 0                           # set to zero, avoid sending wrong value
@@ -50,11 +49,11 @@ def read():
 if __name__ == "__main__":
     while True:
         encoders = read()
-        encoders = np.round((encoders * (359 / 2**14)), 2)      # scale values to get degrees
+        encoders = np.round((encoders * (360 / 2**14)), 2)      # scale values to get degrees
         print("encoders: ", encoders)                           # print the values
 
         # SECTION FOR LOGGING --------------------------
 
-        log.uniqueFile(encoders[0], "encL.txt")
-        log.uniqueFile(encoders[1], "encR.txt")
+        # log.uniqueFile(encoders[0], "encL.txt")
+        # log.uniqueFile(encoders[1], "encR.txt")
         time.sleep(0.10)
