@@ -21,4 +21,8 @@ while True:
     print("x axis:", xAccel, "y axis:", yAccel)     # print the two values
     axes = np.array([xAccel, yAccel])               # store just 2 axes in an array
     log.NodeRed2(axes)                              # send the data to txt files for NodeRed to access.
+    # log.uniqueFile(xAccel,"xAccel")                 # another way to log data for NodeRed access
+    # log.uniqueFile(yAccel,"yAccel")
+    # log.tmpFile(xAccel,"xAccel")                    # another way to lof data for NodeRed access
+    # log.tmpFile(yAccel,"yAccel")
     time.sleep(0.2)
