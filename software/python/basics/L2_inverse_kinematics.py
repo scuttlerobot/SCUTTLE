@@ -78,7 +78,7 @@ def phi_influence(yValue):
 def wait_user():
     x_dot = input("please enter x_dot")                     # takes x_dot as user input
     theta_dot = input("please enter theta_dot")             # takes theta_dot as user input
-    return (int(x_dot) , int(theta_dot))                    # returns x_dot and theta_dot
+    return (float(x_dot) , float(theta_dot))                    # returns x_dot and theta_dot
 
 
 if __name__ == "__main__":
