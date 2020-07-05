@@ -74,11 +74,17 @@ def phi_influence(yValue):
     return(C)
 
 
+# this function takes user input for x_dot and theta_dot
+def wait_user():
+    x_dot = input("please enter x_dot")                     # takes x_dot as user input
+    theta_dot = input("please enter theta_dot")             # takes theta_dot as user input
+    return (int(x_dot) , int(theta_dot))                    # returns x_dot and theta_dot
+
+
 if __name__ == "__main__":
     while True:
-        x_dot = 1                           # meters per second
-        theta_dot = 0                       # radians per second
-        B = np.array([x_dot, theta_dot])
-        phis = convert(B)                   # convert [xd, td] to [pdl, pdr]
-        print(phis[0])                      # print pdl
-        time.sleep(0.5)
+        x_dot , theta_dot = wait_user()                     # user input [x_dot,theta_dot]
+        B = np.array([x_dot, theta_dot])                    # make user inputs into an array
+        phis = convert(B)                                   # convert [xd, td] to [pdl, pdr]
+        print(phis[0],phis[1])                              # print pdl & pdr
+        time.sleep(1)
