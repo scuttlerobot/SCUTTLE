@@ -86,5 +86,5 @@ if __name__ == "__main__":
         x_dot , theta_dot = wait_user()                     # user input [x_dot,theta_dot]
         B = np.array([x_dot, theta_dot])                    # make user inputs into an array
         phis = convert(B)                                   # convert [xd, td] to [pdl, pdr]
-        print(phis[0],phis[1])                              # print pdl & pdr
+        print("pdl",phis[0],"\tpdr",phis[1])                # print pdl & pdr
         time.sleep(1)
