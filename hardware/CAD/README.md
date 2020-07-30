@@ -1,6 +1,7 @@
 # CAD SUBFOLDER README:
-This folder contains 3d Models, 2D drawings, and upcoming simulation data.
+This folder contains STL files and 2D drawings.
 
 # Latest Solidworks Models!
+Please find scuttle assembly and other SOLIDWORKS designs for the robot on grabCAD
 https://grabcad.com/library/scuttle-robot-v2-2-1
-Note: the solidworks folder on this git is no longer maintained.
+
