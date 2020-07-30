@@ -6,7 +6,7 @@ This folder keeps the latest STL models for 3D Printing. One robot contains:
 * rod bracket
 
 ### QUANTITY 2:
-* wheel bracket
+* uni (wheel) bracket
 * wheel pulley
 * wheel spacer
 * motor pulley
@@ -19,3 +19,4 @@ This folder keeps the latest STL models for 3D Printing. One robot contains:
 * battery bracket lid
 * camera bracket
 * i2c board bracket
+* motor driver bracket
