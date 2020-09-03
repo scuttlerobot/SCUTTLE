@@ -5,4 +5,4 @@ This repository contains Software (embedded Linux & Python) as well as hardware 
 # Please visit the SCUTTLE webpage here.
 https://mxet.github.io/SCUTTLE/
 
-![SCUTTLE Robot](https://raw.githubusercontent.com/MXET/SCUTTLE/master/docs/large_images/scuttle_rendering.png)
+![SCUTTLE Robot](https://raw.githubusercontent.com/MXET/SCUTTLE/master/docs/index_files/image001.png)
