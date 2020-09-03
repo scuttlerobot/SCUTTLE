@@ -1,7 +1,6 @@
 <html>
 
 <head>
-<title>SCUTTLE Robot</title>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=Generator content="Microsoft Word 15 (filtered)">
 <style>
@@ -9,7 +8,7 @@
  /* Font Definitions */
  @font-face
 	{font-family:Helvetica;
-	panose-1:2 11 6 4 2 2 2 2 2 4;}
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
 @font-face
 	{font-family:Wingdings;
 	panose-1:5 0 0 0 0 0 0 0 0 0;}
@@ -26,17 +25,17 @@
 	{font-family:"Segoe UI";
 	panose-1:2 11 5 2 4 2 4 2 2 3;}
 @font-face
-	{font-family:"Segoe UI Light";
-	panose-1:2 11 5 2 4 2 4 2 2 3;}
+	{font-family:"Courier Std";
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:"DS ISO 1";
+	panose-1:2 0 5 6 0 0 0 2 0 3;}
 @font-face
 	{font-family:SWIsop2;
 	panose-1:2 0 4 0 0 0 0 0 0 0;}
 @font-face
 	{font-family:Consolas;
 	panose-1:2 11 6 9 2 2 4 3 2 4;}
-@font-face
-	{font-family:"DS ISO 1";
-	panose-1:2 0 5 6 0 0 0 2 0 3;}
 @font-face
 	{font-family:"\@MS Gothic";
 	panose-1:2 11 6 9 7 2 5 8 2 4;}
@@ -49,7 +48,6 @@
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:0in;
-	margin-bottom:.0001pt;
 	line-height:107%;
 	font-size:11.0pt;
 	font-family:"Helvetica",sans-serif;
@@ -64,7 +62,7 @@ h1
 	border:none;
 	padding:0in;
 	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"Courier Std";
 	color:#3B3838;
 	font-weight:normal;}
 h1.CxSpFirst
@@ -73,23 +71,21 @@ h1.CxSpFirst
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:0in;
-	margin-bottom:.0001pt;
 	page-break-after:avoid;
 	border:none;
 	padding:0in;
 	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"Courier Std";
 	color:#3B3838;
 	font-weight:normal;}
 h1.CxSpMiddle
 	{mso-style-link:"Heading 1 Char";
 	margin:0in;
-	margin-bottom:.0001pt;
 	page-break-after:avoid;
 	border:none;
 	padding:0in;
 	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"Courier Std";
 	color:#3B3838;
 	font-weight:normal;}
 h1.CxSpLast
@@ -102,7 +98,7 @@ h1.CxSpLast
 	border:none;
 	padding:0in;
 	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"Courier Std";
 	color:#3B3838;
 	font-weight:normal;}
 h2
@@ -111,333 +107,12 @@ h2
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:0in;
-	margin-bottom:.0001pt;
 	line-height:107%;
 	page-break-after:avoid;
 	font-size:18.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"DS ISO 1";
 	color:#1F4E79;
 	font-weight:normal;}
-h3
-	{mso-style-link:"Heading 3 Char";
-	margin-top:2.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:12.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4D78;
-	font-weight:normal;}
-h4
-	{mso-style-link:"Heading 4 Char";
-	margin-top:2.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4E79;
-	font-weight:normal;
-	font-style:italic;}
-h5
-	{mso-style-link:"Heading 5 Char";
-	margin-top:2.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4E79;
-	font-weight:normal;}
-h6
-	{mso-style-link:"Heading 6 Char";
-	margin-top:2.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4D78;
-	font-weight:bold;}
-p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
-	{mso-style-link:"Heading 7 Char";
-	margin-top:2.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4D78;
-	font-style:italic;}
-p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
-	{mso-style-link:"Heading 8 Char";
-	margin-top:2.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#272727;}
-p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
-	{mso-style-link:"Heading 9 Char";
-	margin-top:2.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#272727;
-	font-style:italic;}
-p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:11.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex2, li.MsoIndex2, div.MsoIndex2
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:22.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex3, li.MsoIndex3, div.MsoIndex3
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:33.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex4, li.MsoIndex4, div.MsoIndex4
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:44.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex5, li.MsoIndex5, div.MsoIndex5
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:55.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex6, li.MsoIndex6, div.MsoIndex6
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:66.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex7, li.MsoIndex7, div.MsoIndex7
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:77.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex8, li.MsoIndex8, div.MsoIndex8
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:88.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndex9, li.MsoIndex9, div.MsoIndex9
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:99.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc1, li.MsoToc1, div.MsoToc1
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:0in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc2, li.MsoToc2, div.MsoToc2
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:11.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc3, li.MsoToc3, div.MsoToc3
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:22.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc4, li.MsoToc4, div.MsoToc4
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:33.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc5, li.MsoToc5, div.MsoToc5
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:44.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc6, li.MsoToc6, div.MsoToc6
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:55.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc7, li.MsoToc7, div.MsoToc7
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:66.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc8, li.MsoToc8, div.MsoToc8
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:77.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToc9, li.MsoToc9, div.MsoToc9
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:5.0pt;
-	margin-left:88.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
-	{mso-style-link:"Footnote Text Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
-	{mso-style-link:"Comment Text Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoHeader, li.MsoHeader, div.MsoHeader
-	{mso-style-link:"Header Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	font-size:12.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:#3B3838;}
-p.MsoFooter, li.MsoFooter, div.MsoFooter
-	{mso-style-link:"Footer Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoIndexHeading, li.MsoIndexHeading, div.MsoIndexHeading
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:windowtext;
-	font-weight:bold;}
 p.MsoCaption, li.MsoCaption, div.MsoCaption
 	{margin-top:0in;
 	margin-right:0in;
@@ -447,677 +122,12 @@ p.MsoCaption, li.MsoCaption, div.MsoCaption
 	font-family:"Helvetica",sans-serif;
 	color:#44546A;
 	font-style:italic;}
-p.MsoTof, li.MsoTof, div.MsoTof
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoEnvelopeAddress, li.MsoEnvelopeAddress, div.MsoEnvelopeAddress
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:2.0in;
-	margin-bottom:.0001pt;
-	font-size:12.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:windowtext;}
-p.MsoEnvelopeReturn, li.MsoEnvelopeReturn, div.MsoEnvelopeReturn
-	{margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:windowtext;}
-span.MsoFootnoteReference
-	{vertical-align:super;}
-span.MsoEndnoteReference
-	{vertical-align:super;}
-p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
-	{mso-style-link:"Endnote Text Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoToa, li.MsoToa, div.MsoToa
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:11.0pt;
-	margin-bottom:.0001pt;
-	text-indent:-11.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
-	{mso-style-link:"Macro Text Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:Consolas;
-	color:windowtext;}
-p.MsoToaHeading, li.MsoToaHeading, div.MsoToaHeading
-	{margin-top:6.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:12.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:windowtext;
-	font-weight:bold;}
-p.MsoList, li.MsoList, div.MsoList
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListCxSpFirst, li.MsoListCxSpFirst, div.MsoListCxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListCxSpMiddle, li.MsoListCxSpMiddle, div.MsoListCxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListCxSpLast, li.MsoListCxSpLast, div.MsoListCxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
-	{mso-style-link:"List Number Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.55in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:#3B3838;}
-p.MsoList2, li.MsoList2, div.MsoList2
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList2CxSpFirst, li.MsoList2CxSpFirst, div.MsoList2CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList2CxSpMiddle, li.MsoList2CxSpMiddle, div.MsoList2CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList2CxSpLast, li.MsoList2CxSpLast, div.MsoList2CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList3, li.MsoList3, div.MsoList3
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList3CxSpFirst, li.MsoList3CxSpFirst, div.MsoList3CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList3CxSpMiddle, li.MsoList3CxSpMiddle, div.MsoList3CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList3CxSpLast, li.MsoList3CxSpLast, div.MsoList3CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList4, li.MsoList4, div.MsoList4
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList4CxSpFirst, li.MsoList4CxSpFirst, div.MsoList4CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList4CxSpMiddle, li.MsoList4CxSpMiddle, div.MsoList4CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList4CxSpLast, li.MsoList4CxSpLast, div.MsoList4CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList5, li.MsoList5, div.MsoList5
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList5CxSpFirst, li.MsoList5CxSpFirst, div.MsoList5CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList5CxSpMiddle, li.MsoList5CxSpMiddle, div.MsoList5CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoList5CxSpLast, li.MsoList5CxSpLast, div.MsoList5CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet2CxSpFirst, li.MsoListBullet2CxSpFirst, div.MsoListBullet2CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet2CxSpMiddle, li.MsoListBullet2CxSpMiddle, div.MsoListBullet2CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet2CxSpLast, li.MsoListBullet2CxSpLast, div.MsoListBullet2CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet3CxSpFirst, li.MsoListBullet3CxSpFirst, div.MsoListBullet3CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet3CxSpMiddle, li.MsoListBullet3CxSpMiddle, div.MsoListBullet3CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet3CxSpLast, li.MsoListBullet3CxSpLast, div.MsoListBullet3CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet4, li.MsoListBullet4, div.MsoListBullet4
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet4CxSpFirst, li.MsoListBullet4CxSpFirst, div.MsoListBullet4CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet4CxSpMiddle, li.MsoListBullet4CxSpMiddle, div.MsoListBullet4CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet4CxSpLast, li.MsoListBullet4CxSpLast, div.MsoListBullet4CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet5, li.MsoListBullet5, div.MsoListBullet5
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet5CxSpFirst, li.MsoListBullet5CxSpFirst, div.MsoListBullet5CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet5CxSpMiddle, li.MsoListBullet5CxSpMiddle, div.MsoListBullet5CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListBullet5CxSpLast, li.MsoListBullet5CxSpLast, div.MsoListBullet5CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber2CxSpFirst, li.MsoListNumber2CxSpFirst, div.MsoListNumber2CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber2CxSpMiddle, li.MsoListNumber2CxSpMiddle, div.MsoListNumber2CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber2CxSpLast, li.MsoListNumber2CxSpLast, div.MsoListNumber2CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber3CxSpFirst, li.MsoListNumber3CxSpFirst, div.MsoListNumber3CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber3CxSpMiddle, li.MsoListNumber3CxSpMiddle, div.MsoListNumber3CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber3CxSpLast, li.MsoListNumber3CxSpLast, div.MsoListNumber3CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber4, li.MsoListNumber4, div.MsoListNumber4
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber4CxSpFirst, li.MsoListNumber4CxSpFirst, div.MsoListNumber4CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber4CxSpMiddle, li.MsoListNumber4CxSpMiddle, div.MsoListNumber4CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber4CxSpLast, li.MsoListNumber4CxSpLast, div.MsoListNumber4CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber5, li.MsoListNumber5, div.MsoListNumber5
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber5CxSpFirst, li.MsoListNumber5CxSpFirst, div.MsoListNumber5CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber5CxSpMiddle, li.MsoListNumber5CxSpMiddle, div.MsoListNumber5CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListNumber5CxSpLast, li.MsoListNumber5CxSpLast, div.MsoListNumber5CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	text-indent:-.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
 p.MsoTitle, li.MsoTitle, div.MsoTitle
 	{mso-style-link:"Title Char";
 	margin-top:0in;
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:.1in;
-	margin-bottom:.0001pt;
 	background:#2B579A;
 	border:none;
 	padding:0in;
@@ -1132,7 +142,6 @@ p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:.1in;
-	margin-bottom:.0001pt;
 	background:#2B579A;
 	border:none;
 	padding:0in;
@@ -1147,7 +156,6 @@ p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:.1in;
-	margin-bottom:.0001pt;
 	background:#2B579A;
 	border:none;
 	padding:0in;
@@ -1162,7 +170,6 @@ p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:.1in;
-	margin-bottom:.0001pt;
 	background:#2B579A;
 	border:none;
 	padding:0in;
@@ -1171,262 +178,19 @@ p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
 	color:white;
 	letter-spacing:-.5pt;
 	font-weight:bold;}
-p.MsoClosing, li.MsoClosing, div.MsoClosing
-	{mso-style-link:"Closing Char";
-	margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:3.0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoSignature, li.MsoSignature, div.MsoSignature
-	{mso-style-link:"Signature Char";
-	margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:3.0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
-	{mso-style-link:"Body Text Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:0in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
-	{mso-style-link:"Body Text Indent Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue, li.MsoListContinue, div.MsoListContinue
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinueCxSpFirst, li.MsoListContinueCxSpFirst, div.MsoListContinueCxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinueCxSpMiddle, li.MsoListContinueCxSpMiddle, div.MsoListContinueCxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinueCxSpLast, li.MsoListContinueCxSpLast, div.MsoListContinueCxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue2, li.MsoListContinue2, div.MsoListContinue2
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.5in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue2CxSpFirst, li.MsoListContinue2CxSpFirst, div.MsoListContinue2CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue2CxSpMiddle, li.MsoListContinue2CxSpMiddle, div.MsoListContinue2CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue2CxSpLast, li.MsoListContinue2CxSpLast, div.MsoListContinue2CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.5in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue3, li.MsoListContinue3, div.MsoListContinue3
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.75in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue3CxSpFirst, li.MsoListContinue3CxSpFirst, div.MsoListContinue3CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue3CxSpMiddle, li.MsoListContinue3CxSpMiddle, div.MsoListContinue3CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue3CxSpLast, li.MsoListContinue3CxSpLast, div.MsoListContinue3CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.75in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue4, li.MsoListContinue4, div.MsoListContinue4
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:1.0in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue4CxSpFirst, li.MsoListContinue4CxSpFirst, div.MsoListContinue4CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue4CxSpMiddle, li.MsoListContinue4CxSpMiddle, div.MsoListContinue4CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue4CxSpLast, li.MsoListContinue4CxSpLast, div.MsoListContinue4CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:1.0in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue5, li.MsoListContinue5, div.MsoListContinue5
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:1.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue5CxSpFirst, li.MsoListContinue5CxSpFirst, div.MsoListContinue5CxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue5CxSpMiddle, li.MsoListContinue5CxSpMiddle, div.MsoListContinue5CxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:1.25in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListContinue5CxSpLast, li.MsoListContinue5CxSpLast, div.MsoListContinue5CxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:1.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoMessageHeader, li.MsoMessageHeader, div.MsoMessageHeader
-	{mso-style-link:"Message Header Char";
-	margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.75in;
-	margin-bottom:.0001pt;
-	text-indent:-.75in;
-	background:#CCCCCC;
-	border:none;
-	padding:0in;
-	font-size:12.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:windowtext;}
 p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
 	{mso-style-link:"Subtitle Char";
 	margin-top:0in;
 	margin-right:0in;
 	margin-bottom:6.0pt;
 	margin-left:.1in;
+	text-align:center;
 	line-height:107%;
 	background:#2B579A;
 	border:none;
 	padding:0in;
 	font-size:18.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"DS ISO 1";
 	color:white;
 	letter-spacing:.75pt;}
 p.MsoSubtitleCxSpFirst, li.MsoSubtitleCxSpFirst, div.MsoSubtitleCxSpFirst
@@ -1435,13 +199,13 @@ p.MsoSubtitleCxSpFirst, li.MsoSubtitleCxSpFirst, div.MsoSubtitleCxSpFirst
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:.1in;
-	margin-bottom:.0001pt;
+	text-align:center;
 	line-height:107%;
 	background:#2B579A;
 	border:none;
 	padding:0in;
 	font-size:18.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"DS ISO 1";
 	color:white;
 	letter-spacing:.75pt;}
 p.MsoSubtitleCxSpMiddle, li.MsoSubtitleCxSpMiddle, div.MsoSubtitleCxSpMiddle
@@ -1450,13 +214,13 @@ p.MsoSubtitleCxSpMiddle, li.MsoSubtitleCxSpMiddle, div.MsoSubtitleCxSpMiddle
 	margin-right:0in;
 	margin-bottom:0in;
 	margin-left:.1in;
-	margin-bottom:.0001pt;
+	text-align:center;
 	line-height:107%;
 	background:#2B579A;
 	border:none;
 	padding:0in;
 	font-size:18.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"DS ISO 1";
 	color:white;
 	letter-spacing:.75pt;}
 p.MsoSubtitleCxSpLast, li.MsoSubtitleCxSpLast, div.MsoSubtitleCxSpLast
@@ -1465,364 +229,29 @@ p.MsoSubtitleCxSpLast, li.MsoSubtitleCxSpLast, div.MsoSubtitleCxSpLast
 	margin-right:0in;
 	margin-bottom:6.0pt;
 	margin-left:.1in;
+	text-align:center;
 	line-height:107%;
 	background:#2B579A;
 	border:none;
 	padding:0in;
 	font-size:18.0pt;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"DS ISO 1";
 	color:white;
 	letter-spacing:.75pt;}
-p.MsoSalutation, li.MsoSalutation, div.MsoSalutation
-	{mso-style-link:"Salutation Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoDate, li.MsoDate, div.MsoDate
-	{mso-style-link:"Date Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyTextFirstIndent, li.MsoBodyTextFirstIndent, div.MsoBodyTextFirstIndent
-	{mso-style-link:"Body Text First Indent Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	text-indent:.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyTextFirstIndent2, li.MsoBodyTextFirstIndent2, div.MsoBodyTextFirstIndent2
-	{mso-style-link:"Body Text First Indent 2 Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.25in;
-	margin-bottom:.0001pt;
-	text-indent:.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoNoteHeading, li.MsoNoteHeading, div.MsoNoteHeading
-	{mso-style-link:"Note Heading Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
-	{mso-style-link:"Body Text 2 Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:0in;
-	line-height:200%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
-	{mso-style-link:"Body Text 3 Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:0in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
-	{mso-style-link:"Body Text Indent 2 Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.25in;
-	line-height:200%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
-	{mso-style-link:"Body Text Indent 3 Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:6.0pt;
-	margin-left:.25in;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
-	{margin-top:8.0pt;
-	margin-right:.8in;
-	margin-bottom:0in;
-	margin-left:.8in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	border:none;
-	padding:0in;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:#1F4E79;
-	font-style:italic;}
 a:link, span.MsoHyperlink
 	{color:#0563C1;
 	text-decoration:underline;}
-a:visited, span.MsoHyperlinkFollowed
-	{color:#954F72;
-	text-decoration:underline;}
-strong
-	{color:#2B579A;}
 em
 	{color:#BF0000;
 	font-weight:bold;
 	font-style:normal;}
-p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
-	{mso-style-link:"Document Map Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Segoe UI",sans-serif;
-	color:windowtext;}
-p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
-	{mso-style-link:"Plain Text Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:Consolas;
-	color:windowtext;}
-p.MsoAutoSig, li.MsoAutoSig, div.MsoAutoSig
-	{mso-style-link:"E-mail Signature Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p
-	{margin-right:0in;
-	margin-left:0in;
-	font-size:12.0pt;
-	font-family:"Times New Roman",serif;
-	color:#404040;}
-address
-	{mso-style-link:"HTML Address Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;
-	font-style:italic;}
-code
-	{font-family:Consolas;}
-kbd
-	{font-family:Consolas;}
-pre
-	{mso-style-link:"HTML Preformatted Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:Consolas;
-	color:windowtext;}
-samp
-	{font-family:Consolas;}
-tt
-	{font-family:Consolas;}
-p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
-	{mso-style-link:"Comment Subject Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;
-	font-weight:bold;}
-p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-	{mso-style-link:"Balloon Text Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-span.MsoPlaceholderText
-	{color:#595959;}
-p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
-	{margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Segoe UI",sans-serif;
-	color:windowtext;}
-p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
-	{margin:0in;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Segoe UI",sans-serif;
-	color:windowtext;}
-p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoQuote, li.MsoQuote, div.MsoQuote
-	{mso-style-link:"Quote Char";
-	margin-top:10.0pt;
-	margin-right:0in;
-	margin-bottom:8.0pt;
-	margin-left:0in;
-	text-align:center;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:#404040;
-	font-style:italic;}
-p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote
-	{mso-style-link:"Intense Quote Char";
-	margin-top:.25in;
-	margin-right:0in;
-	margin-bottom:.25in;
-	margin-left:0in;
-	text-align:center;
-	line-height:107%;
-	border:none;
-	padding:0in;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:#1F4E79;
-	font-style:italic;}
-span.MsoSubtleEmphasis
-	{color:#404040;
-	font-style:italic;}
 span.MsoIntenseEmphasis
 	{color:#2B579A;
 	font-style:italic;}
-span.MsoSubtleReference
-	{font-variant:small-caps;
-	color:#5A5A5A;}
-span.MsoIntenseReference
-	{font-variant:small-caps;
-	color:#1F4E79;
-	text-transform:none;
-	letter-spacing:0pt;
-	font-weight:bold;}
-span.MsoBookTitle
-	{letter-spacing:0pt;
-	font-weight:bold;
-	font-style:italic;}
-p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
-	{margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
-	{margin-top:.25in;
-	margin-right:0in;
-	margin-bottom:12.0pt;
-	margin-left:0in;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-p.MsoTocHeadingCxSpFirst, li.MsoTocHeadingCxSpFirst, div.MsoTocHeadingCxSpFirst
-	{margin-top:.25in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-p.MsoTocHeadingCxSpMiddle, li.MsoTocHeadingCxSpMiddle, div.MsoTocHeadingCxSpMiddle
-	{margin:0in;
-	margin-bottom:.0001pt;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-p.MsoTocHeadingCxSpLast, li.MsoTocHeadingCxSpLast, div.MsoTocHeadingCxSpLast
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:12.0pt;
-	margin-left:0in;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
 span.Heading1Char
 	{mso-style-name:"Heading 1 Char";
 	mso-style-link:"Heading 1";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-span.HeaderChar
-	{mso-style-name:"Header Char";
-	mso-style-link:Header;
-	font-family:"MS Mincho";
+	font-family:"Courier Std";
 	color:#3B3838;}
 span.TitleChar
 	{mso-style-name:"Title Char";
@@ -1835,261 +264,15 @@ span.TitleChar
 span.SubtitleChar
 	{mso-style-name:"Subtitle Char";
 	mso-style-link:Subtitle;
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"DS ISO 1";
 	color:white;
 	letter-spacing:.75pt;
 	background:#2B579A;}
-span.FooterChar
-	{mso-style-name:"Footer Char";
-	mso-style-link:Footer;}
 span.Heading2Char
 	{mso-style-name:"Heading 2 Char";
 	mso-style-link:"Heading 2";
-	font-family:"Segoe UI Light",sans-serif;
+	font-family:"DS ISO 1";
 	color:#1F4E79;}
-span.BalloonTextChar
-	{mso-style-name:"Balloon Text Char";
-	mso-style-link:"Balloon Text";
-	font-family:"Segoe UI",sans-serif;}
-span.CommentTextChar
-	{mso-style-name:"Comment Text Char";
-	mso-style-link:"Comment Text";}
-span.CommentSubjectChar
-	{mso-style-name:"Comment Subject Char";
-	mso-style-link:"Comment Subject";
-	font-weight:bold;}
-p.Heading1-PageBreak, li.Heading1-PageBreak, div.Heading1-PageBreak
-	{mso-style-name:"Heading 1 - Page Break";
-	margin-top:.25in;
-	margin-right:0in;
-	margin-bottom:12.0pt;
-	margin-left:0in;
-	line-height:107%;
-	page-break-before:always;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-p.Heading1-PageBreakCxSpFirst, li.Heading1-PageBreakCxSpFirst, div.Heading1-PageBreakCxSpFirst
-	{mso-style-name:"Heading 1 - Page BreakCxSpFirst";
-	margin-top:.25in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-before:always;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-p.Heading1-PageBreakCxSpMiddle, li.Heading1-PageBreakCxSpMiddle, div.Heading1-PageBreakCxSpMiddle
-	{mso-style-name:"Heading 1 - Page BreakCxSpMiddle";
-	margin:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	page-break-before:always;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-p.Heading1-PageBreakCxSpLast, li.Heading1-PageBreakCxSpLast, div.Heading1-PageBreakCxSpLast
-	{mso-style-name:"Heading 1 - Page BreakCxSpLast";
-	margin-top:0in;
-	margin-right:0in;
-	margin-bottom:12.0pt;
-	margin-left:0in;
-	line-height:107%;
-	page-break-before:always;
-	page-break-after:avoid;
-	border:none;
-	padding:0in;
-	font-size:26.0pt;
-	font-family:"Segoe UI Light",sans-serif;
-	color:#3B3838;}
-p.Image, li.Image, div.Image
-	{mso-style-name:Image;
-	margin-top:12.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;}
-span.BodyTextChar
-	{mso-style-name:"Body Text Char";
-	mso-style-link:"Body Text";}
-span.BodyText2Char
-	{mso-style-name:"Body Text 2 Char";
-	mso-style-link:"Body Text 2";}
-span.BodyText3Char
-	{mso-style-name:"Body Text 3 Char";
-	mso-style-link:"Body Text 3";}
-span.BodyTextFirstIndentChar
-	{mso-style-name:"Body Text First Indent Char";
-	mso-style-link:"Body Text First Indent";}
-span.BodyTextIndentChar
-	{mso-style-name:"Body Text Indent Char";
-	mso-style-link:"Body Text Indent";}
-span.BodyTextFirstIndent2Char
-	{mso-style-name:"Body Text First Indent 2 Char";
-	mso-style-link:"Body Text First Indent 2";}
-span.BodyTextIndent2Char
-	{mso-style-name:"Body Text Indent 2 Char";
-	mso-style-link:"Body Text Indent 2";}
-span.BodyTextIndent3Char
-	{mso-style-name:"Body Text Indent 3 Char";
-	mso-style-link:"Body Text Indent 3";}
-span.ClosingChar
-	{mso-style-name:"Closing Char";
-	mso-style-link:Closing;}
-span.DateChar
-	{mso-style-name:"Date Char";
-	mso-style-link:Date;}
-span.DocumentMapChar
-	{mso-style-name:"Document Map Char";
-	mso-style-link:"Document Map";
-	font-family:"Segoe UI",sans-serif;}
-span.E-mailSignatureChar
-	{mso-style-name:"E-mail Signature Char";
-	mso-style-link:"E-mail Signature";}
-span.EndnoteTextChar
-	{mso-style-name:"Endnote Text Char";
-	mso-style-link:"Endnote Text";}
-span.FootnoteTextChar
-	{mso-style-name:"Footnote Text Char";
-	mso-style-link:"Footnote Text";}
-span.Heading3Char
-	{mso-style-name:"Heading 3 Char";
-	mso-style-link:"Heading 3";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4D78;}
-span.Heading4Char
-	{mso-style-name:"Heading 4 Char";
-	mso-style-link:"Heading 4";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4E79;
-	font-style:italic;}
-span.Heading5Char
-	{mso-style-name:"Heading 5 Char";
-	mso-style-link:"Heading 5";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4E79;}
-span.Heading6Char
-	{mso-style-name:"Heading 6 Char";
-	mso-style-link:"Heading 6";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4D78;
-	font-weight:bold;}
-span.Heading7Char
-	{mso-style-name:"Heading 7 Char";
-	mso-style-link:"Heading 7";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#1F4D78;
-	font-style:italic;}
-span.Heading8Char
-	{mso-style-name:"Heading 8 Char";
-	mso-style-link:"Heading 8";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#272727;}
-span.Heading9Char
-	{mso-style-name:"Heading 9 Char";
-	mso-style-link:"Heading 9";
-	font-family:"Segoe UI Light",sans-serif;
-	color:#272727;
-	font-style:italic;}
-span.HTMLAddressChar
-	{mso-style-name:"HTML Address Char";
-	mso-style-link:"HTML Address";
-	font-style:italic;}
-span.HTMLPreformattedChar
-	{mso-style-name:"HTML Preformatted Char";
-	mso-style-link:"HTML Preformatted";
-	font-family:Consolas;}
-span.IntenseQuoteChar
-	{mso-style-name:"Intense Quote Char";
-	mso-style-link:"Intense Quote";
-	color:#1F4E79;
-	font-style:italic;}
-span.MacroTextChar
-	{mso-style-name:"Macro Text Char";
-	mso-style-link:"Macro Text";
-	font-family:Consolas;}
-span.MessageHeaderChar
-	{mso-style-name:"Message Header Char";
-	mso-style-link:"Message Header";
-	font-family:"Segoe UI Light",sans-serif;
-	background:#CCCCCC;}
-span.NoteHeadingChar
-	{mso-style-name:"Note Heading Char";
-	mso-style-link:"Note Heading";}
-span.PlainTextChar
-	{mso-style-name:"Plain Text Char";
-	mso-style-link:"Plain Text";
-	font-family:Consolas;}
-span.QuoteChar
-	{mso-style-name:"Quote Char";
-	mso-style-link:Quote;
-	color:#404040;
-	font-style:italic;}
-span.SalutationChar
-	{mso-style-name:"Salutation Char";
-	mso-style-link:Salutation;}
-span.SignatureChar
-	{mso-style-name:"Signature Char";
-	mso-style-link:Signature;}
-span.UnresolvedMention1
-	{mso-style-name:"Unresolved Mention1";
-	color:#605E5C;
-	background:#E1DFDD;}
-span.Mention1
-	{mso-style-name:Mention1;
-	color:#2B579A;
-	background:#E1DFDD;}
-p.TryItBoilerplate, li.TryItBoilerplate, div.TryItBoilerplate
-	{mso-style-name:"Try It Boilerplate";
-	margin-top:8.0pt;
-	margin-right:.5in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:#595959;
-	font-style:italic;}
-p.Quoteemphasis, li.Quoteemphasis, div.Quoteemphasis
-	{mso-style-name:"Quote emphasis";
-	mso-style-link:"Quote emphasis Char";
-	margin-top:8.0pt;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:0in;
-	margin-bottom:.0001pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Helvetica",sans-serif;
-	color:windowtext;
-	font-style:italic;}
-span.ListNumberChar
-	{mso-style-name:"List Number Char";
-	mso-style-link:"List Number";
-	font-family:"MS Mincho";
-	color:#3B3838;}
-span.QuoteemphasisChar
-	{mso-style-name:"Quote emphasis Char";
-	mso-style-link:"Quote emphasis";
-	font-family:"MS Mincho";
-	color:#3B3838;
-	font-style:italic;}
 .MsoChpDefault
 	{font-family:"Segoe UI",sans-serif;}
 .MsoPapDefault
@@ -2111,7 +294,7 @@ ul
 
 </head>
 
-<body lang=EN-US link="#0563C1" vlink="#954F72">
+<body lang=EN-MY link="#0563C1" vlink="#954F72">
 
 <div class=WordSection1>
 
@@ -2119,7 +302,7 @@ ul
 background:#2B579A;margin-left:.1in;margin-right:0in'>
 
 <p class=MsoTitle align=center style='margin-left:0in;text-align:center;
-background:#2B579A'><span style='font-size:36.0pt;font-family:"DS ISO 1"'>SCUTTLE
+background:#2B579A'><span lang=EN-US style='font-size:36.0pt;font-family:"DS ISO 1"'>SCUTTLE
 Mobile Robot</span></p>
 
 </div>
@@ -2128,35 +311,39 @@ Mobile Robot</span></p>
 border-right:none;padding:0in 0in 1.0pt 0in;background:#2B579A;margin-left:
 .1in;margin-right:0in'>
 
-<p class=MsoSubtitle align=center style='margin-left:0in;text-align:center;
-background:#2B579A'><a name="_Hlk487785372"></a>Sensing, Connected Utility
-Transport Taxi for Level Environments</p>
+<p class=MsoSubtitle style='margin-left:0in;background:#2B579A'><a
+name="_Hlk487785372"></a><span lang=EN-US>The Maker-Friendly Mobile Robot</span></p>
 
 </div>
 
-<p class=MsoNormal>SCUTTLE was designed to support teaching within <a
-href="https://engineering.tamu.edu/etid/mxet/index.html">Multidisciplinary Engineering
-Technology (MXET) at Texas A&amp;M</a>. The bot is a payload-capable mobile
-platform that is made of readily-available off-the-shelf parts and 3D printed
-designs. SCUTTLE is the main platform currently used for in-lab lessons and
-semester project for MXET 300, Mobile Robotics undergraduate course.</p>
+<p class=MsoNormal><span lang=EN-US>SCUTTLE was initiated at <a
+href="https://www.tamu.edu/">Texas A&amp;M</a> in the department of <a
+href="https://engineering.tamu.edu/etid/index.html">Engineering Technology</a>.�
+It is designed to support hands-on learning in <a
+href="https://engineering.tamu.edu/etid/mxet/index.html">Mechatronics</a>
+engineering. This maker-friendly robot is made of readily-available
+off-the-shelf parts and 3D printed designs. SCUTTLE is used for in-lab lessons
+and semester project for the Mobile Robotics undergraduate course. It is also
+an opportunity to jumpstart a multitude of new designs.</span></p>
 
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=632 height=244 id="Picture 67" src="index_files/image001.png"
-alt=scuttle></p>
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
+lang=EN-US><img border=0 width=632 height=244 id="Picture 67"
+src="index_files/image001.png" alt=scuttle></span></p>
 
-<p class=MsoCaption align=center style='text-align:center'>Figure 1.
-SCUTTLE Mobile Robot Rendering</p>
+<p class=MsoCaption align=center style='text-align:center'><span lang=EN-US>Figure
+</span><span lang=EN-US>1</span><span lang=EN-US>. SCUTTLE Mobile Robot
+Rendering</span></p>
 
 <div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
 
-<h1>Highlights</h1>
+<h1><span lang=EN-US>Highlights</span></h1>
 
 </div>
 
-<p class=MsoNormal>A few highlights of this open-source mobile platform </p>
+<p class=MsoNormal><span lang=EN-US>A few goodies from our fully open-source
+mobile robot platform:</span></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
 <div align=center>
 
@@ -2164,469 +351,278 @@ SCUTTLE Mobile Robot Rendering</p>
  style='border-collapse:collapse;border:none'>
  <tr>
   <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal;page-break-after:avoid'><span
-  style='color:#404040'><a href="https://github.com/MXET/SCUTTLE"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=274
-  height=190 id="Picture 29" src="index_files/image002.png"></span></a></span></p>
-  <p class=MsoCaption>Figure 2. Github Repository</p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal;
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal;
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'><a
+  href="https://mxet.github.io/SCUTTLE/"><span style='color:#404040;text-decoration:
+  none'><img border=0 width=275 height=149 id="Picture 29"
+  src="index_files/image002.png"></span></a></span></p>
+  <p class=MsoCaption align=center style='text-align:center'><span lang=EN-US>Open-Source
+  Software Repository</span></p>
   </td>
   <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal;page-break-after:avoid'><span
-  style='color:#404040'><a
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal;
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'><a
   href="https://beagleboard.org/p/112547/scuttle-mobile-utility-robot-from-texas-a-m-d6c2b7"><span
   style='color:#404040;text-decoration:none'><img border=0 width=260
   height=178 src="index_files/image003.jpg"></span></a></span></p>
-  <p class=MsoCaption>Figure 3. Beaglebone Embedded Linux</p>
-  </td>
- </tr>
- <tr>
-  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal;page-break-after:avoid'><span
-  style='color:#404040'><a href="https://grabcad.com/library/scuttle-robot-v2-2-1"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=290
-  height=183 id="Picture 36" src="index_files/image004.jpg"></span></a></span></p>
-  <p class=MsoCaption>Figure 4. Full Open-Source CAD Assembly</p>
-  </td>
-  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal;page-break-after:avoid'><span
-  style='color:#404040'><a href="https://www.youtube.com/watch?v=9t1XHcomlIs"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=255
-  height=182 id="Picture 37" src="index_files/image005.png"></span></a></span></p>
-  <p class=MsoCaption>Figure 5. Machine Vision Software</p>
-  </td>
- </tr>
- <tr>
-  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
-  </td>
-  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
+  <p class=MsoCaption align=center style='text-align:center'><span lang=EN-US>Embedded
+  Linux � on Beaglebone</span></p>
   </td>
  </tr>
  <tr>
   <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center;line-height:normal;
-  page-break-after:avoid'><span style='color:#404040'><a
-  href="https://www.amazon.com/EasySMX-Wireless-Controller-Gamepads-Vibration/dp/B01KV7B2CG/ref=sr_1_4?keywords=easysmx&amp;qid=1560799802&amp;s=gateway&amp;sr=8-4"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=226
-  height=181 id="Picture 35" src="index_files/image006.jpg"></span></a></span></p>
-  <p class=MsoCaption>Figure 6. Gamepad Driving Integration</p>
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'><a
+  href="https://grabcad.com/library/scuttle-robot-v2-1"><span style='color:
+  #404040;text-decoration:none'><img border=0 width=262 height=166
+  id="Picture 36" src="index_files/image004.jpg"></span></a></span></p>
+  <p class=MsoCaption align=center style='text-align:center'><span lang=EN-US>Open-Source
+  CAD Assembly</span></p>
   </td>
   <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center;line-height:normal;
-  page-break-after:avoid'><span style='color:#404040'><a
-  href="https://youtu.be/PXD6mWnY9d0?list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=184
-  height=182 id="Picture 66" src="index_files/image007.png"></span></a></span></p>
-  <p class=MsoCaption align=center style='text-align:center'>Figure 7.
-  3D Printable Design</p>
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal;
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'><a
+  href="https://www.youtube.com/watch?v=9t1XHcomlIs"><span style='color:#404040;
+  text-decoration:none'><img border=0 width=251 height=141 id="Picture 37"
+  src="index_files/image005.png"></span></a></span></p>
+  <p class=MsoCaption align=center style='text-align:center'><span lang=EN-US>Machine
+  Vision Demo</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='line-height:normal'><span lang=EN-US
+  style='color:#404040'>&nbsp;</span></p>
+  </td>
+  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='line-height:normal'><span lang=EN-US
+  style='color:#404040'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal;
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'><a
+  href="https://youtu.be/uYnGog1Pc_8"><span style='color:#404040;text-decoration:
+  none'><img border=0 width=226 height=181 id="Picture 35"
+  src="index_files/image006.jpg"></span></a></span></p>
+  <p class=MsoCaption align=center style='text-align:center'><span lang=EN-US>Gamepad
+  Integration</span></p>
+  </td>
+  <td width=312 valign=top style='width:233.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal;
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal;
+  page-break-after:avoid'><span lang=EN-US style='color:#404040'><a
+  href="https://github.com/MXET/SCUTTLE/tree/master/hardware/CAD/3D_Printing"><span
+  style='color:#404040;text-decoration:none'><img border=0 width=203
+  height=159 id="Picture 66" src="index_files/image007.png"></span></a></span></p>
+  <p class=MsoCaption align=center style='text-align:center'><span lang=EN-US>3D
+  Printable Components</span></p>
   </td>
  </tr>
 </table>
 
 </div>
 
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
 <div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
 
-<h1>&nbsp;</h1>
+<h1><span lang=EN-US>&nbsp;</span></h1>
 
-<h1>Purpose:</h1>
+<h1><span lang=EN-US>Purpose</span></h1>
 
 </div>
 
-<h2>Performance</h2>
+<p class=MsoNormal><span lang=EN-US>Before this project, we searched high and
+low and found nothing under $1000 USD that carries over 20 pounds. So, we
+created SCUTTLE. The acronym (see the image below) describes our goals.</span></p>
 
-<p class=MsoNormal>SCUTTLE is designed to create access for students,
-researchers, and tinkerers to an affordable mobile robot <em>that can carry a
-payload</em>.  This platform supports the load of additonal actuators, materials
-handling, extra battery packs, displays, or other gadgets to suit new projects.
-We searched high and low and found no robot under one thousand USD that can
-carry over 20 pounds. So, we created SCUTTLE within the <a
-href="https://engineering.tamu.edu/etid/academics/degrees/undergraduate/bs-mxet.html">Mechatronics
-Engineering Technology</a> major at Texas A&amp;M. The acronym tells what we
-aim to accomplish.</p>
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><img border=0
-width=337 height=353 id="Picture 65" src="index_files/image008.png"></p>
+<h2><span lang=EN-US>Payload Performance</span></h2>
 
-<h2>Affordable, Modular, Off-The-Shelf</h2>
+<p class=MsoNormal><span lang=EN-US>SCUTTLE is the most elemental platform to
+support a mobile payload. Design teams need a flexible design that accommodates
+add-on of a robotic arm, a tank of fluid, or a sophisticated sensor array. That
+means <em>payload capability</em>. �</span></p>
 
-<p class=MsoNormal>Affordability is an important target and this bot can be built
-from under $350 in parts. After exploring the designs availble (from DIY all
-the way to turnkey solutions) we found there was a need for this kind of robot.</p>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+border=0 width=333 height=275 id="Picture 65" src="index_files/image008.png"></span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><img border=0
-width=589 height=441 id="Picture 12" src="index_files/image009.png"></p>
+<h2><span lang=EN-US>Affordable, Modular, Off-The-Shelf</span></h2>
 
-<p class=MsoNormal>The <a
-href="https://github.com/MXET/SCUTTLE/raw/master/hardware/Scuttle%20Bill%20of%20Materials.pdf">Bill
-of Materials</a> (BOM) for this project is offered with suppliers and price so new
-teams can reproduce the project .</p>
+<p class=MsoNormal><span lang=EN-US>This bot can be built with less than $350
+in parts. We explored all designs available (from DIY all to Industrial Turnkey
+solutions). Good designs cost way above the sum of their parts, until now.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Discover the parts list in the links below.
+Currently, the biggest cost barrier is shipping.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+border=0 width=539 height=392 id="Picture 12" src="index_files/image009.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Let�s admit, the expensive options and
+non-payload options have value for many scenarios!� But for teams like us, we
+need a low-cost option and a modular one. Tear down the machine and reconfigure
+it to add more functions! SCUTTLE is designed for super-easy reconfiguration
+and super-available designs � both hardware and software. We want to <em>open
+the door for makers.</em></span></p>
 
 <div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
 
-<h1>Kinematics</h1>
+<h1><span lang=EN-US>Build a SCUTTLE</span></h1>
 
 </div>
 
-<p class=MsoNormal>Kinematic parameters are predefined for classroom
-instruction and to give students a frame of reference for sampling sensors,
-calculating motion and creating autonomous navigation software. <a
-href="https://github.com/MXET/SCUTTLE/blob/master/docs/supplemental/SCUTTLE%20lecture%20slides%20-%20kinematics.pdf">This
-guide</a> explains the kinematics for SCUTTLE.</p>
-
-<p class=MsoNormal>Our choices of coordinate frames, system variables, and
-driving strategy closely follow a research article published in <a
-href="https://www.omicsonline.org/advances-in-robotics-automation.php">Advances
-in Robotics &amp; Automation</a> on the subject of <a
-href="https://www.omicsonline.org/open-access/dynamic-modelling-of-differentialdrive-mobile-robots-using-lagrange-and-newtoneuler-methodologies-a-unified-framework-2168-9695.1000107.pdf">Dynamic
-Modeling of Differential-Drive Mobile Robots</a>.</p>
-
-<h2><span class=Heading3Char><span style='line-height:107%;color:#1F4E79'>Kinematic
-Frames</span></span></h2>
-
-<p class=MsoNormal>The two main frames for defining the robot position are the
-body fixed frame and the global coordinate frame. For most applications,
-SCUTTLE boots up with all coordinates at zero, and the body-fixed coordinates
-move while the global frame remains fixed.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=356 height=355 id="Picture 38" src="index_files/image010.jpg"></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 8.
-Kinematic Frames</p>
-
-<p class=MsoNormal>Phi Left and Phi right are configured such that positive
-increment on these will generate a positive movement in the body-fixed
-x-direction. The x vector on the body fixed frame is separated from the global
-frame by angle theta.</p>
-
-<h2 align=center style='text-align:center'>Robot Geometry Definitions</h2>
-
-<p class=MsoNormal>The geometry shown here defines the kinematic functions in
-the SCUTTLE software.  Since the robot is modular, the chassis may be modified
-and the speed controller will be updated just by changing a few key parameters
-in the Kinematics program.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=446 height=195 id="Picture 1" src="index_files/image011.png"></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 9.
-Robot Geometry</p>
-
-<p class=MsoNormal><strong>R and L are the main variables</strong> that need to
-be defined in order to calculate motion, indicating the wheel radius and half
-of the wheelbase. The default values are shown here.</p>
-
-<h2>A Non-Holonomic System</h2>
-
-<p class=MsoNormal>The twin driven-wheeled platform was chosen for economy and
-robustness, but because we control three system variables (x, y, and theta)
-with only two actuators, the user must strategically move the actuators to
-achieve a given state. A <a
-href="https://en.wikipedia.org/wiki/Holonomic_(robotics)">holonomic robot</a>
-has the same number (or more) of controllable degrees of freedom as the number
-of degrees of freedom, which is not our case.</p>
-
-<p class=MsoNormal><strong>SCUTTLE DOF:</strong> (x, y, theta)</p>
-
-<p class=MsoNormal><strong>SCUTTLE Controllable DOF</strong>: (left motor,
-right motor) </p>
-
-<p class=MsoNormal><strong>Mecanum Robot DOF</strong>: (x, y, theta)</p>
-
-<p class=MsoNormal style='page-break-after:avoid'>Therefore, the configuration
-of the robot depends on the path taken to achieve the movement.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=540 height=221 id="Picture 8" src="index_files/image012.jpg"></p>
-
-<p class=MsoCaption align=center style='text-align:center'><a
-name="_Ref11247567">Figure </a>10. Comparison of Holonomic &amp; Non-Holonomic
-Designs</p>
-
-<p class=MsoNormal>Figure 9 Compares some qualities of holonomic and
-non-holonomic designs. In the case of a mecanum robot, there are four motors
-required and the user can directly make a command for a movement in x, y, or
-theta (provided that the software was written for it). The SCUTTLE robot has
-only two controlled degrees of freedom (phi dot left and right). Only two
-motors are required and the user cannot directly request a movement in the
-y-direction, for example.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=556 height=350 id="Picture 6" src="index_files/image013.png"></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 11.
-Example of Non-Holonomic Movement</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
-
-<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
-
-<h2>Controller Interaction</h2>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=518 height=206 id="Picture 62" src="index_files/image014.jpg"></p>
-
-<p class=MsoCaption align=center style='text-align:center'><a
-name="_Ref11828699">Figure </a>12. Controller Driving Configuration</p>
-
-<p class=MsoNormal>In the provided demo program, the EasySMX USB wireless
-controller sends commands to the robot. The left-hand joystick outputs the
-motor-controlling axes, which correspond to an x_dot request and a theta_dot
-request as shown in Figure 11. With this configuration, each axis actually
-effects both wheels. When an autonomous driving program is implemented, the
-navigation software replaces the human driver to generate x_dot and theta_dot
-requests.</p>
-
-<div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
-
-<p class=MsoNormal style='border:none;padding:0in'><span style='font-size:26.0pt;
-line-height:107%;font-family:"Segoe UI Light",sans-serif;color:#3B3838'>How-To
-Videos:</span></p>
-
-</div>
-
-<p class=MsoNormal>The videos support fabrication, electronics setup, robot
-assembly, programming, and robot operation.  They are designed to help students
-build and operate the mobile robot within one semester. </p>
-
-<p class=MsoNormal>View the <a
-href="https://www.youtube.com/playlist?list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug">SCUTTLE
-youtube playlist</a> to see all SCUTTLE videos.</p>
-
-<h2><em>Robot Assembly Instructions</em></h2>
-
-<div align=center>
+<p class=MsoNormal><span lang=EN-US>Find all of the resources below to get
+started.� In Spring of 2020 we added brand new documentation and improved the
+organization.� We hope it�s helpful!</span></p>
 
 <table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
  style='border-collapse:collapse;border:none'>
  <tr>
-  <td width=424 valign=top style='width:318.3pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=1VYjcl6etOM&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=23&amp;t=2s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=309 height=63
-  id="Picture 39" src="index_files/image015.jpg"
-  alt="https://mxet.github.io/SCUTTLE/index_files/image001.png"></span></a></span></p>
+  <td width=316 valign=top style='width:236.65pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'><a
+  href="https://github.com/MXET/SCUTTLE/raw/master/docs/supplemental/SCUTTLE%20BillofMaterials.pdf"><span
+  style='color:#404040;text-decoration:none'><img border=0 width=285
+  height=156 id="Picture 43" src="index_files/image010.png"></span></a></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>Bill of Materials</span></p>
   </td>
-  <td width=397 valign=top style='width:297.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=daPXxpQAJaQ&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=2&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=301 height=64
-  id="Picture 40" src="index_files/image016.jpg"
-  alt="https://mxet.github.io/SCUTTLE/index_files/image002.png"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=424 valign=top style='width:318.3pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=JfYrRua7tiw&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=4&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=312 height=59
-  id="Picture 50" src="index_files/image017.jpg"></span></a></span></p>
-  </td>
-  <td width=397 valign=top style='width:297.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=d_CcTHs64qQ&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=11&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=283 height=62
-  id="Picture 52" src="index_files/image018.jpg"></span></a></span></p>
+  <td width=308 valign=top style='width:230.85pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'><a
+  href="https://github.com/MXET/SCUTTLE/raw/master/docs/supplemental/SCUTTLE%20KinematicsGuide.pdf"><i><span
+  style='color:#404040;text-decoration:none'><img border=0 width=277
+  height=156 id="Picture 45" src="index_files/image011.png"></span></i></a></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>Kinematics Guide</span></p>
   </td>
  </tr>
  <tr>
-  <td width=424 valign=top style='width:318.3pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><img
-  border=0 width=284 height=57 id="Picture 44" src="index_files/image019.jpg"
-  alt="https://mxet.github.io/SCUTTLE/index_files/image005.png"></span></p>
+  <td width=316 valign=top style='width:236.65pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'><a
+  href="https://github.com/MXET/SCUTTLE/raw/master/docs/supplemental/SCUTTLE%20WiringGuide.pdf"><span
+  style='color:#404040;text-decoration:none'><img border=0 width=275
+  height=156 id="Picture 49" src="index_files/image012.png"></span></a></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>Wiring Guide</span></p>
   </td>
-  <td width=397 valign=top style='width:297.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=A2vBMLaxQs0&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=13&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=299 height=64
-  id="Picture 60" src="index_files/image020.jpg"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=424 valign=top style='width:318.3pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=PXD6mWnY9d0&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=17&amp;t=9s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=286 height=71
-  id="Picture 55" src="index_files/image021.jpg"></span></a></span></p>
-  </td>
-  <td width=397 valign=top style='width:297.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=wpSIqTLZpCg&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=16&amp;t=240s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=305 height=72
-  id="Picture 61" src="index_files/image022.jpg"></span></a></span></p>
+  <td width=308 valign=top style='width:230.85pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'><a
+  href="https://github.com/MXET/SCUTTLE/raw/master/docs/supplemental/SCUTTLE%20AssemblyGuide.pdf"><span
+  style='color:#404040;text-decoration:none'><img border=0 width=274
+  height=156 id="Picture 59" src="index_files/image013.png"></span></a></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>Assembly &amp; Parts Guide</span></p>
   </td>
  </tr>
  <tr>
-  <td width=424 valign=top style='width:318.3pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=DEkEQ5825po&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=26&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=293 height=73
-  id="Picture 19" src="index_files/image023.jpg"></span></a></span></p>
+  <td width=316 valign=top style='width:236.65pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'><a
+  href="https://github.com/MXET/SCUTTLE/raw/master/docs/supplemental/SCUTTLE%20SoftwareGuide.pdf"><span
+  style='color:#404040;text-decoration:none'><img border=0 width=280
+  height=156 id="Picture 64" src="index_files/image014.png"></span></a></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>Software Guide</span></p>
   </td>
-  <td width=397 valign=top style='width:297.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
+  <td width=308 valign=top style='width:230.85pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'><img border=0 width=277 height=156
+  id="Picture 69" src="index_files/image015.png"></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>Example Project Outline</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=316 valign=top style='width:236.65pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'><a
+  href="https://github.com/MXET/SCUTTLE/raw/master/docs/supplemental/SCUTTLE%20ToolsGuide.pdf"><span
+  style='color:#404040;text-decoration:none'><img border=0 width=284
+  height=161 id="Picture 13" src="index_files/image016.png"></span></a>�</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>Tools Guide</span></p>
+  </td>
+  <td width=308 valign=top style='width:230.85pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+  lang=EN-US style='color:#404040'>&nbsp;</span></p>
   </td>
  </tr>
 </table>
 
-</div>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
 
-<p class=MsoNormal><em>&nbsp;</em></p>
-
-<h2><em>Fabrication Instructions</em></h2>
-
-<div align=center>
-
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width=855
- style='width:641.1pt;border-collapse:collapse;border:none'>
- <tr>
-  <td width=390 valign=top style='width:292.5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=8o-XcZ3_teM&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=9&amp;t=101s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=374 height=74
-  id="Picture 51" src="index_files/image024.png"></span></a></span></p>
-  </td>
-  <td width=465 valign=top style='width:348.6pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=GCT9hjeIvX8&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=12&amp;t=1s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=397 height=73
-  id="Picture 53" src="index_files/image025.jpg"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=390 valign=top style='width:292.5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=fC4sgXplA3k&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=3&amp;t=2s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=369 height=77
-  id="Picture 47" src="index_files/image026.png"
-  alt="https://mxet.github.io/SCUTTLE/index_files/image003.png"></span></a></span></p>
-  </td>
-  <td width=465 valign=top style='width:348.6pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><img
-  border=0 width=389 height=77 id="Picture 48" src="index_files/image027.png"
-  alt="https://mxet.github.io/SCUTTLE/index_files/image004.png"></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=390 valign=top style='width:292.5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><img
-  border=0 width=351 height=75 id="Picture 11" src="index_files/image028.png"></span></p>
-  </td>
-  <td width=465 valign=top style='width:348.6pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=390 valign=top style='width:292.5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
-  </td>
-  <td width=465 valign=top style='width:348.6pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
+<h1><span lang=EN-US>Get Extra Help</span></h1>
 
 </div>
 
-<h2><em>Programming Instructions</em></h2>
+<p class=MsoNormal><em><span lang=EN-US style='color:windowtext;font-weight:
+normal'>Our community members are out to help each other. The noobs are here to
+learn and the experts want to create a self-sustaining project, so we are happy
+to chat.</span></em></p>
 
-<div align=center>
+<p class=MsoNormal><em><span lang=EN-US style='color:windowtext;font-weight:
+normal'>&nbsp;</span></em></p>
 
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width=792
- style='width:8.25in;border-collapse:collapse;border:none'>
- <tr>
-  <td width=378 valign=top style='width:283.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=6MDQHE0V518&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=25&amp;t=159s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=327 height=72
-  id="Picture 15" src="index_files/image029.png"></span></a></span></p>
-  </td>
-  <td width=414 valign=top style='width:310.2pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=QZSLSp3yt1U&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=27&amp;t=902s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=353 height=72
-  id="Picture 16" src="index_files/image030.jpg"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=378 valign=top style='width:283.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=Scn5cUx_RIU&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=28&amp;t=43s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=347 height=72
-  id="Picture 17" src="index_files/image031.jpg"></span></a></span></p>
-  </td>
-  <td width=414 valign=top style='width:310.2pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=gOEy8NsPlZY&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=29&amp;t=5s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=357 height=74
-  id="Picture 18" src="index_files/image032.png"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=378 valign=top style='width:283.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=iyXCUps3kCM&amp;list=PLeVnRAuL1kMmcnshUXlHbW84soHFOVtFg&amp;index=2&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=364 height=67
-  id="Picture 27" src="index_files/image033.jpg"></span></a></span></p>
-  </td>
-  <td width=414 valign=top style='width:310.2pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=WKxy0Y0Y66k&amp;list=PLeVnRAuL1kMmcnshUXlHbW84soHFOVtFg&amp;index=3&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=372 height=69
-  id="Picture 14" src="index_files/image034.jpg"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=378 valign=top style='width:283.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=K9FBaidzgis&amp;list=PLeVnRAuL1kMmcnshUXlHbW84soHFOVtFg&amp;index=4&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=351 height=62
-  id="Picture 21" src="index_files/image035.jpg"></span></a></span></p>
-  </td>
-  <td width=414 valign=top style='width:310.2pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=IWwuhJreNWk&amp;list=PLeVnRAuL1kMmcnshUXlHbW84soHFOVtFg&amp;index=5&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=373 height=71
-  id="Picture 23" src="index_files/image036.jpg"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=378 valign=top style='width:283.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=Efmjt6bRAkc&amp;list=PLeVnRAuL1kMmcnshUXlHbW84soHFOVtFg&amp;index=6&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=358 height=66
-  id="Picture 24" src="index_files/image037.jpg"></span></a></span></p>
-  </td>
-  <td width=414 valign=top style='width:310.2pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=3wUKuKGxhuE&amp;list=PLeVnRAuL1kMmcnshUXlHbW84soHFOVtFg&amp;index=7&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=371 height=67
-  id="Picture 25" src="index_files/image038.jpg"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=378 valign=top style='width:283.8pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
-  </td>
-  <td width=414 valign=top style='width:310.2pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
+<div style='border-top:none;border-left:solid #2B579A 6.0pt;border-bottom:solid #2B579A 6.0pt;
+border-right:none;padding:0in 0in 1.0pt 0in;background:#2B579A;margin-left:
+.1in;margin-right:0in'>
+
+<p class=MsoSubtitle style='margin-left:0in;background:#2B579A'><em><span
+lang=EN-US style='color:white;font-weight:normal'>Community</span></em></p>
 
 </div>
 
-<h2><em>&nbsp;</em></h2>
+<p class=MsoNormal><span lang=EN-US>Join the friendly SCUTTLE discord community
+to chat with other users and designers. Ask questions and discover new
+developments.</span></p>
 
-<h2><em>Demos</em></h2>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="https://discord.gg/w7dsMdz"><span style='color:windowtext;text-decoration:
+none'><img border=0 width=230 height=115 id="Picture 1"
+src="index_files/image017.png"
+alt="Discord privacy: the ultimate guide to stay safe in Discord | CyberNews"></span></a></span></p>
+
+<p class=MsoNormal><span lang=EN-US>For the broader mobile-robot community, we
+encourage you to visit the r/mobileRobots subreddit.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="https://www.reddit.com/r/MobileRobots/"><span style='color:windowtext;
+text-decoration:none'><img border=0 width=192 height=67 id="Picture 5"
+src="index_files/image018.png"></span></a></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
+
+<div style='border-top:none;border-left:solid #2B579A 6.0pt;border-bottom:solid #2B579A 6.0pt;
+border-right:none;padding:0in 0in 1.0pt 0in;background:#2B579A;margin-left:
+.1in;margin-right:0in'>
+
+<p class=MsoSubtitle style='margin-left:0in;background:#2B579A'><span
+lang=EN-US>�<em><span style='color:white;font-weight:normal'>Video Playlist</span></em></span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US>Videos for electronics setup, assembly,
+programming, operation.� Designed for students at college level, but
+accommodates any experience. </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="https://www.youtube.com/playlist?list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug"><span
+style='color:windowtext;text-decoration:none'><img border=0 width=290
+height=151 id="Picture 6" src="index_files/image019.png"></span></a></span></p>
 
 <div align=center>
 
@@ -2634,476 +630,97 @@ youtube playlist</a> to see all SCUTTLE videos.</p>
  style='width:641.1pt;border-collapse:collapse;border:none'>
  <tr>
   <td width=408 valign=top style='width:306.3pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><img
-  border=0 width=364 height=76 id="Picture 63" src="index_files/image039.png"></span></p>
+  <p class=MsoNormal style='line-height:normal'><span lang=EN-US
+  style='color:#404040'>&nbsp;</span></p>
   </td>
   <td width=446 valign=top style='width:4.65in;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'><a
-  href="https://www.youtube.com/watch?v=xK2SHM6fj18&amp;list=PLHkrnCQ5sDmdyelgZAIN76-Y_Tug1E4Ug&amp;index=24&amp;t=0s"><span
-  style='color:#404040;text-decoration:none'><img border=0 width=336 height=80
-  id="Picture 2" src="index_files/image040.png"></span></a></span></p>
-  </td>
- </tr>
- <tr>
-  <td width=408 valign=top style='width:306.3pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
-  </td>
-  <td width=446 valign=top style='width:4.65in;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='line-height:normal'><span style='color:#404040'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:normal'><span lang=EN-US
+  style='color:#404040'>&nbsp;</span></p>
   </td>
  </tr>
 </table>
 
 </div>
 
-<div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
-
-<h1>Programming</h1>
-
-</div>
-
-<p class=MsoNormal>The SCUTTLE robot software has been programmed in Python3 on
-an embedded Linux platform. Both Beaglebone Blue and Raspberry Pi have been
-tested successfully. The software has been architected to make a robust
-starting point for students to create their own autonomous missions. <a
-href="https://github.com/MXET/SCUTTLE/blob/master/docs/supplemental/SCUTTLE%20Software%20Architecture%20Slides.pdf">These
-slides</a> detail the software architecture.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<h2>Overall Architecture</h2>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=624 height=261 id="Picture 28" src="index_files/image041.jpg"></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 13.
-Software Architecture</p>
-
-<p class=MsoNormal>The <em>blocks in yellow</em> are sensors, and the items in
-orange are actuators or other outputs. The level-2 <em>blocks in teal</em> are
-specific to the hardware platform (beagle, pi, etc) and perform communication
-with the low level devices. The <em>blocks above level 2</em> are non-hardware
-specific.</p>
-
-<p class=MsoNormal>Each block aside from sensors and actuators represent an
-individual python program. The purple text indicates what important information
-is passed between programs and the black arrows indicate (for the most part)
-what direction the data is flowing. If a level 3 program needs information from
-another, it must receive the information from the top-level program, in order
-to maintain the structure of independence in program functions.</p>
-
-<p class=MsoNormal>This software structure is preferred in order to perform
-subsystem testing. The data flowing through the top level is minimal and can be
-replaced with artificial data in the even that a sensor is unavailable.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal><strong>Python importing guidelines:</strong></p>
-
-<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><em>1.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></em><em>Each
-file should import the files below it in hierarchy, and not the files above it.
-</em></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><em>2.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></em><em>Each
-file should not import files more than 1 level below itself.</em></p>
-
-<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><em>3.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></em><em>Each
-file may import non-scuttle libraries as needed (import numpy, import time,
-etc)</em></p>
-
-<h2>Libraries Utilized:</h2>
-
-<p class=MsoNormal><strong>BeagleBone Blue Integration:</strong></p>
-
-<p class=MsoListParagraphCxSpFirst style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://github.com/mcdeoliveira/rcpy">RCPY</a><em> </em>for
-communicating with MPU9250 &amp; commanding motor drivers</p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://github.com/adafruit/Adafruit_Python_GPIO">Adafruit
-GPIO</a><em> </em>for I2C Communication</p>
-
-<p class=MsoListParagraphCxSpLast style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://pypi.org/project/bmp280/">BMP280</a> for
-communicating with the onboard bmp280 sensor.</p>
-
-<p class=MsoNormal><strong>Raspberry Pi integration:</strong></p>
-
-<p class=MsoListParagraphCxSpFirst style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://github.com/ansarid/pysicktim">pysicktim</a> for
-accessing LIDAR data</p>
-
-<p class=MsoListParagraphCxSpLast style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://gpiozero.readthedocs.io/en/stable/">gpiozero</a>
-for controlling GPIO pins.</p>
-
-<p class=MsoNormal><strong>Common Libraries</strong></p>
-
-<p class=MsoListParagraphCxSpFirst style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://docs.python.org/3/library/os.html">os</a> for
-making shell commands via python code.</p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://docs.python.org/3/library/time.html">time</a>
-for keeping track of time</p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://docs.python.org/3/library/threading.html">threading</a>
-for peforming multithreading</p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://www.numpy.org/">numpy</a> for performing math
-operations</p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://www.pygame.org/news">pygame</a> for accessing
-gamepad controller data</p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://github.com/myDevicesIoT/Cayenne-MQTT-Python">cayenne.client</a>
-for sending MQTT messages</p>
-
-<p class=MsoListParagraphCxSpLast style='margin-left:.75in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://pypi.org/project/smbus2/">smbus</a> for accessing
-i2c bus through python commands</p>
-
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
 <div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
 
-<h1>Electronics Hardware</h1>
+<h1><span lang=EN-US>Project Supporters</span></h1>
 
 </div>
 
-<p class=MsoNormal>This section gives background on standard hardware
-components, their configuration, and links to datasheets.</p>
+<p class=MsoNormal><span class=MsoIntenseEmphasis><span lang=EN-US>Thanks to
+these groups for their support!</span></span></p>
 
-<h2>Wiring Diagrams</h2>
-
-<p class=MsoNormal>The latest <a
-href="https://github.com/MXET/SCUTTLE/blob/master/hardware/Wiring%20Graphics.pdf">Wiring
-Diagram PDF</a> is hosted on the SCUTTLE github. This document shows how each
-sensor/actuator is connected on the robot.</p>
-
-<h2><a name="_Toc1632091">BeagleBone Blue</a></h2>
-
-<p class=MsoNormal style='page-break-after:avoid'>The beaglebone Blue has been
-fully integrated in the SCUTTLE robot. Figure 13 shows the ports on the board. </p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><a
-href="https://github.com/beagleboard/beaglebone-blue/blob/master/docs/BeagleBone_Blue_balloons.pdf"><span
-style='color:windowtext;text-decoration:none'><img border=0 width=431
-height=316 id="Picture 20" src="index_files/image042.jpg"></span></a></p>
-
-<p class=MsoCaption align=center style='text-align:center'><a
-name="_Ref534189071">Figure </a>14. Beaglebone Bubble Diagram</p>
-
-<p class=MsoNormal>More information on the Beaglebone Blue exists in the
-following resources:</p>
-
-<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>Beaglebone Blue <a
-href="https://github.com/beagleboard/beaglebone-blue/wiki">Wiki</a></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>Beaglebone Blue <a
-href="https://github.com/beagleboard/beaglebone-blue/blob/master/docs/BeagleBone_Blue_ShortSpec.pdf">Specification
-Sheet</a></p>
-
-<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>Beaglebone Blue <a
-href="https://github.com/beagleboard/beaglebone-blue/blob/master/BeagleBone_Blue_sch.pdf">Schematic</a></p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<h2><a name="_Toc1632092">Dual Motor Driver</a></h2>
-
-<p class=MsoNormal>A number of motor driver options are available. The standard
-choice is HW-231 motor driver which uses the NXP MC3386 H-Bridge. The ground is
-connected directly to the battery pack and it accepts two input pin pairs as PWM
-channels.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><a
-href="https://www.amazon.com/s?k=MC-33886+DRIVER&amp;i=electronics&amp;ref=nb_sb_noss"><span
-style='color:windowtext;text-decoration:none'><img border=0 width=211
-height=211 id="Picture 54" src="index_files/image043.jpg"
-alt="https://images-na.ssl-images-amazon.com/images/I/71LWIE2u4iL._SL1500_.jpg"></span></a></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 15.
-Motor Driver</p>
-
-<p class=MsoNormal>Resources for the motor driver are here:</p>
-
-<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
-Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>MC3386 <a
-href="https://www.nxp.com/docs/en/data-sheet/MC33886.pdf">Datasheet</a></p>
-
-<h2><a name="_Toc1632093">Ultrasonic Sensor</a></h2>
-
-<p class=MsoNormal>The ultrasonic sensor is an optional item to support
-autonomous driving and obstacle avoidance. There are versions of this board
-which require 5v (more common) or only 3.3v (less common). If your board
-requires 5.0v then power will need to be drawn directly from the power port on
-the beaglebone.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=175 height=101 id="Picture 56" src="index_files/image044.jpg"
-alt="SainSmart HC-SR04 Ranging Detector Mod Distance Sensor (Blue)"></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 16. Ultrasonic Sensor HC-SR04</p>
-
-<p class=MsoNormal>Resources for the HC-SR04 are here:</p>
-
-<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
-Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>HC-SR04 <a
-href="https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf">Datasheet</a></p>
-
-<h2><a name="_Toc1632094">Encoders</a></h2>
-
-<p class=MsoNormal>Two AMS AS5048B encoders are required for the robot, with
-one at each motor pulley. Some details about the encoders:</p>
-
-<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>They are actually angular position sensors. They return a degrees
-value from 0 to 360.</p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>This sensor communicates over I2C. The left-hand encoder is
-addressed as 0x40 and the Right-hand encoder is addressed as 0x41, with the
-pullup wire connected to the A1 contact.</p>
-
-<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>They measure the rotation of the motor pulley, and the software
-must adjust for 1:2 wheel:motor turn ratio</p>
-
-<p class=MsoNormal>There is one standardized encoder bracket used for right and
-left, but different mounting holes are used as shown in Figure 20. The proper
-mounting holes make the sensor centered over the magnet which mounts to the end
-of the motor output shaft.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=364 height=190 id="Picture 26" src="index_files/image045.png"></p>
-
-<p class=MsoCaption align=center style='text-align:center'><a
-name="_Ref534184316">Figure </a>17. Left and Right Encoder Brackets</p>
-
-<p class=MsoNormal>Resources for the encoder are here:</p>
-
-<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
-Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>AMS AS5048B <a
-href="https://www.mouser.com/ds/2/588/AS5048_DS000298_3-00-522570.pdf">Datasheet</a></p>
-
-<h2><a name="_Toc1632095">Battery Pack</a></h2>
-
-<p class=MsoNormal>The battery pack is a 3-cell lithium ion pack with a nominal
-voltage of 11.1v (3.7v per cell) combined with a few off-the-shelf parts and a
-3D printed case. The capacity is 3400 mAh (we verified!) And they have enough
-capacity to drive SCUTTLE for several hours. With additional actuators, a
-significant payload, or demanding sensors such as the SICK LIDAR, it is advised
-to add more capacity to the robot. The cells must not be drained below 2.8
-volts each to prevent damage.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=311 height=179 id="Picture 31" src="index_files/image046.jpg"></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 18.
-Battery Pack with Cover Removed</p>
-
-<p class=MsoNormal>Resources for the battery pack are here:</p>
-
-<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span>Panasonic NCR18650B <a
-href="https://www.batteryspace.com/prod-specs/NCR18650B.pdf">datasheet</a></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-class=MsoHyperlink><span style='font-family:Symbol;color:windowtext;text-decoration:
-none'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span>Battery Cell handling and protection <a
-href="https://www.youtube.com/watch?v=fC4sgXplA3k&amp;t=2s">youtube video</a></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a
-href="https://github.com/MXET/SCUTTLE/blob/master/docs/supplemental/Battery%20Pack%20Supplemental%20Info.pdf">Battery
-Cell supplemental info</a> sheet shows more on assembly.</p>
-
-<p class=MsoListParagraphCxSpLast>&nbsp;</p>
-
-<h2><a name="_Toc1632096">USB Camera</a></h2>
-
-<p class=MsoNormal>The integrated USB camera is a Microsoft LifeCam HD-3000. On
-the robot, we remove the cameras mounting bracket and insert the camer into a
-3D printed bracket.</p>
-
-<p class=MsoNormal align=center style='text-align:center'><img border=0
-width=277 height=153 id="Picture 57" src="index_files/image047.jpg"
-alt="LifeCam HD-3000"></p>
-
-<p class=MsoNormal>Resources for the HD-3000 Camera are found here:</p>
-
-<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-class=MsoHyperlink><span style='font-family:Symbol;color:windowtext;text-decoration:
-none'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span>LifeCam HD-3000 <a
-href="https://dl2jx7zfbtwvr.cloudfront.net/specsheets/WEBC1010.pdf">datasheet</a></p>
-
-<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a
-href="https://github.com/MXET/SCUTTLE/blob/master/docs/supplemental/USB%20Camera%20Supplemental%20Info.pdf">Camera
-Supplemental Info</a> sheet shows how to remove the flexible grip and infrared
-filter</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<h2><a name="_Toc1632097">Motor</a></h2>
-
-<p class=MsoNormal>Scuttle has two motors for driving the rear wheels. Each is
-a DC 12v motor (shown in Figure 31) with a gearbox that reduces the output
-speed to 200 RPM. The shaft is offset by 7mm from the centerline of the motor,
-which helps raise the clearance of the motor housing from the ground in the
-robot chassis. Three M3x10 screws fasten the motor to the motor plate. </p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=154 height=141 id="Picture 46" src="index_files/image048.jpg"></p>
-
-<p class=MsoCaption align=center style='text-align:center'><a
-name="_Ref534192286">Figure </a>19. Driving Motors, 12v DC with gearbox</p>
-
-<p class=MsoNormal>The motor leads must be soldered to wires of 18 AWG or
-larger. The other ends of those wires connect to an Anderson Powerpole
-connector with a 15 amp crimp connector, or heavier. The powerpole connectors
-shown in Figure 32 are used throughout the robot to isolate the battery pack,
-beaglebone, motors, and motor driver.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<h2>LIDAR (optional)</h2>
-
-<p class=MsoNormal>SCUTTLE has been enhanced with a lidar manufactured by SICK
-sensor company. This lidar performs laser-based ranging in 270 degree plane at
-0.33 degree resolution, 15 times per second! The USB interface is used to
-communicate to the microprocessor and the power is directly provided by the
-11.1v battery pack.</p>
-
-<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
-border=0 width=109 height=140 id="Picture 58" src="index_files/image049.png"
-alt=TiM561-2050101></p>
-
-<p class=MsoCaption align=center style='text-align:center'>Figure 20.
-Sick TiM561 LIDAR unit.</p>
-
-<p class=MsoNormal>Resources for the LIDAR unit are here:</p>
-
-<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a href="https://github.com/ansarid/pysicktim">Pysicktim</a>
-python library on github</p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a
-href="https://cdn.sick.com/media/docs/3/43/143/Operating_instructions_TiM55x_TiM56x_TiM57x_TiM58x_2D_LIDAR_SENSORS_en_IM0053143.PDF">Operating
-instructions</a> from SICK</p>
-
-<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><a
-href="https://cdn.sick.com/media/docs/3/33/133/Technical_information_TiM55x_TiM56x_TiM57x_TiM58x_2D_LIDAR_SENSORS_en_IM0053133.PDF">Technical
-information</a> from SICK</p>
-
-<div style='border:none;border-bottom:solid #2B579A 2.25pt;padding:0in 0in 1.0pt 0in'>
-
-<h1>Supporters of the SCUTTLE Mobile Robot Project</h1>
-
-</div>
-
-<p class=MsoNormal><span class=MsoIntenseEmphasis>Thank you to these groups for
-their support</span></p>
-
-<p class=MsoNormal align=center style='text-align:center'><a
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
 href="https://misl.tamu.edu/"><span style='color:windowtext;text-decoration:
 none'><img border=0 width=224 height=115 id="Picture 3"
-src="index_files/image050.png"
-alt="https://misl.tamu.edu/wp-content/uploads/sites/123/2016/09/misl-logo-remake-300x120.png"></span></a></p>
+src="index_files/image020.png"
+alt="https://misl.tamu.edu/wp-content/uploads/sites/123/2016/09/misl-logo-remake-300x120.png"></span></a></span></p>
 
-<p class=MsoNormal>The Mobile Integrated Solutions Laboratory at Texas A&amp;M
-is an applied research team within the Engineering Technology department, and
-has collaborated in development and testing of the robot.</p>
+<p class=MsoNormal><span lang=EN-US>The Mobile Integrated Solutions Laboratory
+at Texas A&amp;M is an applied research team within the Engineering Technology
+department, and has collaborated in development and testing of the robot.</span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><a
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
 href="https://www.sick.com/us/en/"><span style='color:windowtext;text-decoration:
 none'><img border=0 width=230 height=94 id="Picture 7"
-src="index_files/image051.png" alt="Image result for sick USA"></span></a></p>
+src="index_files/image021.png" alt="Image result for sick USA"></span></a></span></p>
 
-<p class=MsoNormal>SICK USA has become a partner of the ETID department and has
-provided LIDAR units for the MXET Lab which are being integrated into the mobile
-robots.</p>
+<p class=MsoNormal><span lang=EN-US>SICK USA has become a partner of the ETID
+department and has provided LIDAR units for the MXET Lab which are being
+integrated into the mobile robots.</span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><img border=0
-width=329 height=64 id="Picture 9" src="index_files/image052.png"
-alt="Beagle Board - beagleboard.org"></p>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+border=0 width=329 height=64 id="Picture 9" src="index_files/image022.png"
+alt="Beagle Board - beagleboard.org"></span></p>
 
-<p class=MsoNormal align=center style='text-align:center'>Beagle has offered
-design feedback and support on integrating their education-oriented robotics
-hardware, the beaglebone Blue. </p>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>Beagle
+has offered design feedback and support on integrating their education-oriented
+robotics hardware, the beaglebone Blue. </span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><a
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
 href="http://www.ti.com/"><span style='color:windowtext;text-decoration:none'><img
-border=0 width=287 height=106 id="Picture 10" src="index_files/image053.png"
-alt="Image result for texas instruments logo"></span></a></p>
+border=0 width=287 height=106 id="Picture 10" src="index_files/image023.png"
+alt="Image result for texas instruments logo"></span></a></span></p>
 
-<p class=MsoNormal align=center style='text-align:center'>TI has held a
-longstanding partnership with the ETID at Texas A&amp;M and supplied
-electronics hardware equipped with TI microcontrollers.</p>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>TI
+has held a longstanding partnership with the ETID at Texas A&amp;M and supplied
+electronics hardware equipped with TI microcontrollers.</span></p>
 
-<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
 
-<h3>Keywords for this Project: </h3>
+<div style='border-top:none;border-left:solid #2B579A 6.0pt;border-bottom:solid #2B579A 6.0pt;
+border-right:none;padding:0in 0in 1.0pt 0in;background:#2B579A;margin-left:
+.1in;margin-right:0in'>
 
-<p class=MsoNormal><span style='font-family:"Arial",sans-serif;color:#222222;
-background:white'>SCUTTLE, Robot, mechatronics, Beaglebone, beaglebone blue,
-raspberry pi, arduino, Texas A&amp;M, ETID, Engineering Technology, Computer
-Vision, Automation, Multidisciplinary Engineering, Anderson Powerpole,
-powerwerx, vision tracking, autonomous navigation, OpenCV, Ultrasonic, Payload,
-low cost robot, DIY, IOT, TAMU, sensing connected utility transport taxi for
-lab environments, Industrial IOT, Python,&nbsp;</span><span style='font-family:
-"Arial",sans-serif;color:black;background:white'>hackster.io</span><span
-style='font-family:"Arial",sans-serif;color:#222222;background:white'>,
-thingiverse, grabCAD, open source, github, industrial robotics, educational
+<p class=MsoSubtitle style='margin-left:0in;background:#2B579A'><span
+lang=EN-US>Keywords for this Project </span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Please add these terms when you share our
+project!</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>SCUTTLE, mobile robot, mechatronics,
+Beaglebone, beagleboard, raspberry pi, arduino, Texas A&amp;M, ETID,
+Engineering Technology, Computer Vision, Automation, Multidisciplinary
+Engineering, Anderson Powerpole, powerwerx, vision tracking, autonomous
+navigation, OpenCV, Ultrasonic, Payload, low cost robot, DIY, IOT, TAMU,
+sensing connected utility transport taxi for lab environments, Industrial IOT, python,&nbsp;</span><span
+lang=EN-US style='font-family:"Arial",sans-serif;color:black;background:white'>hackster</span><span
+lang=EN-US style='font-family:"Arial",sans-serif;color:#222222;background:white'>,
+thingiverse, grabcad, open source, github, industrial robotics, educational
 robot, research, mechanical engineering, electronics, electrical engineering,
-roomba, mobile robotics, autonomous vehicle, dynamics </span></p>
+roomba, mobile robotics, autonomous vehicle, dynamics, 3d printing, fdm, diy
+projects, linux, debian, opensource</span></p>
 
-<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
 </div>
 
