@@ -129,6 +129,10 @@ Wireless LAN adapter Wi-Fi:
 
 # Beaglebone Blue Cheat Sheet:
 
+**Default Wifi**
+<br>Access Point SSID: BeagleBone-XXXX
+<br>Password: BeagleBone
+
 **Need extra help troubleshooting?**
 <br/>
 ([beaglebone Live Chat](https://beagleboard.org/chat))
