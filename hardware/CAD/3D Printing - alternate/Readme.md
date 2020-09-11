@@ -1,3 +1,3 @@
-Readme for 3D Printing - Alernate
+## Alternate Designs for 3D Printing
 
-This folder contains alternate versions of the STL parts, and extra parts beyond the standardized kit
+Alternate versions of the STL parts, and extra parts beyond the standard kit
