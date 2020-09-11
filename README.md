@@ -1,6 +1,7 @@
 # S.C.U.T.T.L.E.
-Sensing, Connected, Utility Transport Taxi for Level Environments (SCUTTLE).
-This repository contains Software (embedded Linux & Python) as well as hardware design files for the open-source Scuttle Mobile Robot.
+The maker-friendly mobile robot.
+<br> The acronym stands for Sensing, Connected, Utility Transport Taxi for Level Environments (SCUTTLE).
+<br> This repository contains Software (embedded Linux & Python) as well as hardware design files for the open-source Scuttle Mobile Robot.
 
 # Please visit the SCUTTLE webpage here.
 https://mxet.github.io/SCUTTLE/
