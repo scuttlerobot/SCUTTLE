@@ -1,3 +1,4 @@
-ELECTRONICS SUBFOLDER README:
+### ELECTRONICS SUBFOLDER README:
 
-This folder holds electronics info for SCUTTLE
+This folder contains electronics design files for SCUTTLE.
+Wiring diagrams are found on the [SCUTTLE Webpage]{mxet.github.io/SCUTTLE}
