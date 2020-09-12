@@ -44,7 +44,7 @@
   echo "      |_____/ (_) \_____|(_) \____/  (_)  |_|  (_)  |_| (_) |______|(_)|______|" >> /etc/banner
   echo " " >> /etc/banner
   echo "      Sensing, Connected, Utility Transport Taxi for Level Environments" >> /etc/banner
-  echo "      Texas A&M's Open-Source SCUTTLE Robot: https://github.com/dmalawey/Scuttle" >> /etc/banner
+  echo "      The Maker-Friendly Open-Source Robot: https://github.com/MXET/SCUTTLE" >> /etc/banner
   echo " " >> /etc/banner
   echo -n "" > /etc/motd
   sudo sed -i 's|Banner none|Banner /etc/banner|g' /etc/ssh/sshd_config
