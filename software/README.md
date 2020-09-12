@@ -235,7 +235,7 @@ https://gpiozero.readthedocs.io/en/stable/recipes.html#pin-numbering
 
 ### Process Management and Resource Monitoring
 
-`top` - Display Linux processes.<br>
+`top` - Display Linux processes & CPU (processor) load.<br>
 `htop` - Interactive process viewer.<br>
 `kill` - Kill a process.<br>
 `time` - Run programs and summarize system resource usage.<br>
