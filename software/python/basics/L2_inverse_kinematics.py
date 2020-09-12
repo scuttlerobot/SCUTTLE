@@ -1,7 +1,6 @@
-#!/usr/bin/python3
-
-# inverse_kinematics.py will take in motion requests in theta
-# and x form, and output motion requests in phi dot (left & right)
+# inverse_kinematics.py is to calculate wheel speeds from chassis speeds
+# These calculations will take in motion requests in theta and x (rad, m)
+# and output motion requests in phi dot Left and Right (rad/s).
 
 # Import external libraries
 import numpy as np                          # to perform matrix operations
