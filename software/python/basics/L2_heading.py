@@ -1,11 +1,9 @@
-#!/usr/bin/python3
-
 # This program takes the magnetometer values from the compass program
 # and computes a heading. The heading describes the y-vector of the robot
 # minus the magnetic North vector.
 # Using this program requires calibration of xRange and yRange
 
-import mpu                                          # retrieve magnetometer info
+import L1_mpu                                       # retrieve magnetometer info
 import numpy as np                                  # library for math operations
 import time                                         # library for time access
 
