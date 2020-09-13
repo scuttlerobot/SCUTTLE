@@ -1,3 +1,3 @@
 ### Supplemental Documents
-Supplemental documents are available through the SCUTTLE website where they are organized with descriptions & thumbnails.
+These documents organized with thumnails the SCUTTLE website.<br>
 <br>Visit now: [SCUTTLE website](MXET.github.io/SCUTTLE)
