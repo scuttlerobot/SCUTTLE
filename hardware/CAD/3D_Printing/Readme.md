@@ -2,10 +2,8 @@
 
 The latest STL models for 3D Printing. Quantities described below.
 
-### Latest Native CAD models (SOLIDWORKS + STEP) are on GrabCAD.com
-Navigate to [SCUTTLE Models] 
-(https://grabcad.com/library/scuttle-robot-v2-2-1)
-
+**Note: Latest Native CAD models (SOLIDWORKS + STEP) are on GrabCAD.com
+Navigate to [SCUTTLE CAD Model](https://grabcad.com/library/scuttle-robot-v2-2-1)
 
 ### QUANTITY 4:
 * rod bracket
