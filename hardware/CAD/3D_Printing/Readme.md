@@ -1,6 +1,11 @@
-## README FOR 3D PRINTING SUBFOLDER
+## 3D PRINTING FOLDER
 
-This folder keeps the latest STL models for 3D Printing. One robot contains:
+The latest STL models for 3D Printing. Quantities described below.
+
+### Latest Native CAD models (SOLIDWORKS + STEP) are on GrabCAD.com
+Navigate to [SCUTTLE Models] 
+(https://grabcad.com/library/scuttle-robot-v2-2-1)
+
 
 ### QUANTITY 4:
 * rod bracket
