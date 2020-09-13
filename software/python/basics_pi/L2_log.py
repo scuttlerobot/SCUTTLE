@@ -44,6 +44,13 @@ def tmpFile(value, fileName):                               # this function take
     myValue = round(value, 2)
     txt.write(str(myValue))
     txt.close()
+    
+    
+# A function for saving a single line string to a log file in a temporary folder
+def stringTmpFile(myString, fileName):     # this function takes a string and filename
+    txt = open("/tmp/" + fileName, 'w+')   # file with specified name
+    txt.write(myString)                    # by default the existing txt is overwritten
+    txt.close()
 
 
 # A function for creating a CSV file from a list of values.
