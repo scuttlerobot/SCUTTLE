@@ -1,9 +1,9 @@
-# S.C.U.T.T.L.E. Software
+# SCUTTLE Software
 This folder contains all scuttle software and software information.
 
 <br>
 
-# SHELL Processes Cheat Sheet:
+## SHELL Processes Cheat Sheet:
 **Remove your Tamulink WPA credentials from the device:**
 * Navigate to the connmanctl folder located at /var/lib/connman$
 * Find the configuration file with extension .config
@@ -127,7 +127,7 @@ Wireless LAN adapter Wi-Fi:
    Default Gateway . . . . . . . . . : 192.168.50.1
 ```
 
-# Beaglebone Blue Cheat Sheet:
+## Beaglebone Blue Cheat Sheet:
 
 **Default Wifi**
 <br>Access Point SSID: BeagleBone-XXXX
