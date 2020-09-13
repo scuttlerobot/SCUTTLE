@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program contains functions for logging robot parameters
 # to local files.  The files can be accessed by NodeRed or other programs.
 # Nodered can be found on the beagle at port 1880. ie, 192.168.8.1:1880
@@ -47,6 +45,11 @@ def tmpFile(value, fileName):                               # this function take
     txt.write(str(myValue))
     txt.close()
 
+# A function for saving a single line string to a log file in a temporary folder
+def stringTmpFile(myString, fileName):     # this function takes a string and filename
+    txt = open("/tmp/" + fileName, 'w+')   # file with specified name
+    txt.write(myString)                    # by default the existing txt is overwritten
+    txt.close()
 
 # A function for creating a CSV file from a list of values.
 def csv_write(list):
