@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program takes a message and sends it as a voice to the audio output.
 # Please run "sudo apt-get install flite" before running this program.
 # Next, you can adust volume with a GUI by the command "alsamixer"

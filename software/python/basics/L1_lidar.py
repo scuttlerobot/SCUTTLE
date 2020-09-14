@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This File performs the following:
 # 1) grab a subset of the readings from the lidar for lightweight purposes
 # 2) assign the proper angle value to the reading, with respect to robot x-axis

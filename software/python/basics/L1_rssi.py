@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program accesses info from the onboard WiFi module of the blue.
 # it returns the RECEIVED wifi signal strength of the AP to which the blue is connected.
 # Typical values fall near -70dB.  Values near -90dB or lower may lose connection.

@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This file retrieves an image from the usb camera.
 
 # Import external libraries

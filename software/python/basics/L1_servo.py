@@ -1,6 +1,3 @@
-# THIS CODE NEEDS TO BE REDONE FROM SCRATCH
-
-
 # This program offers functions for controlling servos on the blue
 # servo position is specified by "duty."  If the servo is a continuous
 # type, the duty will set the speed instead of the position. 

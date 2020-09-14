@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program accesses info from the Blue's onboard sensor, MPU9250
 # It reads temp, accelerometer, gyro, and magnetometer data from the sensor.
 # Uses RCPY library.  See guitar.ucsd.edu/rcpy/rcpy.pdf for documentation

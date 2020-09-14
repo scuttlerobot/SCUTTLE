@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program takes the encoder values from encoders, computes wheel movement
 # and computes the movement of the wheelbase center based on SCUTTLE kinematics.
 

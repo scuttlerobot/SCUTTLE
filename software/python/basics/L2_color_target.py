@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program takes an image, applies filters with openCV, and returns
 # a color target if located in the image.  The target parameters are (x,y,radius).
 

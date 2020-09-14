@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This module allows the ability to read/write to RFID's.
 # Before running the code, you need to install a modified version
 # of the MFRC522-python library using the commands below.

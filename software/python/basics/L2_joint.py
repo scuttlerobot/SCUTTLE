@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program offers enhanced control of servos, speed and angles
 
 # import external libraries

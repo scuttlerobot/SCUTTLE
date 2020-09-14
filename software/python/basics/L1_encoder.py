@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This example reads left and right encoders and outputs the position (deg) to the terminal
 # Left has address 40 and right has 41
 # Code for Beagle Hardware

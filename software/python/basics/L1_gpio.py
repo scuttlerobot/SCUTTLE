@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This code writes and reads from the GPIO pins available on the BeagleBone Blue.
 # See the scuttle wiring graphics pdf at github.com/MXET/SCUTTLE/tree/master/hardware
 # Default outputs: Port 0: pins 0, 2.  Port 1: pins 0,1,2,3

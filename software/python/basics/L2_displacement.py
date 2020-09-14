@@ -1,5 +1,3 @@
-# l2_displacement.py
-
 # This program takes the encoder values from encoders, computes wheel movement
 # calculates the chassis displacement and continuously adds up the displacement
 # to indicate how much the robot has advanced, in meters.

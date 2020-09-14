@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program manipulates distance vectors in the robot coordinate frame,
 # as well as arrays of vectors.  Pay attention to format of arguments since
 # some functions are not yet optimized to handle numpy [1x2] vectors directly.

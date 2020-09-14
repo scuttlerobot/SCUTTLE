@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # L3_telemetry.py
 # This program grabs data from the onboard sensors and log data in files
 # for NodeRed access and integrate into a custom "flow".

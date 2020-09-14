@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # this program was designed for detecting obstacles using lidar.
 # it is a level 2 program.
 

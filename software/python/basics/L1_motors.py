@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This example drives the right and left motors.
 # Intended for Beaglebone Blue hardware.
 # This example uses rcpy library. Documentation: guitar.ucsd.edu/rcpy/rcpy.pdf

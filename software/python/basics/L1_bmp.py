@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # This program reads information from the onboard Temperature & Pressure
 # sensors on the beaglebone blue. Before running the code, you need to
 # install required library using the command:
