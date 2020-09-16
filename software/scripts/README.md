@@ -8,7 +8,7 @@ Please go to [beagleboard.org](beagleboard.org/latest-images) and get the latest
 
 How to run self_installer.sh:
 1) Use the wget command and paste the raw hyperlink of the self_installer_part1.sh into your command line.
-> Example: 
+> Example: <br>
 > wget https://raw.githubusercontent.com/MXET/SCUTTLE/master/software/scripts/self_installer_part1.sh
 2) use "sudo bash self_installer.sh" to run the script.
 3) The install may take about 5 minutes. At finish, you'll see these characters again: "➜  ~"
