@@ -1,6 +1,7 @@
 # This example sends commands to two motors on the appropriate pins for H-bridge
 # Designed for Pi hardware.
 
+# import external libraries
 import gpiozero #gpiozero is the chosen library for PWM functionality
 from gpiozero import PWMOutputDevice
 import time
@@ -41,24 +42,13 @@ def MotorR(speed):
         RightOutB.value = 0
         RightOutA.value = 0
 
-# Uncomment the section below to run this code by itself!
-# try:
-#     while 1:  # This loop will drive both motors forwards and backwards, repeatedly
-#         print("running")
-#         MotorL(1)
-#         #MotorR(0.3)
-#         time.sleep(2)
-#         MotorL(-1)
-#         #MotorR(-0.3)
-#         time.sleep(2)
-#         MotorL(0)
-#         MotorR(1)
-#         #MotorR(0.3)
-#         time.sleep(2)
-#         MotorR(-1)
-#         #MotorR(-0.3)
-#         time.sleep(2)
-#         MotorR(0)
-#
-# except KeyboardInterrupt:
-#     pass
+if __name__ == "__main__":              # loop only executes if program is run directly (not imported)
+    while(1):
+        print("motors.py: driving fwd")
+        MotorL(0.6)                         # gentle speed for testing program. 0.3 PWM may not spin the wheels.
+        MotorR(0.6)
+        time.sleep(4)                       # run fwd for 4 seconds
+        print("motors.py: driving reverse")
+        MotorL(-0.6)
+        MotorR(-0.6)
+        time.sleep(4)                       # run reverse for 4 seconds
