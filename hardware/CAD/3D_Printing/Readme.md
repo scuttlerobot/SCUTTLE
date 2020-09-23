@@ -9,7 +9,6 @@ The latest STL models for 3D Printing. Quantities described below.
 * rod bracket
 
 ### QUANTITY 2:
-* uni (wheel) bracket
 * wheel pulley
 * wheel spacer
 * motor pulley
@@ -23,3 +22,5 @@ The latest STL models for 3D Printing. Quantities described below.
 * camera bracket
 * i2c board bracket
 * motor driver bracket
+* wheel bracket (Left)
+* wheel bracket (Right)
