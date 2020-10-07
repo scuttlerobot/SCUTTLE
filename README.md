@@ -2,6 +2,7 @@
 * maker-friendly
 * open source
 * SENSING, CONNECTED, UTILITY TRANSPORT TAXI FOR LEVEL ENVIRONMENTS (SCUTTLE)
+<br>
 <br> This repository contains software (embedded Linux & Python) and hardware design files for the SCUTTLE Project.
 <br> The repo also contains all web content.
 
