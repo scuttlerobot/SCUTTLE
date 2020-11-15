@@ -1,7 +1,9 @@
 # S.C.U.T.T.L.E.
 ### Sensing, Connected, Utility Transport Taxi for Level Environments
+* payload capable (40kg)
 * maker-friendly
 * open source
+* low-cost
 
 <br>
 <br> This repository contains software (embedded Linux & Python) and hardware design files for the SCUTTLE Project.
