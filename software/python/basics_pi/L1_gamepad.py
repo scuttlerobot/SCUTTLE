@@ -1,25 +1,26 @@
-# version for Pi setup
-# an example to grab values from the wireless gamepads (EasySMX brand) and print them.
-# gamepad must be plugged in and activated at start of program.
-# see the scuttle software documentation for a map of buttons.
-# 16 values will be returned, 4 floatig and 12 boolean
-# last updated 2019.05.24
+# Gamepad Program for SCUTTLE running RasPi
+# This program grabs values from the wireless EasySMX gamepad & stores to arrays.
+# Gamepad dongle must be plugged in and gamepad activated at start of program.
+# See the scuttle software guide for a map of buttons.
+# 16 values will be returned, 4 floats (axes) and 12 booleans (buttons)
+# last updated 2020.11
 
-import pygame
-import numpy as np
-import os
+# Import external programs
+import pygame # for connecting to bluetooth controller
+import numpy as np  # for matrix math
+import os   # supports pygame
 
-os.putenv('DISPLAY', ':0.0') # create dummy display as required for lib initialization
-pygame.display.init() # Initialize the dummy display
-pygame.joystick.init() # Initialize the joysticks
+os.putenv('DISPLAY', ':0.0')    # create dummy display as required for lib initialization
+pygame.display.init()           # Initialize the dummy display
+pygame.joystick.init()          # Initialize the joysticks
 
 def getGP():  #function for reading the game pad
 
-    for event in pygame.event.get(): # User did something
+    for event in pygame.event.get():            # User moved gamepad
         pass
 
-    gamepad_count = pygame.joystick.get_count()     # Get count of gamepads connected
-    for i in range(gamepad_count): # For each gamepad:
+    gamepad_count = pygame.joystick.get_count() # Get count of gamepads connected
+    for i in range(gamepad_count):              # For each gamepad:
 
         joystick = pygame.joystick.Joystick(i)
         joystick.init()
@@ -45,16 +46,17 @@ def getGP():  #function for reading the game pad
         B8 = joystick.get_button( 8 ) # back
         B9 = joystick.get_button( 9 ) # start
         B10 = joystick.get_button( 10 ) # left thumb press
-        #B11 = joystick.get_button( 11 ) # right thumb press
+        #B11 = joystick.get_button( 11 ) # right thumb press (button 11 throws an error on raspi)
 
         # print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
-        axes = np.array([axis_0, axis_1, axis_2, axis_3]) # store all axes in an array
-        buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10]) # store all buttons in array
-        gp_data = np.hstack((axes, buttons)) # this array will have 16 elements
+        axes = np.array([axis_0, axis_1, axis_2, axis_3])                   # store all axes in an array
+        buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10])   # store all buttons in array
+        gp_data = np.hstack((axes, buttons))                                # this array will have 16 elements
         return(gp_data)
 
-# Uncomment this section to run as a standalone program
-# while 1:  #Loop until the user clicks the close button
-#     # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-#     myGpData = getGP() # store data from all axes to the myGpData variable
-#     print("the first axis value:", myGpData[0])  # print out the first element of the data to confirm functionality
+# THIS LOOP RUNS ONLY IF PROGRAM IS CALLED DIRECTLY
+if __name__ == "__main__":
+    while 1:
+        # collect commands from the gamepad.  Run as many times as there are commands in the queue.
+        myGpData = getGP()                    # store data from all axes to the myGpData variable
+        print("First axis:", myGpData[0])     # print out the first element
