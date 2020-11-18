@@ -7,5 +7,5 @@ This repository contains software (embedded Linux & Python) and hardware design 
 * open source
 * low-cost
 
-### Visit the SCUTTLE [webpage](https://mxet.github.io/SCUTTLE/)
+### Visit the [SCUTTLE Webpage](https://mxet.github.io/SCUTTLE/).
 ![SCUTTLE Robot](https://raw.githubusercontent.com/MXET/SCUTTLE/master/docs/index_files/image001.png)
