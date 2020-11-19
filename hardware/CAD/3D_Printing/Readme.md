@@ -17,7 +17,7 @@ The latest STL models for 3D Printing. Quantities described below.
 ### QUANTITY 1:
 * beaglebone bracket
 * beaglebone bracket lid
-* battery bracket
+* battery hoop
 * battery panel
 * battery clip
 * camera bracket
