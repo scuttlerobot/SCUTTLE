@@ -25,7 +25,7 @@ def singleReading(encoderSelection):                                            
         degreesAngle = 0
     return degreesAngle
 
-def readShaftPositions():
+def readShaftPositions():                                   # read both motor shafts.  approx 0.0023 seconds.
     try:
         rawAngle = singleReading(encL)                      # capture left motor shaft
         angle0 = 360.0 - rawAngle                           # invert the reading for left side only
