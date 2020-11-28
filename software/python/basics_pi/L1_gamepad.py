@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Gamepad Program for SCUTTLE running rasPi
+=======
+# Gamepad Program for SCUTTLE running RasPi
+>>>>>>> a2c881dbe9f0f83a5d5508e0e3396db5ae1abd66
 # This program grabs values from the wireless EasySMX gamepad & stores to arrays.
 # Gamepad dongle must be plugged in and gamepad activated at start of program.
 # See the scuttle software guide for a map of buttons.
@@ -46,7 +50,7 @@ def getGP():  #function for reading the game pad
         B8 = joystick.get_button( 8 ) # back
         B9 = joystick.get_button( 9 ) # start
         B10 = joystick.get_button( 10 ) # left thumb press
-        #B11 = joystick.get_button( 11 ) # right thumb press
+        #B11 = joystick.get_button( 11 ) # right thumb press (button 11 throws an error on raspi)
 
         # print(" X:", B3, " Y:", B0, " A:", B2, " B :", B1, "LB: ", B4, "RB: ", B5, "Axis0", axis_0, "Axis1", axis_1, "Axis 2", axis_2, "Axis3: ", axis_3)
         axes = np.array([axis_0, axis_1, axis_2, axis_3])                   # store all axes in an array
@@ -60,4 +64,7 @@ if __name__ == "__main__":
         # collect commands from the gamepad.  Run as many times as there are commands in the queue.
         myGpData = getGP()                    # store data from all axes to the myGpData variable
         print("First axis:", myGpData[0])     # print out the first element
+<<<<<<< HEAD
         time.sleep(0.1)                       # wait 0.1 sec
+=======
+>>>>>>> a2c881dbe9f0f83a5d5508e0e3396db5ae1abd66
