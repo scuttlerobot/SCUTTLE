@@ -1,10 +1,11 @@
-# text2speech_ex2.py takes a message "s" and sends it as a voice to the audio output.
+# Text to Speech program for SCUTTLE running RasPi
+# Takes a message "s" and sends it as a voice to the audio output.
 # Please run "sudo apt-get install festival" before running this program.
 # Next, run the command: 'sudo amixer cset numid=1 100%'
-# this will raise the volume of your Pi audio output to 100%
-# designed for Pi setup.
+# This will raise the volume of your Pi audio output to 100%
 
-import os
+# Import external programs
+import os # for making commands to festival program
 
 def say(s):
 
@@ -24,7 +25,7 @@ def say(s):
     # can move on without having to wait for the text to speech to complete
     # "festival" will die in the background once it is done.
 
-# UNCOMMENT THIS SECTION TO RUN AS A STANDALONE PROGRAM
-# while 1:
-#     text = input("Enter text:")
-#     say(text)
+if __name__ == "__main__":              # loop only executes if program is run directly (not imported)
+    while 1:
+        text = input("Enter text:")
+        say(text)

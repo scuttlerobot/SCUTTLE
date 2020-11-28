@@ -1,12 +1,14 @@
+# Motors Program for SCUTTLE running RasPi
 # This example sends commands to two motors on the appropriate pins for H-bridge
-# Designed for Pi hardware.
+# For pin mapping, see Wiring Guide Pi on the SCUTTLE webpage.
+# Last update: 2020.11
 
-# import external libraries
-import gpiozero #gpiozero is the chosen library for PWM functionality
+# Import external libraries
+import gpiozero                         # used for PWM outputs
 from gpiozero import PWMOutputDevice
 import time
 
-#info on pins:
+# Info on pins:
 # Broadcom (BCM) pin numbering for Pi gives names of GPIO17
 # and GPIO18 to physical pins 11 and 12
 leftOutA = PWMOutputDevice(17, frequency=1000,initial_value=0)
@@ -15,14 +17,10 @@ leftOutB = PWMOutputDevice(18, frequency=1000,initial_value=0)
 RightOutA = PWMOutputDevice(22, frequency=1000,initial_value=0)
 RightOutB = PWMOutputDevice(23, frequency=1000,initial_value=0)
 
-# This section shows another way to assign parameters if uncommented
-# leftOutA.frequency = 1000 #this is redundant
-# leftOutA.value = 0.0 # this is for duty cycle
-
-#channel refers to left(0) or right(1)
+# Channel refers to left(0) or right(1)
 def MotorL(speed):
     if speed>0:
-        leftOutB.value = speed
+        leftOutB.value = speed 
         leftOutA.value = 0
     elif speed<0:
         leftOutB.value = 0
@@ -42,7 +40,8 @@ def MotorR(speed):
         RightOutB.value = 0
         RightOutA.value = 0
 
-if __name__ == "__main__":              # loop only executes if program is run directly (not imported)
+# THIS LOOP ONLY RUNS IF THE PROGRAM IS CALLED DIRECTLY
+if __name__ == "__main__":
     while(1):
         print("motors.py: driving fwd")
         MotorL(0.6)                         # gentle speed for testing program. 0.3 PWM may not spin the wheels.

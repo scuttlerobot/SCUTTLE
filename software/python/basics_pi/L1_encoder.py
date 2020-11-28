@@ -1,14 +1,15 @@
 # Example to read left and right encoders on SCUTTLE.
 # Left has address 40 and right has 41
-# Code for Pi setup.
+# This code runs on rasPi setup.
 
-import smbus
-import time
-import numpy as np # use numpy to build the angles array
+# Import external libraries
+import smbus2       # a Python package to communicate over i2c
+import numpy as np  # use numpy to build the angles array
+import time         # for keeping time
 
-bus=smbus.SMBus(1)
+bus=smbus2.SMBus(1)
 
-encL  = 0x40 # encoder i2c address
+encL = 0x40 # encoder i2c address
 encR = 0x41 # encoder i2c address (this encoder has A1 pin pulled high)
 
 def read():
@@ -32,11 +33,10 @@ def read():
     angles = np.array([angle0,angle1])
     return angles
 
-# UNCOMMENT THIS SECTION TO USE ENCODER_EX2.PY AS A STANDALONE PROGRAM
-# ------------------------------------------------------------------------------
-while 1:
-     encValues = read() # read the values.  Reading will only change if you move the motors
+# THIS LOOP RUNS IF THE PROGRAM IS CALLED DIRECTLY
+if __name__ == "__main__":
+    while True:
+     encValues = read() # read the values.  Reading will only change if motors move
      # round the values and print them separated by a tab
      print("Left: ",round(encValues[0],3),"\t","Right: ",round(encValues[1],3))
-
      time.sleep(0.1)
