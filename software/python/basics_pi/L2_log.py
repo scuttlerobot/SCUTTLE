@@ -1,10 +1,10 @@
-# This program contains functions for logging robot parameters
-# to local files.  The files can be accessed by NodeRed or other programs.
+# This program contains functions for logging robot parameters to local
+# files. The files can be accessed by NodeRed or other programs.
 # Nodered can be found by browsing to port 1880 on the shared network AP. ie, 192.168.8.1:1880
+# This program works on SCUTTLE with any CPU.
 
 # Import external libraries
 import csv      # for handling comma-separated-values file type
-
 
 # A function for populating 2 text files with updated phi-dots
 def writeFiles(current_phis):

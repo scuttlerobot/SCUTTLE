@@ -1,5 +1,7 @@
-# inverse_kinematics.py will take in motion requests in theta
-# and x form, and output motion requests in phi dot (left & right)
+# inverse_kinematics.py calculates wheel speeds from chassis speeds
+# Calculations will intake motion requests in [theta, x] (rad, m)
+# and output motion requests in [phi dot Left, pi dot right] (rad/s).
+# This program runs on SCUTTLE with any CPU.
 
 # Import external libraries
 import numpy as np                          # to perform matrix operations
@@ -74,8 +76,8 @@ def phi_influence(yValue):
 
 # this function takes user input for x_dot and theta_dot
 def wait_user():
-    x_dot = input("please enter x_dot")                     # takes x_dot as user input
-    theta_dot = input("please enter theta_dot")             # takes theta_dot as user input
+    x_dot = input("please enter x_dot (m/s): ")                     # takes x_dot as user input
+    theta_dot = input("please enter theta_dot (rad/s): ")             # takes theta_dot as user input
     return (float(x_dot) , float(theta_dot))                    # returns x_dot and theta_dot
 
 

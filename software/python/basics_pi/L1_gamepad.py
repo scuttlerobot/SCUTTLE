@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Gamepad Program for SCUTTLE running rasPi
-=======
 # Gamepad Program for SCUTTLE running RasPi
->>>>>>> a2c881dbe9f0f83a5d5508e0e3396db5ae1abd66
 # This program grabs values from the wireless EasySMX gamepad & stores to arrays.
 # Gamepad dongle must be plugged in and gamepad activated at start of program.
 # See the scuttle software guide for a map of buttons.
@@ -64,7 +60,4 @@ if __name__ == "__main__":
         # collect commands from the gamepad.  Run as many times as there are commands in the queue.
         myGpData = getGP()                    # store data from all axes to the myGpData variable
         print("First axis:", myGpData[0])     # print out the first element
-<<<<<<< HEAD
         time.sleep(0.1)                       # wait 0.1 sec
-=======
->>>>>>> a2c881dbe9f0f83a5d5508e0e3396db5ae1abd66

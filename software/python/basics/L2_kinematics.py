@@ -1,14 +1,15 @@
 # This program takes the encoder values from encoders, computes wheel movement
 # and computes the movement of the wheelbase center based on SCUTTLE kinematics.
+# This program runs on SCUTTLE with any CPU.
 
 import L1_encoder as enc                    # local library for encoders
 import numpy as np                          # library for math operations
 import time                                 # library for time access
 
 # define kinematics
-R = 0.041                                   # radius in meters
-L = 0.201                                   # half of wheelbase meters
-res = (360/2**14)                           # resolution of the encoders
+R = 0.041                                   # wheel radius (meters)
+L = 0.201                                   # half of wheelbase (meters)
+res = (360/2**14)                           # resolution of the encoders (deg)
 roll = int(360/res)                         # variable for rollover logic
 gap = 0.5 * roll                            # degress specified as limit for rollover
 
@@ -64,8 +65,9 @@ def getMotion():                            # this function returns the chassis 
     C = np.round(C, decimals=3)             # round the matrix
     return(C)                               # returns a matrix containing [xDot, thetaDot]
 
-
+# THIS SECTION ONLY RUNS IF THE PROGRAM IS CALLED DIRECTLY
 if __name__ == "__main__":
     while True:
         C = getMotion()
         print("xdot(m/s), thetadot (rad/s):", C)
+        time.sleep(0.1)
