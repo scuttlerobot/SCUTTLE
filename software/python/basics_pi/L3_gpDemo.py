@@ -12,9 +12,9 @@ import time
 
 # Import Internal Programs
 import L1_gamepad as gp
-import L1_log as log
+#import L1_log as log
 import L2_inverse_kinematics as inv
-# import L2_speed_control as sc
+import L2_speed_control as sc
 
 # Run the main loop
 while True:
@@ -40,25 +40,25 @@ while True:
     
     # HORN FUNCTION
     # the horn is connected by relay to port 1 pin 0 (relay 1 of 2)
-    print("horn button:", horn)
+    # print("horn button:", horn)
     # if horn:
     #     gpio.write(1, 0, 1) # write HIGH
     #     time.sleep(0.30) # actuate for just 0.2 seconds
     #     gpio.write(1, 0, 0) # write LOW
     # #print("rthumb axis:", rthumb)
     
-    myString = str(round(axis0*100,1)) + "," + str(round(axis1*100,1))
-    log.stringTmpFile(myString,"uFile.txt")
+    # myString = str(round(axis0*100,1)) + "," + str(round(axis1*100,1))
+    # log.stringTmpFile(myString,"uFile.txt")
     #print("Gamepad, xd: " ,axis1, " td: ", axis0) # print gamepad percents
     
     # DRIVE IN OPEN LOOP
     chassisTargets = inv.map_speeds(np.array([axis1, axis0])) # generate xd, td
     pdTargets = inv.convert(chassisTargets) # pd means phi dot (rad/s)
-    phiString = str(pdTargets[0]) + "," + str(pdTargets[1])
-    print("pdTargets (rad/s): \t" + phiString)
-    log.stringTmpFile(phiString,"pdTargets.txt")
+    # phiString = str(pdTargets[0]) + "," + str(pdTargets[1])
+    # print("pdTargets (rad/s): \t" + phiString)
+    # log.stringTmpFile(phiString,"pdTargets.txt")
     
     #DRIVING
     sc.driveOpenLoop(pdTargets) #call driving function 
     #servo.move1(rthumb) # control the servo for laser
-    time.sleep(0.2)
+    time.sleep(0.05)

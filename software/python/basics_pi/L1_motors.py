@@ -10,27 +10,30 @@ import time                                 # for keeping time
 import numpy as np                          # for handling arrays
 
 # Broadcom (BCM) pin numbering for RasPi is as follows: PHYSICAL:       NAME:
-left_chA  = pwm(17, frequency=5000,initial_value=0)     # PIN 11        GPIO17
-left_chB  = pwm(18, frequency=5000,initial_value=0)     # PIN 12        GPIO18
-right_chA = pwm(22, frequency=5000,initial_value=0)     # PIN 15        GPIO22
-right_chB = pwm(23, frequency=5000,initial_value=0)     # PIN 16        GPIO23
+left_chA  = pwm(17, frequency=600,initial_value=0)     # PIN 11        GPIO17
+left_chB  = pwm(18, frequency=600,initial_value=0)     # PIN 12        GPIO18
+right_chA = pwm(22, frequency=600,initial_value=0)     # PIN 15        GPIO22
+right_chB = pwm(23, frequency=600,initial_value=0)     # PIN 16        GPIO23
 
 def computePWM(speed):          # take an argument in range [-1,1]
-    x = speed + 1.0             # change the range to [0,2]
-    chA = 0.5 * x               # channel A sweeps low to high
-    chB = 1 - (0.5 * x)         # channel B sweeps high to low
-    x = np.array([chA, chB])    # store values to an array
+    if speed == 0:
+        x = np.array([0,0])         # set all PWM to zero
+    else:
+        x = speed + 1.0             # change the range to [0,2]
+        chA = 0.5 * x               # channel A sweeps low to high
+        chB = 1 - (0.5 * x)         # channel B sweeps high to low
+        x = np.array([chA, chB])    # store values to an array
     return(x)
 
 def sendLeft(mySpeed):          # takes at least 0.3 ms
     myPWM = computePWM(mySpeed)
-    left_chA.value = myPWM[0]
-    left_chB.value = myPWM[1]
+    left_chB.value = myPWM[0]
+    left_chA.value = myPWM[1]
 
 def sendRight(mySpeed):         # takes at least 0.3 ms
     myPWM = computePWM(mySpeed)
-    right_chA.value = myPWM[0]
-    right_chB.value = myPWM[1]
+    right_chB.value = myPWM[0]
+    right_chA.value = myPWM[1]
 
 # THIS LOOP ONLY RUNS IF THE PROGRAM IS CALLED DIRECTLY
 if __name__ == "__main__":
