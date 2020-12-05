@@ -4,9 +4,12 @@
 
 # THIS PROGRAM IS IN PROGRESS AS OF 2020.11 (DPM)
 
-import L1_encoder as enc                    # local library for encoders
+# Import external libraries
 import numpy as np                          # library for math operations
 import time                                 # library for time access
+
+# Import local files
+import L1_encoder as enc                    # local library for encoders
 
 # define kinematics
 R = 0.041                                   # wheel radius (meters)
