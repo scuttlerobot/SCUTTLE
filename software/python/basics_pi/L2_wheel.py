@@ -1,120 +1,148 @@
-#!/usr/bin/python3
-
-# speed_control.py takes target speeds and generates duty cycles
-# to send to motors, and has a function to execute PID control.
+# This program offers a chassis object that collects info from L1_motor and L1_encoder.
+# chassis parameters can be updated in the chassis object in realtime.
+# Storing parameters in the object will give immediate access to other programs.
+# Last updated 2020.12 DPM
 
 # Import external libraries
 import time
 import math
 import numpy as np                                                          # for handling arrays
+from fastlogging import LogInit                                             # for logging & debug
 
 # Import local files
-from scuttlepy import PID                                                   # for PID controller
+from scuttlepy import PID                                                    # for PID controller
 from scuttlepy import L1_motor                                                 # for controlling motors
 from scuttlepy import L1_encoder                                               # for reading encoders
 
-# Create and configure logger
-# logging.basicConfig(filename="wheelsTest.log", format='%(asctime)s %(message)s', filemode='w')
-# logger = logging.getLogger()                                                # create an object
-# logger.setLevel(logging.DEBUG)                                              # set threshold of logger to DEBUG
-# logger.disabled = True
+import os                                                                   # to make command line commands
+if os.path.exists("robotTest.log"):                                         # clear the previous log
+    os.remove("robotTest.log")
+logger = LogInit(pathName="./robotTest.log")                                # Set up fresh logger
+logger.debug("ColumnA ColumnB ColumnC ColumnD")                             # make columns
 
-# logger.debug("ColumnA ColumnB ColumnC ColumnD")
+class chassis:
+    def __init__(self, )
+self.speed = 0
+        self.heading = 0
+        self.angularVelocity = 0
+        self.globalPosition = np.array([0, 0])
+        self.angularDisplacement = 0                                        # For tracking displacement between waypoints
+        self.forwardDisplacement = 0                                        # For tracking displacement between waypoints
 
+        self.wheelBase = 0.180                                              # L - meters    Measured from center of wheel base to inside edge of wheel.
+        self.wheelRadius = 0.041                                            # R - meters
+        self.wheelIncrements = np.array([0, 0])                             # Latest increments of wheels
+        self.wheelSpeeds = [0, 0]                                           # [Left wheel speed, Right wheel speed.]
+        self.timeInitial = time.monotonic()
+        self.timeFinal = 0
+        self.loopPeriod = 0.060                                             # How fast to make the loop (s)
+        self.loopStart = time.monotonic()                                   # Updates when we grab chassis displacements
+        self.sleepTime = 0                                                  # Time to sleep updated per loop
 
-class Wheel:
+        self.l_motorChannel = 1
+        self.r_motorChannel = 2
+        self.l_encoderAddress = 0x40 # Left wheel encoder address
+        self.r_encoderAddress = 0x41 # Right wheel encoder address
 
-    def __init__(self, motor_channel, encoder_address, wheel_radius=41, invert_motor=False, invert_encoder=False, KP=0.02, KI=0.035, KD=0):
+    def setGlobal(self, pos):
+        self.globalPosition = pos
 
-        self.speed = 0                                                      # (rad/s), use self.speed instead when possible!
-        self.radius = wheel_radius                                          # mm
-        self.motor = motor.Motor(motor_channel, invert=invert_motor)
-        self.encoder = encoder.Encoder(encoder_address)
-        self.invert_motor = invert_motor
-        self.invert_encoder = invert_encoder
+    def setHeading(self, heading):
+        self.heading = heading
 
-        self.positionInitial = 0
-        self.positionFinal = 0
+    def getWheelIncrements(self):   # get the wheel increment in radians
 
-        self.pulleyRatio = 0.5                                              # pulley ratio = 0.5 wheel turns per pulley turn
+        positionInitial = enc.readShaftPositions()
+        self.timeInitial = self.timeFinal
 
-        self.KP = KP
-        self.KI = KI
-        self.KD = KD
+        self.timeFinal = time.monotonic()
+        wheelIncrements = # must calculate (in radians)
+        timeIncrement = self.timeFinal - self.timeInitial
 
-        self.pid = PID.PID(self.KP, self.KI, self.KD)
-        # self.pid.setWindup(1)
+        self.wheelSpeeds = wheelIncrements / timeIncrement                  # speed = distance/time
 
-        self.roll = 2 * math.pi / self.encoder.resolution
-        self.gap = 0.5 * self.roll                                          # degrees specified as limit for rollover
-        self.wait = 0.02                                                    # wait time between encoder measurements (s)
+        logger.debug("Time_Increment(s) " + str(round(timeIncrement, 3)) )
+        logger.debug("Wheel_Increments(rad) " + str(round(wheelIncrements[0], 4))
+                     + " " + str(round(wheelIncrements[1], 4)))
 
-        # self.pid.setSampleTime(self.wait)
+        return wheelIncrements
 
-    def getTravel(self, position0, position1):                              # calculate the increment of a wheel in radians
-        diff = position1 - position0                                        # take in the values in raw encoder position
-        if not self.invert_encoder:
-            travel = diff                                                   # reset the travel reading
-            if((-travel) >= self.gap):                                      # if movement is large (has rollover)
-                travel = (diff + self.roll)                                 # handle forward rollover
-            if(travel >= self.gap):
-                travel = (diff - self.roll)                                 # handle reverse rollover
-        else:
-            diff = position0 - position1
-            travel = diff
-            if((-travel) >= self.gap):
-                travel = (diff + self.roll)
-            if(travel >= self.gap):
-                travel = (diff - self.roll)
+    def getChassis(self, displacement):                                     # returns chassis displacement since last reading
+        L = self.wheelBase
+        R = self.wheelRadius
+        A = np.array([[     R/2,     R/2],
+                      [-R/(2*L), R/(2*L)]])                                 # This matrix relates [PDL, PDR] to [XD,TD]
+        B = displacement                                                    # this array should store phi displacements (in radians)
+        C = np.matmul(A, B)                                                 # perform matrix multiplication
+        C = np.round(C, decimals=3)                                         # round the matrix
+        return C                                                            # returns a matrix containing [dx (m), dTheta (rad)]
 
-        travel = travel * self.encoder.resolution                           # go from raw value to radians
-        travel = travel * self.pulleyRatio                                  # go from motor pulley to wheel pulley
-        return(travel)                                                      # return in radians of wheel advancement
+    def getChassisVelocity(self):                                           # Function to update and return [x_dot,theta_dot]
+        B = np.array([self.l_wheel.speed,                                   # make an array of wheel speeds (rad/s)
+                      self.r_wheel.speed])
+        C = self.getChassis(B)                                              # Perform matrix multiplication
+        self.speed = C[0]                                                   # Update speed of SCUTTLE [m/s]
+        self.angularVelocity = C[1]                                         # Update angularVelocity = [rad/s]
+        return [self.speed, self.angularVelocity]                           # return [speed, angularVelocity]
+    
+    def getWheels(self, chassisValues):                                     # Inverse Kinematic function. Take x_dot, theta_dot as arguments
+        L = self.wheelBase
+        R = self.wheelRadius
+        A = np.array([[ 1/R, -L/R],                                         # This matrix relates chassis to wheels
+                      [ 1/R,  L/R]])
+        B = np.array([chassisValues[0],                                     # Create an array for chassis speed
+                      chassisValues[1]])
+        C = np.matmul(A, B)                                                 # Perform matrix multiplication
+        return C                                                            # Returns Phi_dots, (rad or rad/s)
 
-    def getAngularVelocity(self):                                           # Use self.speed instead when possible!
+    def displacement(self, chassisIncrement):
+        # chassisIncrement = self.getChassis(self.getWheelIncrements())       # get latest chassis travel (m, rad)
+        self.forwardDisplacement = chassisIncrement[0]                      # add the latest advancement(m) to the total
+        self.angularDisplacement = chassisIncrement[1]                      # add the latest advancement(rad) to the total
+        logger.debug("Chassis_Increment(m,rad) " +
+            str(round(chassisIncrement[0], 4)) + " " +
+            str(round(chassisIncrement[1], 4)) + " " +
+            str(time.monotonic()))
+        self.loopStart = time.monotonic()                                   # use for measuring loop time
+        logger.debug("TimeStamp(s) " + str(self.loopStart))
+        logger.debug("Gyro_raw(deg/s) " +
+            str(round(self.imu.getHeading(), 3)) + " " +
+            str(time.monotonic()))
 
-        initialPosition = self.encoder.readPos()
-        initialTime = time.time()                                           # time.time() reports in seconds
-        time.sleep(self.wait)                                               # delay specified amount
-        finalPosition = self.encoder.readPos()
-        finalTime = time.time()
-        deltaTime = round((finalTime - initialTime), 3)                     # new scalar delta time value
+    def stackDisplacement(self):                                            # add the latest displacement to the global position
+        theta = self.heading + ( self.angularDisplacement / 2 )             # use the "halfway" vector as the stackup heading
+        c, s = np.cos(theta), np.sin(theta)
+        R = np.array(((c, -s), (s, c)))                                     # create the rotation matrix
+        localVector = np.array([self.forwardDisplacement, 0])               # x value is increment and y value is always 0
+        globalVector = np.matmul(R, localVector)
+        self.globalPosition = self.globalPosition + globalVector            # add the increment to the global position
+        logger.debug("global_x(m) " +
+            str(round(self.globalPosition[0], 3)) + " global_y(m) " +
+            str(round(self.globalPosition[1], 3) ) )
+        return self.globalPosition
 
-        travel = self.getTravel(initialPosition, finalPosition)             # movement calculations
+    
+    def stackHeading(self):                                                 # increment heading & ensure heading doesn't exceed 180
+        self.heading = self.heading + self.angularDisplacement              # update heading by the turn amount executed
+        if self.heading > math.pi:
+            self.heading += (2 * math.pi)
+        if self.heading < -math.pi:
+            self.heading += (2 * math.pi)
+        logger.debug("heading(deg) " + str(round(math.degrees(self.heading), 3)))
+        return self.heading
 
-        self.speed = round(travel / deltaTime, 3)                           # speed produced from true wheel travel (rad)
-        # logger.debug("Wheel_speed(rad/s) " + str(round(self.speed, 3)) +
-        #     " timeStamp " + str(time.monotonic()) )
-        return self.speed                                                   # returns pdc in radians/second
+    def checkLoop(self):
+        self.loopFinish = time.monotonic()
+        self.sleepTime = self.loopPeriod - (self.loopFinish - self.loopStart)
+        logger.debug("sleepTime(s) " + str(round(self.sleepTime, 3)) )
+        return(self.sleepTime)
 
-    def setAngularVelocity(self, phiDotTarget):
-        self.pid.SetPoint = phiDotTarget
-        self.speed = self.getAngularVelocity()
-        self.pid.update(self.speed)
-        duty = self.pid.output
-
-        ### THIS NEEDS TO BE REFACTORED ###
-        if -0.222 < duty and duty < 0.222:
-            duty = (duty * 3)
-        elif duty >= 0.222:
-            duty = 0.666 + (0.429*(duty-0.222))
-        else:
-            duty = -0.666 + (-0.429*(duty+0.222))
-        ### THIS NEEDS TO BE REFACTORED ###
-
-        duty = sorted([-1, duty, 1])[1]                                     # place bounds on the motor commands
-        self.motor.setDuty(round(duty, 2))                                  # must round to ensure driver handling!
-
-def rescale(duty):  # a temporary function to perform modified sweep test
-    p1 = 0.16
-    if -p1 < duty and duty < p1:
-        duty = (duty * 3)
-    elif duty >= p1:
-        duty = 0.48 + (0.619*(duty-0.16))
-    else:
-        duty = -0.48 + (-0.619*(duty+0.16))
-    duty = sorted([-1, duty, 1])[1]      # place bounds on the motor commands
-    return duty
+    def setup(self):                                                        # call this before moving to points
+        self.getWheelIncrements()                                           # get the very first nonzero readings fron enconders
+        self.setMotion([0,0])                                               # set speed zero
+        self.displacement(self.getChassis(self.getWheelIncrements()))       # increment the displacements (update robot attributes)
+        self.stackDisplacement()                                            # add the new displacement to global position
+        self.stackHeading()                                                 # add up the new heading
 
 if __name__ == "__main__":
 
