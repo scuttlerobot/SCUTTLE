@@ -24,3 +24,6 @@ The latest STL models for 3D Printing. Quantities described below.
 * motor driver bracket
 * wheel bracket (Left)
 * wheel bracket (Right)
+
+### OPTIONAL PARTS:
+* end cap for extrusion (qty 4)
