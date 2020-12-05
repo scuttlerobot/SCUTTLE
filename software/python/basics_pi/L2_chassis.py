@@ -1,4 +1,5 @@
 # This program offers a chassis object that collects info from L1_motor and L1_encoder.
+# We also import L2_kinematics to perform some chassis calculations.
 # chassis parameters can be updated in the chassis object in realtime.
 # Storing parameters in the object will give immediate access to other programs.
 # Last updated 2020.12 DPM
@@ -6,68 +7,75 @@
 # Import external libraries
 import time
 import math
-import numpy as np                                                          # for handling arrays
-from fastlogging import LogInit                                             # for logging & debug
+import numpy as np                                         # for handling arrays
+# from fastlogging import LogInit                            # for logging & debug
 
 # Import local files
-from scuttlepy import PID                                                    # for PID controller
-from scuttlepy import L1_motor                                                 # for controlling motors
-from scuttlepy import L1_encoder                                               # for reading encoders
+#from scuttlepy import PID                                 # for PID controller
+import L1_motor as m                                       # for controlling motors
+import L1_encoder as enc                                   # for reading encoders
+import L2_kinematics as kin                                # for calculating chassis movement
 
-import os                                                                   # to make command line commands
-if os.path.exists("robotTest.log"):                                         # clear the previous log
-    os.remove("robotTest.log")
-logger = LogInit(pathName="./robotTest.log")                                # Set up fresh logger
-logger.debug("ColumnA ColumnB ColumnC ColumnD")                             # make columns
+# THIS SECTION WILL BE PREPARED AND TESTED NEXT
+# import os                                                  # to make command line commands
+# if os.path.exists("robotTest.log"):                        # clear the previous log
+#     os.remove("robotTest.log")
+# logger = LogInit(pathName="./robotTest.log")               # Set up fresh logger
+# logger.debug("ColumnA ColumnB ColumnC ColumnD")            # make columns
 
 class chassis:
-    def __init__(self, )
-self.speed = 0
-        self.heading = 0
-        self.angularVelocity = 0
-        self.globalPosition = np.array([0, 0])
-        self.angularDisplacement = 0                                        # For tracking displacement between waypoints
-        self.forwardDisplacement = 0                                        # For tracking displacement between waypoints
+    def __init__(self):
+        self.speed = 0                                  # meters/sec
+        self.heading = 0                                # degrees from North
+        self.angularVelocity = 0                        # rad/s
+        self.globalPosition = np.array([0, 0])          # cartesian [x, y] meters
+        self.angularDisplacement = 0                    # For tracking displacement between waypoints
+        self.forwardDisplacement = 0                    # For tracking displacement between waypoints
+        self.pulleyRatio = 2.0                          # output/input ratio
 
-        self.wheelBase = 0.180                                              # L - meters    Measured from center of wheel base to inside edge of wheel.
-        self.wheelRadius = 0.041                                            # R - meters
-        self.wheelIncrements = np.array([0, 0])                             # Latest increments of wheels
-        self.wheelSpeeds = [0, 0]                                           # [Left wheel speed, Right wheel speed.]
-        self.timeInitial = time.monotonic()
-        self.timeFinal = 0
+        self.shaft1 = np.array([0,0])                   # left, right (deg)
+        self.shaft2 = np.array([0,0])                   # left, right (deg)
+        self.phis = np.array([0,0])                     # left, right (deg)
+
+        self.wheelBase = 0.180                          # L - meters    Measured from center of wheel base to inside edge of wheel.
+        self.wheelRadius = 0.041                        # R - meters
+        self.wheelIncrements = np.array([0, 0])         # Latest increments of wheels
+        self.wheelSpeeds = [0, 0]                       # [Left wheel speed, Right wheel speed.]
+        self.t1 = time.monotonic()                      # time sample 1
+        self.t2 = 0                                     # time sample 2
         self.loopPeriod = 0.060                                             # How fast to make the loop (s)
         self.loopStart = time.monotonic()                                   # Updates when we grab chassis displacements
         self.sleepTime = 0                                                  # Time to sleep updated per loop
 
         self.l_motorChannel = 1
         self.r_motorChannel = 2
-        self.l_encoderAddress = 0x40 # Left wheel encoder address
-        self.r_encoderAddress = 0x41 # Right wheel encoder address
+        self.l_encoderAddress = 0x40    # Left wheel encoder address
+        self.r_encoderAddress = 0x41    # Right wheel encoder address
 
-    def setGlobal(self, pos):
+    def setGlobal(self, pos):           # assign calculated value to the global [x,y]
         self.globalPosition = pos
 
-    def setHeading(self, heading):
+    def setHeading(self, heading):      # assign calculated value to the global (deg)
         self.heading = heading
 
-    def getWheelIncrements(self):   # get the wheel increment in radians
+    def updateShaftPositions(self):     # (TAKE READING) take a new reading on wheels
+        self.shaft1 = self.shaft2       # reassign the latest value to previous
+        self.shaft2 = enc.readShaftPositions() # measure shaft positions
+        self.t1 = self.t2               # reassign the time sample
+        self.t2 = time.monotonic()      # grab the latest time
+        return self.shaft2              # return latest shaft positions [deg, deg]
 
-        positionInitial = enc.readShaftPositions()
-        self.timeInitial = self.timeFinal
+    def getWheelIncrements(self):            # (NO READING) get wheel increment
+        s1 = self.shaft1                # first you must update shaft2 via updateShaftPositions()
+        s2 = self.shaft2
+        self.wheelTravel = kin.phiTravels(s1, s2)
+        return self.wheelTravel         # return wheel travels between datapoints
 
-        self.timeFinal = time.monotonic()
-        wheelIncrements = # must calculate (in radians)
-        timeIncrement = self.timeFinal - self.timeInitial
+    def updateWheelPositions(self):     # (NO READING) first must update getWheelIncrement
+        self.phis = self.phis + self.wheelTravel   # add the latest value to previous
+        return self.phis                # return latest wheel positions [deg, deg]
 
-        self.wheelSpeeds = wheelIncrements / timeIncrement                  # speed = distance/time
-
-        logger.debug("Time_Increment(s) " + str(round(timeIncrement, 3)) )
-        logger.debug("Wheel_Increments(rad) " + str(round(wheelIncrements[0], 4))
-                     + " " + str(round(wheelIncrements[1], 4)))
-
-        return wheelIncrements
-
-    def getChassis(self, displacement):                                     # returns chassis displacement since last reading
+    def getChassis(self, displacement):                                     # returns [dx, dth] given [delta phi L, delta phi R]
         L = self.wheelBase
         R = self.wheelRadius
         A = np.array([[     R/2,     R/2],
@@ -76,14 +84,6 @@ self.speed = 0
         C = np.matmul(A, B)                                                 # perform matrix multiplication
         C = np.round(C, decimals=3)                                         # round the matrix
         return C                                                            # returns a matrix containing [dx (m), dTheta (rad)]
-
-    def getChassisVelocity(self):                                           # Function to update and return [x_dot,theta_dot]
-        B = np.array([self.l_wheel.speed,                                   # make an array of wheel speeds (rad/s)
-                      self.r_wheel.speed])
-        C = self.getChassis(B)                                              # Perform matrix multiplication
-        self.speed = C[0]                                                   # Update speed of SCUTTLE [m/s]
-        self.angularVelocity = C[1]                                         # Update angularVelocity = [rad/s]
-        return [self.speed, self.angularVelocity]                           # return [speed, angularVelocity]
     
     def getWheels(self, chassisValues):                                     # Inverse Kinematic function. Take x_dot, theta_dot as arguments
         L = self.wheelBase
@@ -95,65 +95,17 @@ self.speed = 0
         C = np.matmul(A, B)                                                 # Perform matrix multiplication
         return C                                                            # Returns Phi_dots, (rad or rad/s)
 
-    def displacement(self, chassisIncrement):
-        # chassisIncrement = self.getChassis(self.getWheelIncrements())       # get latest chassis travel (m, rad)
-        self.forwardDisplacement = chassisIncrement[0]                      # add the latest advancement(m) to the total
-        self.angularDisplacement = chassisIncrement[1]                      # add the latest advancement(rad) to the total
-        logger.debug("Chassis_Increment(m,rad) " +
-            str(round(chassisIncrement[0], 4)) + " " +
-            str(round(chassisIncrement[1], 4)) + " " +
-            str(time.monotonic()))
-        self.loopStart = time.monotonic()                                   # use for measuring loop time
-        logger.debug("TimeStamp(s) " + str(self.loopStart))
-        logger.debug("Gyro_raw(deg/s) " +
-            str(round(self.imu.getHeading(), 3)) + " " +
-            str(time.monotonic()))
-
-    def stackDisplacement(self):                                            # add the latest displacement to the global position
-        theta = self.heading + ( self.angularDisplacement / 2 )             # use the "halfway" vector as the stackup heading
-        c, s = np.cos(theta), np.sin(theta)
-        R = np.array(((c, -s), (s, c)))                                     # create the rotation matrix
-        localVector = np.array([self.forwardDisplacement, 0])               # x value is increment and y value is always 0
-        globalVector = np.matmul(R, localVector)
-        self.globalPosition = self.globalPosition + globalVector            # add the increment to the global position
-        logger.debug("global_x(m) " +
-            str(round(self.globalPosition[0], 3)) + " global_y(m) " +
-            str(round(self.globalPosition[1], 3) ) )
-        return self.globalPosition
-
-    
-    def stackHeading(self):                                                 # increment heading & ensure heading doesn't exceed 180
-        self.heading = self.heading + self.angularDisplacement              # update heading by the turn amount executed
-        if self.heading > math.pi:
-            self.heading += (2 * math.pi)
-        if self.heading < -math.pi:
-            self.heading += (2 * math.pi)
-        logger.debug("heading(deg) " + str(round(math.degrees(self.heading), 3)))
-        return self.heading
-
-    def checkLoop(self):
-        self.loopFinish = time.monotonic()
-        self.sleepTime = self.loopPeriod - (self.loopFinish - self.loopStart)
-        logger.debug("sleepTime(s) " + str(round(self.sleepTime, 3)) )
-        return(self.sleepTime)
-
-    def setup(self):                                                        # call this before moving to points
-        self.getWheelIncrements()                                           # get the very first nonzero readings fron enconders
-        self.setMotion([0,0])                                               # set speed zero
-        self.displacement(self.getChassis(self.getWheelIncrements()))       # increment the displacements (update robot attributes)
-        self.stackDisplacement()                                            # add the new displacement to global position
-        self.stackHeading()                                                 # add up the new heading
+# THE NEXT SECTION WILL BE MADE TO TRACK AND STORE INFO ABOUT THE CHASSIS POSITION
+# INCLUDING: X and Y position of the wheelbase center, latest chassis speed,
+# rotational velocity of the chassis, and rotational displacement of chassis.
 
 if __name__ == "__main__":
-
-    r_wheel = Wheel(2, 0x40) 	                                            # Right Motor (ch2)
-    l_wheel = Wheel(1, 0x43, invert_encoder=True)                           # Left Motor  (ch1)
-
-    r_wheel.setAngularVelocity(math.pi)
-    l_wheel.setAngularVelocity(math.pi)
-
+    chas = chassis()
     while 1:
-
-        r_wheel.getAngularVelocity()
-        l_wheel.getAngularVelocity()
-
+        
+        shaft = chas.updateShaftPositions()
+        wheelInc = chas.getWheelIncrements()
+        phis = chas.updateWheelPositions()
+        print("Wheel increments: ", wheelInc, "\t \t positions: ", phis)
+        #print("Wheel positions: ", phis)
+        time.sleep(0.4)

@@ -58,6 +58,20 @@ def getMotion():                            # this function returns the chassis 
     C = np.round(C, decimals=3)             # round the matrix
     return(C)                               # returns a matrix containing [xDot, thetaDot]
 
+def phiTravels(encoders_t1, encoders_t2):   # get travel of wheels [deg, deg] (take no measurements)
+    travel = encoders_t2 - encoders_t1      # compute change in both shaft encoders (degrees)
+    travel = encoders_t2 - encoders_t1      # array, 2x1 to indicate travel
+    trav_b = travel + 360                   # array variant b
+    trav_c = travel - 360                   # array variant c
+    mx = np.stack((travel, trav_b, trav_c)) # combine array variants
+    mx_abs = np.absolute(mx)                # convert to absolute val
+    mins = np.argmin(mx_abs,0)              # find the indices of minimum values (left and right hand)
+    left = mx[mins[0],0]                    # pull corresponding indices from original array
+    right = mx[mins[1],1]                   # pull corresponding index for RH
+    shaftTravel = np.array([left,right])    # combine left and right sides to describe travel (degrees)
+    wheelTravel = shaftTravel * pulleyRatio # compute wheel turns from motor turns [deg,deg]
+    return(wheelTravel)                     # return the movement
+
 # THIS SECTION ONLY RUNS IF THE PROGRAM IS CALLED DIRECTLY
 if __name__ == "__main__":
     while True:
