@@ -103,7 +103,7 @@ git clone http://www.github.com/MXET/SCUTTLE
 **github - push updates from local to online repository**
   ```
 git add -A
-git commit # then make brief comment on your update
+git commit -m # then make brief comment on your update
 git push # then provide credentials as needed
   ```
   This will push the updates from your local device back to the online repo.
