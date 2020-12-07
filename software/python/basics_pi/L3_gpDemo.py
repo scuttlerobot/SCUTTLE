@@ -12,7 +12,6 @@ import time
 
 # Import Internal Programs
 import L1_gamepad as gp
-#import L1_log as log
 import L2_inverse_kinematics as inv
 import L2_speed_control as sc
 
