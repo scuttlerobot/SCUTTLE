@@ -9,13 +9,14 @@ from gpiozero import PWMOutputDevice as pwm # for driving motors, LEDs, etc
 import time                                 # for keeping time
 import numpy as np                          # for handling arrays
 
+frq = 150                                   # motor driving frequency
 # Broadcom (BCM) pin numbering for RasPi is as follows: PHYSICAL:       NAME:
-left_chA  = pwm(17, frequency=600,initial_value=0)     # PIN 11        GPIO17
-left_chB  = pwm(18, frequency=600,initial_value=0)     # PIN 12        GPIO18
-right_chA = pwm(22, frequency=600,initial_value=0)     # PIN 15        GPIO22
-right_chB = pwm(23, frequency=600,initial_value=0)     # PIN 16        GPIO23
+left_chA  = pwm(17, frequency=frq,initial_value=0)     # PIN 11        GPIO17
+left_chB  = pwm(18, frequency=frq,initial_value=0)     # PIN 12        GPIO18
+right_chA = pwm(22, frequency=frq,initial_value=0)     # PIN 15        GPIO22
+right_chB = pwm(23, frequency=frq,initial_value=0)     # PIN 16        GPIO23
 
-def computePWM(speed):          # take an argument in range [-1,1]
+def computePWM(speed):              # take an argument in range [-1,1]
     if speed == 0:
         x = np.array([0,0])         # set all PWM to zero
     else:
@@ -23,6 +24,7 @@ def computePWM(speed):          # take an argument in range [-1,1]
         chA = 0.5 * x               # channel A sweeps low to high
         chB = 1 - (0.5 * x)         # channel B sweeps high to low
         x = np.array([chA, chB])    # store values to an array
+        x = np.round(x,2)           # round the values
     return(x)
 
 def sendLeft(mySpeed):          # takes at least 0.3 ms
