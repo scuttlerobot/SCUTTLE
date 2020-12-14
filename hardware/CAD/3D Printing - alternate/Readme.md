@@ -17,3 +17,9 @@ Alternate versions of the STL parts, and extra parts beyond the standard kit
 <br>[2DOF Servo Arm](https://grabcad.com/library/servoarm-v1-1)
 <br>
 <br>[All David's Models](https://grabcad.com/david.m-50/models)
+
+### Descriptions of variants
+
+* wheel pulley B, version 1.0: uses HTD5 teeth geometry, has 25 teeth
+* motor pulley B, version 1.0: uses HTD5 teeth geometry, has 13 teeth
+* 25:13 ratio is designed to maintain the center distance while using the low-cost 225mm HTD belt design
