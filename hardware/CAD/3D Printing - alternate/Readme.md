@@ -1,11 +1,5 @@
 ## Alternate Designs for 3D Printing
-
-Alternate versions of the STL parts, and extra parts beyond the standard kit
-<br>Note from David: When we send STL files to a print shop, they sometimes print in
-<br>the wrong orientation.  If you send an STL with combined parts, it makes it 
-<br>more obvious which way they go.
-<br>
-<br>Rod brackets: set of 4 for 1 full robot
+Alternate versions of the STL parts and extra parts beyond the standard kit
 
 ### Design files on GrabCAD:
 [kickStand](https://grabcad.com/library/scuttle-wheel-stand-v1-1) (wheel stand)
@@ -18,7 +12,6 @@ Alternate versions of the STL parts, and extra parts beyond the standard kit
 <br>[All David's Models](https://grabcad.com/david.m-50/models)
 
 ### Descriptions of variants
-
-* wheel pulley B, version 1.0: uses HTD5 teeth geometry, has 25 teeth
-* motor pulley B, version 1.0: uses HTD5 teeth geometry, has 13 teeth
+* wheel pulley version 3.0: uses HTD5 teeth geometry, has 25 teeth
+* motor pulley version 3.1: uses HTD5 teeth geometry, has 13 teeth
 * 25:13 ratio is designed to maintain the center distance while using the low-cost 225mm HTD belt design
