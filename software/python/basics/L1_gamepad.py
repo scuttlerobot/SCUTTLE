@@ -77,35 +77,35 @@ class Gamepad:
     def getStates(self):
         return self.states
 
-    def getGP(self):
-        axes = np.array([((2/255)*self.axes['LEFT_X'])-1,
-                         ((2/255)*self.axes['LEFT_Y'])-1,
-                         ((2/255)*self.axes['RIGHT_X'])-1,
-                         ((2/255)*self.axes['RIGHT_Y'])-1]
-                         )                                  # store all axes in an array
+gamepad = Gamepad()
+def getGP():
+    axes = np.array([((2/255)*gamepad.axes['LEFT_X'])-1,
+                        ((2/255)*gamepad.axes['LEFT_Y'])-1,
+                        ((2/255)*gamepad.axes['RIGHT_X'])-1,
+                        ((2/255)*gamepad.axes['RIGHT_Y'])-1]
+                        )                                  # store all axes in an array
 
-        buttons = np.array([self.buttons['Y'],              # B0
-                            self.buttons['B'],              # B1
-                            self.buttons['A'],              # B2
-                            self.buttons['X'],              # B3
-                            self.buttons['LB'],             # B4
-                            self.buttons['RB'],             # B5
-                            self.buttons['LT'],             # B6
-                            self.buttons['RT'],             # B7
-                            self.buttons['BACK'],           # B8
-                            self.buttons['START'],          # B9
-                            self.buttons['L_JOY'],          # B10
-                            self.buttons['R_JOY']]          # B11
-                            )                               # store all buttons in array
+    buttons = np.array([gamepad.buttons['Y'],              # B0
+                        gamepad.buttons['B'],              # B1
+                        gamepad.buttons['A'],              # B2
+                        gamepad.buttons['X'],              # B3
+                        gamepad.buttons['LB'],             # B4
+                        gamepad.buttons['RB'],             # B5
+                        gamepad.buttons['LT'],             # B6
+                        gamepad.buttons['RT'],             # B7
+                        gamepad.buttons['BACK'],           # B8
+                        gamepad.buttons['START'],          # B9
+                        gamepad.buttons['L_JOY'],          # B10
+                        gamepad.buttons['R_JOY']]          # B11
+                        )                               # store all buttons in array
 
-        gp_data = np.hstack((axes, buttons))                # this array will have 16 elements
+    gp_data = np.hstack((axes, buttons))                # this array will have 16 elements
 
-        return(gp_data)
+    return(gp_data)
 
 if __name__ == "__main__":
-    gamepad = Gamepad()
     while True:
         # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-        myGpData = gamepad.getGP()                          # store data from all axes to the myGpData variable
+        myGpData = getGP()                          # store data from all axes to the myGpData variable
         print(myGpData)                                     # print out the first element of the data to confirm functionality
         time.sleep(0.25)
