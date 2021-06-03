@@ -63,7 +63,7 @@ do
 done
 
 # Array of python modules to install.
-PYMODS=(SpeechRecognition cayenne-mqtt bmp280 pygame Adafruit_GPIO)
+PYMODS=(SpeechRecognition cayenne-mqtt bmp280 pygame Adafruit_GPIO inputs)
 
 # Install Python Libraries
 
