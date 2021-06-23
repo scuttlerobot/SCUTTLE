@@ -1,63 +1,111 @@
-# an example to grab values from the wireless gamepads (EasySMX brand) and print them.
-# gamepad must be plugged in and activated at start of program.
-# see the scuttle software documentation for a map of buttons.
-# 16 values will be returned, 4 floatig and 12 boolean
-# last updated 2019.05.24
+"""Simple example showing how to get gamepad events."""
+import time
+import threading
+import numpy as np
+from inputs import get_gamepad
 
-import pygame                                       # this library contains functions to communicate with a gamepad
-import numpy as np                                  # for working with arrays
-import os                                           # for making commands directly to the OS
-import time                                         # only required if we run this program  in a loop
+class Gamepad:
+    def __init__(self):
+        self.axesMap = {
+            'ABS_X':'LEFT_X',
+            'ABS_Y':'LEFT_Y',
+            'ABS_Z':'RIGHT_X',
+            'ABS_RZ':'RIGHT_Y',
+        }
 
-os.environ['SDL_VIDEODRIVER'] = 'dummy'
-pygame.display.set_mode((1, 1))
-pygame.init()
+        self.buttonMap = {
+            'BTN_SOUTH':'Y',
+            'BTN_EAST':'B',
+            'BTN_C':'A',
+            'BTN_NORTH':'X',
+            'BTN_WEST':'LB',
+            'BTN_Z':'RB',
+            'BTN_TL':'LT',
+            'BTN_TR':'RT',
+            'BTN_TL2':'BACK',
+            'BTN_TR2':'START',
+            'BTN_SELECT':'L_JOY',
+            'BTN_START':'R_JOY',
+        }
 
+        self.buttons = {}
+        self.axes = {}
+        self.hat = [0,0]
+        self.states = { 'axes': self.axes,
+                        'buttons': self.buttons,
+                        'hat': self.hat
+                    }
 
-# function for reading the game pad
+        for button in self.buttonMap.keys():
+            self.buttons[self.buttonMap[button]] = 0
+
+        for axis in self.axesMap.keys():
+            self.axes[self.axesMap[axis]] = 128
+
+        # self.stateUpdater()
+        self.stateUpdaterThread = threading.Thread(target=self.stateUpdater)
+        self.stateUpdaterThread.start()
+
+    def _getStates(self):
+        events = get_gamepad()
+        for event in events:
+            # print(event.ev_type, event.code, event.state)
+            if event.ev_type == "Absolute":
+                if 'ABS_HAT' in event.code:
+                    if 'ABS_HAT0X' == event.code:
+                        self.hat[0] = event.state
+                    elif 'ABS_HAT0Y' == event.code:
+                        self.hat[1] = event.state
+                else:
+                    self.axes[self.axesMap[event.code]] = event.state
+            elif event.ev_type == "Key":
+                self.buttons[self.buttonMap[event.code]] = event.state
+            else:
+                pass
+
+        self.states = { 'axes': self.axes,
+                        'buttons': self.buttons,
+                        'hat': self.hat
+                    }
+
+        return self.states
+
+    def stateUpdater(self):
+        while True:
+            self._getStates()
+
+    def getStates(self):
+        return self.states
+
+gamepad = Gamepad()
 def getGP():
+    axes = np.array([((2/255)*gamepad.axes['LEFT_X'])-1,
+                        ((2/255)*gamepad.axes['LEFT_Y'])-1,
+                        ((2/255)*gamepad.axes['RIGHT_X'])-1,
+                        ((2/255)*gamepad.axes['RIGHT_Y'])-1]
+                        )                                  # store all axes in an array
 
-    for event in pygame.event.get():                # User did something
-        pass
+    buttons = np.array([gamepad.buttons['Y'],              # B0
+                        gamepad.buttons['B'],              # B1
+                        gamepad.buttons['A'],              # B2
+                        gamepad.buttons['X'],              # B3
+                        gamepad.buttons['LB'],             # B4
+                        gamepad.buttons['RB'],             # B5
+                        gamepad.buttons['LT'],             # B6
+                        gamepad.buttons['RT'],             # B7
+                        gamepad.buttons['BACK'],           # B8
+                        gamepad.buttons['START'],          # B9
+                        gamepad.buttons['L_JOY'],          # B10
+                        gamepad.buttons['R_JOY']]          # B11
+                        )                               # store all buttons in array
 
-    gamepad_count = pygame.joystick.get_count()     # Get count of gamepads connected
-    for i in range(gamepad_count):                  # For each gamepad:
+    gp_data = np.hstack((axes, buttons))                # this array will have 16 elements
 
-        joystick = pygame.joystick.Joystick(i)
-        joystick.init()
-
-        # Get Left X and Y Joystick Values
-        axis_0 = round(joystick.get_axis(0), 3)    # left thumb, right is positive
-        axis_1 = round(joystick.get_axis(1), 3)    # left thumb, down is positive
-        axis_2 = round(joystick.get_axis(2), 3)    # right thumb, right is positive
-        axis_3 = round(joystick.get_axis(3), 3)    # right thumb, down is positive
-
-        # Get Controller Buttons
-        buttons = joystick.get_numbuttons()
-
-        # Get Button States
-        B0 = joystick.get_button(0)                 # Y
-        B1 = joystick.get_button(1)                 # B
-        B2 = joystick.get_button(2)                 # A
-        B3 = joystick.get_button(3)                 # X
-        B4 = joystick.get_button(4)                 # LB
-        B5 = joystick.get_button(5)                 # RB
-        B6 = joystick.get_button(6)                 # LT
-        B7 = joystick.get_button(7)                 # RT
-        B8 = joystick.get_button(8)                 # back
-        B9 = joystick.get_button(9)                 # start
-        B10 = joystick.get_button(10)               # left thumb press
-        B11 = joystick.get_button(11)               # right thumb press
-
-        axes = np.array([axis_0, axis_1, axis_2, axis_3])                       # store all axes in an array
-        buttons = np.array([B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11])  # store all buttons in array
-        gp_data = np.hstack((axes, buttons))                                    # this array will have 16 elements
-        return(gp_data)
-
+    return(gp_data)
 
 if __name__ == "__main__":
     while True:
         # collect commands from the gamepad.  Run as many times as there are commands in the queue.
         myGpData = getGP()                          # store data from all axes to the myGpData variable
-        print(myGpData)                             # print out the first element of the data to confirm functionality
+        print(myGpData)                                     # print out the first element of the data to confirm functionality
         time.sleep(0.25)

@@ -33,7 +33,7 @@ echo "#################################################################" >> /hom
 date >> /home/debian/.install_log
 echo "#################################################################" >> /home/debian/.install_log
 
-PROGS=(git ftp zsh curl wget flac libx11-6 pure-ftpd python-pip python-dev libx11-dev python3-pip python3-pip3 python3-dev python-numpy python3-serial python3-numpy python3-opengl libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev libtiff5-dev fluid-soundfont-gm timgm6mb-soundfont xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic fontconfig fonts-freefont-ttf python3-setuptools libfreetype6-dev build-essential python-smbus python3-pyaudio libsdl-image1.2-dev libsdl-mixer1.2-dev python3-opencv libopencv-dev mjpg-streamer-opencv-python)
+PROGS=(git ftp zsh curl wget flac libx11-6 pure-ftpd python-pip python-dev libx11-dev python3-pip python3-pip3 python3-dev python-numpy python3-serial python3-numpy python3-opengl libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev libtiff5-dev fluid-soundfont-gm timgm6mb-soundfont xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic fontconfig fonts-freefont-ttf python3-setuptools libfreetype6-dev build-essential python-smbus python3-pyaudio libsdl-image1.2-dev libsdl-mixer1.2-dev python3-opencv libopencv-dev mjpg-streamer-opencv-python libsdl2-dev)
 
 printf "Running apt update."
 spinner &
@@ -63,7 +63,7 @@ do
 done
 
 # Array of python modules to install.
-PYMODS=(SpeechRecognition cayenne-mqtt bmp280 pygame Adafruit_GPIO)
+PYMODS=(SpeechRecognition cayenne-mqtt bmp280 pygame Adafruit_GPIO inputs)
 
 # Install Python Libraries
 

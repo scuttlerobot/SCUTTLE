@@ -3,7 +3,7 @@
 # minus the magnetic North vector.
 # Using this program requires calibration of xRange and yRange
 
-import L1_mpu                                       # retrieve magnetometer info
+import L1_mpu as mpu                                # retrieve magnetometer info
 import numpy as np                                  # library for math operations
 import time                                         # library for time access
 
