@@ -12,7 +12,9 @@ import time
 
 # Import Internal Programs
 import L1_gamepad as gp
+import L1_log as log
 import L2_inverse_kinematics as inv
+import L2_kinematics as kin
 import L2_speed_control as sc
 
 # Run the main loop
@@ -46,9 +48,13 @@ while True:
     #     gpio.write(1, 0, 0) # write LOW
     # #print("rthumb axis:", rthumb)
     
-    # myString = str(round(axis0*100,1)) + "," + str(round(axis1*100,1))
-    # log.stringTmpFile(myString,"uFile.txt")
-    #print("Gamepad, xd: " ,axis1, " td: ", axis0) # print gamepad percents
+    phiDots = kin.getPdCurrent()
+    myString = str(round(phiDots[0],1)) + "," + str(round(phiDots[1],1))
+    log.stringTmpFile(myString,"phidots.txt")
+
+    myString = str(round(axis0*100,1)) + "," + str(round(axis1*100,1))
+    log.stringTmpFile(myString,"uFile.txt")
+    print("Gamepad, xd: " ,axis1, " td: ", axis0) # print gamepad percents
     
     # DRIVE IN OPEN LOOP
     chassisTargets = inv.map_speeds(np.array([axis1, axis0])) # generate xd, td

@@ -56,11 +56,18 @@ def stringTmpFile(myString, fileName):     # this function takes a string and fi
 # A function for creating a CSV file from a list of values.
 def csv_write(list):
     list = [str(i) for i in list]
-    with open('excel_data.csv', 'a') as csvFile:
+    with open('/tmp/excel_data.csv', 'a') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(list)
     csvFile.close()
 
+# A function for creating a row in a csv file
+def csv_row(list):
+    row = list.join(",")
+    with open('/tmp/excel_data.csv', 'a') as csvFile:
+        writer = csv.writer(csvFile)
+        writer.writerow(row)
+    csvFile.close()
 
 # A function to clear an existing CSV file
 def clear_file():

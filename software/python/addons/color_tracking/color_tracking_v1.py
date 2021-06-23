@@ -3,15 +3,15 @@
 # This program was designed to have SCUTTLE following a basketball.
 # The calibration was made in a brightly lit indoor environment.
 # Video demo: https://youtu.be/9t1XHcomlIs
-color Tracking
+#color Tracking
 print("loading libraries for color tracking...")
 import cv2              # For image capture and processing
 import argparse         # For fetching user arguments
 import numpy as np      # Kernel
 
-print("loading rcpy.")
-import rcpy                 # Import rcpy library
-import rcpy.motor as motor  # Import rcpy motor module
+#print("loading rcpy.")
+#import rcpy                 # Import rcpy library
+#import rcpy.motor as motor  # Import rcpy motor module
 print("finished loading libraries.")
 #    Camera
 
@@ -22,12 +22,12 @@ size_h = 160	# Resized image height. This is the image height in pixels.
 
 #    Color Range, described in HSV
 
-v1_min = 30     # Minimum H value
-v2_min = 20     # Minimum S value
-v3_min = 245    # Minimum V value
+v1_min = 0     # Minimum H value
+v2_min = 120     # Minimum S value
+v3_min = 130    # Minimum V value
 
-v1_max = 43     # Maximum H value
-v2_max = 98     # Maximum S value
+v1_max = 25     # Maximum H value
+v2_max = 255     # Maximum S value
 v3_max = 255    # Maximum V value
 
 #    RGB or HSV
@@ -54,15 +54,17 @@ def main():
     duty_l = 0 # initialize motor with zero duty cycle
     duty_r = 0 # initialize motor with zero duty cycle
 
-    print("initializing rcpy...")
-    rcpy.set_state(rcpy.RUNNING)        # initialize rcpy
-    print("finished initializing rcpy.")
+    #print("initializing rcpy...")
+    #rcpy.set_state(rcpy.RUNNING)        # initialize rcpy
+    #print("finished initializing rcpy.")
 
     try:
 
-        while rcpy.get_state() != rcpy.EXITING:
+        #while rcpy.get_state() != rcpy.EXITING:
+        while 1:
 
-            if rcpy.get_state() == rcpy.RUNNING:
+            #if rcpy.get_state() == rcpy.RUNNING:
+            if 1:
 
                 scale_t = 1.3	# a scaling factor for speeds
                 scale_d = 1.3	# a scaling factor for speeds
@@ -78,24 +80,25 @@ def main():
                     break
 
                 if filter == 'RGB':                     # If image mode is RGB switch to RGB mode
-                    frame_to_thresh = image.copy()
+                    image_hsv = image.copy()
                 else:
-                    frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)    # Otherwise continue reading in HSV
+                    image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)    # Otherwise continue reading in HSV
 
-                thresh = cv2.inRange(frame_to_thresh, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max))   # Find all pixels in color range
+                thresh = cv2.inRange(image_hsv, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max))   # Find all pixels in color range
 
                 kernel = np.ones((5,5),np.uint8)                            # Set gaussian blur strength.
                 mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)     # Apply gaussian blur
                 mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
-                cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]     # Find closed shapes in image
-                center = None   # Create variable to store point
+                cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,
+                        cv2.CHAIN_APPROX_SIMPLE)[-2]                        # Find closed shapes in image
+                center = None                                               # Create variable to store point
 
                 if len(cnts) > 0:   # If more than 0 closed shapes exist
 
                     c = max(cnts, key=cv2.contourArea)              # Get the properties of the largest circle
                     ((x, y), radius) = cv2.minEnclosingCircle(c)    # Get properties of circle around shape
-
+                    #print("x:",x,"\t","y:",y)
                     radius = round(radius, 2)   # Round radius value to 2 decimals
 
                     x = int(x)          # Cast x value to an integer
@@ -151,18 +154,18 @@ def main():
                     duty_l = round(duty_l,2)
                     duty_r = round(duty_r,2)
 
-                    print(case, "\tradius: ", round(radius,1), "\tx: ", round(x,0), "\t\tL: ", duty_l, "\tR: ", duty_r)
+                    print(case, "radius: ", round(radius,1), "\tx: ", round(x,0), "\t\tL: ", duty_l, "\tR: ", duty_r)
 
                     # Set motor duty cycles
-                    motor.set(motor_l, duty_l)
-                    motor.set(motor_r, duty_r)
+                    #motor.set(motor_l, duty_l)
+                    #motor.set(motor_r, duty_r)
 
                 # Set motor duty cycles
-                motor.set(motor_l, duty_l)
-                motor.set(motor_r, duty_r)
+                #motor.set(motor_l, duty_l)
+                #motor.set(motor_r, duty_r)
 
-            elif rcpy.get_state() == rcpy.PAUSED:
-                pass
+           # elif rcpy.get_state() == rcpy.PAUSED:
+            #    pass
 
     except KeyboardInterrupt: # condition added to catch a "Ctrl-C" event and exit cleanly
         rcpy.set_state(rcpy.EXITING)

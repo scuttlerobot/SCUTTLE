@@ -6,10 +6,10 @@
 import cv2  # opencv library for capturing & processing images
 
 # Initialize important vars
-# width  = 240                      # desired width in pixels
-# height = 160                      # desired height in pixels
-width = 120                         # desired width in pixels
-height = 80                         # desired height in pixels
+width  = 240                      # desired width in pixels
+height = 160                      # desired height in pixels
+# width = 120                         # desired width in pixels
+# height = 80                         # desired height in pixels
 camera = cv2.VideoCapture(0)        # Take images from the camera assigned as "0"
 
 # A function to capture an image & return all pixel data
