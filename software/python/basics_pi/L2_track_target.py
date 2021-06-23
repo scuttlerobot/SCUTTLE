@@ -13,8 +13,7 @@ import time         # for keeping time
 # Define global parameters
 color_range = ((0, 120, 130), (25, 255, 255))  # This color range defines the color target
 
-
-def colorTarget(color_range=((0, 0, 0), (255, 255, 255))):
+def colorTarget(color_range=((0, 0, 0), (255, 255, 255))): # function defaults to open range if no range is provided
     image = cam.newImage()
     if filter == 'RGB':
         image_hsv = image.copy()
@@ -39,7 +38,7 @@ def colorTarget(color_range=((0, 0, 0), (255, 255, 255))):
 
 def getAngle(x):                         # check deviation of target from center
     if x is not None:
-        ratio = x / 120                  # divide by pixels in width
+        ratio = x / 240                  # divide by pixels in width
         offset = -2*(ratio - 0.5)        # offset.  Now, positive = right, negative = left
         offset_x = round(offset,2)       # perform rounding
         return (offset_x)
