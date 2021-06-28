@@ -1,7 +1,7 @@
 # inverse_kinematics.py calculates wheel speeds from chassis speeds
 # Calculations will intake motion requests in [theta, x] (rad, m)
 # and output motion requests in [phi dot Left, pi dot right] (rad/s).
-# This program runs on SCUTTLE with any CPU.
+# This program runs on SCUTTLE with any CPU. 
 
 # Import external libraries
 import numpy as np                          # to perform matrix operations
@@ -19,13 +19,11 @@ A = np.array([[1/R, -L/R], [1/R, L/R]])     # matrix A * [xd, td] = [pdl, pdr]
 max_xd = 0.4                                # maximum achievable x_dot (m/s) FW  translation
 max_td = (max_xd / L)                       # maximum achievable theta_dot (rad/s)
 
-
 def map_speeds(B):                          # this function will map the gamepad speeds to max values
     B_mapped = np.zeros(2)
     B_mapped[0] = max_xd*B[0]
     B_mapped[1] = max_td*B[1]
     return(B_mapped)
-
 
 def populate_gp():
     gpData = gp.getGP()                     # when there is no controller input, update is empty

@@ -84,7 +84,9 @@ class Gamepad:
     def getStates(self):
         return self.states
 
-gamepad = Gamepad()
+def start():
+    gamepad = Gamepad()
+
 def getGP():
     axes = np.array([((2/255)*gamepad.axes['LEFT_X'])-1,
                         ((2/255)*gamepad.axes['LEFT_Y'])-1,
@@ -111,6 +113,7 @@ def getGP():
     return(gp_data)
 
 if __name__ == "__main__":      # This loop will only run if the program is called directly
+    start()                     # initiate gamepad object
     while True:                 # collect commands from the gamepad.  Runs once for each command in the queue.
         myGpData = getGP()      # store data from all axes to the myGpData variable
         print(myGpData)         # print out the first element of the data to confirm functionality

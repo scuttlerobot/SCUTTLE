@@ -11,7 +11,7 @@ import numpy as np  # for handling matrices
 import time         # for keeping time
 
 # Define global parameters
-color_range = ((0, 120, 130), (25, 255, 255))  # This color range defines the color target
+color_range = ((5, 135, 85), (25, 235, 215))  # This color range defines the color target
 
 def colorTarget(color_range=((0, 0, 0), (255, 255, 255))): # function defaults to open range if no range is provided
     image = cam.newImage()
