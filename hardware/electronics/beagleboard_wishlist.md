@@ -12,4 +12,4 @@
 * 5gHz is low priority (to date)
 * gold plated pins for motors and servos to support current
 * interested in QWIIC connectors in JST-SH locations
-* countermeasure the motor output pins
+* countermeasure the motor output pins plastic cowling - they slide off
