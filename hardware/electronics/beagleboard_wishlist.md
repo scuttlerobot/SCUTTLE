@@ -1,4 +1,5 @@
 ## Wishlist for Beaglebone Blue upgrades by the SCUTTLE team:
+#### STATUS: (re-collecting input from previous document as of 07.20)
 
 ### Performance related
 * charging of 3 cell LiPo batteries
