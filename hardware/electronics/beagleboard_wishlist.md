@@ -9,7 +9,13 @@
 
 ### Hardware related
 * keeping 2 wifi signals is great
+* Reverse polarity protection
+* 12v motor outputs
 * 5gHz is low priority (to date)
 * gold plated pins for motors and servos to support current
 * interested in QWIIC connectors in JST-SH locations
 * countermeasure the motor output pins plastic cowling - they slide off
+* GPIO accessable PWM outputs [#313](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/313#issuecomment-513881299)
+* More GPIO inputs [#313](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/313)
+* Seperate PWM's from UARTs [#313](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/313)
+* 
