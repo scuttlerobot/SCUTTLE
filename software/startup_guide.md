@@ -7,7 +7,7 @@
 * Needs a slide for wiring updated (DM)
 
 ### Gamepad
-* start with flow from 
+* start with flow from prior examples
 * Learning:
   * joystick axes outputs and ranges
   * EITHER movement of xd, td (preferred) OR wheel speeds (needs a reason)
@@ -18,6 +18,7 @@
 * on hold for DM - write the L1 file
 * Needs a slide for wiring connections (DM)
 * does NOT need nodeRed
+* Steps: download file, hookup, verify direction (left, right), verify angle
 
 ### ENCODER
 * need to write a nodered flow including chart (2 values, 1 chart)
@@ -30,7 +31,7 @@
 * Update slide in software guide based on nominal values (DM)
 * 
 
-## Steps
+## STEPS
 
 ### Downloading Image
   * DM to set up a link on scuttlerobot.org
@@ -39,3 +40,6 @@
   * flows belong in SCUTTLE/software/nodered
   * name should be descriptive of the contents, not the module
   * should have .json file extension
+
+## Nodered
+  * do we have the dashboard Widgets installed straight from the image? (READY 7.21)
