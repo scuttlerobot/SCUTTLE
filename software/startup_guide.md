@@ -16,7 +16,8 @@
 
 ### SERVO
 * on hold for DM - write the L1 file
-* Needs a slide for connections (DM)
+* Needs a slide for wiring connections (DM)
+* does NOT need nodeRed
 
 ### ENCODER
 * need to write a nodered flow including chart (2 values, 1 chart)
