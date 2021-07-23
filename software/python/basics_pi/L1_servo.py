@@ -1,12 +1,13 @@
 # This program sets up a servo object and controls the servo
 # L1_servo is compatible with raspberry Pi.
+# Facing the servo horn, a positive command generates a clockwise turn.
 
 # Import external programs
 from gpiozero import Servo
 from time import sleep
 
 # Initialize relevant variables
-servo = Servo(17)
+servo = Servo(12) #initialize the servo on bcm pin 12
 
 # THIS LOOP ONLY RUNS IF THE PROGRAM IS CALLED DIRECTLY
 if __name__ == "__main__":
