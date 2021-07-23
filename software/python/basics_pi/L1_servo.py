@@ -1,6 +1,7 @@
 # This program sets up a servo object and controls the servo
 # L1_servo is compatible with raspberry Pi.
 # Facing the servo horn, a positive command generates a clockwise turn.
+# Servo Basics: lastminuteengineers.com/servo-motor-arduino-tutorial
 
 # Import external programs
 from gpiozero import Servo
