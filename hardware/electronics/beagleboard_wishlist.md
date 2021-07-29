@@ -1,13 +1,13 @@
 ## Wishlist for Beaglebone Blue upgrades by the SCUTTLE team:
 #### STATUS: (re-collecting input from previous document as of 07.20)
 
-### Performance related
-* charging of 3 cell LiPo batteries
-* servos must be able to be run from battery OR plugin power independently
-* keep at least 2 motor outputs based on PRU for high frequency
+### Performance Requests
+* Charging of 3 cell LiPo batteries
+* Servos must be able to be run from battery OR plugin power independently
+* Keep at least 2 motor outputs based on PRU for high frequency
 
 
-### Hardware related
+### Hardware Requests
 * keeping 2 wifi signals is great
 * Reverse polarity protection
 * 12v motor outputs
