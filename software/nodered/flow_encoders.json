@@ -1,1 +1,226 @@
-
+[
+    {
+        "id": "8fd489b6.e73888",
+        "type": "tab",
+        "label": "Encoders 2.0",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dc65d5fc.5d2b38",
+        "type": "inject",
+        "z": "8fd489b6.e73888",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "e59e8538.96a848",
+                "8b953765.516188"
+            ]
+        ]
+    },
+    {
+        "id": "e59e8538.96a848",
+        "type": "file in",
+        "z": "8fd489b6.e73888",
+        "name": "",
+        "filename": "/tmp/lenc.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "d101a57e.433e58",
+                "3777aae7.88d0a6"
+            ]
+        ]
+    },
+    {
+        "id": "8b953765.516188",
+        "type": "file in",
+        "z": "8fd489b6.e73888",
+        "name": "",
+        "filename": "/tmp/renc.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "9516099f.7057e8",
+                "ccf2cc18.3ccb"
+            ]
+        ]
+    },
+    {
+        "id": "d101a57e.433e58",
+        "type": "ui_text",
+        "z": "8fd489b6.e73888",
+        "group": "9e4763e2.eec31",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Left Encoder",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 670,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9516099f.7057e8",
+        "type": "ui_text",
+        "z": "8fd489b6.e73888",
+        "group": "8eb92ddc.20cc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Right Encoder",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 680,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3777aae7.88d0a6",
+        "type": "ui_chart",
+        "z": "8fd489b6.e73888",
+        "name": "",
+        "group": "9e4763e2.eec31",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Left Encoder vs Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "360",
+        "removeOlder": "20",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 700,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "info": "# "
+    },
+    {
+        "id": "ccf2cc18.3ccb",
+        "type": "ui_chart",
+        "z": "8fd489b6.e73888",
+        "name": "",
+        "group": "8eb92ddc.20cc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Right Encoder vs Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "360",
+        "removeOlder": "20",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e42807",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d40c0c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 700,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "info": "# "
+    },
+    {
+        "id": "9e4763e2.eec31",
+        "type": "ui_group",
+        "name": "Left",
+        "tab": "c5ba1346.b39cc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8eb92ddc.20cc",
+        "type": "ui_group",
+        "name": "Right",
+        "tab": "c5ba1346.b39cc",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c5ba1346.b39cc",
+        "type": "ui_tab",
+        "name": "Encoders 2",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
