@@ -85,6 +85,7 @@ class Gamepad:
         return self.states
 
 def start():
+    global gamepad
     gamepad = Gamepad()
 
 def getGP():
