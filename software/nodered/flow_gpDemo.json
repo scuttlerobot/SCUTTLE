@@ -1,1 +1,331 @@
-# insert flow here
+[
+    {
+        "id": "1daf6d21.3c7893",
+        "type": "tab",
+        "label": "GP Demo",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2bc99d54.7f3642",
+        "type": "ui_gauge",
+        "z": "1daf6d21.3c7893",
+        "name": "",
+        "group": "230bd78a.82fae8",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Theta dot (Axis0)",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": "-100",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 910,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b9f8d93a.0d23e8",
+        "type": "file in",
+        "z": "1daf6d21.3c7893",
+        "name": "read uFile.txt",
+        "filename": "/tmp/uFile.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "f40130cc.6c79f",
+                "c2275339.e00f8"
+            ]
+        ]
+    },
+    {
+        "id": "f40130cc.6c79f",
+        "type": "csv",
+        "z": "1daf6d21.3c7893",
+        "name": "parse values",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "GP_tdot, GP_xdot, yButton",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 490,
+        "y": 140,
+        "wires": [
+            [
+                "aaf757ce.723a98",
+                "21007294.7f83fe",
+                "e16ecb09.869188",
+                "57fb59c5.08c7e8"
+            ]
+        ]
+    },
+    {
+        "id": "aaf757ce.723a98",
+        "type": "debug",
+        "z": "1daf6d21.3c7893",
+        "name": "debug2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c2275339.e00f8",
+        "type": "debug",
+        "z": "1daf6d21.3c7893",
+        "name": "debug1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "21007294.7f83fe",
+        "type": "function",
+        "z": "1daf6d21.3c7893",
+        "name": "grab_tdot",
+        "func": "//node.warn(msg.payload['GP_tdot']);\nmsg.payload=msg.payload['GP_tdot']\n//return(msg.payload['GP_tdot']);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "44da8b50.b6dc64",
+                "2bc99d54.7f3642"
+            ]
+        ]
+    },
+    {
+        "id": "44da8b50.b6dc64",
+        "type": "debug",
+        "z": "1daf6d21.3c7893",
+        "name": "debug3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e16ecb09.869188",
+        "type": "function",
+        "z": "1daf6d21.3c7893",
+        "name": "grab_xdot",
+        "func": "msg.payload=msg.payload.GP_xdot;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "74d079a3.540588",
+                "91cd4609.55af78"
+            ]
+        ]
+    },
+    {
+        "id": "74d079a3.540588",
+        "type": "ui_gauge",
+        "z": "1daf6d21.3c7893",
+        "name": "",
+        "group": "1e3f790d.e8aa97",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "X dot (Axis1)",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": "-100",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 890,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "91cd4609.55af78",
+        "type": "debug",
+        "z": "1daf6d21.3c7893",
+        "name": "debug4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a9227098.d558c",
+        "type": "watch",
+        "z": "1daf6d21.3c7893",
+        "name": "",
+        "files": "/tmp/uFile.txt",
+        "recursive": "",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "b9f8d93a.0d23e8"
+            ]
+        ]
+    },
+    {
+        "id": "57fb59c5.08c7e8",
+        "type": "function",
+        "z": "1daf6d21.3c7893",
+        "name": "grab_yButton",
+        "func": "msg.payload=msg.payload.yButton;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "8695b596.6ed228",
+                "2efed1ff.f1ab9e"
+            ]
+        ]
+    },
+    {
+        "id": "8695b596.6ed228",
+        "type": "ui_gauge",
+        "z": "1daf6d21.3c7893",
+        "name": "",
+        "group": "248c066a.9168da",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "(Y button)",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 880,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2efed1ff.f1ab9e",
+        "type": "debug",
+        "z": "1daf6d21.3c7893",
+        "name": "debug5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "230bd78a.82fae8",
+        "type": "ui_group",
+        "name": "Joystick (Axis0)",
+        "tab": "f8a8a297.56104",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1e3f790d.e8aa97",
+        "type": "ui_group",
+        "name": "Joystick (Axis1)",
+        "tab": "f8a8a297.56104",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "248c066a.9168da",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "f8a8a297.56104",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f8a8a297.56104",
+        "type": "ui_tab",
+        "name": "Gamepad",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
