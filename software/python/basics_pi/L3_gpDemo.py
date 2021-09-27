@@ -17,6 +17,7 @@ import L2_inverse_kinematics as inv
 import L2_kinematics as kin
 import L2_speed_control as sc
 
+gp.start()
 # Run the main loop
 while True:
     # # ACCELEROMETER SECTION
