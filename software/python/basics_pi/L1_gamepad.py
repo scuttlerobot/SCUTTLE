@@ -1,18 +1,22 @@
-# Gamepad Program for SCUTTLE running RasPi
-# This program grabs values from the wireless EasySMX gamepad & stores to arrays.
-# Gamepad dongle must be plugged in and gamepad activated at start of program.
-# See the scuttle software guide for a map of buttons.
-# 16 values will be returned, 4 floats (axes) and 12 booleans (buttons)
-# last updated 2021.06
-
-# Import external programs
-import time                     # for keeping time
-import threading                # for asynchronous buttons reporting
-import numpy as np              # for handling arrays
-from inputs import get_gamepad  # python module for user inputs
+"""Simple example showing how to get gamepad events."""
+import time
+import threading
+import numpy as np
+import inputs
+from inputs import devices
+from inputs import get_gamepad
 
 class Gamepad:
     def __init__(self):
+
+        gamepads = [device.name for device in devices if type(device) is inputs.GamePad]
+        if gamepads:
+            pass
+        else:
+            print("No gamepad detected.")
+            return None
+            # exit(1)
+
         self.axesMap = {
             'ABS_X':'LEFT_X',
             'ABS_Y':'LEFT_Y',
@@ -33,6 +37,7 @@ class Gamepad:
             'BTN_TR2':'START',
             'BTN_SELECT':'L_JOY',
             'BTN_START':'R_JOY',
+            'BTN_MODE':'MODE',
         }
 
         self.buttons = {}
@@ -84,10 +89,6 @@ class Gamepad:
     def getStates(self):
         return self.states
 
-def start():
-    global gamepad
-    gamepad = Gamepad()
-
 def getGP():
     axes = np.array([((2/255)*gamepad.axes['LEFT_X'])-1,
                         ((2/255)*gamepad.axes['LEFT_Y'])-1,
@@ -113,9 +114,10 @@ def getGP():
 
     return(gp_data)
 
-if __name__ == "__main__":      # This loop will only run if the program is called directly
-    start()                     # initiate gamepad object
-    while True:                 # collect commands from the gamepad.  Runs once for each command in the queue.
-        myGpData = getGP()      # store data from all axes to the myGpData variable
-        print(myGpData)         # print out the first element of the data to confirm functionality
-        time.sleep(0.25)
+if __name__ == "__main__":
+    gamepad = Gamepad()
+    while True:
+        # collect commands from the gamepad.  Run as many times as there are commands in the queue.
+        myGpData = getGP()                      # store data from all axes to the myGpData variable
+        print(myGpData)                         # print out the first element of the data to confirm functionality
+        time.sleep(0.05)
