@@ -7,13 +7,17 @@ from inputs import devices
 from inputs import get_gamepad
 
 class Gamepad:
+
     def __init__(self):
 
         gamepads = [device.name for device in devices if type(device) is inputs.GamePad]
         if gamepads:
-            pass
+            if 'ESM-9013' in gamepads:
+                pass
+            else:
+                print('\nGamepad in incorrect mode.\n')
         else:
-            print("No gamepad detected.")
+            print("\nNo gamepad detected.\n")
             return None
             # exit(1)
 

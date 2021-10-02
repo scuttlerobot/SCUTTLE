@@ -2,10 +2,25 @@
 import time
 import threading
 import numpy as np
+import inputs
+from inputs import devices
 from inputs import get_gamepad
 
 class Gamepad:
+
     def __init__(self):
+
+        gamepads = [device.name for device in devices if type(device) is inputs.GamePad]
+        if gamepads:
+            if 'ESM-9013' in gamepads:
+                pass
+            else:
+                print('\nGamepad in incorrect mode.\n')
+        else:
+            print("\nNo gamepad detected.\n")
+            return None
+            # exit(1)
+
         self.axesMap = {
             'ABS_X':'LEFT_X',
             'ABS_Y':'LEFT_Y',
@@ -26,6 +41,7 @@ class Gamepad:
             'BTN_TR2':'START',
             'BTN_SELECT':'L_JOY',
             'BTN_START':'R_JOY',
+            'BTN_MODE':'MODE',
         }
 
         self.buttons = {}
@@ -77,7 +93,6 @@ class Gamepad:
     def getStates(self):
         return self.states
 
-gamepad = Gamepad()
 def getGP():
     axes = np.array([((2/255)*gamepad.axes['LEFT_X'])-1,
                         ((2/255)*gamepad.axes['LEFT_Y'])-1,
@@ -104,8 +119,9 @@ def getGP():
     return(gp_data)
 
 if __name__ == "__main__":
+    gamepad = Gamepad()
     while True:
         # collect commands from the gamepad.  Run as many times as there are commands in the queue.
-        myGpData = getGP()                          # store data from all axes to the myGpData variable
-        print(myGpData)                                     # print out the first element of the data to confirm functionality
-        time.sleep(0.25)
+        myGpData = getGP()                      # store data from all axes to the myGpData variable
+        print(myGpData)                         # print out the first element of the data to confirm functionality
+        time.sleep(0.05)
