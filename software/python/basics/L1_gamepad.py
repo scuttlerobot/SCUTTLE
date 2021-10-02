@@ -118,8 +118,9 @@ def getGP():
 
     return(gp_data)
 
+gamepad = Gamepad()
 if __name__ == "__main__":
-    gamepad = Gamepad()
+#     gamepad = Gamepad()
     while True:
         # collect commands from the gamepad.  Run as many times as there are commands in the queue.
         myGpData = getGP()                      # store data from all axes to the myGpData variable
