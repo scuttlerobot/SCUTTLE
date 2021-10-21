@@ -7,6 +7,7 @@ The latest STL models for 3D Printing. Quantities described below.
 
 ### QUANTITY 4:
 * rod bracket
+* end cap for extrusion
 
 ### QUANTITY 2:
 * wheel pulley
@@ -27,4 +28,5 @@ The latest STL models for 3D Printing. Quantities described below.
 * kick stand
 
 ### OPTIONAL PARTS:
-* end cap for extrusion (qty 4)
+* camera bracket(1)
+* dovetail bracket (1)
