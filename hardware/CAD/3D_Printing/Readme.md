@@ -28,5 +28,7 @@ The latest STL models for 3D Printing. Quantities described below.
 * kick stand
 
 ### OPTIONAL PARTS:
-* camera bracket(1)
-* dovetail bracket (1)
+* for camera:
+  * camera bracket(1)
+  * doveTailC (1)
+  * dovetail bracket (1)
