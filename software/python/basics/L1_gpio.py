@@ -1,5 +1,5 @@
 # This code writes and reads from the GPIO pins available on the BeagleBone Blue.
-# See the scuttle wiring graphics pdf at github.com/MXET/SCUTTLE/tree/master/hardware
+# See the scuttle wiring graphics pdf at github.com/scuttlerobot/SCUTTLE/tree/master/hardware
 # Default outputs: Port 0: pins 0, 2.  Port 1: pins 0,1,2,3
 # Default inputs: Port 0: pins 1,3
 # Thanks to D. Ansari & Nextec capstone team for contributing this.

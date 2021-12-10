@@ -70,7 +70,7 @@ Use commands: sudo connmanctl, scan wifi, agent on, services, connect (service)
 
 **Copy a GitHub repository to your device**
   ```
-debian@scuttle:~$ git clone http://github.com/MXET/SCUTTLE
+debian@scuttle:~$ git clone http://github.com/scuttlerobot/SCUTTLE
 Cloning into 'SCUTTLE'...
 remote: Enumerating objects: 262, done.
 remote: Counting objects: 100% (262/262), done.
@@ -96,7 +96,7 @@ iwconfig
   
 **Copy a github repository**
   ```
-git clone http://www.github.com/MXET/SCUTTLE
+git clone http://www.github.com/scuttlerobot/SCUTTLE
   ```
   This will copy all of the contents of SCUTTLE repo into a folder called SCUTTLE in the working directory.
   
