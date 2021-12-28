@@ -1,9 +1,7 @@
 ## SCUTTLE 3D PRINTS
-### Updated: 2021.12
+Updated: 2021.12 - The latest 3MF (like STL) models for 3D Printing.
 
-The latest STL models for 3D Printing. Quantities described below.
-
-**Note: native CAD models (SOLIDWORKS + STEP) are on GrabCAD.com**
+**Note: Find native SOLIDWORKS & STEP files on GrabCAD.com**
 <br>[SCUTTLE CAD Model v2.3](https://grabcad.com/library/scuttle-robot-v2-3-1)
 
 ### Parts & Quantities:
@@ -27,3 +25,22 @@ The latest STL models for 3D Printing. Quantities described below.
 | wheel bracket L      | 1.5     | wheelBrktL_v1.5 | 1   |
 | Wheel bracket R      | 1.5     | wheelBrktR_v1.5 | 1   |
 |                      |         |                 |     |
+
+
+## Extras & Alternate versions:
+Alternate versions of the STL parts and extra parts beyond the standard kit
+
+### Design files on GrabCAD:
+[kickStand](https://grabcad.com/library/scuttle-wheel-stand-v1-1) (wheel stand)
+<br>[Rod bracket 4.1b](https://grabcad.com/library/rod-bracket-4-1b-1)
+<br>[SCUTTLE Wrench](https://grabcad.com/library/scuttle-wrench-1)
+<br>[i2C Bracket v2](https://grabcad.com/library/scuttle-robot-i2c-bracket-v2-1)
+<br>[Pivoting Camera Mount](https://grabcad.com/library/camera-pivot-1)
+<br>[2DOF Servo Arm](https://grabcad.com/library/servoarm-v1-1)
+<br>
+<br>[All David's Models](https://grabcad.com/david.m-50/models)
+
+### Descriptions of variants
+* wheel pulley version 3.0: uses HTD5 teeth geometry, has 25 teeth
+* motor pulley version 3.1: uses HTD5 teeth geometry, has 13 teeth
+* 25:13 ratio is designed to maintain the center distance while using the low-cost 225mm HTD belt design
