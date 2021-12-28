@@ -91,7 +91,7 @@ sudo reboot # the command to reboot the blue
   
 **Print the current connections**
   ```
-iwconfig
+sudo iwconfig
   ```
   
 **Copy a github repository**
