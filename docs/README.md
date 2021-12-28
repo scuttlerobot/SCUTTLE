@@ -1,1 +1,1 @@
-# The files in docs are here to populate the scuttle web page.
+# Docs include PDFs and supporting files for the SCUTTLE webpage.
