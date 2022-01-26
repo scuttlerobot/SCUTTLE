@@ -1,0 +1,7 @@
+paho-mqtt
+bmp280
+Adafruit_GPIO
+inputs
+pysicktim
+pyusb
+smbus2
