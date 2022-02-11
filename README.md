@@ -7,7 +7,7 @@ This repository contains software (embedded Linux & Python) and hardware design 
 * open source
 * low-cost
 
-### Visit the [SCUTTLE Webpage](https://scuttlerobot.github.io/SCUTTLE/).
+### Visit the [SCUTTLE Webpage](https://scuttlerobot.org).
 ![SCUTTLE Robot](https://raw.githubusercontent.com/scuttlerobot/SCUTTLE/master/docs/index_files/image002.png)
 
 ### License
