@@ -39,7 +39,7 @@ def colorTarget(color_range=((0, 0, 0), (255, 255, 255))): # function defaults t
 def getAngle(x):                         # check deviation of target from center
     if x is not None:
         ratio = x / 240                  # divide by pixels in width
-        offset = -2*(ratio - 0.5)        # offset.  Now, positive = right, negative = left
+        offset = -2*(ratio - 0.5)        # offset.  Now, positive = left, negative = right
         offset_x = round(offset,2)       # perform rounding
         return (offset_x)
     else:
@@ -54,6 +54,6 @@ if __name__ == "__main__":
         if x is None:
             print("no target located.")
         else:
-            x_range = getAngle(x)
-            print("Target x location: ", x_range)
+            x_offset = getAngle(x)
+            print("Target x location: ", x_offset)
         time.sleep(0.1) # short delay
