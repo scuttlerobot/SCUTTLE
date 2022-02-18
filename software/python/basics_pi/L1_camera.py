@@ -4,6 +4,7 @@
 
 # Import external libraries
 import cv2  # opencv library for capturing & processing images
+import time # time library
 
 # Initialize important vars
 width  = 240                      # desired width in pixels
