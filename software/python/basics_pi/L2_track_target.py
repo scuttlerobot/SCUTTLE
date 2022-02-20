@@ -11,7 +11,9 @@ import numpy as np  # for handling matrices
 import time         # for keeping time
 
 # Define global parameters
+img_width = cam.width                         # image width in pixels
 color_range = ((5, 135, 85), (25, 235, 215))  # This color range defines the color target
+printFlag = True                              # use this variable to reduce print statements
 
 def colorTarget(color_range=((0, 0, 0), (255, 255, 255))): # function defaults to open range if no range is provided
     image = cam.newImage()
@@ -36,11 +38,11 @@ def colorTarget(color_range=((0, 0, 0), (255, 255, 255))): # function defaults t
     else:
         return np.array([None, None, 0])
 
-def getAngle(x):                         # check deviation of target from center
+def getAngle(x):                         # check deviation of target from center (fraction of screen)
     if x is not None:
-        ratio = x / 240                  # divide by pixels in width
-        offset = -2*(ratio - 0.5)        # offset.  Now, positive = left, negative = right
-        offset_x = round(offset,2)       # perform rounding
+        ratio = x / img_width            # divide by pixels in width
+        offset_x = -2*(ratio - 0.5)      # offset to center of image.  Now, positive = left, negative = right
+        offset_x = round(offset_x,1)     # perform rounding
         return (offset_x)
     else:
         return None
@@ -49,11 +51,12 @@ def getAngle(x):                         # check deviation of target from center
 if __name__ == "__main__":
     while True:
         target = colorTarget(color_range) # generate a target
-        print(target)
         x = target[0]
         if x is None:
-            print("no target located.")
+            if printFlag == True : print("no target located.") 
+            printFlag = False
         else:
             x_offset = getAngle(x)
-            print("Target x location: ", x_offset)
+            print(target, '\t' "Target x_offset: ", x_offset)
+            printFlag = True
         time.sleep(0.1) # short delay
