@@ -9,7 +9,8 @@ import L1_motor as m                               # for controlling motors
 
 # Initialize variables
 u_integral = 0
-#DRS = 0.8                                           # direct rescaling - for open-loop motor duty
+phi_max = 9.75
+DRS = 1.0                                           # direct rescaling - for open-loop motor duty
 kp = 0.04                                           # proportional term
 ki = 0.04                                           # integral term
 kd = 0.0                                            # derivative term
@@ -17,11 +18,10 @@ pidGains = np.array([kp, ki, kd])                   # form an array to collect p
 
 # a function for converting target rotational speeds to PWMs without feedback
 def openLoop(pdl, pdr):
-    DRS = 0.99                                      # create a variable for direct-re-scaling
     duties = np.array([pdl, pdr])                   # put the values into an array
-    duties = duties * 1/9.75 * DRS                  # rescaling. 1=max PWM, 9.75 = max rad/s achievable
-    duties[0] = sorted([-0.99, duties[0], 0.99])[1]       # place bounds on duty cycle
-    duties[1] = sorted([-0.99, duties[1], 0.99])[1]       # place bounds on duty cycle
+    duties = duties * 1/phi_max * DRS               # rescaling. 1=max PWM, 9.75 = max rad/s achievable
+    duties[0] = sorted([-0.99, duties[0], 0.99])[1] # place bounds on duty cycle
+    duties[1] = sorted([-0.99, duties[1], 0.99])[1] # place bounds on duty cycle
     return duties
 
 def driveOpenLoop(pdTargets):                       # Pass Phi dot targets to this function
