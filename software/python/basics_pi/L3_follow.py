@@ -59,4 +59,4 @@ if __name__ == "__main__":
             chassisTargets = turnAndGo(x_offset)                # take the x target location & generate turning
             pdTargets = inv.convert(chassisTargets)             # phi dot targets (rad/s)
             sc.driveOpenLoop(pdTargets)                         # command motors in open-loop fashion
-            time.sleep(0.07)                                        # execution = sleep + 30ms on pi 4B+
+        time.sleep(0.07)                                        # execution = sleep + 30ms on pi 4B+
