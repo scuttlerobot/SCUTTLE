@@ -16,6 +16,7 @@ radius = 0                          # radius of target
 cruiseRate = 0.6                    # speed for cruising (fraction)
 r1 = 28                             # radius desired (pixels)
 tol = 3                             # radius tolerance (pixels)
+centerBand = 0.18                   # portion of FOV to consider target centered
 
 def forwardFunction(r0):            # when the target is straight on, approach          
     xdt = 0                         # initial x_dot target is zero
@@ -26,10 +27,8 @@ def forwardFunction(r0):            # when the target is straight on, approach
     return xdt
 
 def turnAndGo(xVal):                                            # turn towards object and approach
-    xVal = 0.8* xVal                                            # scale down for slower turns
-    centerBand = 0.15                                           # in this band, don't turn
     if abs(x_offset) > centerBand:                              # if x_offset is outside the band, make a turn
-        chassisTargets = inv.map_speeds(np.array([0, xVal]))    # generate xd, td
+        chassisTargets = inv.map_speeds(np.array([0, x_offset]))    # generate xd, td
     else: 
         xdt = forwardFunction(radius)                           # determine forward speed
         chassisTargets = inv.map_speeds(np.array([xdt,0]))      # set td zero
@@ -42,7 +41,7 @@ if __name__ == "__main__":
         if target[0] is None:                                   # if there is no colored target detected
             print("no target located.")                         # do not drive
         else:
-            x_offset = round(track.getAngle(target[0]),2)        # find out the angle of the target
+            x_offset = round(track.getAngle(target[0]),2)       # find angle of the target's x_offset (% of FOV)
             radius = round(target[2],1)                         # find out the radius of the target
             print("Target position: ", x_offset, "\t radius", radius)
             chassisTargets = turnAndGo(x_offset)                 # take the x target location & generate turning
