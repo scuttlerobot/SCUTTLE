@@ -1,4 +1,4 @@
-# This code originated from: github.com/chrisb2/pi_ina219
+# This code is adapted from: github.com/chrisb2/pi_ina219 examples
 # This basic code samples voltage and uses auto-ranging.
 # WARNING: configure ina sensor for address 0x44. Encoder occupies 0x40.
 
