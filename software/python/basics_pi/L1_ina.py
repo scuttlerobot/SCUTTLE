@@ -1,55 +1,36 @@
-# 07.22 let's modify this example (trim the unnecessary items) to set up our L1 -DPM
+# This code originated from: github.com/chrisb2/pi_ina219
+# This basic code samples voltage and uses auto-ranging.
+# WARNING: configure ina sensor for address 0x44. Encoder occupies 0x40.
 
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
+import time                 # for keeping time
+import ina219               # for reading voltage/current sensor
+from ina219 import INA219   # sensor library
 
-"""Sample code and test for adafruit_ina219"""
+# Declare relevant variables
+SHUNT_OHMS = 10.8 # Measure your shunt with a multimeter & update.
 
-import time
-import board
-from adafruit_ina219 import ADCResolution, BusVoltageRange, INA219
+# Set up the INA219 sensor
+ina = INA219(SHUNT_OHMS, address = 0x44)
+ina.configure()
+
+def read():
+    print("Bus Voltage: %.3f V" % ina.voltage())
+    try:
+        print("Bus Current: %.3f mA" % ina.current())
+        print("Power: %.3f mW" % ina.power())
+        print("Shunt voltage: %.3f mV" % ina.shunt_voltage())
+    except DeviceRangeError as e:
+        # Current out of device range with specified shunt resistor
+        print(e)
+
+def readVolts():
+    volts = ina.voltage()
+    return volts
 
 
-i2c_bus = board.I2C()
-
-ina219 = INA219(i2c_bus)
-
-print("ina219 test")
-
-# display some of the advanced field (just to test)
-print("Config register:")
-print("  bus_voltage_range:    0x%1X" % ina219.bus_voltage_range)
-print("  gain:                 0x%1X" % ina219.gain)
-print("  bus_adc_resolution:   0x%1X" % ina219.bus_adc_resolution)
-print("  shunt_adc_resolution: 0x%1X" % ina219.shunt_adc_resolution)
-print("  mode:                 0x%1X" % ina219.mode)
-print("")
-
-# optional : change configuration to use 32 samples averaging for both bus voltage and shunt voltage
-ina219.bus_adc_resolution = ADCResolution.ADCRES_12BIT_32S
-ina219.shunt_adc_resolution = ADCResolution.ADCRES_12BIT_32S
-# optional : change voltage range to 16V
-ina219.bus_voltage_range = BusVoltageRange.RANGE_16V
-
-# measure and display loop
-while True:
-    bus_voltage = ina219.bus_voltage  # voltage on V- (load side)
-    shunt_voltage = ina219.shunt_voltage  # voltage between V+ and V- across the shunt
-    current = ina219.current  # current in mA
-    power = ina219.power  # power in watts
-
-    # INA219 measure bus voltage on the load side. So PSU voltage = bus_voltage + shunt_voltage
-    print("Voltage (VIN+) : {:6.3f}   V".format(bus_voltage + shunt_voltage))
-    print("Voltage (VIN-) : {:6.3f}   V".format(bus_voltage))
-    print("Shunt Voltage  : {:8.5f} V".format(shunt_voltage))
-    print("Shunt Current  : {:7.4f}  A".format(current / 1000))
-    print("Power Calc.    : {:8.5f} W".format(bus_voltage * (current / 1000)))
-    print("Power Register : {:6.3f}   W".format(power))
-    print("")
-
-    # Check internal calculations haven't overflowed (doesn't detect ADC overflows)
-    if ina219.overflow:
-        print("Internal Math Overflow Detected!")
-        print("")
-
-    time.sleep(2)
+if __name__ == "__main__":
+    read()
+    while True:
+        myBatt = round(readVolts(),2)       # collect a reading
+        print("Battery Voltage: ",myBatt)   # print the reading
+        time.sleep(1)                       # pause
