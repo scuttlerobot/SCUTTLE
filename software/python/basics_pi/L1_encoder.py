@@ -17,7 +17,7 @@ encR = 0x41         # encoder i2c address for RIGHT motor (this encoder has A1 p
 def singleReading(encoderSelection):                                            # return a reading for an encoder in degrees (motor shaft angle)
     try:
         twoByteReading = bus.read_i2c_block_data(encoderSelection, 0xFE, 2)     # request data from registers 0xFE & 0xFF of the encoder. Approx 700 microseconds.
-        binaryPosition = (twoByteReading[0] << 6) | twoByteReading[1]           # remove unused bits 6 & 7 from byte 0xFF creating 14 bit value
+        binaryPosition = (twoByteReading[0] << 6) | twoByteReading[1])           # remove unused bits 6 & 7 from byte 0xFF creating 14 bit value
         degreesPosition = binaryPosition*(360/2**14)                            # convert to degrees
         degreesAngle = round(degreesPosition,1)                                 # round to nearest 0.1 degrees
     except:
