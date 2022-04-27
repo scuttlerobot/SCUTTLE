@@ -1,5 +1,5 @@
-# S.C.U.T.T.L.E.
-This repository contains software (embedded Linux & Python) and hardware design files for the SCUTTLE Project, and all web content.
+# SCUTTLE™ Robot
+This repository contains software (embedded Linux & Python) and hardware design files for the SCUTTLE Project.
 
 ### Sensing, Connected, Utility Transport Taxi for Level Environments
 * payload capable (40kg)
@@ -7,7 +7,7 @@ This repository contains software (embedded Linux & Python) and hardware design 
 * open source
 * low-cost
 
-### Visit the [SCUTTLE Webpage](https://scuttlerobot.org).
+### Visit the [SCUTTLE™ Webpage](https://scuttlerobot.org).
 ![SCUTTLE Robot](https://raw.githubusercontent.com/scuttlerobot/SCUTTLE/master/docs/index_files/image002.png)
 
 ### License
