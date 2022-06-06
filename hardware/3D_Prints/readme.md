@@ -1,5 +1,5 @@
 ## SCUTTLE 3D PRINTS
-Updated: 2021.12 - The latest 3MF (like STL) models for 3D Printing.
+Updated: 2022.06 - Revert from 3MF file type to STL.  The world is not ready.  Also, updated coordinate systems for upright printing.
 
 **Note: Find native SOLIDWORKS & STEP files on GrabCAD.com**
 <br>[SCUTTLE CAD Model v2.3](https://grabcad.com/library/scuttle-robot-v2-3-1)
