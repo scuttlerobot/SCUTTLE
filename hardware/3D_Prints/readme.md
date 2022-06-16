@@ -1,4 +1,4 @@
-## SCUTTLE 3D PRINTS
+## SCUTTLE™ 3D PRINTS
 Updated: 2022.06 - Revert from 3MF file type to STL.  The world is not ready.  Also, updated coordinate systems for upright printing.
 
 **Note: Find native SOLIDWORKS & STEP files on GrabCAD.com**
