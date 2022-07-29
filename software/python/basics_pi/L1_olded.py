@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-import time
 import board
 import digitalio
 import netifaces as ni
+from time import sleep
+from threading import Thread
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1306
 import L1_ina as ina
@@ -27,6 +28,9 @@ class OledDisplay:
         self.i2c = board.I2C()
         self.oled = adafruit_ssd1306.SSD1306_I2C(self.screenwidth, self.screenheight, self.i2c, addr=self.address , reset=self.oled_reset)
 
+        self.ipUpdateThread = Thread(target=self.ipUpdater)
+        self.ipUpdateThread.daemon = True
+
     def clearScreen(self):
         self.oled.fill(0)
         self.oled.show()
@@ -34,8 +38,21 @@ class OledDisplay:
     def updateVoltage(self):
         self.voltage = ina.readVolts()
 
+    def startIpUpdater(self):
+        self.ipUpdateThread.start()
+
+    def ipUpdater(self):
+        while True:
+            self.ip = self.getIp()
+            sleep(5)
+
     def getIp(self):
-        self.ip = ni.ifaddresses('wlan0')[ni.AF_INET][0]['addr']
+        for interface in ni.interfaces()[1:]:
+            try:
+                return ni.ifaddresses(interface)[ni.AF_INET][0]['addr']
+            except KeyError:
+                continue
+        return '0.0.0.0'
 
     def displayText(self):
         image = Image.new("1", (self.oled.width, self.oled.height))
@@ -47,7 +64,7 @@ class OledDisplay:
 
         self.updateVoltage()
 
-        draw.text((15, 0), "BREY'S SCUTTLE", font=font, fill=255)
+        draw.text((15, 0), "CARSON'S SCUTTLE", font=font, fill=255)
 
         draw.text((0, 20), "IP " + self.ip, font=font, fill=255)
 
@@ -59,9 +76,9 @@ class OledDisplay:
 
 oled = OledDisplay()
 oled.clearScreen()
-oled.getIp()
-
+oled.startIpUpdater()
 
 while True:
-    time.sleep(1)
+    sleep(1)
     oled.displayText()
+        
