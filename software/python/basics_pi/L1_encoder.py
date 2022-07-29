@@ -45,7 +45,7 @@ def readShaftPositions():                                   # read both motor sh
 if __name__ == "__main__":
     print("Testing Encoders")
     while True:
-    #  encValues = readShaftPositions() # read the values.  Reading will only change if motor pulley moves
-    #  # round the values and print them separated by a tab
-    #  print("Left: ", encValues[0], "\t","Right: ", encValues[1])
-    #  time.sleep(0.5)
+      encValues = readShaftPositions() # read the values.  Reading will only change if motor pulley moves
+      # round the values and print them separated by a tab
+      print("Left: ", encValues[0], "\t","Right: ", encValues[1])
+      time.sleep(0.5)
