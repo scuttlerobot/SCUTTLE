@@ -10,7 +10,7 @@ from ina219 import INA219   # sensor library
 SHUNT_OHMS = 10.8 # Measure your shunt with a multimeter & update.
 
 # Set up the INA219 sensor
-ina = INA219(SHUNT_OHMS, address = 0x40)
+ina = INA219(SHUNT_OHMS, address = 0x44)
 ina.configure()
 
 def read():
