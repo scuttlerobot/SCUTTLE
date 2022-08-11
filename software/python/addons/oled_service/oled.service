@@ -1,0 +1,12 @@
+[Unit]
+Description=OLED display script
+After=multi-user.target network.target
+
+[Service]
+User=pi
+WorkingDirectory=/usr/share/pyshared/
+ExecStart=/usr/bin/python3 oled.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
