@@ -23,7 +23,7 @@ Updated: 2022.08, Using SCUTTLE v2.4
 | twist bracket        | 3.2     | twistBrkt_v3.2  | 1   |
 | wheel bracket L      | 1.5     | wheelBrktL_v1.5 | 1   |
 | Wheel bracket R      | 1.5     | wheelBrktR_v1.5 | 1   |
-| Wrench               | 2.0     | sctlWrch_v2     | 1   |
+| Wrench               | 2.0     | Wrench_v2       | 1   |
 | Serial tag           | 1.0     | serialTg_v1     | 1   |
 
 
