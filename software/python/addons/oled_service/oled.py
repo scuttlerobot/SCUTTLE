@@ -22,8 +22,8 @@ class OledDisplay:
     def __init__(self,address=0x3d,bus=1):
 
         self.voltage = 0.0
-        self.ip = 'No network found'
-        self.ssid = 'No network name'
+        self.ip = 'No IP found'
+        self.ssid = 'Not available'
         self.interface = 'lo'
         self.oled_reset = digitalio.DigitalInOut(board.D4)
 
@@ -44,7 +44,6 @@ class OledDisplay:
             self.ina.configure()
         except Exception as ex:
             print("Failed to start current sensor")
-            print(ex)
 
         self.ipUpdateThread = Thread(target=self.ipUpdater)
         self.ipUpdateThread.daemon = True
@@ -70,7 +69,7 @@ class OledDisplay:
             sleep(5)
 
     def getIp(self):
-        for interface in ni.interfaces()[1:]:
+        for interface in ni.interfaces()[1:]:                               
             try:
                 addr = ni.ifaddresses(interface)[ni.AF_INET][0]['addr']
             except KeyError:
@@ -81,8 +80,7 @@ class OledDisplay:
 
         return 'No IP found'
 
-    # Since this is not the same method used to acquire the IP, it isn't guaranteed to
-    # match the address getIp() returns and must be verified
+    # SSID only available for wireless networks, otherwise it is "Not available"
     def getSSID(self):
         try:
             return subprocess.check_output(['sudo','iwgetid']).decode().split('"')[1]
@@ -100,7 +98,7 @@ class OledDisplay:
 
 
         # Task: Change the string in the line below to your SCUTTLE's name
-        draw.text((15, 0), "SCUTTLE", font=font, fill=255)
+        draw.text((40, 0), "SCUTTLE", font=font, fill=255)
 
         draw.text((0, 20), "IP: " + self.ip, font=font, fill=255)
 
@@ -109,7 +107,7 @@ class OledDisplay:
         
         if self.ina is not None: 
             self.updateVoltage()
-            draw.text((0, 40), "Robot Voltage " +  str(self.voltage) + " v" , font=font, fill=255)
+            draw.text((0, 40), "Robot Voltage: " +  str(self.voltage) + "V" , font=font, fill=255)
 
         self.oled.image(image)
         self.oled.show()
@@ -118,6 +116,7 @@ class OledDisplay:
 oled = OledDisplay()
 oled.clearScreen()
 oled.startIpUpdater()
+
 try:
     while True:
         sleep(1)
