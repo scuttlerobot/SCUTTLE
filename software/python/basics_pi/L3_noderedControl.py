@@ -1,8 +1,14 @@
 #!/usr/bin/python3
+
+# L3 program for driving the SCUTTLE with a Node-RED flow's joystick inputs
+# Requires the Node-RED joystick control flow to be imported
+# Communicates with Node-RED using sockets and handles that process using threads,
+# which improves the motor control latency
+
 import socket
 import json
 from time import sleep
-from threading import Thread, Lock
+from threading import Thread
 import numpy as np
 import L1_ina as ina
 import L2_inverse_kinematics as ik
@@ -61,12 +67,12 @@ controlThread.daemon = True
 
 ## Runs only when L3_noderedControl.py is directly executed ##
 if __name__ == "__main__":                                          #must be main thread
-    dashBoardDataUpdateThread.start()                               #start threads, from here their target functions will execute in parallel
+    dashBoardDataUpdateThread.start()                               #start threads, from here their target functions will execute asynchronously
     controlThread.start()
     
     try:
         while True:                                                
-            sleep(0.2)                      #while the main thread sleeps, the two daemon threads will run in parallel
+            sleep(0.2)                      #while the main thread sleeps, the two daemon threads will run asynchronously in parallel
     except:                     
         sc.driveOpenLoop((0,0))             #stop the robot if interrupted
 
