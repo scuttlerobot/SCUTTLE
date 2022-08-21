@@ -14,7 +14,7 @@ from time import sleep
 from threading import Thread
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1306
-from ina219 import INA219
+from adafruit_ina219 import INA219
 import subprocess
 
 class OledDisplay:
@@ -37,11 +37,8 @@ class OledDisplay:
         self.oled = adafruit_ssd1306.SSD1306_I2C(self.screenwidth, self.screenheight, self.i2c, addr=self.address , reset=self.oled_reset)
         
         # Set up the INA219 sensor
-        self.ina = None
         try:
-            SHUNT_OHMS = 10.8
-            self.ina = INA219(SHUNT_OHMS, address = 0x44)
-            self.ina.configure()
+            self.ina = INA219(self.i2c, 0x44)
         except Exception as ex:
             print("Failed to start current sensor")
 
@@ -53,7 +50,7 @@ class OledDisplay:
         self.oled.show()
 
     def updateVoltage(self):
-        self.voltage = round(self.ina.voltage(), 2)
+        self.voltage = round(self.ina.bus_voltage, 2)
 
     def startIpUpdater(self):
         self.ipUpdateThread.start()
