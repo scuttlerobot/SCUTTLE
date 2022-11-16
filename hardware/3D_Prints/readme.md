@@ -17,14 +17,14 @@ Updated: 2022.08, Using SCUTTLE v2.4
 | Battery panel        | 1.4     | btryPanel_v1.4  | 1   |
 | Camera bracket       | 3.0     | cmraBrkt_v3.0   | 1   |
 | Camera joint         | 1.2     | cmraJnt_v1.2    | 1   |
-| CPU bracket          | 3.0     | cpuBrkt_v3      | 1   |
+| CPU bracket          | 3.0     | cpuBrkt_v3.0    | 1   |
 | Kickstand            | 1.4     | kickStnd_v1.4   | 1   |
 | motor driver bracket | 1.5     | mDrvBrkt_v1.5   | 1   |
 | twist bracket        | 3.2     | twistBrkt_v3.2  | 1   |
 | wheel bracket L      | 1.5     | wheelBrktL_v1.5 | 1   |
 | Wheel bracket R      | 1.5     | wheelBrktR_v1.5 | 1   |
-| Wrench               | 2.0     | Wrench_v2       | 1   |
-| Serial tag           | 1.0     | serialTg_v1     | 1   |
+| Wrench               | 2.0     | Wrench_v2.0     | 1   |
+| Serial tag           | 1.0     | serialTg_v1.0   | 1   |
 
 
 ## Extras & Alternate versions:
