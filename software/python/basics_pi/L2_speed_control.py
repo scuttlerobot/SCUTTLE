@@ -68,6 +68,6 @@ def driveClosedLoop(pdt, pdc, de_dt):               # this function runs motors 
     u[1] = sorted([-1, u[1], 1])[1]                                 # within [-1, 1]
 
     # SEND SIGNAL TO MOTORS
-    m.MotorL(round(u[0], 2))                                        # must round to ensure driver handling!
-    m.MotorR(round(u[1], 2))                                        # must round to ensure driver handling!
+    m.sendLeft(round(u[0], 2))                                      # must round to ensure driver handling!
+    m.sendRight(round(u[1], 2))                                     # must round to ensure driver handling!
     return
